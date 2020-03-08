@@ -1,0 +1,31 @@
+{ This is an automatically generated lazarus resource file }
+
+TyphonResources.Add('TformXFrames','FORMDATA',[
+  'TPF0'#241#12'TformXFrames'#11'formXFrames'#4'Left'#3'C'#1#6'Height'#3#0#2#3
+  +'Top'#3#165#0#5'Width'#3#224#1#12'ClientHeight'#3#0#2#11'ClientWidth'#3#224#1
+  +#21'Constraints.MinHeight'#3#165#0#20'Constraints.MinWidth'#3#250#0#10'KeyPr'
+  +'eview'#9#10'OnActivate'#7#12'FormActivate'#7'OnClose'#7#9'FormClose'#12'OnD'
+  +'eactivate'#7#14'FormDeactivate'#9'OnDestroy'#7#11'FormDestroy'#9'OnKeyDown'
+  +#7#11'FormKeyDown'#10'OnKeyPress'#7#12'FormKeyPress'#8'OnResize'#7#10'FormRe'
+  +'size'#6'OnShow'#7#8'FormShow'#19'OnWindowStateChange'#7#21'FormWindowStateC'
+  +'hange'#8'Position'#7#14'poScreenCenter'#0#242#2#0#6'TPanel'#15'pnMaincontai'
+  +'ner'#4'Left'#2#0#6'Height'#3#231#1#3'Top'#2#25#5'Width'#3#224#1#5'Align'#7#8
+  +'alClient'#10'BevelOuter'#7#6'bvNone'#10'ParentFont'#8#8'TabOrder'#2#0#0#0
+  +#242#2#1#12'TNetGradient'#11'psCaptPanel'#3'Tag'#2#255#4'Left'#2#0#6'Height'
+  +#2#25#3'Top'#2#0#5'Width'#3#224#1#10'BeginColor'#4'F'#154#238#0#8'EndColor'#4
+  +#214#214#214#0#12'Font.CharSet'#7#14'BALTIC_CHARSET'#10'Font.Color'#7#7'clWh'
+  +'ite'#11'Font.Height'#2#245#10'Font.Pitch'#7#10'fpVariable'#12'Font.Quality'
+  +#7#7'fqDraft'#10'Font.Style'#11#6'fsBold'#0#5'Align'#7#5'alTop'#0#6'TImage'#6
+  +'Image1'#4'Left'#2#248#6'Height'#2#18#3'Top'#2#4#5'Width'#2#29#12'Picture.Da'
+  +'ta'#10#230#0#0#0#23'TPortableNetworkGraphic'#202#0#0#0#137'PNG'#13#10#26#10
+  +#0#0#0#13'IHDR'#0#0#0'-'#0#0#0#17#8#6#0#0#0'I'#162'%L'#0#0#0#9'pHYs'#0#0#11
+  +#18#0#0#11#18#1#210#221'~'#252#0#0#0'|IDATx'#156#237#208#161#13#194'`'#20#133
+  +#209#166#2#139'Db`'#0'<'#142#17'0'#140#192#8']'#171'#'#176'B'#7#232#0'H'#12
+  +'9'#234#213#192#6#255#223#246'%'#21#159#189'9'#185'MD4'#217'Z'#28#176#161#215
+  +'\'#177'!'#156'q'#200#134'~'#224#131#14#187'L'#232#248'5'#226#158#13#253#239
+  +#133'K6t'#224#139'k&t'#143'S'#150#167#7#220'Jck'#161#223'x'#162#173#5'.'#141
+  +'>b_'#19'['#28'=g'#139#3'6'#244#154#155#0#142#239#7'>'#193#141#160#239#0#0#0
+  +#0'IEND'#174'B`'#130#0#0#0#242#2#2#6'TTimer'#16'waitAndKillTimer'#7'Enabled'
+  +#8#8'Interval'#2'-'#7'OnTimer'#7#21'waitAndKillTimerTimer'#4'left'#3#168#1#3
+  +'top'#2#8#0#0#0
+]);

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<conf version="0.17">
+  <systemvar>    
+    <var name="country">EST</var>
+    <var name="curr">EUR</var>
+    <var name="currext">€</var>
+    <var name="dtformat">dd.mm.yyyy hh:mm</var>
+  </systemvar>
+  <banks>
+    <item swift="HABAEE2X" lcode="767" accprefix="22,11">Swedbank AS</item>
+    <item swift="EEUHEE2X" lcode="401" accprefix="10">AS SEB Pank</item>
+    <item swift="FOREEE2X" lcode="720" accprefix="33">Sampo Pank</item>
+    <item swift="EKRDEE22" lcode="742" accprefix="42">AS Eesti Krediidipank</item>
+    <item swift="LHVBEE22" lcode="689" accprefix="77">AS LHV Pank</item>
+    <item swift="EPBEEE2X" lcode="160" accprefix="16">Eesti Pank</item>
+    <item swift="NDEAEE2X" lcode="801" accprefix="17">Nordea Bank Finland Plc Eesti filiaal</item>
+  </banks>
+  <vat>
+    <item name="Käibemaks 20%" default="true" countrycode="EST">20</item>
+    <item name="Käibemaks 9%"  countrycode="EST">9</item>
+    <item name="Käibemaks 0%"  countrycode="EST">0</item>
+    <item name="Ei arvesta"  countrycode="EST">-1</item>
+  </vat>
+  <classificators>
+    <!-- vaikeseaded -->
+    <items collectioname="payment_terms">
+      <item value="-1">Sularahaarve</item>
+      <item value="-2">Kaardimakse</item>
+      <item value="0">Täna</item>
+      <item value="3">3 päeva</item>
+      <item value="5">5 päeva</item>
+      <item value="7">7 päeva</item>
+      <item value="10">10 päeva</item>
+      <item value="14">14 päeva</item>
+      <item value="21">21 päeva</item>
+      <item value="30">30 päeva</item>
+      <item value="60">60 päeva</item>
+    </items>      
+    <items collectioname="document_types">
+      <item shortid="UD">Määratlemata</item>
+      <item shortid="OA">Ostuarve</item>
+      <item shortid="AR">Arve</item>
+      <item shortid="KR">Kreeditarve</item>
+      <item shortid="SO">Sissetuleku order</item>
+      <item shortid="VA">Väljamineku order</item>
+      <item shortid="LA">Laekumine</item>
+      <item shortid="MK">Maksekorraldus</item>
+      <item shortid="LL">Laoliikumine</item>
+      <item shortid="LS">Lao sissetulek</item>
+      <item shortid="LM">Lao mahakandmised</item>
+      <item shortid="AL">Algsaldod</item>
+      <item shortid="MM">Memoriaalorder</item>
+      <item shortid="IV">Inventuur</item>
+      <item shortid="AM">Amortisatsioon</item>
+      <item shortid="TA">Tasaarveldus</item>
+      <item shortid="PV">Põhivara</item>
+      <item shortid="PL">Palk</item>
+    </items>
+    <items collectioname="account_type">
+      <item shortid="A">Aktiva</item>
+      <item shortid="P">Passiva</item>
+      <item shortid="CO">Kulud</item>
+      <item shortid="IN">Tulud</item>
+    </items>
+    <items collectioname="account_classificator">
+      <item shortid="C">Üld</item>
+      <item shortid="D">Detailne</item>
+      <item shortid="S">Koond</item>
+    </items>
+    <items collectioname="amount_type">
+      <item shortid="#1">tk</item>
+      <item shortid="#2">h</item>
+      <item shortid="#3">päev</item>
+      <item shortid="#4">kg</item>
+      <item shortid="#5">km</item>
+      <item shortid="#6">l</item>
+      <item shortid="#7">m</item>
+      <item shortid="#8">m²</item>
+    </items>
+    <items collectioname="object_types">
+      <item shortid="K">Kulukoht</item>
+      <item shortid="P">Projekt</item>
+    </items>
+    <items collectioname="iso3166codes">
+      <item shortid="AUT">AT:Austria</item>
+      <item shortid="BEL">BE:Belgia</item>
+      <item shortid="CYP">CY:Küpros</item>
+      <item shortid="CZE">CZ:Tšehhi Vabariik</item>
+      <item shortid="DEU">DE:Saksamaa</item>
+      <item shortid="DNK">DK:Taani</item>
+      <item shortid="EST">EE:Eesti</item>
+      <item shortid="ESP">ES:Hispaania</item>
+      <item shortid="FIN">FI:Soome</item>
+      <item shortid="FRA">FR:Prantsusmaa</item>
+      <item shortid="GBR">GB:Suurbritannia</item>
+      <item shortid="GRC">GR:Kreeka</item>
+      <item shortid="HUN">HU:Ungari</item>
+      <item shortid="IRL">IE:Iirimaa</item>
+      <item shortid="ITA">IT:Itaalia</item>
+      <item shortid="LTU">LT:Leedu</item>
+      <item shortid="LUX">LU:Luksemburg</item>
+      <item shortid="LVA">LV:Läti</item>
+      <item shortid="MLT">MT:Malta</item>
+      <item shortid="NOR">NO:Norra</item>
+      <item shortid="NLD">NL:Hollandi</item>
+      <item shortid="POL">PL:Poola</item>
+      <item shortid="PRT">PT:Portugal</item>
+      <item shortid="SWE">SE:Rootsi</item>
+      <item shortid="SVN">SI:Sloveenia</item>
+      <item shortid="SVK">SK:Slovakkia</item>
+      <item shortid="RUS">RU:Venemaa</item>
+    </items>
+    <items collectioname="billordersrcphrases">
+      <item shortid="B">arve nr:;arve;arved;arve.</item>
+      <item shortid="O">tellimus;tellimuse nr</item>
+    </items>
+  </classificators>
+</conf>

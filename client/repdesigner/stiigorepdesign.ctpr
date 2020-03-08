@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <PathDelim Value="\"/>
+    <General>
+      <MainUnit Value="0"/>
+      <Title Value="Aruande disainer"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1" Active="Default">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|frm|ppr|ctrs|ctpr|ctpkg|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="2">
+      <Item1>
+        <PackageName Value="lazreport"/>
+        <MinVersion Minor="9" Release="8" Valid="True"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="adLCL"/>
+      </Item2>
+    </RequiredPackages>
+    <Units Count="4">
+      <Unit0>
+        <Filename Value="stiigorepdesign.ppr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="stiigorepdesign"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="39" Y="16"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="pDesignerForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="stiigorepdesign_unit"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="20" Y="9"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="C:\lazarus\components\lazreport\source\lr_pgrid.pas"/>
+        <UnitName Value="LR_PGrid"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="35"/>
+        <CursorPos X="5" Y="54"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="C:\lazarus\components\lazreport\source\lr_rrect.pas"/>
+        <UnitName Value="LR_RRect"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="150"/>
+        <CursorPos X="36" Y="165"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+    </Units>
+    <JumpHistory Count="10" HistoryIndex="9">
+      <Position1>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
+      </Position1>
+      <Position2>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="28" Column="28" TopLine="12"/>
+      </Position2>
+      <Position3>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="27" Column="28" TopLine="12"/>
+      </Position3>
+      <Position4>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="28" Column="28" TopLine="12"/>
+      </Position4>
+      <Position5>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="27" Column="28" TopLine="12"/>
+      </Position5>
+      <Position6>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="32" Column="60" TopLine="1"/>
+      </Position6>
+      <Position7>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="43" Column="1" TopLine="7"/>
+      </Position7>
+      <Position8>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="41" Column="16" TopLine="7"/>
+      </Position8>
+      <Position9>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="40" Column="16" TopLine="6"/>
+      </Position9>
+      <Position10>
+        <Filename Value="stiigorepdesign_unit.pas"/>
+        <Caret Line="9" Column="28" TopLine="5"/>
+      </Position10>
+    </JumpHistory>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="9"/>
+    <PathDelim Value="\"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="R:\OsProjects\shared_units\;C:\LIBS\lclextensions\;C:\LIBS\virtualtreeview\units\$(LCLWidgetType)\;C:\LIBS\virtualtreeview\;C:\LIBS\powerpdf\;R:\OsProjects\;C:\LIBS\indy10_2_5\Lib\Core\;C:\LIBS\indy10_2_5\Lib\System\;C:\LIBS\indy10_2_5\Lib\SuperCore\;C:\LIBS\indy10_2_5\Lib\Protocols\;C:\lazarus\components\lazreport\source\;C:\lazarus\components\lazreport\source\addons\pdfexport\;C:\LIBS\rxfpc2\;C:\LIBS\zeos\packages\lazarus\;C:\LIBS\zeos\src\component\;C:\LIBS\zeos\src\core\;C:\LIBS\zeos\src\dbc\;C:\LIBS\zeos\src\parsesql\;C:\LIBS\zeos\src\plain\;C:\LIBS\compression\;C:\LIBS\animatedgif\;C:\lazarus\components\tachart\"/>
+      <UnitOutputDirectory Value="C:\LAZUNITS\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <UseMsgFile Value="True"/>
+      </CompilerMessages>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

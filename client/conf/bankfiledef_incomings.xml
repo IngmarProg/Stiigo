@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<income_file_defs> 
+
+
+ <income_file bank_code="767">
+   <name>Swedbank AS</name>
+   <separator>semicolon</separator>
+   <skipline>1</skipline>
+   <forceutf8>true</forceutf8>
+   <data>
+    <rpos field="receiver_account_number">
+       <fieldpos>1</fieldpos>       
+    </rpos>
+    <rpos field="payer_payer_mk_nr">
+       <fieldpos>2</fieldpos>       
+    </rpos>
+    <rpos field="payment_date">
+       <fieldpos>3</fieldpos>     
+    </rpos>
+    <rpos field="payer_account">
+       <fieldpos>4</fieldpos>       
+    </rpos>
+    <rpos field="payer_name">
+       <fieldpos>5</fieldpos>       
+    </rpos>
+    <rpos field="null">
+       <fieldpos>6</fieldpos>       
+    </rpos>
+    <rpos field="null">
+       <fieldpos>7</fieldpos>       
+    </rpos>
+    <rpos field="rule1" includelineif="=C">
+       <fieldpos>8</fieldpos>       
+    </rpos>   
+    <rpos field="payment_sum">
+       <fieldpos>9</fieldpos>       
+    </rpos>
+    <rpos field="payer_refnumber">
+       <fieldpos>10</fieldpos>       
+    </rpos>
+    <rpos field="bank_archcode">
+       <fieldpos>11</fieldpos>       
+    </rpos>
+    <rpos field="description">
+       <fieldpos>12</fieldpos>       
+    </rpos>
+    <rpos field="null">
+       <fieldpos>13</fieldpos>       
+    </rpos>
+    <rpos field="currency">
+       <fieldpos>14</fieldpos>       
+    </rpos>
+    <rpos field="null">
+       <fieldpos>15</fieldpos>       
+    </rpos> 
+   </data>
+ </income_file>
+
+ <income_file bank_code="401">
+   <name>AS SEB Pank (csv)</name>
+   <separator>semicolon</separator>
+   <skipline></skipline>
+   <forceutf8>true</forceutf8>
+   <data>
+    <rpos field="receiver_account_number">
+       <fieldpos>1</fieldpos>       
+    </rpos>
+    <rpos field="payer_payer_mk_nr">
+       <fieldpos>2</fieldpos>       
+    </rpos>
+    <rpos field="payment_date">
+       <fieldpos>3</fieldpos>       
+    </rpos>
+    <rpos field="payer_account">
+       <fieldpos>4</fieldpos>       
+    </rpos>
+    <rpos field="payer_name">
+       <fieldpos>5</fieldpos>       
+    </rpos>
+    <rpos field="payer_code">
+       <fieldpos>6</fieldpos>       
+    </rpos>
+    <rpos field="null">
+       <fieldpos>7</fieldpos>       
+    </rpos>
+    <rpos field="null" includelineif="=C">
+       <fieldpos>8</fieldpos>       
+    </rpos>
+    <rpos field="payment_sum">
+       <fieldpos>9</fieldpos>       
+    </rpos>
+    <rpos field="null">
+       <fieldpos>10</fieldpos>       
+    </rpos>
+    <rpos field="bank_archcode">
+       <fieldpos>11</fieldpos>       
+    </rpos>
+    <rpos field="description">
+       <fieldpos>12</fieldpos>       
+    </rpos>
+    <rpos field="currency_drate_ovr">
+       <fieldpos>13</fieldpos>       
+    </rpos>
+    <rpos field="currency">
+       <fieldpos>14</fieldpos>       
+    </rpos>
+    <rpos field="payer_refnumber">
+       <fieldpos>15</fieldpos>       
+    </rpos>
+   </data>
+ </income_file>   
+
+
+
+
+
+
+ <income_file bank_code="720">
+   <name>Danske Bank A/S</name>
+   <separator>semicolon</separator>
+   <skipline></skipline>
+   <data>
+   </data>
+ </income_file>   
+
+
+</income_file_defs>  
+

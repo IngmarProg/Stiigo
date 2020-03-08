@@ -1,0 +1,19 @@
+TyphonResources.Add('TformCustomDialog','FORMDATA',[
+  'TPF0'#17'TformCustomDialog'#16'formCustomDialog'#4'Left'#3'-'#1#6'Height'#3
+  +#241#0#3'Top'#3#14#1#5'Width'#3'`'#2#18'HorzScrollBar.Page'#3'{'#2#18'VertSc'
+  +'rollBar.Page'#3'o'#1#13'ActiveControl'#7#6'btnYes'#11'BorderIcons'#11#12'bi'
+  +'SystemMenu'#0#11'BorderStyle'#7#8'bsDialog'#7'Caption'#6#16'formCustomDialo'
+  +'g'#12'ClientHeight'#3#241#0#11'ClientWidth'#3'`'#2#5'Color'#7#7'clWhite'#8
+  +'OnCreate'#7#10'FormCreate'#8'Position'#7#16'poMainFormCenter'#10'LCLVersion'
+  +#6#6'0.9.30'#0#9'TGroupBox'#9'GroupBox1'#4'Left'#2#8#6'Height'#3#144#0#3'Top'
+  +#2#0#5'Width'#3'P'#2#12'ClientHeight'#2'~'#11'ClientWidth'#3'L'#2#5'Color'#7
+  +#13'clCaptionText'#11'ParentColor'#8#8'TabOrder'#2#0#0#6'TLabel'#10'lblExpla'
+  +'in'#4'Left'#2#6#6'Height'#2'w'#3'Top'#2#1#5'Width'#3'@'#2#7'Anchors'#11#5'a'
+  +'kTop'#6'akLeft'#7'akRight'#8'akBottom'#0#8'AutoSize'#8#5'Color'#7#7'clWhite'
+  +#11'ParentColor'#8#11'Transparent'#8#0#0#0#7'TBitBtn'#6'btnYes'#4'Left'#3#224
+  +#0#6'Height'#2#30#3'Top'#3#200#0#5'Width'#2'K'#11'ModalResult'#2#6#8'TabOrde'
+  +'r'#2#1#0#0#7'TBitBtn'#5'btnNo'#4'Left'#3'8'#1#6'Height'#2#30#3'Top'#3#200#0
+  +#5'Width'#2'K'#11'ModalResult'#2#7#8'TabOrder'#2#2#0#0#9'TCheckBox'#16'ChkBx'
+  +'Remdecision'#4'Left'#2#16#6'Height'#2#17#3'Top'#3#152#0#5'Width'#3'H'#2#8'A'
+  +'utoSize'#8#8'TabOrder'#2#3#0#0#0
+]);

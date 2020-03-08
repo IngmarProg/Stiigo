@@ -1,0 +1,5 @@
+TyphonResources.Add('TFrame1','FORMDATA',[
+  'TPF0'#7'TFrame1'#6'Frame1'#4'Left'#2#0#6'Height'#3#2#2#3'Top'#2#0#5'Width'#3
+  +#203#2#8'TabOrder'#2#0#7'Visible'#8#10'DesignLeft'#3'g'#2#9'DesignTop'#3'6'#1
+  +#0#0
+]);

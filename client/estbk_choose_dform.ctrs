@@ -1,0 +1,20 @@
+{ This is an automatically generated lazarus resource file }
+
+TyphonResources.Add('TformChoosedFrm','FORMDATA',[
+  'TPF0'#15'TformChoosedFrm'#14'formChoosedFrm'#4'Left'#3'm'#1#6'Height'#2'g'#3
+  +'Top'#3#172#1#5'Width'#3#244#1#11'BorderStyle'#7#8'bsDialog'#12'ClientHeight'
+  +#2'g'#11'ClientWidth'#3#244#1#5'Color'#7#8'clWindow'#8'Position'#7#15'poDesk'
+  +'topCenter'#10'LCLVersion'#6#6'0.9.29'#0#9'TGroupBox'#7'grpIBox'#4'Left'#2#8
+  +#6'Height'#2':'#3'Top'#2#0#5'Width'#3#226#1#12'ClientHeight'#2'('#11'ClientW'
+  +'idth'#3#222#1#8'TabOrder'#2#0#0#6'TLabel'#11'lblItemname'#4'Left'#2#14#6'He'
+  +'ight'#2#16#3'Top'#2#9#5'Width'#3#200#0#9'Alignment'#7#14'taRightJustify'#8
+  +'AutoSize'#8#7'Caption'#6#1'#'#11'ParentColor'#8#0#0#9'TComboBox'#14'cmbActi'
+  +'veForms'#4'Left'#3#224#0#6'Height'#2#21#3'Top'#2#6#5'Width'#3#242#0#10'Item'
+  +'Height'#2#13#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#0#0#0#0#7'TBitBtn'
+  +#5'btnOk'#4'Left'#3'L'#1#6'Height'#2#30#3'Top'#2'@'#5'Width'#2'K'#7'Caption'
+  +#6#3'&OK'#7'Default'#9#4'Kind'#7#4'bkOK'#11'ModalResult'#2#1#8'TabOrder'#2#1
+  +#0#0#7'TBitBtn'#9'btnCancel'#4'Left'#3#156#1#6'Height'#2#30#3'Top'#2'@'#5'Wi'
+  +'dth'#2'K'#6'Cancel'#9#7'Caption'#6#9'&Katkesta'#4'Kind'#7#8'bkCancel'#11'Mo'
+  +'dalResult'#2#2#8'TabOrder'#2#2#0#0#15'TZReadOnlyQuery'#15'qryActiveDForms'#6
+  +'Params'#14#0#4'left'#2'('#3'top'#2'0'#0#0#0
+]);

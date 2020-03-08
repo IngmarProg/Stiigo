@@ -1,0 +1,123 @@
+program estbkadmin;
+
+{$mode objfpc}{$H+}
+{$i estbk_defs.inc}
+uses {$IFDEF UNIX} {$IFDEF UseCThreads}
+  cthreads, {$ENDIF} {$ENDIF} {$ifdef windows}
+  Windows, {$endif}
+
+  Interfaces, // this includes the LCL widgetset
+  Forms { you can add units after this },
+  estbk_dbcompability,
+  estadmin_form,
+  estbk_loginform,
+  estbk_progressform,
+  estbk_datamodule,
+  estbk_accperiods,
+  // zcomponent,
+  estbk_sqlcollection,
+  estbk_globvars,
+  estbk_filecheck,
+  // SQLDBLaz,
+  estbk_types,
+  estbk_frame_worker_mgr,
+  estbk_customdialogsform,
+  estbk_permissions,
+  estbk_strmsg,
+  estbk_crc32,
+  estbk_fra_template,
+  estbk_frame_chooseaddr,
+  SysUtils,
+  Dialogs,
+  estbk_vat,
+  estbk_uivisualinitadmin,
+  // rxnew,
+  estbk_upgrademodule,
+  estbk_frm_backup_restore,
+  estbk_frm_numerators;
+
+//{$IFDEF WINDOWS}{$R estbkadmin.rc}{$ENDIF}
+
+  function doLogin: boolean;
+  var
+    usrName: AStr;
+    usrPassword: AStr;
+    usrHostname: AStr;
+    usrPort: integer;
+    rez: boolean;
+  begin
+    Result := False;
+    // 25.07.2011 Ingmar; kui mõni stiigo fail puudub, siis programm ei käivitu ! teade on funktsioonis !
+    if not estbk_filecheck.__verifyFiles then
+      exit;
+
+
+    usrName := '';
+    usrPassWord := '';
+    usrHostname := '';
+    // -- tulevikus viimane selle logimise osa dialoogi tasemele callbackiga
+    while True do
+      try
+
+    {$ifdef debugmode}
+        usrName := 'postgres';
+        usrHostname := 'localhost';
+        usrPort := 4896;
+        rez := True;
+    {$else}
+        rez := estbk_loginform.loginDialog(usrName, usrPassword, usrHostname, usrPort);
+
+    {$endif}
+        if not rez then // kasutajal sai villand ja lahkus areenilt then
+        begin
+          //application.terminate;
+          Exit; // -->
+        end
+        else
+        begin
+          admDatamodule.connect(usrHostname, usrPort, usrName, usrPassword); // proovime ühenduse luua
+          Result := True;
+        end;
+        // --
+        break;
+
+      except
+        on e: Exception do
+          messageDlg(SELoginFailed + #13#10 + e.message, mtError, [mbOK], 0);
+      end;
+  end;
+
+{$R *.res}
+{$ifdef windows}
+var
+  pStiigoWrkMutex: THandle;
+{$endif}
+begin
+
+    {$ifdef windows}
+  pStiigoWrkMutex := OpenMutex(MUTEX_ALL_ACCESS, False, estbk_types.CStiigoMutexId2);
+  if pStiigoWrkMutex = 0 then
+    pStiigoWrkMutex := CreateMutex(nil, False, estbk_types.CStiigoMutexId);
+  // else siin tulevikus ütleme, et programm juba töötab ! või toome uuesti foregroundi !
+    {$endif}
+
+  Application.Title := 'Stiigo admin';
+  Application.Initialize;
+  Application.CreateForm(TadmDatamodule, admDatamodule);
+
+  //    Application.CreateForm(TformBackupRestore, formBackupRestore);
+  if SysUtils.FileExists('stiigo_preconf.xml') then
+  begin
+
+    if doLogin then
+    begin
+      Application.CreateForm(Tform_admin, form_admin);
+      Application.Run;
+    end; // ---
+  end
+  else
+    Dialogs.messageDlg(SEConfFileNotFound, mtError, [mbOK], 0);
+   {$ifdef windows}
+  closehandle(pStiigoWrkMutex);
+   {$endif}
+end.

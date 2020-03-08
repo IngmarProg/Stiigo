@@ -1,0 +1,12 @@
+TyphonResources.Add('Tform_progress','FORMDATA',[
+  'TPF0'#14'Tform_progress'#13'form_progress'#4'Left'#3#10#1#6'Height'#2'+'#3'T'
+  +'op'#3#184#1#5'Width'#3'Y'#2#11'BorderIcons'#11#0#11'BorderStyle'#7#6'bsNone'
+  +#7'Caption'#6#13'form_progress'#12'ClientHeight'#2'+'#11'ClientWidth'#3'Y'#2
+  +#9'FormStyle'#7#8'fsSplash'#7'OnClose'#7#9'FormClose'#8'Position'#7#14'poScr'
+  +'eenCenter'#10'LCLVersion'#6#6'0.9.30'#0#6'TPanel'#6'Panel1'#4'Left'#2#0#6'H'
+  +'eight'#2'+'#3'Top'#2#0#5'Width'#3'Y'#2#5'Align'#7#8'alClient'#10'BevelInner'
+  +#7#8'bvRaised'#10'BevelOuter'#7#9'bvLowered'#7'Caption'#6#6'Panel1'#12'Clien'
+  +'tHeight'#2'+'#11'ClientWidth'#3'Y'#2#8'TabOrder'#2#0#0#12'TProgressBar'#11
+  +'prgbar_misc'#4'Left'#2#8#6'Height'#2#25#3'Top'#2#8#5'Width'#3'H'#2#8'TabOrd'
+  +'er'#2#0#0#0#0#0
+]);

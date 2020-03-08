@@ -1,0 +1,369 @@
+﻿#ver@1.12
+TASE	KONTO NR	VALUUTA	KONTO NIMETUS	KLASS	TÜÜP	Bilansirida	Bilansigrupp	Kasumiaruande rida	Kasumiaruande grupp
+1	1	EUR	VARAD	Üld	Aktiva	1	VARAD KOKKU		
+2	10	EUR	KÄIBEVARA	Üld	Aktiva	1.1	KÄIBEVARAD KOKKU		
+3	101	EUR	RAHA	Üld	Aktiva	1.1.1	RAHA KOKKU		
+4	1011	EUR	Sularaha	Koond	Aktiva	1.1.1.1	Raha		
+5	10110	EUR	Kassa	Detailne	Aktiva	1.1.1.1.1	Raha		
+5	10111	USD	Kassa USD	Detailne	Aktiva	1.1.1.1.2	Raha		
+5	10112	LTL	Kassa LTL	Detailne	Aktiva	1.1.1.1.3	Raha		
+5	10113	LVL	Kassa LVL	Detailne	Aktiva	1.1.1.1.4	Raha		
+5	10117	EUR	Kaupluse kassa	Detailne	Aktiva	1.1.1.1.5	Raha		
+4	1012	EUR	Arvelduskontod	Koond	Aktiva	1.1.1.2	Raha		
+5	10120	EUR	a/a Swedbank EUR	Detailne	Aktiva	1.1.1.2.1	Raha		
+5	10121	USD	a/a Swedbank USD	Detailne	Aktiva	1.1.1.2.2	Raha		
+5	10122	USD	a/a SEB EUR	Detailne	Aktiva	1.1.1.2.3	Raha		
+5	10123	EUR	a/a SEB USD	Detailne	Aktiva	1.1.1.2.4	Raha		
+5	10124	EUR	a/a Nordea EUR	Detailne	Aktiva	1.1.1.2.5	Raha		
+5	10125	EUR	a/a Nordea USD	Detailne	Aktiva	1.1.1.2.6	Raha		
+4	1013	EUR	Tähtajalised hoiused	Koond	Aktiva	1.1.1.3	Raha		
+5	10130	EUR	..... Tähtajaline hoius	Detailne	Aktiva	1.1.1.3.1	Raha		
+4	1014	EUR	Paigutused ülilikviidsetesse fondidesse	Koond	Aktiva	1.1.1.4	Raha		
+5	10140	EUR	..... Rahaturufond	Detailne	Aktiva	1.1.1.4.1	Raha		
+4	1015	EUR	Rahad teel	Koond	Aktiva	1.1.1.5	Raha		
+5	10150	EUR	Rahad teel	Detailne	Aktiva	1.1.1.5.1	Raha		
+3	102	EUR	FINANTSINVESTEERINGUD	Üld	Aktiva	1.1.2	FINANTSINVESTEERINGUD KOKKU		
+4	1020	EUR	Kauplemiseesmärgil hoitavad väärtpaberid	Koond	Aktiva	1.1.2.1	Finantsinvesteeringud		
+5	10200	EUR	.... Väärtpaber	Detailne	Aktiva	1.1.2.1.1	Finantsinvesteeringud		
+4	1029	EUR	Lühiajaliste finantsinvesteeringute allahindlus	Koond	Aktiva	1.1.2.2	Finantsinvesteeringud		
+5	10290	EUR	.... Allahindlus	Detailne	Aktiva	1.1.2.2.1	Finantsinvesteeringud		
+3	103	EUR	NÕUDED JA ETTEMAKSED	Üld	Aktiva	1.1.3	NÕUDED JA ETTEMAKSED KOKKU		
+4	1031	EUR	Nõuded ostjate vastu	Koond	Aktiva	1.1.3.1	Nõuded ja ettemaksed		
+5	10310	EUR	Arveldused ostjatega	Detailne	Aktiva	1.1.3.1.1	Nõuded ja ettemaksed		
+6	103100	EUR	Arveldused ostjatega EUR	Detailne	Aktiva	1.1.3.1.1.1	Nõuded ja ettemaksed		
+6	103101	EUR	Arveldused ostjatega EUR	Detailne	Aktiva	1.1.3.1.1.2	Nõuded ja ettemaksed		
+6	103112	USD	Arveldused ostjatega USD	Detailne	Aktiva	1.1.3.1.1.3	Nõuded ja ettemaksed		
+6	103114	EUR	Kassasüsteemi arveldused	Detailne	Aktiva	1.1.3.1.1.4	Nõuded ja ettemaksed		
+5	10312	EUR	Ebatõenäoliselt laekuvad arved (-)	Detailne	Aktiva	1.1.3.1.2	Nõuded ja ettemaksed		
+6	103120	EUR	Ebatõenäoliselt laekuvad arved EUR(-)	Detailne	Aktiva	1.1.3.1.2.1	Nõuded ja ettemaksed		
+6	103121	EUR	Ebatõenäoliselt laekuvad arved EUR (-)	Detailne	Aktiva	1.1.3.1.2.2	Nõuded ja ettemaksed		
+4	1032	EUR	Maksude ettemaksed ja tagasinõuded	Koond	Aktiva	1.1.3.2	Nõuded ja ettemaksed		
+5	10320	EUR	Ettemaksukonto (Maksu- ja Tolliamet)	Detailne	Aktiva	1.1.3.2.1	Nõuded ja ettemaksed		
+5	10321	EUR	Käibemaksu ettemaks tollile	Detailne	Aktiva	1.1.3.2.2	Nõuded ja ettemaksed		
+4	1033	EUR	Lühiajalised laenunõuded	Koond	Aktiva	1.1.3.3	Nõuded ja ettemaksed		
+5	10330	EUR	Antud lühiajalist laenu	Detailne	Aktiva	1.1.3.3.1	Nõuded ja ettemaksed		
+4	1034	EUR	Muud lühiajalised nõuded	Koond	Aktiva	1.1.3.4	Nõuded ja ettemaksed		
+5	10340	EUR	Nõuded emaettevõtjate ja teiste konsolideerimisgrupi ettevõtjate vastu	Detailne	Aktiva	1.1.3.4.1	Nõuded ja ettemaksed		
+5	10341	EUR	Nõuded sidusettevõtjate vastu	Detailne	Aktiva	1.1.3.4.2	Nõuded ja ettemaksed		
+5	10342	EUR	Nõuded omanike vastu	Detailne	Aktiva	1.1.3.4.3	Nõuded ja ettemaksed		
+5	10343	EUR	Mitmesugused lühiajalised nõuded	Detailne	Aktiva	1.1.3.4.4	Nõuded ja ettemaksed		
+6	103430	EUR	Arveldused aruandvate isikutega	Detailne	Aktiva	1.1.3.4.4.1	Nõuded ja ettemaksed		
+6	103431	EUR	Kassa puudujääk	Detailne	Aktiva	1.1.3.4.4.2	Nõuded ja ettemaksed		
+6	103432	EUR	Kaardimakse	Detailne	Aktiva	1.1.3.4.4.3	Nõuded ja ettemaksed		
+6	103433	EUR	Ettemakstud palk (avanss)	Detailne	Aktiva	1.1.3.4.4.4	Nõuded ja ettemaksed		
+5	10344	EUR	Viitlaekumised	Detailne	Aktiva	1.1.3.4.5	Nõuded ja ettemaksed		
+5	10345	EUR	Laekumata intressid	Detailne	Aktiva	1.1.3.4.6	Nõuded ja ettemaksed		
+5	10346	EUR	Laekumata dividendid	Detailne	Aktiva	1.1.3.4.7	Nõuded ja ettemaksed		
+5	10347	EUR	Muud viitlaekumised	Detailne	Aktiva	1.1.3.4.8	Nõuded ja ettemaksed		
+4	1035	EUR	Ettemakstud tulevaste perioodide kulud	Koond	Aktiva	1.1.3.5	Nõuded ja ettemaksed		
+5	10350	EUR	Ettemakstud tuleva aasta rent	Detailne	Aktiva	1.1.3.5.1	Nõuded ja ettemaksed		
+5	10351	EUR	Ettemakstud tuleva aasta kindl.maksed	Detailne	Aktiva	1.1.3.5.2	Nõuded ja ettemaksed		
+5	10352	EUR	Muud ettemakstud kulud	Detailne	Aktiva	1.1.3.5.3	Nõuded ja ettemaksed		
+3	104	EUR	VARUD	Üld	Aktiva	1.1.4	VARUD KOKKU		
+4	1041	EUR	Tooraine ja materjal	Koond	Aktiva	1.1.4.1	Varud		
+5	10410	EUR	Tooraine ja materjal	Detailne	Aktiva	1.1.4.1.1	Varud		
+5	10411	EUR	Kaubad konsignatsioonis	Detailne	Aktiva	1.1.4.1.2	Varud		
+4	1042	EUR	Lõpetamata ja valmistoodang	Koond	Aktiva	1.1.4.2	Varud		
+5	10420	EUR	Lõpetamata toodang	Detailne	Aktiva	1.1.4.2.1	Varud		
+5	10421	EUR	Valmistoodang	Detailne	Aktiva	1.1.4.2.2	Varud		
+4	1043	EUR	Müügiks ostetud kaubad	Koond	Aktiva	1.1.4.3	Varud		
+5	10430	EUR	Hulgimüügi kaup	Detailne	Aktiva	1.1.4.3.1	Varud		
+5	10431	EUR	Jaemüügi kaup müügihinnas	Detailne	Aktiva	1.1.4.3.2	Varud		
+5	10432	EUR	Taara müügis	Detailne	Aktiva	1.1.4.3.3	Varud		
+5	10433	EUR	Jaemüügi hinnalisand	Detailne	Aktiva	1.1.4.3.4	Varud		
+4	1044	EUR	Ettemaksed tarnijatele	Koond	Aktiva	1.1.4.4	Varud		
+5	10440	EUR	Ettemaksed varude eest	Detailne	Aktiva	1.1.4.4.1	Varud		
+3	105	EUR	BIOLOOGILISED VARAD	Üld	Aktiva	1.1.5	BIOLOOGILISED VARAD KOKKU		
+4	1051	EUR	Edasimüügi eesmärgil soetatud bioloogilised varad	Koond	Aktiva	1.1.5.1	Bioloogilised varad		
+5	10510	EUR	Loomsed varad	Detailne	Aktiva	1.1.5.1.1	Bioloogilised varad		
+5	10511	EUR	Istandikud	Detailne	Aktiva	1.1.5.1.2	Bioloogilised varad		
+5	10512	EUR	Mets	Detailne	Aktiva	1.1.5.1.3	Bioloogilised varad		
+5	10513	EUR	Vili	Detailne	Aktiva	1.1.5.1.4	Bioloogilised varad		
+5	10514	EUR	Rohumaa	Detailne	Aktiva	1.1.5.1.5	Bioloogilised varad		
+3	106	EUR	MÜÜGIOOTEL PÕHIVARA	Üld	Aktiva	1.1.6	MÜÜGIOOTEL PÕHIVARA KOKKU		
+4	1061	EUR	Materiaalse ja immateriaalse põhivara objektid, mis müüakse lähima 12 kuu jooksul	Koond	Aktiva	1.1.6.1	Müügiootel põhivara		
+5	10610	EUR	Materiaalne põhivara müügiks	Detailne	Aktiva	1.1.6.1.1	Müügiootel põhivara		
+5	10611	EUR	Immateriaalne põhivara müügiks	Detailne	Aktiva	1.1.6.1.2	Müügiootel põhivara		
+2	11	EUR	PÕHIVARA	Üld	Aktiva	1.2	PÕHIVARAD KOKKU		
+3	110	EUR	FINANTSINVESTEERINGUD	Üld	Aktiva	1.2.1	FINANTSINVESTEERINGUD KOKKU		
+4	1101	EUR	Mitte kauplemiseesmärgil hoitavad väärtpaberid	Koond	Aktiva	1.2.1.1	Finantsinvesteeringud		
+5	11010	EUR	Tütarettevõtjate aktsiad või osad	Detailne	Aktiva	1.2.1.1.1	Finantsinvesteeringud		
+5	11011	EUR	Sidusettevõtjate aktsiad või osad	Detailne	Aktiva	1.2.1.1.2	Finantsinvesteeringud		
+4	1102	EUR	Muud pikaajalised finantsinvesteeringud	Koond	Aktiva	1.2.1.2	Finantsinvesteeringud		
+5	11020	EUR	Aktsiad ja osad	Detailne	Aktiva	1.2.1.2.1	Finantsinvesteeringud		
+5	11021	EUR	Fondiosakud	Detailne	Aktiva	1.2.1.2.2	Finantsinvesteeringud		
+5	11022	EUR	Võlakirjad	Detailne	Aktiva	1.2.1.2.3	Finantsinvesteeringud		
+3	111	EUR	NÕUDED JA ETTEMAKSED	Üld	Aktiva	1.2.2	NÕUDED JA ETTEMAKSED KOKKU		
+4	1110	EUR	Muud pikaajalised nõuded	Koond	Aktiva	1.2.2.1	Nõuded ja ettemaksed		
+5	11100	EUR	Laenunõuded	Detailne	Aktiva	1.2.2.1.1	Nõuded ja ettemaksed		
+5	11101	EUR	Intressinõuded	Detailne	Aktiva	1.2.2.1.2	Nõuded ja ettemaksed		
+5	11102	EUR	Dividendinõuded	Detailne	Aktiva	1.2.2.1.3	Nõuded ja ettemaksed		
+5	11103	EUR	Viitlaekumised	Detailne	Aktiva	1.2.2.1.4	Nõuded ja ettemaksed		
+5	11104	EUR	Muud pikaajalised nõuded	Detailne	Aktiva	1.2.2.1.5	Nõuded ja ettemaksed		
+4	1111	EUR	Pikaajalised ettemaksed teenuste eest	Koond	Aktiva	1.2.2.2	Nõuded ja ettemaksed		
+5	11110	EUR	PA-d Tulevaste perioodide kulud	Detailne	Aktiva	1.2.2.2.1	Nõuded ja ettemaksed		
+5	11111	EUR	Muud PA-lt makstud ettemaksed	Detailne	Aktiva	1.2.2.2.2	Nõuded ja ettemaksed		
+3	112	EUR	KINNISVARAINVESTEERINGUD	Üld	Aktiva	1.2.3	KINNISVARAINVESTEERINGUD KOKKU		
+4	1121	EUR	Renditulu teenimise või väärtuse kasvu eesmärgil hoitav maa	Koond	Aktiva	1.2.3.1	Kinnisvarainvesteeringud		
+5	11210	EUR	Maa .......... (kinnisvarainvesteering)	Detailne	Aktiva	1.2.3.1.1	Kinnisvarainvesteeringud		
+4	1122	EUR	Renditulu teenimise või väärtuse kasvu eesmärgil hoitavad hooned	Koond	Aktiva	1.2.3.2	Kinnisvarainvesteeringud		
+5	11220	EUR	Hoone ........ (kinnisvarainvesteering)	Detailne	Aktiva	1.2.3.2.1	Kinnisvarainvesteeringud		
+3	113	EUR	MATERIAALNE PÕHIVARA	Üld	Aktiva	1.2.4	MATERIAALNE PÕHIVARA KOKKU		
+4	1130	EUR	Materiaalne põhivara	Koond	Aktiva	1.2.4.1	Materiaalne põhivara		
+5	11301	EUR	Maa	Detailne	Aktiva	1.2.4.1.1	Materiaalne põhivara		
+5	11302	EUR	Hooned ja rajatised	Detailne	Aktiva	1.2.4.1.2	Materiaalne põhivara		
+6	113021	EUR	Hooned ja rajatised soetusmaksumuses	Detailne	Aktiva	1.2.4.1.2.1	Materiaalne põhivara		
+6	113022	EUR	Hoonete ja rajatiste akumuleeritud kulum (-)	Detailne	Aktiva	1.2.4.1.2.2	Materiaalne põhivara		
+5	11303	EUR	Masinad ja seadmed	Detailne	Aktiva	1.2.4.1.3	Materiaalne põhivara		
+6	113031	EUR	Transpordivahendid soetusmaksumuses	Detailne	Aktiva	1.2.4.1.3.1	Materiaalne põhivara		
+6	113032	EUR	Transpordivahendite akumuleeritud kulum (-)	Detailne	Aktiva	1.2.4.1.3.2	Materiaalne põhivara		
+6	113033	EUR	Arvutid ja arvutisüsteemid soetusmaksumuses	Detailne	Aktiva	1.2.4.1.3.3	Materiaalne põhivara		
+6	113034	EUR	Arvutite ja arvutisüsteemide akumuleeritud kulum (-)	Detailne	Aktiva	1.2.4.1.3.4	Materiaalne põhivara		
+6	113035	EUR	Muud masinad ja seadmed soetusmaksumuses	Detailne	Aktiva	1.2.4.1.3.5	Materiaalne põhivara		
+6	113036	EUR	Muude masinate ja seadmete akumuleeritud kulum (-)	Detailne	Aktiva	1.2.4.1.3.6	Materiaalne põhivara		
+5	11304	EUR	Muu materiaalne põhivara	Detailne	Aktiva	1.2.4.1.4	Materiaalne põhivara		
+5	11305	EUR	Lõpetamata projektid	Detailne	Aktiva	1.2.4.1.5	Materiaalne põhivara		
+5	11306	EUR	Ettemaksed põhivara eest	Detailne	Aktiva	1.2.4.1.6	Materiaalne põhivara		
+3	114	EUR	BIOLOOGILISED VARAD	Üld	Aktiva	1.2.5	BIOLOOGILISED VARAD KOKKU		
+4	1140	EUR	Bioloogilised varad (pikaajalised)	Koond	Aktiva	1.2.5.1	Bioloogilised varad		
+5	11401	EUR	Bioloogilised varad (pikaajalised) ....	Detailne	Aktiva	1.2.5.1.1	Bioloogilised varad		
+3	115	EUR	IMMATERIAALNE PÕHIVARA	Üld	Aktiva	1.2.6	IMMATERIAALNE PÕHIVARA KOKKU		
+4	1150	EUR	Immateriaalne põhivara	Koond	Aktiva	1.2.6.1	Immateriaalne põhivara		
+5	11501	EUR	Firmaväärtus	Detailne	Aktiva	1.2.6.1.1	Immateriaalne põhivara		
+5	11502	EUR	Arenguväljaminekud	Detailne	Aktiva	1.2.6.1.2	Immateriaalne põhivara		
+5	11503	EUR	Arvuti tarkvara, patendid, litsentsid, kaubamärgid ja kontsessioonid	Detailne	Aktiva	1.2.6.1.3	Immateriaalne põhivara		
+5	11504	EUR	Muu immateriaalne põhivara	Detailne	Aktiva	1.2.6.1.4	Immateriaalne põhivara		
+5	11505	EUR	Lõpetamata projektid ja ettemaksed im. Põhivara eest	Detailne	Aktiva	1.2.6.1.5	Immateriaalne põhivara		
+1	2	EUR	KOHUSTUSED JA OMAKAPITAL	Üld	Passiva	2	KOHUSTUSED JA OMAKAPITAL KOKKU		
+2	20	EUR	KOHUSTUSED	Üld	Passiva	2.1	KOHUSTUSED KOKKU		
+3	201	EUR	LÜHIAJALISED KOHUSTUSED	Üld	Passiva	2.1.1	LÜHIAJALISED KOHUSTUSED KOKKU		
+4	2010	EUR	Laenukohustused	Koond	Passiva	2.1.1.1	Laenukohustused		
+5	20100	EUR	Tagatiseta laenukohustused	Detailne	Passiva	2.1.1.1.1	Laenukohustused		
+5	20101	EUR	Lühiajalised võlakirjad	Detailne	Passiva	2.1.1.1.2	Laenukohustused		
+5	20102	EUR	Pikaajaliste pangalaenude tagasimaksed järgmisel perioodil	Detailne	Passiva	2.1.1.1.3	Laenukohustused		
+5	20103	EUR	Pikaajaliste kapitalirentide tagasimaksed järgmisel perioodil	Detailne	Passiva	2.1.1.1.4	Laenukohustused		
+4	2011	EUR	Võlad ja ettemaksed	Koond	Passiva	2.1.1.2	Võlad ja ettemaksed		
+5	20110	EUR	Võlad tarnijatele	Detailne	Passiva	2.1.1.2.1	Võlad ja ettemaksed		
+6	201100	EUR	Võlad tarnijatele (Eesti)	Detailne	Passiva	2.1.1.2.1.1	Võlad ja ettemaksed		
+6	201101	EUR	Võlad tarnijatele (EL-sisene)	Detailne	Passiva	2.1.1.2.1.2	Võlad ja ettemaksed		
+6	201102	EUR	Võlad tarnijatele (EL-väline)	Detailne	Passiva	2.1.1.2.1.3	Võlad ja ettemaksed		
+5	20111	EUR	Võlad töövõtjatele	Detailne	Passiva	2.1.1.2.2	Võlad ja ettemaksed		
+6	201110	EUR	Palgavõlg	Detailne	Passiva	2.1.1.2.2.1	Võlad ja ettemaksed		
+6	201111	EUR	Puhkusetasu reserv	Detailne	Passiva	2.1.1.2.2.2	Võlad ja ettemaksed		
+6	201112	EUR	Muud võlad töövõtjatele	Detailne	Passiva	2.1.1.2.2.3	Võlad ja ettemaksed		
+6	201113	EUR	Dividendivõlad (viitvõlg)	Detailne	Passiva	2.1.1.2.2.4	Võlad ja ettemaksed		
+6	201114	EUR	Sotsiaalmaksu viitvõlg	Detailne	Passiva	2.1.1.2.2.5	Võlad ja ettemaksed		
+6	201115	EUR	Kinnipeetud tulumaksu viitvõlg	Detailne	Passiva	2.1.1.2.2.6	Võlad ja ettemaksed		
+6	201116	EUR	Töövõtja töötuskindlustuse viitvõlg	Detailne	Passiva	2.1.1.2.2.7	Võlad ja ettemaksed		
+6	201117	EUR	Tööandja töötuskinldustuse viitvõlg	Detailne	Passiva	2.1.1.2.2.8	Võlad ja ettemaksed		
+6	201118	EUR	Kogumispensioni viitvõlg	Detailne	Passiva	2.1.1.2.2.9	Võlad ja ettemaksed		
+6	201119	EUR	Muud viitvõlad	Detailne	Passiva	2.1.1.2.2.10	Võlad ja ettemaksed		
+5	20112	EUR	Maksuvõlad	Detailne	Passiva	2.1.1.2.3	Võlad ja ettemaksed		
+6	201120	EUR	Ettevõtte tulumaks	Detailne	Passiva	2.1.1.2.3.1	Võlad ja ettemaksed		
+6	201121	EUR	Käibemaks	Detailne	Passiva	2.1.1.2.3.2	Võlad ja ettemaksed		
+7	2011210	EUR	Müügi käibemaks	Detailne	Passiva	2.1.1.2.3.2.1	Võlad ja ettemaksed		
+7	2011211	EUR	Ostu käibemaks	Detailne	Passiva	2.1.1.2.3.2.2	Võlad ja ettemaksed		
+7	2011212	EUR	Käibemaks klientide ettemaksetelt	Detailne	Passiva	2.1.1.2.3.2.3	Võlad ja ettemaksed		
+7	2011213	EUR	Käibemaks hankijatele tehtud ettemaksetelt	Detailne	Passiva	2.1.1.2.3.2.4	Võlad ja ettemaksed		
+7	2011214	EUR	Impordilt tasutud KM	Detailne	Passiva	2.1.1.2.3.2.5	Võlad ja ettemaksed		
+7	2011215	EUR	Põhivara soetuselt tasutud KM	Detailne	Passiva	2.1.1.2.3.2.6	Võlad ja ettemaksed		
+7	2011216	EUR	Pöördkäibemaks teenustelt 20%	Detailne	Passiva	2.1.1.2.3.2.7	Võlad ja ettemaksed		
+7	2011217	EUR	Pöördkäibemaks kaupadelt 20%	Detailne	Passiva	2.1.1.2.3.2.8	Võlad ja ettemaksed		
+7	2011218	EUR	Täpsustused	Detailne	Passiva	2.1.1.2.3.2.9	Võlad ja ettemaksed		
+7	2011219	EUR	Käibemaksu tasumine	Detailne	Passiva	2.1.1.2.3.2.10	Võlad ja ettemaksed		
+6	201122	EUR	Üksikisiku tulumaks	Detailne	Passiva	2.1.1.2.3.3	Võlad ja ettemaksed		
+6	201123	EUR	Erisoodustuse tulumaks	Detailne	Passiva	2.1.1.2.3.4	Võlad ja ettemaksed		
+6	201124	EUR	Sotsiaalmaks	Detailne	Passiva	2.1.1.2.3.5	Võlad ja ettemaksed		
+6	201125	EUR	Kohustuslik kogumispension	Detailne	Passiva	2.1.1.2.3.6	Võlad ja ettemaksed		
+6	201126	EUR	Töötuskindlustusmaksed	Detailne	Passiva	2.1.1.2.3.7	Võlad ja ettemaksed		
+6	201127	EUR	Maamaks	Detailne	Passiva	2.1.1.2.3.8	Võlad ja ettemaksed		
+6	201128	EUR	Aktsiisimaks	Detailne	Passiva	2.1.1.2.3.9	Võlad ja ettemaksed		
+6	201129	EUR	Muud maksuvõlad	Detailne	Passiva	2.1.1.2.3.10	Võlad ja ettemaksed		
+5	20113	EUR	Muud võlad	Detailne	Passiva	2.1.1.2.4	Võlad ja ettemaksed		
+6	201130	EUR	Intressivõlad	Detailne	Passiva	2.1.1.2.4.1	Võlad ja ettemaksed		
+6	201131	EUR	Muud viitvõlad	Detailne	Passiva	2.1.1.2.4.2	Võlad ja ettemaksed		
+6	201132	EUR	Muud võlad	Detailne	Passiva	2.1.1.2.4.3	Võlad ja ettemaksed		
+5	20114	EUR	Saadud ettemaksed	Detailne	Passiva	2.1.1.2.5	Võlad ja ettemaksed		
+6	201140	EUR	Saadud ettemaksed toodete ja teenuste eest	Detailne	Passiva	2.1.1.2.5.1	Võlad ja ettemaksed		
+6	201141	EUR	Muud saadud ettemaksed	Detailne	Passiva	2.1.1.2.5.2	Võlad ja ettemaksed		
+4	2012	EUR	Eraldised	Koond	Passiva	2.1.1.3	Eraldised		
+5	20120	EUR	Eraldised	Detailne	Passiva	2.1.1.3.1	Eraldised		
+4	2013	EUR	Sihtfinantseerimine	Koond	Passiva	2.1.1.4	Sihtfinantseerimine		
+5	20130	EUR	Sihtfinantseerimine põhivara soetamiseks	Detailne	Passiva	2.1.1.4.1	Sihtfinantseerimine		
+5	20131	EUR	Sihtfinantseerimine tegevuskuludeks	Detailne	Passiva	2.1.1.4.2	Sihtfinantseerimine		
+3	202	EUR	PIKAAJALISED KOHUSTUSED	Üld	Passiva	2.1.2	PIKAAJALISED KOHUSTUSED KOKKU		
+4	2020	EUR	Laenukohustused	Koond	Passiva	2.1.2.1	Laenukohustused		
+5	20201	EUR	Pikaajalised pangalaenud	Detailne	Passiva	2.1.2.1.1	Laenukohustused		
+5	20202	EUR	Muud pikaajalised laenud krediidiasutustelt	Detailne	Passiva	2.1.2.1.2	Laenukohustused		
+5	20203	EUR	Kapitalirendi pikaajaline kohustus	Detailne	Passiva	2.1.2.1.3	Laenukohustused		
+5	20204	EUR	Hankijatele tasumata võlad (pikaajaline kohustus)	Detailne	Passiva	2.1.2.1.4	Laenukohustused		
+4	2021	EUR	Võlad ja ettemaksed	Koond	Passiva	2.1.2.2	Võlad ja ettemaksed		
+5	20210	EUR	Hankijatele tasumata võlad (pikaajaline kohustus)	Detailne	Passiva	2.1.2.2.1	Võlad ja ettemaksed		
+4	2022	EUR	Eraldised	Koond	Passiva	2.1.2.3	Eraldised		
+4	2023	EUR	Sihtfinantseerimine	Koond	Passiva	2.1.2.4	Sihtfinantseerimine		
+2	22	EUR	OMAKAPITAL	Üld	Passiva	2.2	OMAKAPITAL KOKKU		
+3	222	EUR	OMAKAPITAL	Üld	Passiva	2.2.1	OMAKAPITAL KOKKU		
+4	2220	EUR	Osakapital nimiväärtuses	Koond	Passiva	2.2.1.1	Osakapital nimiväärtuses		
+5	22200	EUR	Kohalik kapital	Detailne	Passiva	2.2.1.1.1	Osakapital nimiväärtuses		
+5	22201	EUR	Välisriikide osanike kapital	Detailne	Passiva	2.2.1.1.2	Osakapital nimiväärtuses		
+4	2221	EUR	Registreerimata osakapital	Koond	Passiva	2.2.1.2	Registreerimata osakapital		
+5	22210	EUR	Registreerimata osakapital	Detailne	Passiva	2.2.1.2.1	Registreerimata osakapital		
+4	2222	EUR	Ülekurss	Koond	Passiva	2.2.1.3	Ülekurss		
+5	22220	EUR	Ülekurss	Detailne	Passiva	2.2.1.3.1	Ülekurss		
+4	2223	EUR	Oma osad	Koond	Passiva	2.2.1.4	Oma osad		
+5	22230	EUR	Oma osad	Detailne	Passiva	2.2.1.4.1	Oma osad		
+4	2224	EUR	Kohustuslik reservkapital	Koond	Passiva	2.2.1.5	Kohustuslik reservkapital		
+5	22240	EUR	Kohustuslik reservkapital	Detailne	Passiva	2.2.1.5.1	Kohustuslik reservkapital		
+4	2225	EUR	Muud reservid	Koond	Passiva	2.2.1.6	Muud reservid		
+5	22250	EUR	Muud reservid	Detailne	Passiva	2.2.1.6.1	Muud reservid		
+4	2226	EUR	Eelmiste perioodide jaotamata kasum (kahjum)	Koond	Passiva	2.2.1.7	Eelmiste perioodide jaotamata kasum (kahjum)		
+5	22260	EUR	Eelmiste perioodide jaotamata kasum (kahjum)	Detailne	Passiva	2.2.1.7.1	Eelmiste perioodide jaotamata kasum (kahjum)		
+4	2227	EUR	Aruandeaasta kasum (kahjum)	Koond	Passiva	2.2.1.8	Aruandeaasta kasum (kahjum)		
+5	22270	EUR	Aruandeaasta kasum (kahjum)	Detailne	Passiva	2.2.1.8.1	Aruandeaasta kasum (kahjum)		
+1	3	EUR	TULUD	Üld	Tulud			1	TULUD KOKKU
+2	31	EUR	MÜÜGITULUD	Üld	Tulud			1.1	MÜÜGITULUD KOKKU
+4	3100	EUR	Kauba müük Eestis (20%)	Detailne	Tulud			1.1.1	Müügitulud
+4	3101	EUR	Teenuse müük Eestis (20%)	Detailne	Tulud			1.1.2	Müügitulud
+4	3102	EUR	Kauba müük EL-i (0%)	Detailne	Tulud			1.1.3	Müügitulud
+4	3103	EUR	Teenuse müük EL-i (0%)	Detailne	Tulud			1.1.4	Müügitulud
+4	3104	EUR	Kauba eksport	Detailne	Tulud			1.1.5	Müügitulud
+4	3105	EUR	Teenuse eksport	Detailne	Tulud			1.1.6	Müügitulud
+4	3106	EUR	Kauba/teenuse müük (9%)	Detailne	Tulud			1.1.7	Müügitulud
+4	3107	EUR	Muu müügitulu (20%)	Detailne	Tulud			1.1.8	Müügitulud
+4	3108	EUR	Käibedeklaratsioonis varem näidatud käive	Detailne	Tulud			1.1.9	Müügitulud
+4	3109	EUR	Kolmnurktehing vahendaja	Detailne	Tulud			1.1.10	Müügitulud
+2	32	EUR	MUUD ÄRITULUD	Üld	Tulud			1.2	MUUD ÄRITULUD KOKKU
+4	3200	EUR	Kasum müügiootel põhivara müügist	Detailne	Tulud			1.2.1	Muud äritulud
+4	3201	EUR	Kasum kinnisvarainvesteeringute müügist	Detailne	Tulud			1.2.2	Muud äritulud
+4	3202	EUR	Kasum materiaalse põhivara müügist	Detailne	Tulud			1.2.3	Muud äritulud
+4	3203	EUR	Kasum immateriaalse põhivara müügist	Detailne	Tulud			1.2.4	Muud äritulud
+4	3204	EUR	Kasum kinnisvarainvesteeringute õiglase väärtuse muutusest	Detailne	Tulud			1.2.5	Muud äritulud
+4	3205	EUR	Kasum bioloogilise vara õiglase väärtuse muutusest	Detailne	Tulud			1.2.6	Muud äritulud
+4	3206	EUR	Tulu sihtfinantseerimisest	Detailne	Tulud			1.2.7	Muud äritulud
+4	3207	EUR	Kasum valuutakursi muutustest	Detailne	Tulud			1.2.8	Muud äritulud
+4	3208	EUR	Trahvid, viivised ja hüvitised	Detailne	Tulud			1.2.9	Muud äritulud
+4	3209	EUR	Rendi- ja üüritulu	Detailne	Tulud			1.2.10	Muud äritulud
+4	3210	EUR	Litsentsitasud	Detailne	Tulud			1.2.11	Muud äritulud
+4	3211	EUR	Muu 20% maksustatav käive	Detailne	Tulud			1.2.12	Muud äritulud
+4	3212	EUR	Muu käibemaksuvaba käive	Detailne	Tulud			1.2.13	Muud äritulud
+4	3213	EUR	Aruandeperioodil selgunud eelmiste aastate tulu	Detailne	Tulud			1.2.14	Muud äritulud
+4	3214	EUR	Ümarduste tulu	Detailne	Tulud			1.2.15	Muud äritulud
+4	3215	EUR	Muud äritulud	Detailne	Tulud			1.2.16	Muud äritulud
+2	33	EUR	VALMIS- JA LÕPETAMATA TOODANGU VARUDE JÄÄKIDE MUUTUS	Üld	Tulud			1.3	VALMIS- JA LÕPETAMATA TOODANGU VARUDE JÄÄKIDE MUUTUS KOKKU
+4	3300	EUR	Valmis- ja lõpetamata toodangu varude jääkide muutus	Detailne	Tulud			1.3.1	Valmis- ja lõpetamata toodangu varude jääkide muutus
+2	34	EUR	KAPITALISEERITUD VÄLJAMINEKUD OMA TARBEKS PÕHIVARA VALMISTAMISEL	Üld	Tulud			1.4	KAPITALISEERITUD VÄLJAMINEKUD OMA TARBEKS PÕHIVARA VALMISTAMISEL KOKKU
+4	3400	EUR	Kapitaliseeritud väljaminekud oma tarbeks põhivara valmistamisel	Detailne	Tulud			1.4.1	Kapitaliseeritud väljaminekud oma tarbeks põhivara valmistamisel
+2	35	EUR	FINANTSTULUD	Üld	Tulud			1.5	FINANTSTULUD KOKKU
+4	3500	EUR	Finantstulud tütarettevõtjate aktsiatelt ja osadelt 	Detailne	Tulud			1.5.1	Finantstulud
+4	3501	EUR	Finantstulud sidusettevõtjate aktsiatelt ja osadelt	Detailne	Tulud			1.5.2	Finantstulud
+4	3502	EUR	Kasum võlakirjade ümberhindlusest	Detailne	Tulud			1.5.3	Finantstulud
+4	3503	EUR	Kasum fondiosakute ümberhindlusest	Detailne	Tulud			1.5.4	Finantstulud
+4	3504	EUR	Kasum aktsiatelt ja osadelt	Detailne	Tulud			1.5.5	Finantstulud
+4	3505	EUR	Intressitulud	Detailne	Tulud			1.5.6	Finantstulud
+4	3506	EUR	Kasum valuutakursi muutustest	Detailne	Tulud			1.5.7	Finantstulud
+4	3507	EUR	Muud finantstulud	Detailne	Tulud			1.5.8	Finantstulud
+1	5	EUR	KULUD	Üld	Kulud			3	KULUD KOKKU
+2	50	EUR	KAUBAD, TOORE, MATERJAL JA TEENUSED	Üld	Kulud			3.1	KAUBAD, TOORE, MATERJAL JA TEENUSED KOKKU
+4	5000	EUR	Tooraine ja materjal	Detailne	Kulud			3.1.1	Kaubad, toore, materjal ja teenused
+4	5001	EUR	Varude allahindlus ja mahakandmine	Detailne	Kulud			3.1.2	Kaubad, toore, materjal ja teenused
+4	5002	EUR	Müügi eesmärgil ostetud kaubad	Detailne	Kulud			3.1.3	Kaubad, toore, materjal ja teenused
+4	5003	EUR	Müügi eesmärgil ostetud kinnisvara	Detailne	Kulud			3.1.4	Kaubad, toore, materjal ja teenused
+4	5004	EUR	Müügi eesmärgil ostetud teenused	Detailne	Kulud			3.1.5	Kaubad, toore, materjal ja teenused
+4	5005	EUR	Elektrienergia	Detailne	Kulud			3.1.6	Kaubad, toore, materjal ja teenused
+4	5006	EUR	Soojusenergia	Detailne	Kulud			3.1.7	Kaubad, toore, materjal ja teenused
+4	5007	EUR	Kütus	Detailne	Kulud			3.1.8	Kaubad, toore, materjal ja teenused
+4	5008	EUR	Alltöövõtud	Detailne	Kulud			3.1.9	Kaubad, toore, materjal ja teenused
+4	5009	EUR	Transpordikulud	Detailne	Kulud			3.1.10	Kaubad, toore, materjal ja teenused
+4	5010	EUR	Logistikakulud	Detailne	Kulud			3.1.11	Kaubad, toore, materjal ja teenused
+4	5011	EUR	Maarent	Detailne	Kulud			3.1.12	Kaubad, toore, materjal ja teenused
+4	5012	EUR	Üür ja rent	Detailne	Kulud			3.1.13	Kaubad, toore, materjal ja teenused
+4	5013	EUR	Muud põhitegevusega seotud teenused	Detailne	Kulud			3.1.14	Kaubad, toore, materjal ja teenused
+4	5014	EUR	Muud põhitegevusega seotud materjalid	Detailne	Kulud			3.1.15	Kaubad, toore, materjal ja teenused
+2	51	EUR	MITMESUGUSED TEGEVUSKULUD	Üld	Kulud			3.2	MITMESUGUSED TEGEVUSKULUD
+4	5100	EUR	Maarent	Detailne	Kulud			3.2.1	Mitmesugused tegevuskulud
+4	5101	EUR	Üür ja rent	Detailne	Kulud			3.2.2	Mitmesugused tegevuskulud
+4	5102	EUR	Elektrienergia	Detailne	Kulud			3.2.3	Mitmesugused tegevuskulud
+4	5103	EUR	Soojusenergia	Detailne	Kulud			3.2.4	Mitmesugused tegevuskulud
+4	5104	EUR	Kütus	Detailne	Kulud			3.2.5	Mitmesugused tegevuskulud
+4	5105	EUR	Mitmesugused bürookulud	Detailne	Kulud			3.2.6	Mitmesugused tegevuskulud
+4	5106	EUR	IT Teenused, arvutitarvikud	Detailne	Kulud			3.2.7	Mitmesugused tegevuskulud
+4	5107	EUR	Telefon, internet	Detailne	Kulud			3.2.8	Mitmesugused tegevuskulud
+4	5108	EUR	Sidekulud	Detailne	Kulud			3.2.9	Mitmesugused tegevuskulud
+4	5109	EUR	Pangakulud	Detailne	Kulud			3.2.10	Mitmesugused tegevuskulud
+4	5110	EUR	Kantseleitarbed	Detailne	Kulud			3.2.11	Mitmesugused tegevuskulud
+4	5111	EUR	Ajalehed, ajakirjad, kirjandus	Detailne	Kulud			3.2.12	Mitmesugused tegevuskulud
+4	5112	EUR	Ruumide valvekulud	Detailne	Kulud			3.2.13	Mitmesugused tegevuskulud
+4	5113	EUR	Ruumide hooldus, remondikulud	Detailne	Kulud			3.2.14	Mitmesugused tegevuskulud
+4	5114	EUR	Uurimis- ja arengukulud	Detailne	Kulud			3.2.15	Mitmesugused tegevuskulud
+4	5115	EUR	Lähetuse päevarahad (maksuvabad)	Detailne	Kulud			3.2.16	Mitmesugused tegevuskulud
+4	5116	EUR	Lähetuse päevarahad (maksustatavad)	Detailne	Kulud			3.2.17	Mitmesugused tegevuskulud
+4	5117	EUR	Lähetuse majutuskulud (maksuvabad)	Detailne	Kulud			3.2.18	Mitmesugused tegevuskulud
+4	5118	EUR	Lähetuse majutuskulud (maksustatavad)	Detailne	Kulud			3.2.19	Mitmesugused tegevuskulud
+4	5119	EUR	Muud lähetuskulud	Detailne	Kulud			3.2.20	Mitmesugused tegevuskulud
+4	5120	EUR	Koolituskulud ja konsultatsioonid	Detailne	Kulud			3.2.21	Mitmesugused tegevuskulud
+4	5121	EUR	Riigilõiv	Detailne	Kulud			3.2.22	Mitmesugused tegevuskulud
+4	5122	EUR	Maamaks	Detailne	Kulud			3.2.23	Mitmesugused tegevuskulud
+4	5123	EUR	Muud riiklikud ja kohalikud maksud	Detailne	Kulud			3.2.24	Mitmesugused tegevuskulud
+4	5124	EUR	Kulud eraldiste moodustamiseks	Detailne	Kulud			3.2.25	Mitmesugused tegevuskulud
+4	5125	EUR	Kulu ebatõenäoliselt laekuvatest nõuetest	Detailne	Kulud			3.2.26	Mitmesugused tegevuskulud
+4	5126	EUR	Väheväärtuslik põhivara	Detailne	Kulud			3.2.27	Mitmesugused tegevuskulud
+4	5127	EUR	Transpordikulu	Detailne	Kulud			3.2.28	Mitmesugused tegevuskulud
+4	5128	EUR	Ostetud teenused	Detailne	Kulud			3.2.29	Mitmesugused tegevuskulud
+4	5129	EUR	Masinate varuosad, remont, hooldus	Detailne	Kulud			3.2.30	Mitmesugused tegevuskulud
+4	5130	EUR	Masinate, seadmete rent	Detailne	Kulud			3.2.31	Mitmesugused tegevuskulud
+4	5131	EUR	Reklaamikulud	Detailne	Kulud			3.2.32	Mitmesugused tegevuskulud
+4	5132	EUR	Asutamiskulud	Detailne	Kulud			3.2.33	Mitmesugused tegevuskulud
+4	5133	EUR	Audiitori ja raamatupidamise teenus	Detailne	Kulud			3.2.34	Mitmesugused tegevuskulud
+4	5134	EUR	Varakindlustus	Detailne	Kulud			3.2.35	Mitmesugused tegevuskulud
+4	5135	EUR	Autode kasutusrent	Detailne	Kulud			3.2.36	Mitmesugused tegevuskulud
+4	5136	EUR	Autode kindlustus	Detailne	Kulud			3.2.37	Mitmesugused tegevuskulud
+4	5137	EUR	Autode kütus	Detailne	Kulud			3.2.38	Mitmesugused tegevuskulud
+4	5138	EUR	Autode hooldus ja remont	Detailne	Kulud			3.2.39	Mitmesugused tegevuskulud
+4	5139	EUR	Isikliku auto kompensatsioon	Detailne	Kulud			3.2.40	Mitmesugused tegevuskulud
+4	5140	EUR	Muud autodega seotud kulud	Detailne	Kulud			3.2.41	Mitmesugused tegevuskulud
+4	5141	EUR	Töötajatele tehtud erisoodustused	Detailne	Kulud			3.2.42	Mitmesugused tegevuskulud
+4	5142	EUR	Kingitused, annetused ja vastuvõtukulud	Detailne	Kulud			3.2.43	Mitmesugused tegevuskulud
+4	5143	EUR	Ettevõtlusega mitteseotud kulud	Detailne	Kulud			3.2.44	Mitmesugused tegevuskulud
+4	5144	EUR	Vastuvõtukulud	Detailne	Kulud			3.2.45	Mitmesugused tegevuskulud
+4	5145	EUR	Erisoodustuselt arvestatud käibemaks	Detailne	Kulud			3.2.46	Mitmesugused tegevuskulud
+4	5146	EUR	Tulumaksukulu	Detailne	Kulud			3.2.47	Mitmesugused tegevuskulud
+4	5147	EUR	Sotsiaalmaksukulu	Detailne	Kulud			3.2.48	Mitmesugused tegevuskulud
+2	52	EUR	TÖÖJÕUKULUD	Üld	Kulud			3.3	TÖÖJÕUKULUD
+4	5200	EUR	Tööjõukulud	Detailne	Kulud			3.3.1	Tööjõukulud
+4	5201	EUR	Sotsiaalmaks töötasult	Detailne	Kulud			3.3.2	Tööjõukulud
+4	5202	EUR	Töötuskindlustus töötasult	Detailne	Kulud			3.3.3	Tööjõukulud
+4	5203	EUR	Pensionikulud	Detailne	Kulud			3.3.4	Tööjõukulud
+4	5204	EUR	Puhkusereservikulu	Detailne	Kulud			3.3.5	Tööjõukulud
+2	53	EUR	KULUM	Üld	Kulud			3.4	KULUM
+4	5300	EUR	Põhivara kulum ja väärtuse langus	Detailne	Kulud			3.4.1	Kulum
+4	5301	EUR	Kinnisvarainvesteeringute kulum	Detailne	Kulud			3.4.2	Kulum
+2	54	EUR	MUUD ÄRIKULUD	Üld	Kulud			3.5	MUUD ÄRIKULUD
+4	5400	EUR	Kahjum müügiootel põhivara müügist	Detailne	Kulud			3.5.1	Muud ärikulud
+4	5401	EUR	Kahjum kinnisvarainvesteeringute müügist	Detailne	Kulud			3.5.2	Muud ärikulud
+4	5402	EUR	Kahjum materiaalse põhivara müügist	Detailne	Kulud			3.5.3	Muud ärikulud
+4	5403	EUR	Kahjum immateriaalse põhivara müügist	Detailne	Kulud			3.5.4	Muud ärikulud
+4	5404	EUR	Kahjum bioloogilise vara õiglase väärtuse muutusest	Detailne	Kulud			3.5.5	Muud ärikulud
+4	5405	EUR	Kahjum kinnisvarainvesteeringute õiglase väärtuse muutusest	Detailne	Kulud			3.5.6	Muud ärikulud
+4	5406	EUR	Kahjum valuutakursi muutusest	Detailne	Kulud			3.5.7	Muud ärikulud
+4	5407	EUR	Trahvid, viivised ja hüvitised	Detailne	Kulud			3.5.8	Muud ärikulud
+4	5408	EUR	Maksuviivised maksuametile	Detailne	Kulud			3.5.9	Muud ärikulud
+4	5409	EUR	Aruandeperioodil selgunud eelmiste aastate kulu	Detailne	Kulud			3.5.10	Muud ärikulud
+4	5410	EUR	Liikmemaksud	Detailne	Kulud			3.5.11	Muud ärikulud
+4	5411	EUR	Muud ärikulud	Detailne	Kulud			3.5.12	Muud ärikulud
+2	55	EUR	FINANTSKULUD	Üld	Kulud			3.6	FINANTSKULUD
+4	5500	EUR	Finantskulud tütarettevõtjate aktsiatelt ja osadelt	Detailne	Kulud			3.6.1	Finantskulud
+4	5501	EUR	Finantskulud sidusettevõtjate aktsiatelt ja osadelt	Detailne	Kulud			3.6.2	Finantskulud
+4	5502	EUR	Kahjum võlakirjade ümberhindlusest	Detailne	Kulud			3.6.3	Finantskulud
+4	5503	EUR	kahjum fondiosakute ümberhindlusest	Detailne	Kulud			3.6.4	Finantskulud
+4	5504	EUR	Kahjum aktsiatelt ja osadelt	Detailne	Kulud			3.6.5	Finantskulud
+4	5505	EUR	Intressikulu võlakirjadelt	Detailne	Kulud			3.6.6	Finantskulud
+4	5506	EUR	Intressikulu laenudelt	Detailne	Kulud			3.6.7	Finantskulud
+4	5507	EUR	Intressikulu kapitalirendilt	Detailne	Kulud			3.6.8	Finantskulud
+4	5508	EUR	Muud intressikulud	Detailne	Kulud			3.6.9	Finantskulud
+4	5509	EUR	Kahjum valuutakursi muutustest	Detailne	Kulud			3.6.10	Finantskulud
+4	5510	EUR	Muud finantskulud	Detailne	Kulud			3.6.11	Finantskulud
+2	66	EUR	TULUMAKS	Üld	Kulud			3.7	TULUMAKS
+4	6600	EUR	Ettevõtte tulumaks	Detailne	Kulud			3.7.1	Tulumaks
+4	9997	EUR	Omatarve 20%	Detailne	Aktiva				
+4	9998	EUR	Omatarve 9%	Detailne	Aktiva				
+4	9999	EUR	Tasaarveldused	Detailne	Aktiva				

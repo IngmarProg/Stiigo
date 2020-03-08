@@ -1,0 +1,3890 @@
+unit estbk_generalledger;
+
+{$mode objfpc}{$H+}
+{$i estbk_defs.inc}
+{$ASSERTIONS ON}
+interface
+
+uses
+  Classes, SysUtils, FileUtil, LResources, Forms, StdCtrls, Grids,
+  Controls, Graphics, LCLType, ExtCtrls, Buttons,Messages,
+  Dialogs, Calendar, EditBtn, estbk_types, estbk_utilities, estbk_globvars,
+  estbk_clientdatamodule, estbk_strmsg, estbk_uivisualinit, db,rxpopupunit, rxdbgrid,rxlookup,math,
+  RTTICtrls, ZDataset, ZSequence, ZSqlUpdate,Menus;
+
+
+// $8 viimane assertion viga !!!
+// -------------------------
+
+
+//StringGrid1.Selection
+//StringGrid1.Selection.Top
+{
+  Shift: TShiftState;
+  X, Y: Integer)
+var
+  CellRect : TRect;
+begin
+  CellRect :=
+    StringGrid1.CellRect(CellCoord.x,
+                         CellCoord.y);
+
+  if (x >= (CellRect.Right-3))
+     or (x <= (CellRect.Left+3)) then
+   { resize detected }
+ Perform( WM_VSCROLL, SB_BOTTOM, 0 );
+}
+
+
+const
+  CShiftItemsLeft = -200;
+
+const
+ CAccountColWidth = 230;
+
+const
+  // +1 !!!!!
+  CCol_Account = 1; // konto nimi
+  // ainult nr
+  CCol_AccCurrency  = 3;
+  CCol_AccDebit     = 4;
+  CCol_AccCredit    = 5;
+  CCol_AccMonConversion = 6;
+
+  // CCol_CompCode   = 5;
+  // CCol_CompName   = 6;
+  CCol_Counterpart   = 7;
+
+// nr;selgitus;konto;deebet;kreedit
+type
+  TEventStub = procedure(sender : TObject) of Object;
+
+type
+
+  { TframeGeneralLedger }
+
+  TframeGeneralLedger = class(TFrame)
+    btnNewEntry: TBitBtn;
+    btnClose:  TBitBtn;
+    btnSaveEntry: TBitBtn;
+    btnCancelGd: TBitBtn;
+    cmbDocumentType: TComboBox;
+    qryObjectsGrpsDs: TDatasource;
+    qryObjectsGrps: TZQuery;
+    qryObjectsDs: TDatasource;
+    qryAllAccountsDS: TDatasource;
+    edtAccdate: TDateEdit;
+    edtTransDescr: TEdit;
+    edtDocNr:  TEdit;
+    edtAccnr:  TEdit;
+    lblDocnr:  TLabel;
+    lblAccNr:  TLabel;
+    lblAccDate: TLabel;
+    lblAccDocType: TLabel;
+    lblTrasDescr: TLabel;
+    lblFix:    TLabel;
+    lblTotalBkArea: TLabel;
+    ovrAllGrpbox: TGroupBox;
+    plinee1:   TBevel;
+    plinee2:   TBevel;
+    accountingGrid: TStringGrid;
+    qryDocumentTypes: TZQuery;
+    qryObjects: TZQuery;
+    stxtCPart: TEdit;
+    stxtDPart: TEdit;
+    qryAccreEntryObjSeq: TZSequence;
+    qryAccData: TZQuery;
+    qryAccReqObjects: TZReadOnlyQuery;
+    qryCurrValues: TZReadOnlyQuery;
+    qryAllAccounts: TZQuery;
+    FSafeObjListOpen: TTimer;
+
+    procedure accountingGridClick(Sender: TObject);
+    procedure accountingGridDrawCell(Sender: TObject; aCol, aRow: Integer; aRect: TRect; aState: TGridDrawState);
+    procedure accountingGridEditButtonClick(Sender: TObject);
+    procedure accountingGridEditingDone(Sender: TObject);
+    procedure accountingGridEnter(Sender: TObject);
+    procedure accountingGridExit(Sender: TObject);
+    procedure accountingGridGetEditMask(Sender: TObject; ACol, ARow: integer;
+      var Value: string);
+    procedure accountingGridHeaderClick(Sender: TObject; IsColumn: Boolean; Index: Integer);
+    procedure accountingGridKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure accountingGridKeyPress(Sender: TObject; var Key: char);
+    procedure accountingGridMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure accountingGridMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure accountingGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+    procedure accountingGridPickListSelect(Sender: TObject);
+    procedure accountingGridPrepareCanvas(Sender: TObject; aCol, aRow: integer;
+      aState: TGridDrawState);
+    procedure accountingGridSelectCell(Sender: TObject; aCol, aRow: integer;
+      var CanSelect: boolean);
+    procedure accountingGridSelectEditor(Sender: TObject; aCol, aRow: integer;
+      var Editor: TWinControl);
+    procedure btnCancelGdClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure btnNewEntryClick(Sender: TObject);
+    procedure btnSaveEntryClick(Sender: TObject);
+    procedure edtAccdateAcceptDate(Sender: TObject; var ADate: TDateTime; var AcceptDate: Boolean);
+    procedure edtAccdateChange(Sender: TObject);
+    procedure edtAccdateExit(Sender: TObject);
+    procedure edtAccdateKeyPress(Sender: TObject; var Key: char);
+    procedure edtAccnrExit(Sender: TObject);
+    procedure edtAccnrKeyPress(Sender: TObject; var Key: char);
+    procedure edtDocNrExit(Sender: TObject);
+    procedure edtTransDescrChange(Sender: TObject);
+    procedure FSafeObjListOpenTimer(Sender: TObject);
+    procedure qryAllAccountsFilterRecord(DataSet: TDataSet; var Accept: Boolean);
+  private
+    FOrigDateStr: AStr;
+    FOrigDocTypeIndx : integer;
+    FObjectColCnt : integer;
+    // ----
+    //FObjectGrps      : TStringlist;
+    FGridCleanup     : Boolean; // puhastame gridi, siis ei tekita me combosid !
+    FGridReadOnly    : Boolean;
+    // 20.11.2009 Ingmar; lihtsalt dblookup tekitab rohkem probleeme
+    //FRestoreStrGridFocus : Boolean;
+    // me ei võimalda inimestel valida kontosid, mis suletud !!
+    FHideClosedAccounts : Boolean;
+    //FObjListOpenclick : Boolean;
+    FInsertMode   : Boolean;
+
+    // TLookupComboList eventide abi
+    FSkipOnChangeEvent : Boolean;
+    // 20.11.2009 Ingmar; asendasin TDbLookupcomboga, palju parem disain, varasem nö "i-s"
+    //FAccListCombo : TCombobox;
+    FAccListCombo : TRxDBLookupCombo;
+    //FAccObjTypes  : TCombobox;
+
+    // onenter/onexit ikka täiesti möödas sellel komponendil; pane loenduri peale
+    //FObjTypeListDoExit : Boolean;
+    FAccObjTypes  : TRxDBLookupCombo;
+    //FAccBtn     : TBitBtn;
+    FPaNewColPos  : Integer;
+    FPaNewRowPos  : Integer;
+    FPaCurrColPos : Integer;
+    FPaCurrRowPos : Integer;
+
+    // 22.11.2009 Ingmar; kuna ikka DBLookupComboEvendid on täiesti sassis,
+    // kui kasutada teda editoris, siis peame ikka tegema väga rõvedaid hacke !
+    // Tulevikus uurime edasi, kas on võimalik inimlikult asju teha !!
+    FPaObjComboExitRefCnt : Integer;
+    FPaObjSkipExitEvent   : Boolean;
+
+    // ehk sisenedes on koheselt onExit ?
+    FPaAccComboExitRefCnt : Integer;
+
+
+    // valuuta kursside picklist info
+    FLastPickListCol : Integer;
+    FLastPickListRow : Integer;
+
+
+    FObjCombItemIndx : Integer;
+    FOpenedEntryId   : Integer;
+    FOpenedEntryBaseDocId : Int64;
+    // --------
+
+    // sellega jälgime, kas peame uuesti kontode ja objektide nimistu laadima
+    FAccObjCheck    : Integer;
+    // loome nö muudatuste stringi; mille abil vaatame, kas reaalselt ka kanderead muutusid !
+    // MD5 oleks ka variant, aga meie lahenduses pole see hea
+    FAccRowsChkStr   : AStr;
+    FAccHeaderChkStr : AStr; // kas kande üldises infos ka midagi muutus
+    FCurrDataList    : TAStrList;
+
+    // --------
+    FframeKillSignal  : TNotifyEvent;
+    FParentKeyNotif   : TKeyNotEvent;
+    FFrameDataEvent   : TFrameReqEvent;
+    FReqTaskbarEvent  : TTaskBarNotEvent;
+    FReqCurrUpdate    : TRequestForCurrUpdate;
+
+
+    // --------
+    FOrigGridWndProc : TWndMethod;
+
+    procedure newGridWindowProc(var Message: TMessage);
+    function  getLoadStatus: boolean;
+    procedure setLoadStatus(const v: boolean);
+    procedure performCleanup;
+
+    procedure chgDbLookupObjMode(const dispGroups : Boolean = true);
+    // ----
+    procedure OnAccListComboKeydown(Sender: TObject; var Key: word;
+      Shift: TShiftState);
+    procedure OnAccListComboEnter(Sender: TObject);
+    procedure OnAccListComboExit(Sender: TObject);
+//    procedure OnAccListSelect(Sender: TObject);
+    procedure OnAccListChange(Sender: TObject);
+    procedure OnAccPopupClose(Sender: TObject);
+    procedure OnAccComboSelect(Sender: TObject);
+
+    procedure OnPickListEnter(Sender: TObject);
+    procedure OnPickListExit(Sender: TObject);
+
+    // ----
+    procedure OnObjTypeComboEnter(Sender: TObject);
+    procedure OnObjTypeListComboExit(Sender: TObject);
+    //procedure OnObjListCloseup(Sender: TObject);
+    procedure OnObjListSelect(Sender: TObject);
+    procedure OnObjListChange(Sender: TObject);
+
+
+    procedure loadListOfCurrencys;
+    function  getCurrencyVal(const dt : TDatetime):Double;
+    procedure gridCurrDataRecheck;
+
+    procedure addObjCol;
+    function  changeColRowChgDetected(const allowChgCurrVal : Boolean = true):Boolean;
+    //procedure hideObjListCombo;
+    // -----
+    procedure OnObjListComboKeydown(Sender: TObject;
+                                     var Key: word; Shift: TShiftState);
+
+    // 22.11.2009 ingmar; bug: kui me korrigeerime seal combo sisu; siis keyevent kaob ära editori !
+    procedure addDCSideSum(var colPos : Integer; var rowPos : Integer);
+    procedure deleteGenLedgLine(const pRowNr : Integer);
+    procedure doCConversion;
+
+    // ----
+    function  calcChksumStrForAccRecord:AStr;
+    function  calcChksumStrForHdrRecord:AStr;
+
+
+    procedure cancelAccRecords(const accRegID : Integer); // kande aluskirje;
+    procedure prepareGrid;
+  public
+    // saadame vanemale info, et soovime ennast sulgeda !
+    property    onFrameKillSignal : TNotifyEvent read FframeKillSignal write FframeKillSignal;
+
+    // ----------------
+    // seda kutsub meie vanem välje
+    property    onParentKeyPressNotif : TKeyNotEvent read  FParentKeyNotif;     // kuna frame ei võimalda keypreview'd, kasutame vanema võimalusi
+    // selle evendi omistab vanem, seda välja kutsudes saame esitada valuuta info uuendamise palve
+    property    onAskCurrencyDownload : TRequestForCurrUpdate read FReqCurrUpdate write FReqCurrUpdate;
+
+
+    // frame teavitab, mis sündmus toimus...ühe frame sündmus võib tähendada sündmusi teistes framedes jne
+    property    onFrameDataEvent   : TFrameReqEvent read FFrameDataEvent write FFrameDataEvent;
+    // hetkel pole kasutatud, aga siin küsime peavormilt, et ehk saaks taskbarile midagi kirjutada
+    property    onReqTaskbarEvent  : TTaskBarNotEvent read FReqTaskbarEvent write FReqTaskbarEvent;
+
+    // ----------------
+    property    loadData: boolean read getLoadStatus write setLoadStatus;
+    procedure   openEntry(const entryId : Integer = 0);
+    // --
+    procedure   refreshObjectList(const skipObjectListLoad : Boolean = False);
+    procedure   refreshAccountList(const skipClosedAccounts : Boolean = True);
+    constructor create(frameowner: TComponent); override;
+    destructor  destroy; override;
+  end;
+
+
+// hoiame selguse mõttes klassid eraldi !!!
+type
+  TCellAccountType = class(TObject)
+   AccountId    : Cardinal;
+   // rohkem abimuutuja
+   AccountRecID : Cardinal;
+  end;
+
+
+type
+  TCellObjectType = class(TObject)
+   ObjectGrp : Cardinal;
+   ObjectId  : Cardinal;
+  end;
+
+type
+ TCurrencyObjType = class(TObject)
+   currVal   : Double;
+ end;
+
+implementation
+
+uses estbk_sqlclientcollection;
+
+function TframeGeneralLedger.getLoadStatus: boolean;
+begin
+  Result := qryObjects.active;
+end;
+
+
+function TframeGeneralLedger.getCurrencyVal(const dt : TDatetime):Double;
+begin
+ // ---
+end;
+
+procedure TframeGeneralLedger.loadListOfCurrencys;
+const
+ CCommonPreDefCurr : Array[0..2] of AStr = ('EUR','USD','GBP');
+var
+ i : Integer;
+begin
+ for i:=0 to self.FCurrDataList.count-1 do
+ if  assigned(self.FCurrDataList.Objects[i]) then
+   begin
+     TCurrencyObjType(self.FCurrDataList.Objects[i]).Free;
+     self.FCurrDataList.Objects[i]:=nil;
+   end;
+
+     // --- eeldefineeritud valuutad paneme ära
+     self.FCurrDataList.Clear;
+     self.FCurrDataList.Add('');
+
+ for i:=low(CCommonPreDefCurr) to high(CCommonPreDefCurr) do
+ if (CCommonPreDefCurr[i]<>estbk_globvars.glob_baseCurrency) then
+     FCurrDataList.addObject(CCommonPreDefCurr[i],TCurrencyObjType.Create);
+
+
+ with qryAccData,SQL do
+    try
+          close;
+          clear;
+          add(estbk_sqlclientcollection._SQLSelectCurrencyNames);
+          open;
+    while not eof do
+        begin
+        if self.FCurrDataList.indexOf(fieldbyname('cname').asString)=-1 then
+           self.FCurrDataList.addObject(ansiuppercase(fieldbyname('cname').asString),TCurrencyObjType.Create);
+           // --
+           next;
+        end;
+    finally
+      Close;
+      Clear;
+    end;
+    // ------------
+end;
+
+procedure TframeGeneralLedger.setLoadStatus(const v: boolean);
+//var
+//  i : Integer;
+begin
+
+   qryAllAccounts.Connection := estbk_clientdatamodule.dmodule.primConnection;
+  // jäta query aktiivseks tema järgi tuvastame hiljem konto id ja muud vajalikud andmed !!!
+  //qryAccountNames.Connection  := estbk_clientdatamodule.dmodule.primConnection;
+  qryDocumentTypes.Connection := estbk_clientdatamodule.dmodule.primConnection;
+  //qryObjectTypes.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  qryObjects.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  qryObjectsGrps.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+//  qryAccregister.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+//  qryAccregisterDoc.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+//  qryAccregisterBindDoc.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+//  qryAccreEntry.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+//  qryAccreEntryObj.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  qryAccReqObjects.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  //qryVerifData.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+
+
+
+  qryAccData.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  qryCurrValues.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  // sequence
+  //qryAccregisterSeq.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  //qryAccregisterSeq.SequenceName:='accounting_register_id_seq';
+
+  //qryAccregisterDocSeq.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  //qryAccregisterDocSeq.SequenceName:='documents_id_seq';
+
+  qryAccreEntryObjSeq.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  qryAccreEntryObjSeq.SequenceName:='accounting_records_attrb_id_seq';
+
+
+  // 21.11.2009 Ingmar
+  qryObjectsGrps.SQL.Clear;
+  qryObjectsGrps.SQL.add(estbk_sqlclientcollection._CSQLObjectTypes);
+
+  qryAccReqObjects.SQL.Clear;
+  qryAccReqObjects.SQL.add(estbk_sqlclientcollection._CSQLGetAllAccMarkedObjects);
+
+
+  qryDocumentTypes.SQL.Clear;
+  qryDocumentTypes.SQL.add(estbk_sqlclientcollection._CSQLDocumentTypes);
+
+  qryObjects.SQL.Clear;
+  qryObjects.SQL.add(estbk_sqlclientcollection._CSQLAllObjects);
+
+  // preparam
+  qryObjects.ParamByName('company_id').AsInteger := estbk_globvars.glob_company_id;
+  // objektid, mis PEAVAD eksisteerima kande real !!!!
+  qryAccReqObjects.ParamByName('company_id').AsInteger := estbk_globvars.glob_company_id;
+
+
+
+  // frame ikka unustab oma properteid...lazaruse kala
+  //qryAccountNames.active  := v;
+  //qryDocumentTypes.active := v;
+
+  // hoiame seoste tabeleid mälus !
+  qryObjects.active   := v;
+  qryObjectsGrps.active   := v;
+
+  qryAccReqObjects.active   := v;
+
+  // -------
+  //FAccListCombo.Clear;
+  FAccListCombo.DropDownCount:=8;
+  FAccListCombo.Height:=125;
+
+//  FAccObjTypes.Clear;
+  FAccObjTypes.DropDownCount:=8;
+  FAccObjTypes.Height:=125;
+
+//  FObjectGrps.Clear;
+  cmbDocumentType.Clear;
+
+  // accountingGrid.CellToGridZone();
+  // ---
+  if v then
+  begin
+  // 24.06.2010 Ingmar; tõin constructorist koodi siia
+     if  assigned( self.FCurrDataList) then
+         freeAndNil( self.FCurrDataList);
+         self.FCurrDataList:=dmodule.createPrivateCurrListCopy();
+         self.performCleanup;
+
+
+
+         // -- viimane obj. id, mis oli firma kontodega seotud
+         self.FAccObjCheck:=0;
+    with qryAccReqObjects do
+     try
+       while not eof do
+        begin
+        if fieldByname('id').asInteger>FAccObjCheck then
+           self.FAccObjCheck:=fieldByname('id').asInteger;
+
+           next;
+        end;
+        // --
+     finally
+      first;
+     end;
+
+          self.FAccObjCheck:=estbk_utilities.chgChkSum(self.FAccObjCheck,qryAccReqObjects.RecordCount);
+          // ------
+          cmbDocumentType.items.addObject('', nil);
+          // ------ Dokumendi tüübid
+          with qryAccData,SQL do
+          begin
+            Close;
+            Clear;
+            Add(estbk_sqlclientcollection._CSQLDocumentTypes);
+            Open;
+
+            First;
+            while not EOF do
+            begin
+              // turvalise tarkvara aluseks on - usu ka võimatut ! eriti kui cardinaliks teisendad !
+              if FieldByName('id').AsInteger > 0 then
+                cmbDocumentType.items.addObject(FieldByName('docshortident').AsString +
+                  ':' +FieldByName('docname').AsString
+                  , TObject(cardinal(FieldByName('id').AsInteger)));
+              Next;
+            end;
+
+            // ---
+            Close;
+            SQL.Clear;
+          end;
+
+
+
+
+  //for i:=0 to FObjectGrps.count-1 do
+  //    FAccObjTypes.items.objects[i]:=FObjectGrps.objects[i];
+       self.accountingGrid.Columns.Items[CCol_AccMonConversion-1].Title.Caption:=estbk_globvars.glob_baseCurrencyShortname;
+
+       self.loadListOfCurrencys;
+
+       // --------------------------------------
+       self.refreshAccountList;
+       self.refreshObjectList(true);
+       // --------------------------------------
+
+  end;
+
+
+  accountingGrid.Columns.Items[0].Width:= CAccountColWidth;
+
+  FAccListCombo.Width:=CAccountColWidth;
+  FAccListCombo.Visible := False;
+  FAccListCombo.Left    := CShiftItemsLeft;
+
+
+  FAccObjGroups.Visible := False;
+  FAccObjGroups.Left    := CShiftItemsLeft;
+
+  FAccObjTypes.Visible := False;
+  FAccObjTypes.Left    := CShiftItemsLeft;
+
+//  FAccObjGroups.AutoSelected:=True;
+//  FAccObjGroups.AutoDropDown:=True;
+//  FAccObjGroups.AutoSizeDelayed:=10;
+
+
+
+//  FAccObjGroups.ItemIndex:=-1;
+
+  // algul kõik controlid kinni
+  estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, False);
+  // estbk_utilities.changeWCtrlReadOnlyStatus(ovrAllGrpbox as TWinControl, true);
+
+
+
+end;
+
+procedure   TframeGeneralLedger.openEntry(const entryId : Integer = 0);
+var
+ i,rowCnt,LastObjCol : Integer;
+ paccRecSum          : Double;
+ pIsCancelledRec     : Boolean;
+ pEntryType          : AStr;
+begin
+  // ---
+  with qryAccData,SQL do
+   try
+        self.FSkipOnChangeEvent:=true;
+      
+
+        self.performCleanup;
+        // ---
+        estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, True);
+
+        accountingGrid.Enabled:=true;
+
+
+
+        // 27.10.2009 Ingmar; nüüd vajame ka suletud kontode nimistut
+        self.refreshAccountList(false);
+
+        self.FGridReadOnly:=true; // rahustame handlerid  maha...
+        Close;
+        Clear;
+        add(estbk_sqlclientcollection._SQLGetAccRegFullSelectExt);
+        paramByname('id').AsInteger:=entryId;
+        paramByname('company_id').AsInteger:=estbk_globvars.glob_company_id;
+        Open;
+     if eof then
+        exit;
+
+        pEntryType:=ansiuppercase(fieldByName('entrytype').asString);
+        pIsCancelledRec:=pos('C',pEntryType)>0; // tühistatud kanne
+
+     if assigned(onReqTaskbarEvent) then
+       if pIsCancelledRec then
+          onReqTaskbarEvent(self,estbk_strmsg.SAccRecordCancelled)
+       else
+          onReqTaskbarEvent(self,'');
+        // #######################################
+
+        self.FOpenedEntryId:=entryId;
+        self.FInsertMode:=false; // ainult update !!!
+
+
+
+        edtAccnr.Text:=fieldbyname('entrynumber').asString;
+        edtAccnr.ReadOnly:=true;
+        // 02.02.2010 Ingmar
+        //edtAccnr.Enabled:=false;
+        //edtAccnr.Color:=clBtnFace;
+
+        // formateerime ise, kui backendi peaks vahetama, siis võib asString probleeme tekidada
+        edtAccdate.Text:=datetostr(fieldbyname('transdate').asDateTime);
+        edtTransDescr.Text:=fieldbyname('transdescr').asString;
+        cmbDocumentType.ItemIndex:=-1;
+        edtDocNr.Text:=fieldbyname('docnr').asString;
+
+
+
+        // jätame ka meelde kirjega seotud baasdokumendi id !
+        FOpenedEntryBaseDocId:=fieldbyname('document_id').AsLargeInt;
+
+    if fieldbyname('doctypeid').asInteger>0 then
+    for i:=0 to cmbDocumentType.Items.count-1 do
+    if Cardinal(cmbDocumentType.Items.Objects[i])=fieldbyname('doctypeid').asInteger then
+      begin
+        cmbDocumentType.ItemIndex:=i;
+        break;
+      end;
+
+        // -------
+        // nüüd laeme kasutatud kontod
+        Close;
+        Clear;
+        add(estbk_sqlclientcollection._SQLGetAccRecsFullSelect(pIsCancelledRec)); // avame ka annuleeritud kande kirjed !!!!
+        parambyname('accounting_register_id').asInteger:=entryId;
+
+     if pIsCancelledRec then
+        parambyname('accounting_register_id2').asInteger:=entryId;
+        open;
+        rowCnt:=1;
+
+   while not eof do
+     begin
+{
+            pCurr:=trim(fieldByname('currency').asString);
+        if  pCurr='' then
+            pCurr:=estbk_globvars.glob_baseCurrency;
+}
+           pAccRecSum:=fieldByname('rec_sum').AsFloat; // asmoney ei ole hea, kui kasutame erinevaid backenda ! float sobib !! aga mitte arvutusteks !!!!!
+       if (trim(fieldByname('currency').asString)<>'') and (trim(fieldByname('currency').asString)<>estbk_globvars.glob_baseCurrency) then
+         begin
+            self.accountingGrid.Cells[CCol_AccCurrency,rowCnt]:=fieldByname('currency').asString;
+            self.accountingGrid.Columns.items[CCol_AccMonConversion-1].width:=85;
+
+         // ---
+            // ---
+           //if fieldByname('rec_type').asString='C' then // kreedit !
+           //   pAccRecSum:=-pAccRecSum;
+           // 01.03.2010 Ingmar; miks see summa peaks andmebaasis negatiivne olema BUGI
+
+        if self.accountingGrid.Columns.items[CCol_AccMonConversion-1].width>0 then
+          begin
+              self.accountingGrid.Cells[CCol_AccMonConversion,rowCnt]:=trim(format(CCurrentMoneyFmt1,[pAccRecSum]));
+          if (pCurr<>estbk_globvars.glob_baseCurrency) then
+              pAccRecSum:=fieldByname('currency_vsum').AsCurrency; // valuuta originaalsumma !
+          end;
+
+
+
+             // self.accountingGrid.Cells[CCol_AccCurrency,rowCnt]:=pCurr;
+             self.accountingGrid.Cells[CCol_Account,rowCnt]:=fieldByname('account_coding').asString;
+             self.accountingGrid.Objects[CCol_Account,rowCnt]:=TCellAccountType.Create;
+             TCellAccountType(self.accountingGrid.Objects[CCol_Account,rowCnt]).AccountId:=fieldByname('account_id').asInteger;
+             TCellAccountType(self.accountingGrid.Objects[CCol_Account,rowCnt]).AccountRecID:=fieldByname('id').asInteger;
+
+
+          // 11.07.2010 Ingmar; kui puudub kirjeldus, siis kuva konto nimi !
+          if trim(fieldByname('descr').asString)<>'' then
+             self.accountingGrid.Cells[CCol_Account+1,rowCnt]:=fieldByname('descr').asString
+          else
+             self.accountingGrid.Cells[CCol_Account+1,rowCnt]:=fieldByname('account_name').asString;
+
+
+
+            // 01.03.2010 Ingmar; miks see summa peaks andmebaasis negatiivne olema BUGI
+            //if fieldByname('rec_type').asString=estbk_types.CAccRecTypeAsDebit then // deebet rida; CurrToStr ei võimalda meil 4 kohta peale koma kuvada !!!
+
+          if fieldByname('rec_type').asString=estbk_types.CAccRecTypeAsDebit then
+             self.accountingGrid.Cells[CCol_AccDebit,rowCnt]:=estbk_utilities.setRFloatSep(CurrToStr(pAccRecSum))
+          else
+          if fieldByname('rec_type').asString=estbk_types.CAccRecTypeAsCredit then
+             self.accountingGrid.Cells[CCol_AccCredit,rowCnt]:=estbk_utilities.setRFloatSep(CurrToStr(pAccRecSum));
+
+
+             //else
+             //if fieldByname('rec_type').asString=estbk_types.CAccRecTypeAsCredit then
+             //   self.accountingGrid.Cells[CCol_AccCredit,rowCnt]:=estbk_utilities.setRFloatSep(CurrToStr(pAccRecSum));
+             //self.accountingGrid.Cells[CCol_AccCredit,rowCnt]:=estbk_utilities.setRFloatSep(CurrToStr(-pAccRecSum));
+
+             // CCol_CompCode   = 5;
+             // CCol_CompName   = 6;
+
+             inc(rowCnt);
+             next;
+     end;
+
+
+
+
+     // -----
+     // nüüd peame otsima objektid one by one...
+     for i:=1 to rowCnt-1 do
+      begin
+         close;
+         clear;
+         add(estbk_sqlclientcollection._SQLGetAccObjFullSelect);
+         parambyname('accounting_record_id').asInteger:=TCellAccountType(self.accountingGrid.Objects[CCol_Account,i]).AccountRecID;
+         open;
+         first;
+         LastObjCol:=CCol_Counterpart+1;
+
+         while not eof do
+          begin
+
+            // küsime lahtreid juurde
+          if (LastObjCol>=accountingGrid.colCount-1) then
+              self.addObjCol;
+
+              self.accountingGrid.Cells[LastObjCol,i]:=fieldByname('objname').asString;
+              self.accountingGrid.Objects[LastObjCol,i]:=TCellObjectType.Create;
+              TCellObjectType(self.accountingGrid.Objects[LastObjCol,i]).ObjectId:=fieldByname('objid').AsInteger;
+              TCellObjectType(self.accountingGrid.Objects[LastObjCol,i]).ObjectGrp:=fieldByname('objgrp').AsInteger;
+
+              // ---
+              inc(LastObjCol);
+              next;
+          end;
+
+      end; // --
+
+
+        // ---
+
+     if edtAccdate.CanFocus then
+        edtAccdate.setFocus;
+
+        
+
+        self.FAccListCombo.Visible:=false;
+        self.FAccObjGroups.Visible:=false;
+        self.FAccObjTypes.Visible:=false;
+   finally
+        self.FSkipCurrencySelEvnt:=false;
+        // selle järgi tuvastame, kas midagi muutus või mitte
+        self.FAccRowsChkStr  :=self.calcChksumStrForAccRecord();
+        self.FAccHeaderChkStr:=self.calcChksumStrForHdrRecord();
+
+        self.FGridReadOnly:=pIsCancelledRec or  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                           (pos(estbk_types.CAccRecIdentAsGenLedger,pEntryType)=0); // 02.02.2010 Ingmar; lubame VAID pearaamatu kandeid muuta !!!!!!!
+
+        // 02.02.2010 Ingmar; kinni !
+        estbk_utilities.changeWCtrlReadOnlyStatus(ovrAllGrpbox,self.FGridReadOnly);
+        cmbDocumentType.Enabled:=not self.FGridReadOnly;
+        //estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, not self.FGridReadOnly);
+        // arvutame ka summad kontode lõike
+        accountingGridEditingDone(nil);
+       // ---
+        // 14.03.2010 Ingmar; ma ei luba kande nr ja kuupäeva muuta; siis kui alustasin, ei mõistnud selle kriitilisust !!!!!!!!!!!!!!!!!!
+        estbk_utilities.changeWCtrlReadOnlyStatus(edtAccnr,true);
+        estbk_utilities.changeWCtrlReadOnlyStatus(edtAccdate,true);
+
+        // ---
+
+        // ---
+        Close;
+        Clear;
+        // selle järgi tuvastame, kas midagi muutus või mitte
+        self.FAccHeaderChkStr:=self.calcChksumStrForHdrRecord();
+        self.FAccRowsChkStr  :=self.calcChksumStrForAccRecord();
+   end;
+
+
+
+      btnNewEntry.Enabled:=True;
+      btnSaveEntry.Enabled:=false;
+
+
+   // 31.10.2009 ingmar
+   // annuleeritud kanne !!!!
+   if pIsCancelledRec then
+    begin
+      btnCancelGd.Enabled:=false;
+      cmbCurrency.Enabled:=false;
+      estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, False);
+
+      accountingGrid.Enabled:=true;
+      ovrAllGrpbox.Enabled:=true;
+    end else
+      btnCancelGd.Enabled:=pos(estbk_types.CAccRecIdentAsGenLedger,pEntryType)>0; // 10.02.2010 Ingmar; arve kanded tuleb annuleerida arvega !!!!
+     
+    // ---
+end;
+
+procedure   TframeGeneralLedger.refreshObjectList(const skipObjectListLoad : Boolean = False);
+var
+ pOrigFilter : AStr;
+ pFiltStatus : Boolean;
+begin
+      // ------------
+      if not skipObjectListLoad then
+        begin
+
+         qryObjectsGrps.Active:=false;
+         qryObjectsGrps.Active:=true;
+
+
+         pFiltStatus:=qryObjects.Filtered;
+         pOrigFilter:=qryObjects.Filter;
+
+         // --- ohutu reload
+         qryObjects.Active:=False;
+         qryObjects.Active:=True;
+
+         qryObjects.Filtered:=False;
+         qryObjects.Filter:=pOrigFilter;
+         qryObjects.Filtered:=pFiltStatus;
+        end;
+      // !!!!!!!!!
+      // algseis paika; mis kõige nummim, peame objektid ise uuesti väärtustama damn
+      //FAccObjTypes.Items.Assign(FObjectGrps);
+end;
+
+procedure   TframeGeneralLedger.refreshAccountList(const skipClosedAccounts : Boolean = true);
+begin
+       self.FHideClosedAccounts:=true;
+
+ // 20.11.2009 ingmar; kui lookup combod hakkavad tööle tee koodi cleanup !!!
+ with qryAllAccounts,SQL do
+   begin
+       Close;
+       Clear;
+       Add(estbk_sqlclientcollection._CSQLGetAllAccounts);
+       ParamByName('company_id').AsInteger := estbk_globvars.glob_company_id;
+       Open;
+       // vaata ka filtered eventi !!!!
+       Filtered:=true;
+   end;
+
+end;
+
+constructor TframeGeneralLedger.Create(frameOwner: TComponent);
+var
+  pCollItem : TCollectionItem;
+begin
+  inherited Create(frameOwner);
+var
+  pCollItem : TCollectionItem;
+  pTmpStr   : AStr;
+  i : Integer;
+
+begin
+  try
+      inherited Create(frameOwner);
+      self.FGridReadOnly:=true; // välistame sellega, et kohe alguses vale handler paika läheb
+
+
+      //FCurrDataList:=TAStrList.create;
+      self.DoubleBuffered:=true;
+      accountingGrid.DoubleBuffered:=true;
+
+      // ---
+      FOrigGridWndProc:=accountingGrid.WindowProc;
+      accountingGrid.WindowProc:=@self.newGridWindowProc;
+
+
+      FHideClosedAccounts:=true;
+      FInsertMode:=true;
+
+
+      FAccListCombo := TRxDBLookupCombo.Create(self.accountingGrid);
+      FAccListCombo.AutoSize:=False;
+      FAccListCombo.parent := self.accountingGrid;
+      FAccListCombo.Visible := False;
+      //FAccListCombo.AutoComplete := True;
+      FAccListCombo.OnKeyDown := @self.OnAccListComboKeydown;
+      FAccListCombo.OnEnter := @self.OnLookupCmbEnter;
+      FAccListCombo.OnExit := @self.OnLookupCmbExit;
+      FAccListCombo.OnClosePopupNotif:=@self.OnAccPopupClose;
+      FAccListCombo.OnChange:=@self.OnLookupCmbChange;
+      //FAccListCombo.Color:=MyFavLightYellow;
+      //FAccListCombo.OnButtonClick:=@self.OnAccBtnListclick;
+      FAccListCombo.PopUpFormOptions.OnGetCellProps:=@self.OnDbLookupComboSelColor;
+
+      // 23.12.2009 Ingmar
+      FAccListCombo.OnSelect:=@self.OnAccComboSelect;
+  //    FAccListCombo.EmptyItemColor:=estbk_types.MyFavLightYellow;
+
+
+      FAccListCombo.ParentFont := True;
+      FAccListCombo.ParentColor:=False;
+      FAccListCombo.ShowHint:=true;
+      FAccListCombo.DoubleBuffered:=true;
+      FAccListCombo.EmptyValue:=#32;
+      FAccListCombo.Flat:=true;
+      FAccListCombo.BorderStyle:=bsNone;
+      FAccListCombo.PopUpFormOptions.BorderStyle:=bsNone;
+      //FAccListCombo.PopUpFormOptions.Options:=[pfgIndicator,pfgRowlines,pfgCollines,pfgColumnResize];
+      //FAccListCombo.PopUpFormOptions.ShowTitles:=true;
+      //FAccListCombo.PopUpFormOptions.TitleButtons:=true;
+      FAccListCombo.PopUpFormOptions.Options:=[pfgIndicator,pfgRowlines,pfgCollines,pfgColumnResize];
+      FAccListCombo.PopUpFormOptions.TitleButtons:=true;
+      //FAccListCombo.PopUpFormOptions.AutoSort:=true;
+
+
+
+      FAccListCombo.DropDownCount:=15;
+      FAccListCombo.DropDownWidth:=315;
+
+      FAccListCombo.LookupSource:=self.qryAllAccountsDS;
+      FAccListCombo.LookupDisplay:='account_coding;account_name';
+      FAccListCombo.LookupField:='id';
+
+
+      pCollItem:=FAccListCombo.PopUpFormOptions.Columns.Add;
+      (pCollItem as TPopUpColumn).Title.Caption:=estbk_strmsg.SAccCode;
+      (pCollItem as TPopUpColumn).Fieldname:='account_coding';
+      (pCollItem as TPopUpColumn).Width:=85;
+
+
+      pCollItem:=FAccListCombo.PopUpFormOptions.Columns.Add;
+      (pCollItem as TPopUpColumn).Title.Caption:=estbk_strmsg.SAccName;
+      (pCollItem as TPopUpColumn).Fieldname:='account_name';
+      (pCollItem as TPopUpColumn).Width:=185;
+
+
+
+    //  FAccListCombo.BorderWidth:=2;
+
+      FAccListCombo.EmptyValue:=#32;
+      FAccListCombo.UnfindedValue:=rxufNone;
+      //FAccListCombo.UnfindedValue:=rxufNone;
+      FAccListCombo.ButtonWidth:=15;
+      FAccListCombo.ButtonOnlyWhenFocused:=false;
+      FAccListCombo.Height:=23;
+      FAccListCombo.PopUpFormOptions.ShowTitles:=true;
+
+
+      //FAccBtn:=TBitBtn.Create(self.accountingGrid);
+      FObjectColCnt:=1;
+
+      // !!!!
+      FAccObjGroups:=TRxDBLookupCombo.Create(self.accountingGrid);
+      FAccObjGroups.parent := self.accountingGrid;
+      FAccObjGroups.Visible := False;
+    //  FAccObjGroups.AutoComplete := True;
+      FAccObjGroups.ParentFont := False;
+      FAccObjGroups.ParentColor:=False;
+      FAccObjGroups.ShowHint:=true;
+      FAccObjGroups.DoubleBuffered:=true;
+      FAccObjGroups.OnEnter:=@self.OnObjTypeComboEnter;
+      FAccObjGroups.OnExit := @self.OnObjTypeListComboExit;
+      FAccObjGroups.OnKeyDown:=@self.OnObjListComboKeydown;
+      FAccObjGroups.OnSelect:=@self.OnObjListSelect;
+      FAccObjGroups.OnChange:=@self.OnObjListChange;
+      FAccObjGroups.OnDblClick:=@self.OnObjListClick;
+      FAccObjGroups.PopUpFormOptions.TitleButtons:=true;
+
+      FAccObjGroups.OnClosePopupNotif:=@self.OnAccPopupClose; // sama loogika, eventi võib jagada !
+      FAccObjGroups.Hint:=estbk_strmsg.SChooseObjGrp;
+      //FAccObjGroups.Color:=MyFavLightYellow;
+      // --
+      FAccObjGroups.PopUpFormOptions.ShowTitles:=true;
+      FAccObjGroups.PopUpFormOptions.OnGetCellProps:=@self.OnDbLookupComboSelColor;
+
+      FAccObjGroups.ButtonWidth:=15;
+      FAccObjGroups.ButtonOnlyWhenFocused:=false;
+      FAccObjGroups.Height:=23;
+  //    FAccObjGroups.EmptyItemColor:=estbk_types.MyFavLightYellow;
+
+      //FAccObjGroups.LookupSource:=nil;
+      //FAccObjGroups.LookupDisplay:='';
+      //FAccObjGroups.LookupField:='';
+      FAccObjGroups.LookupDisplay:='objgrp';
+      FAccObjGroups.LookupField:='id';
+      FAccObjGroups.LookupDisplayIndex:=0;
+
+      //FAccObjGroups.DataSource:=self.qryObjectsGrpsDs;
+      FAccObjGroups.LookupSource:=self.qryObjectsGrpsDs;
+      // rumala lookupcombo fix
+      FAccObjGroups.DataSource:=nil;
+
+      FAccObjGroups.EmptyValue:=#32;
+      FAccObjGroups.Flat:=true;
+      FAccObjGroups.BorderStyle:=bsNone;
+      FAccObjGroups.PopUpFormOptions.BorderStyle:=bsNone;
+      FAccObjGroups.PopUpFormOptions.Options:=[pfgIndicator,pfgRowlines,pfgCollines,pfgColumnResize];
+
+      pCollItem:=FAccObjGroups.PopUpFormOptions.Columns.Add;
+     (pCollItem as TPopUpColumn).Title.Caption:=estbk_strmsg.SAccObjGrpName;
+     (pCollItem as TPopUpColumn).Fieldname:='objname';
+     (pCollItem as TPopUpColumn).Width:=280;
+
+      FAccObjGroups.LookupDisplay:='objname';
+      FAccObjGroups.LookupField:='id';
+      FAccObjGroups.LookupDisplayIndex:=0;
+
+      //FAccObjGroups.DataSource:=self.qryObjectsDs;
+      FAccObjGroups.LookupSource:=self.qryObjectsGrpsDs;
+      FAccObjGroups.DataSource:=nil;
+
+
+    //  FAccObjGroups.OnClick:=
+    //  FAccObjGroups.OnCloseUp:=@self.OnObjListCloseup;
+      FAccObjGroups.DropDownCount:=15;
+      FAccObjGroups.DropDownWidth:=315;
+
+
+      // !!!
+
+      FAccObjTypes:=TRxDBLookupCombo.Create(self.accountingGrid);
+      //FAccObjTypes.Color:=MyFavLightYellow;
+
+
+      FAccObjTypes.parent := self.accountingGrid;
+      FAccObjTypes.Visible := False;
+    //  FAccObjGroups.AutoComplete := True;
+      FAccObjTypes.ParentFont := False;
+      FAccObjTypes.ParentColor:=False;
+      FAccObjTypes.ShowHint:=true;
+      FAccObjTypes.DoubleBuffered:=true;
+      FAccObjTypes.OnEnter:=@self.OnObjTypeComboEnter;
+      FAccObjTypes.OnExit := @self.OnObjTypeListComboExit;
+      FAccObjTypes.OnKeyDown:=@self.OnObjListComboKeydown;
+      FAccObjTypes.OnSelect:=@self.OnObjListSelect;
+      FAccObjTypes.OnChange:=@self.OnObjListChange;
+
+      FAccObjTypes.PopUpFormOptions.TitleButtons:=true;
+      FAccObjTypes.OnClosePopupNotif:=@self.OnAccPopupClose; // sama loogika, eventi võib jagada !
+      FAccObjTypes.Hint:=estbk_strmsg.SBackToObjGrpList;
+
+      // --
+      FAccObjTypes.PopUpFormOptions.ShowTitles:=true;
+      FAccObjTypes.PopUpFormOptions.OnGetCellProps:=@self.OnDbLookupComboSelColor;
+
+
+  //    FAccObjTypes.EmptyItemColor:=estbk_types.MyFavLightYellow;
+
+      FAccObjTypes.EmptyValue:=#32;
+      FAccObjTypes.Flat:=true;
+      FAccObjTypes.BorderStyle:=bsNone;
+      FAccObjTypes.PopUpFormOptions.BorderStyle:=bsNone;
+      FAccObjTypes.PopUpFormOptions.Options:=[pfgIndicator,pfgRowlines,pfgCollines,pfgColumnResize];
+
+      pCollItem:=FAccObjTypes.PopUpFormOptions.Columns.Add;
+     (pCollItem as TPopUpColumn).Title.Caption:=estbk_strmsg.SAccObjName;
+     (pCollItem as TPopUpColumn).Fieldname:='descr';
+     (pCollItem as TPopUpColumn).Width:=280;
+
+
+
+      FAccObjTypes.ButtonWidth:=15;
+      FAccObjTypes.ButtonOnlyWhenFocused:=false;
+      FAccObjTypes.Height:=23;
+
+      //FAccObjGroups.LookupSource:=nil;
+      //FAccObjGroups.LookupDisplay:='';
+      //FAccObjGroups.LookupField:='';
+      FAccObjTypes.LookupDisplay:='descr';
+      FAccObjTypes.LookupField:='id';
+      FAccObjTypes.LookupDisplayIndex:=0;
+      FAccObjTypes.DataSource:=nil;
+      FAccObjTypes.LookupSource:=qryObjectsDs;
+
+      FAccObjTypes.DropDownCount:=15;
+      FAccObjTypes.DropDownWidth:=315;
+
+      // ---
+      self.prepareGrid;
+      // ---
+
+      estbk_uivisualinit.__preparevisual(self);
+      //  FObjectGrps:=TStringlist.Create;
+
+  if assigned(self.FCurrDataList) then
+     cmbCurrency.Items.Assign(self.FCurrDataList);
+     //accountingGrid.columns.items[CCol_AccCurrency-1].PickList.Assign(self.FCurrDataList);
+     // ---
+
+     self.FGridReadOnly:=false;
+
+ // tiitel ilusam, kui peakirjal vähemalt üks tühik ees; viimane + märk välja jätta !
+ for i:=0 to accountingGrid.Columns.Count-2 do
+   begin
+     pTmpStr:=' '+accountingGrid.Columns.Items[i].Title.Caption;
+     accountingGrid.Columns.Items[i].Title.Caption:=pTmpStr;
+   end;
+
+
+     TStringCellEditor(accountingGrid.EditorByStyle(cbsAuto)).OnKeyDown:=@self.accountingGridKeyDown;
+
+
+
+ except on e : exception do
+    // ---
+    dialogs.messageDlg(format(estbk_strmsg.SEInitializationZError,[e.message,self.Classname]),mtError,[mbOk],0);
+ end;
+end;
+
+// ebameeldiva vea hack
+procedure TframeGeneralLedger.newGridWindowProc(var Message: TMessage);
+begin  
+
+if ((Message.Msg = WM_VSCROLL) or (Message.Msg = WM_HSCROLL))  then
+    begin
+
+      if self.FAccListCombo.visible then
+         begin
+          self.FAccListCombo.OnSelect(self.FAccListCombo);
+          self.FAccListCombo.OnExit(self.FAccListCombo);
+          self.FAccListCombo.Visible:=False;
+          self.FAccListCombo.PopupVisible:=false;
+         end; // --
+
+
+       if self.FAccObjGroups.visible then
+        begin
+          //self.FAccObjGroups.OnSelect(self.FAccObjGroups);
+          //self.FAccObjGroups.OnExit(self.FAccObjGroups);
+          self.FAccObjGroups.PopupVisible:=false;
+          self.FAccObjGroups.Visible:=False;
+        end;
+
+       if self.FAccObjTypes.Visible then
+        begin
+          //self.FAccObjTypes.OnSelect(self.FAccObjTypes);
+          //self.FAccObjTypes.OnExit(self.FAccObjTypes);
+          self.FAccObjTypes.PopupVisible:=false;
+          self.FAccObjTypes.Visible:=False;
+        end;
+
+          accountingGrid.SetFocus;
+          //accountingGrid.Editor:=nil; // TStringCellEditor (accountingGrid.EditorByStyle(cbsAuto));
+    end;
+    // (Message.msg = WM_Mousewheel)) then
+    self.FOrigGridWndProc(Message);
+
+end;
+
+destructor TframeGeneralLedger.Destroy;
+begin
+  accountingGrid.WindowProc:=self.FOrigGridWndProc;
+  self.performCleanup;
+//  freeAndNil(FObjectGrps);
+  estbk_utilities.clearStrObject(TAStrings(FCurrDataList)); 
+  freeAndNil(FCurrDataList);
+  inherited Destroy;
+end;
+
+{ TframeGeneralLedger }
+procedure TframeGeneralLedger.prepareGrid;
+var
+  pgridCol: TGridColumn;
+  i: integer;
+begin
+  accountingGrid.RowCount := 1000;
+  // accountingGrid.DefaultRowHeight := FAccListCombo.Height - 2;
+
+  for i := 1 to accountingGrid.RowCount - 1 do
+    accountingGrid.Cells[0, i] := IntToStr(i);
+end;
+
+
+
+// ------------------------------ konto tüüpide evendid
+procedure TframeGeneralLedger.OnAccListComboKeydown(Sender: TObject;
+  var Key: word; Shift: TShiftState);
+begin
+ // --
+
+      //      TComboBox(Sender).DroppedDown:=not TComboBox(Sender).DroppedDown
+      {
+  case TRxDBLookupCombo(sender).PopupVisible of
+   true  : TRxDBLookupCombo(sender).hi
+   false : TRxDBLookupCombo(sender).
+  end  else}
+  if (Shift=[ssCtrl]) and (key =VK_DELETE) then
+    begin
+      deleteGenLedgLine(self.FPaCurrRowPos);
+      key:=0;
+    end else
+  if (shift = []) then
+    begin
+
+
+
+    if Sender=self.FAccListCombo then
+    with TRxDBLookupCombo(Sender) do
+      case key of
+        VK_DELETE:
+        try
+           self.FSkipOnChangeEvent:=true;
+
+        // kirjelduses sama konto nimi...
+        //if trim(self.accountingGrid.Cells[CCol_AccDescr,self.FPaCurrRowPos])=text then
+        if trim(self.accountingGrid.Cells[CCol_AccDescr,self.FPaCurrRowPos])=LookupSource.DataSet.FieldByName('account_name').asString then
+           self.accountingGrid.Cells[CCol_AccDescr,self.FPaCurrRowPos]:='';
+           self.accountingGrid.Cells[CCol_Account,self.FPaCurrRowPos]:='';
+
+
+        if assigned(self.accountingGrid.Objects[CCol_Account,self.FPaCurrRowPos]) then
+         begin
+           self.accountingGrid.Objects[CCol_Account,self.FPaCurrRowPos].Free;
+           self.accountingGrid.Objects[CCol_Account,self.FPaCurrRowPos]:=nil;
+         end;
+
+           // ---
+           Value:='';
+           Text:='';
+           key:=0;
+
+        finally
+           self.FSkipOnChangeEvent:=true;
+        end;
+
+        VK_ESCAPE:
+        begin
+
+            // ---
+            key     := 0;
+            //PopupVisible := False;
+            Visible := False;
+            // sest ta on seda...
+            // self.OnLookupCmbExit(sender);
+        end;
+
+        VK_RETURN,
+        VK_TAB:
+        begin
+
+             // ei tõmmata fookust maha, tee või tina !!!
+             // self.OnLookupCmbExit(Sender);
+         if  trim(text)='' then
+             self.accountingGrid.Cells[CCol_AccDescr,self.FPaCurrRowPos]:=''
+         else
+         if  assigned(LookupSource.DataSet) and (trim(self.accountingGrid.Cells[CCol_AccDescr,self.FPaCurrRowPos])='') then
+             self.accountingGrid.Cells[CCol_AccDescr,self.FPaCurrRowPos]:=LookupSource.DataSet.FieldByName('account_name').asString;
+
+             // ehk justkui tab
+             key     := 0;
+             //DroppedDown := False;
+             //PopupVisible:=False;
+             //Visible := False;
+
+
+          //accountingGrid.SelectedColumn
+          if accountingGrid.Col + 1 <= accountingGrid.ColCount then
+             accountingGrid.Col := accountingGrid.Col + 1;
+
+
+          if accountingGrid.CanFocus then
+             accountingGrid.SetFocus;
+        end;
+
+        VK_RIGHT: if not TRxDBLookupCombo(Sender).PopupVisible then //if TRxDBLookupCombo(Sender).Text='' then
+          begin
+
+            if accountingGrid.Col + 1 <= accountingGrid.ColCount then
+               accountingGrid.Col := accountingGrid.Col + 1;
+
+            if accountingGrid.CanFocus then
+               accountingGrid.setFocus;
+               key:= 0;
+          end;
+
+        VK_DOWN,
+        VK_NEXT:
+          if not PopupVisible then
+          begin
+            if accountingGrid.Row + 1 <= accountingGrid.RowCount then
+               accountingGrid.Row := accountingGrid.Row + 1;
+
+            if accountingGrid.CanFocus then
+               accountingGrid.setFocus;
+               key:= 0;
+          end;
+
+        VK_UP,
+        VK_PRIOR:
+         //if not DroppedDown then
+         if not PopupVisible then
+          begin
+            //DroppedDown := False;
+            if accountingGrid.Row - 1 > 0 then
+              accountingGrid.Row := accountingGrid.Row - 1;
+
+            if accountingGrid.CanFocus then
+               accountingGrid.SetFocus;
+               key:= 0;
+            // muidu paneb meie fookus jooksu...run focus, run...
+          end;
+       // --------
+      end;
+   end;
+end;
+
+procedure TframeGeneralLedger.OnAccListComboEnter(Sender: TObject);
+begin
+ // ---
+end;
+
+
+procedure TframeGeneralLedger.OnAccPopupClose(Sender: TObject);
+begin
+  estbk_utilities.rxLibAndMainMenuFix();
+end;
+
+
+procedure TframeGeneralLedger.detectChangesAndEnableSaveBtn;
+begin
+    if not self.FInsertMode and not self.FGridReadOnly then
+     begin
+       // kas andmed muutusid !
+       btnSaveEntry.Enabled:=(self.FAccRowsChkStr<>self.calcChksumStrForAccRecord) or
+                             (self.FAccHeaderChkStr<>self.calcChksumStrForHdrRecord);
+     end;
+end;
+
+// 23.12.2009 Ingmar
+procedure TframeGeneralLedger.OnAccComboSelect(Sender: TObject);
+begin
+ if  not self.FSkipOnChangeEvent then
+ with TRxDBLookupCombo(Sender) do
+ if assigned(LookupSource.DataSet) then
+// if Focused then
+  try
+       self.FSkipOnChangeEvent:=true;
+
+       // ----
+       Text:=LookupSource.DataSet.FieldByName('account_coding').asString;
+
+
+   if  not assigned(self.accountingGrid.Objects[FPaCurrColPos,FPaCurrRowPos]) then
+       self.accountingGrid.Objects[FPaCurrColPos,FPaCurrRowPos]:=TCellAccountType.create;
+
+       TCellAccountType(accountingGrid.Objects[FPaCurrColPos,FPaCurrRowPos]).AccountId:=LookupSource.DataSet.FieldByName('id').asInteger;
+       self.accountingGrid.Cells[FPaCurrColPos,FPaCurrRowPos]:=LookupSource.DataSet.FieldByName('account_coding').asString;
+       self.accountingGrid.Cells[CCol_AccDescr,FPaCurrRowPos]:=LookupSource.DataSet.FieldByName('account_name').asString;
+
+
+  finally
+        self.FSkipOnChangeEvent:=false;
+        // ---
+        // 18.08.2010 Ingmar
+        self.lazFocusFix.Enabled:=true;
+  end;
+end;
+
+// 04.01.2010 Ingmar; viisin exiti koodi onchange alla, sest ta töötas valesti, kui hiire rullikuga scrollida
+procedure TframeGeneralLedger.OnAccListChange(Sender: TObject);
+begin
+ with TRxDBLookupCombo(Sender) do
+ if  Focused then
+  try
+     self.FSkipOnChangeEvent:=true;
+  if text='' then
+    begin
+         assert(assigned(self.accountingGrid.Objects[self.FPaCurrColPos,self.FPaCurrRowPos]));
+         self.accountingGrid.Cells[self.FPaCurrColPos,self.FPaCurrRowPos]:='';
+
+      if assigned(self.accountingGrid.Objects[self.FPaCurrColPos,self.FPaCurrRowPos]) then
+         TCellAccountType(self.accountingGrid.Objects[self.FPaCurrColPos,self.FPaCurrRowPos]).AccountId:=0;
+    end;
+    // ------
+  finally
+     self.FSkipOnChangeEvent:=false;
+  end;
+end;
+
+procedure TframeGeneralLedger.OnAccListComboExit(Sender: TObject);
+begin
+ // --
+end;
+
+
+function TframeGeneralLedger.changeColRowChgDetected(const allowChgCurrVal : Boolean = true):Boolean;
+begin
+     // memo1.lines.add(format('%d %d : %d %d',[FPaNewColPos,FPaNewRowPos,FPaCurrColPos,FPaCurrRowPos]));
+     result:=(FPaNewColPos<1) or
+             (FPaNewRowPos<1) or
+             (FPaCurrColPos<>FPaNewColPos) or
+             (FPaCurrRowPos<>FPaNewRowPos);
+ if  self.accountingGrid.Col=self.accountingGrid.ColCount-1 then
+    begin
+     result:=False;
+     exit;
+    end;
+
+ if  allowChgCurrVal then
+   begin
+    FPaCurrColPos:=FPaNewColPos;
+    FPaCurrRowPos:=FPaNewRowPos;
+   end;
+end;
+
+
+procedure TframeGeneralLedger.OnObjTypeComboEnter(Sender: TObject);
+begin
+
+    // -----------
+
+end;
+
+// haldame obj. tüüpe
+procedure TframeGeneralLedger.OnObjTypeListComboExit(Sender: TObject);
+var
+ pObjId : Integer;
+// bRealColChg : Boolean;
+begin
+  // ##########################################################################
+  // 22.11.2009 Ingmar; kuna ikka DBLookupComboEvendid on täiesti sassis,
+  // kui kasutada teda editoris, siis peame ikka tegema väga rõvedaid hacke !
+  // Tulevikus uurime edasi, kas on võimalik inimlikult asju teha !!!!!
+  // ##########################################################################
+
+  if  self.FPaObjSkipExitEvent then
+    begin
+        FPaObjSkipExitEvent:=false;
+        exit;
+    end;
+
+      dec(self.FPaObjComboExitRefCnt);
+  if  changeColRowChgDetected(false) then
+      exit;
+
+
+
+       //memo1.lines.add(format('Exit: CNT: %d',[FPaObjComboExitRefCnt]));
+  with TRxDBLookupCombo(Sender) do
+  //if  changeColRowChgDetected(false) then
+  //if visible and (FPaObjComboExitRefCnt=-3) and (not focused or not self.accountingGrid.focused) then
+  if  (FPaObjComboExitRefCnt<=2) then // and (not focused or not self.accountingGrid.focused) then
+  begin
+       // 22.12.2009 Ingmar; tekitab tõsised fookuse probleemid, last TStringGrid ise haldab nähtavust !!!!
+       //Visible:=false;
+       Tag:=0;
+       // memo1.lines.add('MY REAL EXIT');
+       FPaObjComboExitRefCnt:=3;
+       // ---
+   end;
+end;
+
+procedure TframeGeneralLedger.OnObjListChange(Sender: TObject);
+begin
+     // 22.11.2009 Ingmar; ebameeldiva rxlookupcombo bugi parandamiseks ! onexit kutsutakse onchange puhul ka välja
+     self.FPaObjSkipExitEvent:=true;
+     //memo1.lines.add('change 1');
+
+end;
+
+// 21.11.2009 Ingmar
+procedure TframeGeneralLedger.OnObjListSelect(Sender: TObject);var
+ pGrpId,pObjId : Integer;
+begin
+
+ // --
+ with TRxDBLookupCombo(sender) do
+ if visible then
+  begin
+       if self.FSkipCurrencySelEvnt then
+          exit;
+
+       // ---
+       if Sender=self.FAccObjGroups then
+         begin
+
+
+            pGrpId:=qryObjectsGrps.FieldByName('id').asInteger;
+
+
+        if  not assigned(accountingGrid.Objects[accountingGrid.col, accountingGrid.row]) then
+            accountingGrid.Objects[accountingGrid.col, accountingGrid.row]:=TCellObjectType.Create;
+
+            // objektidele uuesti filter peale !!!!!!
+            qryObjects.Filtered:=false;
+            qryObjects.Filter:=format('classificator_id=%d',[pGrpId]);
+            qryObjects.Filtered:=true;
+
+            TCellObjectType(accountingGrid.Objects[accountingGrid.col, accountingGrid.row]).ObjectGrp:=pGrpId;
+
+        if  FAccObjGroups.PopupVisible then
+            FAccObjGroups.PopupVisible:=false;
+
+
+            // 29.06.2010 ingmar; ainus vöimalus vältida olukorda,
+            // kus select evendi sees editor ära vahetada, ilma, et tekiks can set focus error
+            // on kasutada timerit !
+            // !!!!!!!!!!!!!!!!!!!!!!!!!
+            lazObjchangeTimer.Enabled:=not self.FSkipCurrencySelEvnt;
+
+
+         end else
+       if (Sender=self.FAccObjTypes) and assigned(accountingGrid.Objects[accountingGrid.col, accountingGrid.row]) then
+         begin
+            pObjId:=qryObjects.FieldByName('id').asInteger;
+            TCellObjectType(accountingGrid.Objects[accountingGrid.col, accountingGrid.row]).ObjectId:=pObjId;
+            accountingGrid.Cells[accountingGrid.col, accountingGrid.row]:=qryObjects.FieldByName('descr').asString;
+
+            Text:=qryObjects.FieldByName('descr').asString;
+            Value:=intTostr(pObjId);
+
+         if self.FAccObjTypes.CanFocus then
+            self.FAccObjTypes.SetFocus;
+         end;
+
+
+   // ---
+  end;
+end;
+
+procedure TframeGeneralLedger.OnObjListComboKeydown(Sender: TObject;
+  var Key: word; Shift: TShiftState);
+var
+ FGotoNextCell : Boolean;
+begin
+ if (Shift=[ssCtrl]) and (key =VK_DELETE) then
+   begin
+     deleteGenLedgLine(self.FPaCurrRowPos);
+     key:=0;
+   end else
+ if (shift = []) then
+    with TRxDBLookupCombo(Sender) do
+      case key of
+        //VK_ESCAPE:
+        VK_DELETE:
+        if assigned(accountingGrid.Objects[accountingGrid.Col, accountingGrid.Row]) then
+        begin
+             //self.OnObjTypeListComboExit(Sender);
+             Text:='';
+             //accountingGrid.Cells[FPaCurrColPos, FPaCurrRowPos]:='';
+
+          if accountingGrid.CanFocus then
+             accountingGrid.SetFocus;
+             key     := 0;
+             // DroppedDown := False;
+             //Visible := False;
+
+
+             // kustutame valiku !!!!
+             accountingGrid.Cells[accountingGrid.Col, accountingGrid.Row]:='';
+             TCellObjectType(accountingGrid.Objects[accountingGrid.Col, accountingGrid.Row]).ObjectId:=0;
+             TCellObjectType(accountingGrid.Objects[accountingGrid.Col, accountingGrid.Row]).ObjectGrp:=0;
+             // ---
+        end;
+
+
+        // uuesti grupid avada:
+        VK_F5:
+        begin
+
+
+             Text:='';
+             Hint:=estbk_strmsg.SChooseObjGrp;
+             //FAccObjGroups.SetFocus;
+             key:=0;
+
+
+
+           try
+               self.FSkipCurrencySelEvnt:=true;
+           if  assigned(accountingGrid.Objects[accountingGrid.Col, accountingGrid.Row]) then
+             begin
+               accountingGrid.Objects[accountingGrid.Col, accountingGrid.Row].Free;
+               accountingGrid.Objects[accountingGrid.Col, accountingGrid.Row]:=nil;
+             end;
+
+               self.FAccObjTypes.Width:=0;
+               accountingGrid.Editor:= self.FAccObjGroups;
+               self.FAccObjGroups.Visible:=true;
+               self.FAccObjGroups.setFocus;
+               // ---
+               accountingGrid.Cells[accountingGrid.Col, accountingGrid.Row]:='';
+               qryObjects.Filtered:=false;
+               qryObjects.Filter:='';
+               self.FAccObjGroups.PopupVisible:=true;
+
+           finally
+             self.FSkipCurrencySelEvnt:=false;
+           end;
+        end;
+
+        VK_RETURN,
+        VK_TAB:
+        begin
+            if accountingGrid.Col < accountingGrid.ColCount-2 then // - viimasele columnile ei liigu
+               accountingGrid.Col := accountingGrid.Col + 1
+            else
+            if accountingGrid.Row < accountingGrid.RowCount-1 then
+             begin
+               accountingGrid.Row := accountingGrid.Row + 1;
+               accountingGrid.Col:=1;
+             end;
+
+            // et fookus minema ei jookseks
+            if accountingGrid.CanFocus then
+               accountingGrid.SetFocus;
+               key:=0;
+
+        end;
+
+        VK_LEFT: if not popUpVisible  then
+          begin
+               key     := 0;
+               // DroppedDown := False;
+            if accountingGrid.Col - 1>0 then
+               accountingGrid.Col := accountingGrid.Col - 1;
+
+            if accountingGrid.CanFocus then
+               accountingGrid.SetFocus;
+
+          end;
+
+
+        VK_RIGHT: if not popUpVisible then
+          begin
+               key     := 0;
+               //DroppedDown := False;
+            if accountingGrid.Col + 1 <= accountingGrid.ColCount then
+               accountingGrid.Col := accountingGrid.Col + 1;
+
+            if accountingGrid.CanFocus then
+               accountingGrid.SetFocus;
+          end;
+
+        VK_DOWN,
+        VK_NEXT: if not popUpVisible then
+          begin
+               key     := 0;
+               //DroppedDown := False;
+            if accountingGrid.Row + 1 <= accountingGrid.RowCount then
+               accountingGrid.Row := accountingGrid.Row + 1;
+
+            if accountingGrid.CanFocus then
+               accountingGrid.SetFocus;
+          end;
+
+        VK_UP,
+        VK_PRIOR: if not popUpVisible then
+          begin
+               key     := 0;
+               //DroppedDown := False;
+
+            if accountingGrid.Row - 1 > 0 then
+               accountingGrid.Row := accountingGrid.Row - 1;
+
+            if accountingGrid.CanFocus then
+               accountingGrid.SetFocus;
+          end;
+      end;
+end;
+
+{
+
+procedure TForm1.StringGrid1PrepareCanvas(sender: TObject; Col, Row: Integer;
+  aState: TGridDrawState);
+begin
+  if Col=2 then
+    accountingGrid2.Canvas.TextStyle.Alignment := taRightJustify else
+  if Col=3 then
+    accountingGrid2.Canvas.TextStyle.Alignment := taCenter;
+end;
+}
+procedure TframeGeneralLedger.addDCSideSum(var colPos : Integer; var rowPos : Integer);
+var
+ pAddVal : Double;
+ pTemp   : AStr;
+ //pCurr   : AStr;
+ pAccName : AStr;
+begin
+  with accountingGrid do
+  begin
+    if (Col=CCol_AccDebit)   then
+      begin
+        if (trim(Cells[Col,Row])<>'') then
+          begin
+                //pCurr:=trim(Cells[CCol_AccCurrency,Row]);
+                pAccName:=trim(Cells[CCol_Account,Row]);
+
+
+                pAddVal:=StrToFloatDef(Cells[Col,Row],0);
+                pTemp:=trim(Cells[Col+1,Row+1]+Cells[Col,Row+1]); // ei tohi olla naabrit/ega kedagi tema alla
+                // 14.11.2009 ingmar; lubame ainult paaritute ridade puhul automaatset numeratsiooni
+
+            //if (pAddVal<>0) and (pTemp='') and ((pAccName<>'') and ((Row mod 2)<>0)) then
+            if (pAddVal<>0) and
+               (pTemp='')   and
+              ((double(self.FLastDSideSum- self.FLastCSideSum)<>0)
+               or
+               (self.FLastDSideSum=0)
+               or
+               (self.FLastCSideSum=0)) then
+              begin
+                Cells[Col+1,Row+1]:=CurrToStr(pAddVal);//FloatToStr(pAddVal); 28.10.2009
+                //Cells[CCol_AccCurrency,Row+1]:=pCurr;
+              end;
+                // --
+                colPos:=colPos + 3;
+          end else
+                colPos:=colPos + 1;
+      end else
+    // ja vastupidi...rõnn rõnn
+    if (Col=CCol_AccCredit)  then
+      begin
+        if (trim(Cells[Col,Row])<>'') then
+          begin
+              //pCurr:=trim(Cells[CCol_AccCurrency,Row]);
+              pAccName:=trim(Cells[CCol_Account,Row]);
+
+
+              pAddVal:=StrToFloatDef(Cells[Col,Row],0);
+              pTemp:=trim(Cells[Col-1,Row+1]+Cells[Col,Row+1]);
+
+          //if (pAddVal<>0) and (pTemp='') and ((pAccName<>'') and ((Row mod 2)<>0)) then
+          if (pAddVal<>0) and
+             (pTemp='')   and
+             (pAccName<>'') and
+            ((double(self.FLastDSideSum- self.FLastCSideSum)<>0)
+             or
+             (self.FLastDSideSum=0)
+             or
+             (self.FLastCSideSum=0)) then
+            begin
+              Cells[Col-1,Row+1]:=CurrToStr(pAddVal); // FloatToStr(pAddVal); 28.10.2009
+              //Cells[CCol_AccCurrency,Row+1]:=pCurr;
+            end;
+          end; // ---
+          // ---
+          // Col := Col + 1;
+          colPos:= colPos + 2;
+      end else
+          colPos:= colPos + 1;
+  // ---
+  end;
+end;
+
+procedure TframeGeneralLedger.doCConversion;
+var
+ i,pCurrIndx : Integer;
+ pCurr       : AStr;
+ pDCSum      : AStr;
+ pConvVal    : Double;
+begin
+ if not self.FGridReadOnly then
+ with accountingGrid do
+  begin
+
+        for i:=1 to rowCount-1 do
+         begin
+                pCurr :=ansiuppercase(Cells[CCol_AccCurrency,i]);
+             if pCurr='' then
+                Cells[CCol_AccMonConversion,i]:=''
+             else
+             begin
+                  pDCSum:=trim(Cells[CCol_AccDebit,i]);
+               if pDCSum='' then
+                  pDCSum:=trim(Cells[CCol_AccCredit,i]);
+
+               // kas midagi leiti lõpuks...
+               if pDCSum<>'' then
+                 begin
+                 if  pCurr=estbk_globvars.glob_baseCurrency then
+                     continue;
+
+                     pCurrIndx:=self.FCurrDataList.IndexOf(pCurr);
+                     // -- !!
+                     assert(pCurrIndx>=0);
+
+                     pConvVal:=roundTo(StrToFloatDef(pDCSum,0)*TCurrencyObjType(self.FCurrDataList.Objects[pCurrIndx]).currVal,-2);
+                     // arvutame andmed vastavalt kursile...
+                     Cells[CCol_AccMonConversion,i]:=trim(format(CCurrentMoneyFmt1,[pConvVal])); // FloatTostr(
+                 end else
+                     Cells[CCol_AccMonConversion,i]:='';
+             end;
+         // --------
+         end;
+  end;
+end;
+
+
+procedure TframeGeneralLedger.accountingGridKeyDown(Sender: TObject;
+  var Key: word; Shift: TShiftState);
+var
+ pColPos : Integer;
+ pRowPos : Integer;
+begin
+
+
+ if (Shift=[ssCtrl]) and (key =VK_DELETE) then
+   begin
+     deleteGenLedgLine(self.FPaCurrRowPos);
+     key:=0;
+   end else
+  if (Shift = []) and ((key = VK_TAB) or (key = VK_RETURN)) then
+  with accountingGrid do
+  begin
+
+          if Col  < ColCount-2 then // jätame selle viimase "objekti" valiku nupu välja
+           begin
+             pColPos:=Col;
+             pRowPos:=Row;
+
+             // --
+             self.addDCSideSum(pColPos,pRowPos);
+
+             Col:=pColPos;
+             Row:=pRowPos;
+
+           end else
+          if Row <= RowCount then
+           begin
+             Row := Row + 1;
+             Col := 1;
+           end;
+
+        if  CanFocus then
+            SetFocus;
+            key := 0;
+  end;
+end;
+
+
+procedure TframeGeneralLedger.deleteGenLedgLine(const pRowNr : Integer);
+var
+  i,j : Integer;
+begin
+    assert(pRowNr>0,'$7');
+
+ if dialogs.messageDlg(estbk_strmsg.SCConfGenLedLineDelConf,mtconfirmation,[mbYes,mbNo],0)=mrNo then
+    exit;
+
+ with accountingGrid do
+   begin
+        // objektid ka vabastada
+
+        for i:=1 to ColCount-1 do
+         if assigned(Objects[i,pRowNr]) then
+           begin
+            Objects[i,pRowNr].Free;
+            Objects[i,pRowNr]:=nil;
+           end;
+
+
+            Clean(CCol_Account,pRowNr,Colcount,pRowNr,[gzNormal]);
+        for i:=pRowNr to rowcount-2 do
+         begin
+           for j:=1 to colcount-1 do
+              begin
+             // if (j=CCol_Account) or (j>=CCol_Counterpart) then
+                  Objects[j,i]:=Objects[j,i+1];
+                  Cells[j,i]:=Cells[j,i+1];
+              end;
+         end;
+
+        // lihtne, kuid efektiivne trikk !
+        // korra peame liigutama kirjet, et editor õigesti väärtustataks
+        if Row<RowCount-1 then
+          begin
+           Row:=pRowNr+1;
+           Row:=pRowNr-1;
+          end else
+          begin
+           Row:=pRowNr-1;
+           Row:=pRowNr+1;
+          end;
+
+           Col:=Col+1;
+           Col:=Col-1;
+           Editor:=nil;
+
+   end; // ---
+
+end;
+
+
+procedure TframeGeneralLedger.accountingGridEditingDone(Sender: TObject);
+procedure intCalcdebit;
+var
+  i    : integer;
+  pSum : double;
+  pVal : double;
+begin
+    pSum := 0;
+  //                        StrToFloatDef(Cells[CAccDebit,i],0)
+  with accountingGrid do
+   begin
+
+      for i := 1 to RowCount - 1 do
+      if  Cells[CCol_AccDebit, i]<>'' then
+        begin
+          // 04.11.2009 Ingmar
+        if trim(Cells[CCol_AccMonConversion, i])<>'' then
+           pVal:=StrToFloatDef(trim(Cells[CCol_AccMonConversion, i]),0)
+        else
+           pVal:=StrToFloatDef(Cells[CCol_AccDebit, i], 0);
+
+
+           // seoses valuutakannetega loogika muutus natuke !
+           pSum := pSum + pVal;
+           stxtDPart.Caption :=systoutf8(format(' %m', [pSum]));
+        end;
+   // ----------
+   end;
+end;
+
+
+procedure intCalccredit;
+var
+  i    : integer;
+  pVal : double;
+  pSum : double;
+begin
+       pSum := 0;
+  with accountingGrid do
+  begin
+
+      for i := 1 to RowCount - 1 do
+      if  Cells[CCol_AccCredit, i]<>'' then
+       begin
+          // 04.11.2009 Ingmar
+        if trim(Cells[CCol_AccMonConversion, i])<>'' then
+           pVal:=StrToFloatDef(trim(Cells[CCol_AccMonConversion, i]),0)
+        else
+           pVal:=StrToFloatDef(Cells[CCol_AccCredit, i], 0);
+           pSum := pSum +pVal;
+           // FSum := FSum + abs(StrToFloatDef(Cells[CCol_AccCredit, i], 0)); // kreeditsummad alati negatiivsed ?!?
+           stxtCPart.Caption := systoutf8(format(' %m', [pSum]));
+       end;
+  end;
+  // -------
+end;
+
+//  b    : boolean;
+begin
+  // arvutame siis kohe ka uued summad...
+  //if not self.FGridReadOnly then
+  //begin
+    // --- kasutan senderit markerina, kui otse kutsutakse välja, siis ta NIL !!!
+    if assigned(Sender) then
+    with accountingGrid do
+     begin
+
+
+        // arvutame pidevalt informatiivseid summasid !!!
+        if (col in [CCol_AccDebit,CCol_AccCredit]) then
+           begin
+                if trim(Cells[Col, Row])<>'' then
+                   Cells[Col, Row]:=currToStr(roundto(StrToFloatDef(Cells[Col, Row],0),-2));
+
+
+
+              // -->
+              case col of
+               CCol_AccDebit  : intCalcdebit;
+               CCol_AccCredit : intCalccredit;
+              end;
+
+
+               // paremale poole siis nö summa baasrahas !
+               self.doCConversion;
+          end;
+     // ------------
+     end else
+     begin
+       intCalcdebit;
+       intCalccredit;
+     end;
+
+
+    // !!!!
+    // varasema kirje avamisel vaatame, kas avame ka salvestamise nupu; ehk kas midagi ka muutus gridis - tavaväljadel !
+    self.detectChangesAndEnableSaveBtn;
+
+
+
+  //end else
+  //begin
+  //  stxtDPart.Caption := format(' %m', [0.00]);
+  //  stxtCPart.Caption := format(' %m', [0.00]);
+  //end;
+end;
+
+procedure TframeGeneralLedger.accountingGridClick(Sender: TObject);
+begin
+// ---
+end;
+
+
+procedure TframeGeneralLedger.accountingGridDrawCell(Sender: TObject; aCol, aRow: Integer; aRect: TRect; aState: TGridDrawState);
+begin
+
+    // 28.09.2009 Ingmar; vahetevahel olen ikka täitsa rumal;
+    // pikalt mõtlesin, miks titlet ei kirjutada, aga table sisu küll. Header tuleb ise joonistada
+
+ with TStringGrid(Sender) do
+  begin
+  {
+    Canvas.Font.Color  := clBlack;
+    Canvas.Brush.Color := clWhite;
+    Canvas.Pen.Color := clBlack;
+    Canvas.Pen.Width := 1;
+  }
+
+  // tiitel
+  if  (aRow=0) and (aCol>0) then
+    begin
+//       Canvas.Font.Style  := [fsBold];
+//    if aCol<Columns.Count then
+       Canvas.TextOut(aRect.Left+5, aRect.Top+2,Columns.Items[aCol-1].Title.Caption);
+    end;
+{
+  end
+    else
+    begin
+//      Canvas.Font.Style  := [];
+      Canvas.TextOut(aRect.Left+3, aRect.Top+3,Cells[aCol,aRow]);
+    end;
+}
+      // Tpicllist pole meie sõber !
+      if not Enabled or self.FGridCleanup then
+         exit;
+
+
+        //Canvas.TextWidth
+        //InflateRect(FocusedRect, -2, -2);
+      if (aCol>=CCol_Counterpart+1) then
+       begin
+        if (gdFocused in aState) then
+         begin
+              FAccObjGroups.Left := (aRect.Left + TStringGrid(Sender).Left)-1;
+              FAccObjGroups.Top := aRect.Top;
+              FAccObjGroups.Width := (aRect.Right - aRect.Left) - 1;
+              FAccObjGroups.Height := (aRect.Bottom - aRect.Top) - 2;
+
+              FAccObjTypes.Left := (aRect.Left + TStringGrid(Sender).Left)-1;
+              FAccObjTypes.Top := aRect.Top;
+              FAccObjTypes.Width := (aRect.Right - aRect.Left) - 1;
+              FAccObjTypes.Height := (aRect.Bottom - aRect.Top) - 2;
+         end;
+         // ---
+       end else
+      if (aCol = CCol_Account) then
+       begin
+        if (gdFocused in aState) then
+         begin
+              FAccListCombo.Left := (aRect.Left + TStringGrid(Sender).Left)-1;
+              FAccListCombo.Top := aRect.Top;
+              //aRect.Top + TStringGrid(Sender).Top + 2;
+              FAccListCombo.Width := (aRect.Right - aRect.Left) - 1;
+              FAccListCombo.Height := (aRect.Bottom - aRect.Top) - 2;
+
+        end;
+        // ---
+       end;
+  end;
+end;
+
+
+procedure TframeGeneralLedger.addObjCol;
+var
+ pGridCol : TGridColumn;
+begin
+     // ---
+     inc(FObjectColCnt);
+
+with self.accountingGrid do
+   begin
+      Columns.Items[Columns.Count-1].Title.Caption:=format(estbk_strmsg.CSObjectCol,[FObjectColCnt]);
+      Columns.Items[Columns.Count-1].ReadOnly:=False;
+      Columns.Items[Columns.Count-1].ButtonStyle:=cbsAuto;
+      Columns.Items[Columns.Count-1].Width:=200;
+      Columns.Items[Columns.Count-1].MaxSize:=300;
+      Columns.Items[Columns.Count-1].MinSize:=10;
+
+      pGridCol:=Columns.Add;
+      pGridCol.ButtonStyle:=cbsButton;
+      pGridCol.MinSize:=25;
+      pGridCol.MaxSize:=25;
+      pGridCol.Width:=25;
+      pGridCol.ReadOnly:=true;
+      pGridCol.Title.Caption:=' + ';
+
+      //SetFocus;
+      Col:=Columns.Count-1;
+      // timeriga viime cursori eelmisele columnile, ainus võimalus mööda saada igasugustest gridi bugidest !!!
+      //ColCount:=ColCount+1;
+   end;
+end;
+
+procedure TframeGeneralLedger.accountingGridEditButtonClick(Sender: TObject);
+begin
+  if  Self.FGridReadOnly then
+      Exit;
+
+   // fookuse trikk, muidu objekti väljad ei tööta õigesti !
+   if self.FAccObjTypes.Visible and self.FAccObjTypes.CanFocus then
+      SetFocus;
+
+      self.addObjCol;
+end;
+
+
+
+procedure TframeGeneralLedger.accountingGridEnter(Sender: TObject);
+begin
+  // Memo1.lines.add('accountingGridEnter');
+  // ---
+  if not self.FGridReadOnly and (accountingGrid.Row=1) and (accountingGrid.Col=1) and not self.FAccListCombo.Visible then
+   begin
+      self.FPaCurrColPos:=-1;
+      self.FPaCurrRowPos:=-1;
+      // 31.10.2009 Ingmar; fix
+      TStringGrid(Sender).Editor:=self.FAccListCombo;
+      //self.FAccListCombo.OnEnter(self.FAccListCombo);
+   end;
+end;
+
+procedure TframeGeneralLedger.accountingGridExit(Sender: TObject);
+begin
+  // 03.01.2010 Ingmar
+  self.accountingGridEditingDone(nil);
+
+end;
+
+procedure TframeGeneralLedger.accountingGridGetEditMask(Sender: TObject;
+  ACol, ARow: integer; var Value: string);
+begin
+  // -------- ärme kasuta, siis kompatiiblus kadunud
+ (*
+   if ( aCol = 5 ) then
+     PostMessage(Self.Handle
+    ,WM_SETMAXLENGTH
+    ,{WParam=}55)
+    ,{LParam=}LongInt(TStringGridCracker(Sender).InplaceEditor));
+ *)
+end;
+
+procedure TframeGeneralLedger.accountingGridHeaderClick(Sender: TObject; IsColumn: Boolean; Index: Integer);
+begin
+  if isColumn and (Index=TStringGrid(Sender).ColCount-1) then
+     self.accountingGridEditButtonClick(Sender);
+end;
+
+
+procedure TframeGeneralLedger.accountingGridKeyPress(Sender: TObject; var Key: char);
+var
+ pData : AStr;
+ pCPos : Integer;
+begin
+  if Self.FGridReadOnly then
+   begin
+    key:=#0;
+    Exit;
+   end;
+
+  case key of
+    ^V: key := #0;
+    // hetkel välistame paste käsu !! järgmistes versioonides lisandub, probleemiks andmete kontroll
+    #8: ; // tab las hetkel olla
+    #9: ; // backspace...sama siin
+    #13:
+    begin
+      SelectNext(Sender as twincontrol, True, True);
+      key := #0;
+    end
+    else
+      with TStringGrid(Sender) do
+      begin
+
+        // ei luba deebet ja kreedit väljale andmeid sisestada; st mõlemale; on üks või teine !!!!!
+        if ((Col = CCol_AccDebit) and (trim(Cells[CCol_AccCredit, Row]) <> '') or
+            (Col = CCol_AccCredit) and (trim(Cells[CCol_AccDebit, Row]) <> '')) then
+           key := #0
+        else // kõik korras, jätkame nagu norras...
+        if // assigned(self.FOrigEditor) and (self.FOrigEditor is TCustomEdit) and
+          (Editor is TCustomEdit) and
+          (Col in [CCol_AccDebit, CCol_AccCredit]) then
+        begin
+          // üle 12 märgi ei luba per cell !!!
+          if length(Cells[Col, Row]) > 11 then
+             key := #0
+          else
+          begin
+
+             // 2 kohta peale koma !!!!!
+             pCPos:=pos('.',Cells[Col, Row]);
+          if pCPos=0 then
+             pCPos:=pos(',',Cells[Col, Row]);
+
+          if pCPos>0 then
+            begin
+               pData:=system.copy(Cells[Col, Row],pCPos+1,length(Cells[Col, Row])-pCPos+1);
+            if length(pData)=2 then
+              begin
+               key:=#0;
+               exit;
+              end;
+            end;
+
+
+             estbk_utilities.edit_allowNumericEntry(Editor as TCustomEdit, key, True);
+          end;
+          // ----------
+        end;
+      end;
+  end;
+  // ---
+end;
+
+procedure TframeGeneralLedger.accountingGridMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  Column,Row : Integer;
+begin
+  // üritame liigset "minimiseerimist" ära hoida, lazaruse headerite constraint ei tööta !
+  TStringGrid(Sender).MouseToCell(X,Y,Column,Row);
+  {
+      myCellResizeInProgress = true;
+      myBoundaryPicked = WhichBoundaryPicked(X,Y);
+      myColumnBeingResized = Column;
+      }
+end;
+
+procedure TframeGeneralLedger.accountingGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+(*
+ void __fastcall TMainForm::StringGridMouseUp(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+   myCellResizeInProgress = false;
+
+   int IntendedWidth;
+
+   if (myBoundaryPicked == CloserToRightBoundary) // Resize the cell being resized
+   {
+      IntendedWidth = NewWidth(myColumnBeingResized,X,Y);
+
+      if (IntendedWidth != StringGrid->ColWidths[myColumnBeingResized])
+      {
+         StringGrid->ColWidths[myColumnBeingResized] = IntendedWidth;
+      };
+   }
+   else // Resize the cell to the left of the cell being resized
+   {
+      if (myColumnBeingResized > 0) // Can't resize col -1
+      {
+         IntendedWidth = NewWidth(myColumnBeingResized-1,X,Y);
+
+         if (IntendedWidth != StringGrid->ColWidths[myColumnBeingResized-1])
+         {
+            StringGrid->ColWidths[myColumnBeingResized-1] = IntendedWidth;
+         };
+      };
+   };
+}
+*)
+end;
+
+procedure TframeGeneralLedger.accountingGridPickListSelect(Sender: TObject);
+var
+ pReload   : Boolean;
+ pKeepCCol : Boolean;
+ pIndex,i  : Integer;
+ pFailSafe : Byte;
+begin
+  // --- sender polegi picklist ?!? wtf
+  with TPicklistCellEditor(accountingGrid.Editor) do
+   begin
+         pReload:=(not qryCurrValues.active or
+                 ((edtAccdate.Date<=now) and (qryCurrValues.FieldByname('curr_date').asDateTime<>edtAccdate.Date))) and
+                  (ItemIndex>=1); // esimene element tühi valik
+
+         pFailSafe:=0;
+     if  pReload then
+     while true and (pFailSafe<2) do
+       begin
+             // jätame avatuks, et järgmise kande puhul ei peaks sama päringut tegema
+             qryCurrValues.close;
+             qryCurrValues.SQL.clear;
+             qryCurrValues.SQL.Add(estbk_sqlclientcollection._SQLFullSelectCurrencys);
+
+             //qryCurrValues.paramByname('curr_date').asDateTime:=edtAccdate.Date;
+             qryCurrValues.paramByname('curr_date').asString:=estbk_utilities.datetoOdbcStr(edtAccdate.Date);
+
+             qryCurrValues.open;
+             qryCurrValues.first;
+
+         if  qryCurrValues.eof then // peame nõudma uut reloadi !!
+          begin
+            // TEHA !!
+            if dialogs.messageDlg(format(estbk_strmsg.SAccCurDownloadNeeded,
+                                 [items.Strings[ItemIndex],datetostr(edtAccdate.Date)]),
+                                  mtConfirmation,
+                                  [mbYes,mbNo],
+                                  0)=mrYes then
+               begin
+                 if assigned(self.onAskCurrencyDownload) then
+                    self.onAskCurrencyDownload(self,edtAccdate.Date);
+                    inc(pFailSafe);
+                    continue;
+               end else
+               begin
+                itemIndex:=-1; // tühistame valiku !
+                break;
+               end;
+
+               // ----
+          end else
+       while not qryCurrValues.eof do
+         begin
+
+             // kui valuutaobjekti pole veel loodud, siis loome !
+             pIndex:=items.indexOf(ansiuppercase(qryCurrValues.fieldByname('curr_name').asString));
+         if  pIndex>=0 then
+           begin
+               // viitab ka FCurrDataList objektile; picklist sisuliselt objekti koopia !!!
+               TCurrencyObjType(items.Objects[pIndex]).currVal:=qryCurrValues.fieldByname('curr_rate').asFloat;
+               // self.FCurrDataList
+           end;
+
+             qryCurrValues.next;
+         end;
+
+         break;
+         // ---
+       end;
+
+
+         pKeepCCol:=false;
+     if (ItemIndex>=1) and assigned(items.Objects[ItemIndex]) then
+       begin
+           Hint:=floattostr(TCurrencyObjType(items.Objects[ItemIndex]).currVal);
+           accountingGrid.columns.Items[CCol_AccMonConversion-1].Width:=85;
+           pKeepCCol:=true;
+       end else
+           Hint:='';
+
+
+
+       // vaatame, kas peame konverteeritud summa lahtri uuesti tekitama !!!
+       if not pKeepCCol then
+       for i:=1 to accountingGrid.Rowcount-1 do
+       begin
+
+       if trim(accountingGrid.Cells[CCol_AccCurrency,i])<>'' then
+         begin
+           pKeepCCol:=true;
+           break;
+         end;
+       end;
+
+        if not pKeepCCol then
+         begin
+             accountingGrid.columns.Items[CCol_AccMonConversion-1].Width:=0;
+         for i:=1 to accountingGrid.Rowcount-1 do
+             accountingGrid.Cells[CCol_AccMonConversion,i]:='';
+         end;
+
+         // ------ paremal pool summa baasvaluutas !
+         self.doCConversion;
+   end;
+   // -----
+end;
+
+
+procedure TframeGeneralLedger.accountingGridMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+begin
+  // ---
+  // Memo1.lines.add(format('hiir toimetab %d %d',[x,y]));
+end;
+
+
+procedure TframeGeneralLedger.accountingGridPrepareCanvas(Sender: TObject;
+  aCol, aRow: integer; aState: TGridDrawState);
+var
+  FDCmbIndx : Integer;
+  FAccId    : Cardinal;
+  //FCmp      :  AStr;
+  i : Integer;
+begin
+
+
+//  if not TStringGrid(Sender).Enabled then
+//    exit;
+
+
+
+  if (aCol < 1) or (aRow < 1) then
+    TStringGrid(Sender).Canvas.Brush.Color := clBtnFace
+  else
+  if ((aRow mod 2) <> 0) then // and not (gdFocused in aState)  then
+    // TStringGrid(Sender).Canvas.Brush.Color:=clInfoBk
+    TStringGrid(Sender).Canvas.Brush.Color := MyFavGray // cl3DLight
+  else
+    TStringGrid(Sender).Canvas.Brush.Color := clWindow;
+end;
+
+
+
+
+procedure TframeGeneralLedger.accountingGridSelectCell(Sender: TObject;
+  aCol, aRow: integer; var CanSelect: boolean);
+begin  
+  self.FPaCurrColPos:=aCol;
+  self.FPaCurrRowPos:=aRow;
+end;
+
+
+function TframeGeneralLedger.resolveAccountNamebyCode(const paccCode : AStr):AStr;
+var
+  pbookMark : TBookmark;
+begin
+      result:='';
+  if (length(paccCode)>0) and qryAllAccounts.Active then
+  try
+      pbookMark:=qryAllAccounts.GetBookmark;
+      qryAllAccounts.DisableControls;
+      // ---
+  if  qryAllAccounts.Locate('account_coding',paccCode,[loCaseInsensitive]) then
+      result:=qryAllAccounts.FieldByName('account_name').AsString;
+  finally
+  if assigned(pbookMark) then
+    begin
+      qryAllAccounts.GotoBookmark(pbookMark);
+      qryAllAccounts.FreeBookmark(pbookMark);
+    end;
+
+  qryAllAccounts.EnableControls;
+  // -------
+  end;
+end;
+
+
+procedure TframeGeneralLedger.OnPickListEnter(Sender: TObject);
+begin
+ // ---
+ self.FLastPickListCol:= self.accountingGrid.Col;
+ self.FLastPickListRow:= self.accountingGrid.Row;
+end;
+
+procedure TframeGeneralLedger.OnPickListExit(Sender: TObject);
+begin
+ // ---
+ //if (self.FLastPickListCol>0) and (self.FLastPickListRow>0) and self.accountingGrid.visible then
+ //    self.accountingGrid.Cells[self.FLastPickListCol,self.FLastPickListRow]:='EEK';
+end;
+
+
+
+
+procedure TframeGeneralLedger.accountingGridSelectEditor(Sender: TObject;
+  aCol, aRow: integer; var Editor: TWinControl);
+var
+ pObjCellData : TCellObjectType;
+ pGrpId       : Integer;
+ pAccId       : Integer;
+
+begin
+  lazFocusFix.Enabled:=false;
+      lazObjchangeTimer.Enabled:=false;
+
+      self.FLastPickListCol:=-1;
+      self.FLastPickListRow:=-1;
+      // ----
+
+
+  if TStringGrid(Sender).CanFocus then
+     TStringGrid(Sender).SetFocus;
+
+
+  if  self.FGridCleanup or self.FGridReadOnly then
+    begin
+
+         self.FAccListCombo.Visible:=false;
+         self.FAccObjGroups.Visible:=false;
+         self.FAccObjTypes.Visible:=false;
+
+
+         Editor:=TStringCellEditor (TStringGrid(Sender).EditorByStyle(cbsAuto));
+    // 11.04.2010 ingmar
+    if   aCol=CCol_Account then
+       begin
+         Editor.ShowHint:=true;
+         Editor.Hint:=self.resolveAccountNamebyCode(TStringGrid(Sender).Cells[aCol,aRow]);
+
+       end else
+       begin
+         Editor.ShowHint:=false;
+         Editor.Hint:='';
+       end;
+
+         TStringCellEditor (TStringGrid(Sender)).OnKeyDown:=nil;
+         TStringCellEditor (TStringGrid(Sender).EditorByStyle(cbsAuto)).ReadOnly:=self.FGridReadOnly;
+    if ((aRow mod 2) <> 0) then
+         TStringCellEditor (TStringGrid(Sender).EditorByStyle(cbsAuto)).Color:=estbk_types.MyFavGray
+     else
+         TStringCellEditor (TStringGrid(Sender).EditorByStyle(cbsAuto)).Color:=clwindow;
+         Exit;
+
+    end;
+
+
+  // ----
+  if (aCol=TStringGrid(Sender).ColCount-1) then
+    begin
+
+       Editor:=TButtonCellEditor(TStringGrid(Sender).EditorByStyle(cbsButton));
+       TButton(Editor).Caption:='O'; // O nagu objekt
+       TButton(Editor).Font.Style:=[fsBold];
+       TButton(Editor).Hint:=estbk_strmsg.SNewObjectColumnHint;
+    if Editor.CanFocus then
+       Editor.SetFocus;
+
+    end else
+  if  (aCol>= CCol_Counterpart+1) and (aCol<TStringGrid(Sender).ColCount) then
+    try
+        self.FSkipCurrencySelEvnt:=true;
+     if self.FAccObjTypes.PopupVisible then
+        self.FAccObjTypes.PopupVisible:=false;
+
+     if self.FAccObjGroups.PopupVisible then
+        self.FAccObjGroups.PopupVisible:=false;
+
+        pObjCellData:=accountingGrid.Objects[aCol, aRow] as TCellObjectType;
+     if not assigned(pObjCellData) or (pObjCellData.ObjectId<1) then // pole konkreetset objekti valinud
+       begin
+          //FAccObjTypes.Visible:=false;
+          Editor :=self.FAccObjGroups;
+          FAccObjGroups.Visible := True;
+          FAccObjGroups.Enabled := True;
+          accountingGrid.SetFocus;
+
+       if FAccObjGroups.CanFocus then
+          FAccObjGroups.SetFocus;
+
+
+       if assigned(pObjCellData) then
+          FAccObjGroups.Value:=inttostr(pObjCellData.ObjectGrp)
+       else
+          FAccObjGroups.Value:='';
+          self.lazFocusFix.Enabled:=true;
+
+       end else
+       begin
+          assert(assigned(accountingGrid.Objects[aCol, aRow]),'$3');
+          //FAccObjGroups.Visible:=false;
+          Editor :=self.FAccObjTypes;
+
+          pGrpId:=TCellObjectType(accountingGrid.Objects[aCol, aRow]).ObjectGrp;
+
+          qryObjects.Filtered:=false;
+          qryObjects.Filter:=format('classificator_id=%d',[pGrpId]);
+          qryObjects.Filtered:=true;
+          qryObjects.Locate('id',TCellObjectType(accountingGrid.Objects[aCol, aRow]).ObjectId,[]);
+
+          FAccObjTypes.Visible := True;
+          FAccObjTypes.Enabled := True;
+          //accountingGrid.SetFocus;
+
+       if FAccObjTypes.CanFocus then
+          FAccObjTypes.SetFocus;
+
+          FAccObjTypes.Value:=inttostr(pObjCellData.ObjectId);
+          // 18.08.2010 Ingmar
+          self.lazFocusFix.Enabled:=true;
+       end;
+
+     finally
+          self.FSkipCurrencySelEvnt:=false;
+     end else
+ if (aCol=CCol_AccCurrency) then
+   begin
+
+     if length(edtAccdate.Text)>0 then
+       begin
+        // if (Editor is TStringCellEditor) then
+        //     TStringCellEditor(Editor).readOnly:=False;
+
+             Editor:=TPicklistCellEditor(TStringGrid(Sender).EditorByStyle(cbsPicklist));
+
+             TPicklistCellEditor(Editor).OnEnter:=@self.OnPickListEnter;
+             TPicklistCellEditor(Editor).OnExit:=@self.OnPickListExit;
+             TPicklistCellEditor(Editor).AutoComplete:=true;
+             TPicklistCellEditor(Editor).Style:=csDropDownList;
+             TPicklistCellEditor(Editor).ShowHint:=true;
+
+
+             // 03.11.2009 Ingmar; luban ainult siis, kui olemas ka kande kuupäev !
+             TPicklistCellEditor(Editor).Enabled:=length(edtAccdate.Text)>0;
+             //TPicklistCellEditor(Editor).AutoDropDown:=true;
+             TPicklistCellEditor(Editor).Items.assign(self.FCurrDataList);
+       end else
+   end    
+  if  (aCol = CCol_Account) then
+     try
+
+        // 02.03.2010 Ingmar FIX; täiesti tobe, millegipärast tõmmatakse siin käima onselect event !!!!!!!!!!!!!
+        self.FSkipOnChangeEvent:=true;
+
+        FAccListCombo.Visible := True;
+        FAccListCombo.Enabled := True;
+        Editor := self.FAccListCombo;
+
+
+    if  accountingGrid.CanFocus then
+        accountingGrid.SetFocus;
+
+
+
+        FAccListCombo.Text:='';
+     if assigned(accountingGrid.Objects[aCol, aRow]) then
+         begin
+             // ---
+             pAccId:=TCellAccountType(accountingGrid.Objects[aCol, aRow]).AccountId;
+          if pAccId>0 then
+            begin
+             qryAllAccounts.locate('id',pAccId,[]);
+             FAccListCombo.Value:=inttostr(pAccId);
+             FAccListCombo.Text:=qryAllAccounts.fieldbyname('account_coding').asString;
+            end else
+            begin
+             FAccListCombo.Value:='';
+             FAccListCombo.Text:='';
+             qryAllAccounts.First;
+           end;
+         // ---
+         end;
+
+
+     finally
+        self.FSkipOnChangeEvent:=false;
+        // 18.08.2010 Ingmar; lazaruse fookuse kala parandamine; ei suuda lookupcombot fokuseerida !
+        self.lazFocusFix.Enabled:=true;
+     end else
+     begin
+        Editor :=TStringCellEditor (TStringGrid(Sender).EditorByStyle(cbsAuto));
+        TStringCellEditor(Editor).ReadOnly:=false;
+        TStringCellEditor(Editor).Color:=estbk_globvars.glob_userSettings.uvc_colors[uvc_activeGridEditorColor]; //clWindow;
+
+    if  Editor.CanFocus then
+        Editor.SetFocus;
+        //Editor.SetFocus;
+     end;
+
+   // 29.10.2009 ingmar
+   // mul raske, mis asi keerab fondi värvuse pidevalt valgeks ?!
+   Editor.Font.Color:=clBlack;
+end;
+
+// TÜHISTAME KANDE !
+procedure TframeGeneralLedger.btnCancelGdClick(Sender: TObject);
+begin
+
+ if dialogs.messageDlg(format(estbk_strmsg.SConfGenLedRecCancellation,[edtAccnr.text]),mtconfirmation,[mbyes,mbno],0)=mrYes then
+ try
+      estbk_clientdatamodule.dmodule.primConnection.StartTransaction;
+
+ with qryAccData,SQL do
+   begin
+      close;
+      clear;
+      add(estbk_sqlclientcollection._SQLUpdCancelAccReg);
+      paramByname('rec_changed').asDateTime:=now;
+      paramByname('rec_changedby').asInteger:=estbk_globvars.glob_worker_id;
+      paramByname('id').asInteger:=self.FOpenedEntryId;
+      execSQL;
+   end;
+
+      // ----
+      // tühistame kandekirjed !
+      self.cancelAccRecords(self.FOpenedEntryId);
+      estbk_clientdatamodule.dmodule.primConnection.Commit;
+
+  // teavitame muutustest
+  if assigned(FFrameDataEvent) then
+     FFrameDataEvent(Self,__frameGenLedEntryChanged,self.FOpenedEntryId);
+
+     self.btnNewEntry.Enabled := True;
+     self.btnNewEntry.SetFocus;
+
+
+     self.btnSaveEntry.Enabled :=False;
+     TBitBtn(Sender).Enabled := False; // ---
+     self.FGridReadOnly:=true;
+     // ---------------------
+     estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, False);
+
+     self.FGridReadOnly:=true;
+     accountingGrid.Enabled:=true;
+     ovrAllGrpbox.Enabled:=true;
+
+ except on e : exception do
+  begin
+    if  estbk_clientdatamodule.dmodule.primConnection.inTransaction then
+        try
+          estbk_clientdatamodule.dmodule.primConnection.Rollback;
+        except
+        end;
+
+       dialogs.MessageDlg(format(estbk_strmsg.SESaveFailed,[e.message]),mtError,[mbok],0);
+
+    if accountingGrid.CanFocus then
+       accountingGrid.setFocus;
+
+  end;
+  // ---
+ end;
+end;
+
+procedure TframeGeneralLedger.btnCloseClick(Sender: TObject);
+begin
+    if assigned(FframeKillSignal) then
+      FframeKillSignal(self);
+end;
+
+procedure TframeGeneralLedger.btnNewEntryClick(Sender: TObject);  
+begin
+
+    self.FLastDSideSum:=0;
+    self.FLastCSideSum:=0;
+
+    // puhastame kõik eelmise kandega seotud andmed
+    self.FGridReadOnly:=False;
+
+    self.performCleanup;
+    estbk_utilities.changeWCtrlReadOnlyStatus(ovrAllGrpbox,false);
+    estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox, true);
+
+    self.FInsertMode:=true;
+    self.FOpenedEntryId:=0;
+    self.FOpenedEntryBaseDocId:=0;
+
+    edtAccnr.Text := dmodule.getUniqNumberFromNumerator();
+    //estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, True);
+
+
+    TBitBtn(Sender).Enabled := False;
+    btnSaveEntry.Enabled    := True;
+    btnCancelGd.Enabled     := False;
+
+
+    // ------------
+    edtAccdate.Text := self.FOrigDateStr;
+    edtAccdate.SelectAll;
+//estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, True);
+
+
+  TBitBtn(Sender).Enabled := False;
+  btnSaveEntry.Enabled    := True;
+  btnCancelGd.Enabled     := False;
+  // ------------
+  edtAccdate.Text := self.FOrigDateStr;
+  edtAccdate.SelectAll;
+  cmbDocumentType.ItemIndex := self.FOrigDocTypeIndx;
+
+  edtAccdate.SetFocus;
+  // !!!!
+  accountingGridEditingDone(nil);
+
+// todo picklist osa !
+//  estbk_utilities.miscResetCurrenyValList(cmbCurrency);
+    
+end;
+
+
+procedure TframeGeneralLedger.performCleanup;
+var
+  i, j: integer;
+
+begin
+
+  try
+    self.FGridCleanup := True;
+
+
+    if assigned(onReqTaskbarEvent) then
+       onReqTaskbarEvent(self,'');
+
+    // taastame ka õige Editori !
+    // accountingGrid.Editor:=TStringCellEditor (accountingGrid.EditorByStyle(cbsAuto));
+    edtAccnr.Text     := '';
+
+    // --- kiirendame sisestust, kui jätame meelde eelmised valikud !
+    FOrigDateStr      := edtAccdate.Text;
+    FOrigDocTypeIndx  := cmbDocumentType.ItemIndex;
+
+
+
+    // accountingGrid.Clean(); objektidega tekitab jama
+    // kas tehingukirjeldus ka meelde jätta...hmmm
+    edtAccdate.Text   := '';
+    edtDocNr.Text     := '';
+    cmbDocumentType.ItemIndex := -1;
+    edtTransDescr.Text := '';
+
+    // ---
+    accountingGrid.columns.Items[CCol_AccMonConversion-1].Width:=0;
+
+
+    for i := 1 to accountingGrid.RowCount - 1 do
+      for j := 1 to accountingGrid.ColCount - 1 do
+       begin
+
+
+           accountingGrid.Cells[j, i] := '';
+           // 01.10.2009 Ingmar; hoiame midagi spetsiifilist row kaupa ! vabastame
+       if assigned(accountingGrid.Objects[j,i]) then
+         begin
+           accountingGrid.Objects[j,i].Free;
+           accountingGrid.Objects[j,i]:=nil;
+         end;
+         // ---
+       end;
+
+
+
+
+    accountingGrid.Row := 1;
+    accountingGrid.Col := 1;
+
+
+    self.FObjCombItemIndx:=-1;
+    self.FLastPickListCol:=-1;
+    self.FLastPickListRow:=-1;
+
+
+
+    stxtDPart.Text := '';
+    stxtCPart.Text := '';
+
+    // ----------
+    // objektide lisaveerud minema...
+    // ehk column objekt 1 peab säilima !
+                                               {
+    for i:=CCol_CompName+2 downto  accountingGrid.ColCount-1 do
+           accountingGrid.Columns.Delete(i);
+                                                }
+    self.FOpenedEntryId:=0;
+    self.FOpenedEntryBaseDocId:=0;
+    self.FInsertMode:=true; // vaikimisi sisestamise reziim
+
+    self.FAccRowsChkStr:='';
+    self.FAccHeaderChkStr:='';
+
+
+    // et uuel avamisel ikka gridis ka kontode combo oleks !
+    //self.FPaCurrColPos:=1;
+    //self.FPaCurrRowPos:=1;
+
+    self.FPaCurrColPos:=-1;
+    self.FPaCurrRowPos:=-1;
+
+    accountingGrid.Editor:=self.FAccListCombo;
+
+  finally
+     //accountingGrid.Editor:=TStringCellEditor (accountingGrid.EditorByStyle(cbsAuto));
+     self.FGridCleanup := False;
+  end;
+  // ----
+end;
+
+
+// muutuste tuvastamise chksum
+function  TframeGeneralLedger.calcChksumStrForAccRecord:AStr;
+var
+ i,j : Integer;
+begin
+    for i := 1 to accountingGrid.RowCount - 1 do
+      for j := 1 to accountingGrid.ColCount - 1 do
+      if j<>CCol_AccMonConversion then
+       if assigned(accountingGrid.Objects[j,i]) then
+        begin
+          if  (accountingGrid.Objects[j,i] is TCellAccountType) and (TCellAccountType(accountingGrid.Objects[j,i]).AccountId>0) then
+               result:=result+trimLdZeros(inttohex(TCellAccountType(accountingGrid.Objects[j,i]).AccountId,11))
+          else
+          if  (accountingGrid.Objects[j,i] is TCellObjectType) and (TCellObjectType(accountingGrid.Objects[j,i]).ObjectId>0) then
+               result:=result+trimLdZeros(inttohex(TCellObjectType(accountingGrid.Objects[j,i]).ObjectId,11))
+          else
+               result:=result+trimLdZeros(inttohex(estbk_utilities.hashpjw(accountingGrid.Cells[j,i]),11));
+       end else
+       if trim(accountingGrid.Cells[j,i])<>'' then
+          result:=result+trimLdZeros(inttohex(estbk_utilities.hashpjw(accountingGrid.Cells[j,i]),11));
+end;
+
+function  TframeGeneralLedger.calcChksumStrForHdrRecord:AStr;
+begin
+  result:=inttostr(cmbDocumentType.ItemIndex)+
+          edtAccdate.Text+ // kp
+          trimLdZeros(inttohex(estbk_utilities.hashpjw(edtDocNr.Text),11))+
+          trimLdZeros(inttohex(estbk_utilities.hashpjw(edtTransDescr.Text),11));
+end;
+
+
+
+procedure TframeGeneralLedger.cancelAccRecords(const accRegID : Integer); // kande aluskirje;
+begin
+ with qryAccData,SQL do
+  try
+
+    close;
+    clear;
+    add(estbk_sqlclientcollection._SQLCancelAccRecSQL);
+    paramByname('rec_changed').asDateTime:=now;
+    paramByname('rec_changedby').asInteger:=estbk_globvars.glob_worker_id;
+    paramByname('rec_addedby').asInteger:=estbk_globvars.glob_worker_id;
+    paramByname('accounting_register_id').asInteger:=accRegID;
+    execSQL;
+
+    // ---
+    close;
+    clear;
+    add(estbk_sqlclientcollection._SQLCancelAccRecSQL2);
+    paramByname('rec_changed').asDateTime:=now;
+    paramByname('rec_changedby').asInteger:=estbk_globvars.glob_worker_id;
+    paramByname('accounting_register_id').asInteger:=accRegID;
+    execSQL;
+
+
+  finally
+    close;
+    clear;
+  end;
+  // ----
+end;
+
+
+procedure TframeGeneralLedger.btnSaveEntryClick(Sender: TObject);
+var
+  FReqObjNames  : AStr;
+  i,j,FAccRegID : Integer;
+  FAccDocId   : Int64;
+  FAccDcRecId : Int64; // kirjendite ID'd
+  FAccDCAttrRecId : Int64;
+
+  FAccountId : Integer;
+  FCAccount  : AStr; // konto kood  + nimi; peame ka seda kontrollima
+  FCurrAcc   : AStr;
+  FDebit     : Double;
+  FCredit    : Double;
+  FRCVal     : Double;
+  FTempCalc  : Double;
+
+  FSkipRec : Boolean;
+  FErrRow  : Boolean;
+  FAccYearId : Integer;
+
+  FValidRecCnt   :  Integer;
+  FUndefDocClsId : Integer;
+  FRowNr        : Integer;
+  FEntryDate    : TDatetime;
+  FBalanced     : Boolean;
+  FReqObjFound  : Boolean;
+  FAddAccRecs   : Boolean;
+
+  // http://wiki.freepascal.org/Generics; kahjuks lazarus töötab alles komp. versiooniga 2.2.4;
+  // alates 2.3.1 on generic saadaval
+  // FValidRows : TList<integer>;
+  FValidRows    : TList;
+  Bfr           : AStr;
+  FCurr         : AStr;
+  FValIsNull    : Boolean;
+begin
+
+ try
+
+
+  // vaatame, kas uuendame kannet või hoopis lisame kande !!!
+  // FIsUpdateMode:=self.FInsertMode and (self.FOpenedEntryId>0);
+  FValIsNull:=true;
+  FValidRows:=TList.create;
+
+  // ----
+  FAddAccRecs:=true;
+  FDebit:=0;
+  FCredit:=0;
+  FUndefDocClsId:=0;
+  FEntryDate:=now+1;
+
+  // parem karta...kui hiljem uuendada
+  self.gridCurrDataRecheck;
+
+  // -- kande sisestus
+  if (length(trim(edtAccdate.Text))<1) or not estbk_utilities.validateMiscDateEntry(edtAccdate.Text,FEntryDate) then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEAccEntryDateEmpy, mtError, [mbOK], 0);
+      edtAccdate.SetFocus;
+      Exit;
+    end;
+
+   {
+   if (length(trim(edtDocNr.Text))<1) then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEAccEntryDocEmpy, mtError, [mbOK], 0);
+      edtDocNr.SetFocus;
+      Exit;
+    end;
+   }
+
+   // 24.10.2009 Ingmar; meelis arvas, et kande salvestamisel dokumendi nr asemel kirjutada kande number, kui see tühi
+   if (length(trim(edtDocNr.Text))<1) then
+    begin
+      cmbDocumentType.itemIndex:=-1;
+      edtDocNr.Text:=format(estbk_strmsg.CSAccRepDocNrWithAccDesc,[edtAccnr.Text]);
+    end;
+
+
+   if (StrToIntDef(edtAccnr.Text,-1)<1) then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEAccEntryNrEmpty, mtError, [mbOK], 0);
+      edtAccnr.SetFocus;
+      Exit;
+    end;
+
+   if (FEntryDate<estbk_types.MinAllowedDate) or (FEntryDate>now) then
+     begin
+      Dialogs.messageDlg(estbk_strmsg.SEInvalidDate, mtError, [mbOK], 0);
+      edtAccdate.SetFocus;
+      Exit;
+     end;
+
+
+     // ----------------
+     FValidRecCnt := 0;
+
+  // käime siis kanded läbi
+  with accountingGrid do
+  begin
+    for i := 1 to RowCount - 1 do
+    begin
+        FSkipRec:=true;
+     // järsku tühi rida, jätame vahele, ootame järgmist !
+     for j:=1 to ColCount-1 do
+     if  trim(Cells[j, i])<>'' then
+        begin
+          FSkipRec:=False;
+          break;
+        end;
+
+       if FSkipRec then
+          continue;
+
+
+          // konto nimi
+          FCAccount := Cells[CCol_Account, i];
+          // lihtkontroll;
+          FErrRow   := ((trim(Cells[CCol_AccDebit, i]) <> '') and
+            (trim(Cells[CCol_AccCredit, i]) <> '')) or
+            ((trim(FCAccount) = '') and ((trim(Cells[CCol_AccDebit, i]) <> '') or
+            (trim(Cells[CCol_AccCredit, i]) <> ''))) or
+            ((trim(FCAccount) <> '') and ((trim(Cells[CCol_AccDebit, i]) = '') and
+            (trim(Cells[CCol_AccCredit, i]) = '')));
+
+
+
+          // kontrollime ikka summa ka üle...kas pole mingi valesti sisestatud formaat !
+          if not FErrRow then
+            FErrRow := ((trim(Cells[CCol_AccDebit, i]) <> '') and
+              (CurrToStr(StrToFloatDef(setRFloatSep(Cells[CCol_AccDebit, i]), 0)) <>  // FloatToStr 28.10.2009
+              trim(setRFloatSep(Cells[CCol_AccDebit, i]))));
+
+
+          if not FErrRow then
+            FErrRow := ((trim(Cells[CCol_AccCredit, i]) <> '') and
+              (CurrToStr(StrToFloatDef(setRFloatSep(Cells[CCol_AccCredit, i]), 0)) <> // FloatToStr    28.10.2009
+              trim(setRFloatSep(Cells[CCol_AccCredit, i]))));
+
+
+          if FErrRow then
+          begin
+            Dialogs.messageDlg(estbk_strmsg.SEAccRecordIsInvalid, mtError, [mbOK], 0);
+            Col := CCol_Account;
+            Row := i;
+         if CanFocus then
+            SetFocus;
+            Exit; // -->
+          end;
+
+
+        // kontrollime ikkagit üle, kas meil on reaalselt midagi ka valitud !!!
+        if not assigned(Objects[CCol_Account, i]) or (TCellAccountType(Objects[CCol_Account, i]).AccountId<1) then
+          begin
+            Dialogs.messageDlg(estbk_strmsg.SEAccountNotChoosen, mtError, [mbOK], 0);
+            Col := CCol_Account;
+            Row := i;
+         if CanFocus then
+            SetFocus;
+            Exit; // -->
+          end;
+
+
+           // 05.11.2009 Ingmar; peame vastavalt valuutale kasutama konverteeritud välja
+           FCurr:=trim(Cells[CCol_AccCurrency, i]);
+           FRCVal:=0;
+       if (trim(Cells[CCol_AccDebit, i]) <> '') then
+         begin
+         if FCurr='' then
+            FRCVal:=StrToFloatDef(setRFloatSep(trim(Cells[CCol_AccDebit, i])),0)
+         else
+            FRCVal:=StrToFloatDef(setRFloatSep(trim(Cells[CCol_AccMonConversion, i])),0); // baasvaluutasse konverteeritud !
+            FDebit:=FDebit+FRCVal;
+         end else
+       if (trim(Cells[CCol_AccCredit, i]) <> '') then // meelis soovitas jätta raamatupidajale vabadus !!
+         begin
+         if FCurr='' then
+            FRCVal:=StrToFloatDef(setRFloatSep(trim(Cells[CCol_AccCredit, i])),0)
+         else
+            FRCVal:=StrToFloatDef(setRFloatSep(trim(Cells[CCol_AccMonConversion, i])),0);
+            FCredit:=FCredit+FRCVal;
+           //FCredit:=FCredit-abs(StrToFloatDef(setRFloatSep(trim(Cells[CCol_AccCredit, i])),0)); // kreeditsumma alati negatiivne ?!?!
+         end;
+
+       // -- lipp maha
+       if FValIsNull and (FRCVal<>0) then
+          FValIsNull:=false;
+
+          // võib vabalt olla ka tühjasid ridasid, toetan nö loose sisestust;
+          // meid huvitavad ainult täidetud read !
+          FValidRows.Add(Pointer(Cardinal(i))); // TODO: kes ütles, et pointer on pointer;
+                                                 // kui saama generics võimaluse teen ümber selle "hacki"
+
+          // ----------
+          Inc(FValidRecCnt);
+    end;
+
+    // 0 kandeid me ei luba !
+    if FValIsNull then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEAccRecodsHaveZVal, mtError, [mbOK], 0);
+      SetFocus;
+      Exit;
+    end;
+
+    // ----
+    if FValidRecCnt < 1 then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEAccRecordsMissing, mtError, [mbOK], 0);
+   if CanFocus then
+      SetFocus;
+      Exit; // -->
+    end;
+
+
+    // ------------------------------------------------------------------------
+    // --- nii KÕIGE TÄHTSAM raamatupidamise ABC --- TASAKAAL
+    // ------------------------------------------------------------------------
+    // showmessage(floattostr(FDebit)+' : '+floattostr(FCredit)+' : '+floattostr(FDebit+FCredit));
+    // TODO: VOT siin pole ma enam kindel enda loogikas; mis juhtudel üldse deebet osa tohib olla negatiivne ?!?!?
+
+    if ((FDebit-FCredit)<>0) then
+     begin
+        Dialogs.messageDlg(estbk_strmsg.SEAccEntryUnBalanced, mtError, [mbOK], 0);
+     if CanFocus then
+        SetFocus;
+        Exit; // -->
+     end;
+
+    // KÄIME KONTOD läbi ning kontrollime, kas valitud objekt eksisteerib
+    for i := 1 to RowCount - 1 do
+     begin
+        FCAccount :=trim(Cells[CCol_Account, i]);
+     if FCAccount<>'' then
+     end;
+
+
+
+     // kas peame objekti nimistu uuesti laadima
+    with qryAccData,SQL do
+     begin
+        close;
+        clear;
+        add(estbk_sqlclientcollection._CSQLGetMaxAccMarkedObjectID);
+        paramByname('company_id').asInteger:=estbk_globvars.glob_company_id;
+        open;
+
+     // järelikult peame uuesti laadima andmed !
+     if self.FAccObjCheck<>estbk_utilities.chgChkSum(fieldByname('maxobjid').asInteger,fieldByname('objcnt').asInteger) then
+       begin
+        self.FAccObjCheck:=estbk_utilities.chgChkSum(fieldByname('maxobjid').asInteger,fieldByname('objcnt').asInteger);
+        // zeose refresh ei ole sama !
+        qryAccReqObjects.active:=false;
+        qryAccReqObjects.active:=true;
+       end;
+
+        // ----
+        close;
+        clear;
+     end;
+
+
+    // ----- käime need korrektsed read läbi !
+    for i:=0 to FValidRows.Count-1 do
+     begin
+         FRowNr:=integer(FValidRows.items[i]);
+
+
+         with qryAccReqObjects,SQL do
+         begin
+              assert(assigned(self.accountingGrid.Objects[CCol_Account,FRowNr]),'SaveEntry[1]');
+              FAccountId:=TCellAccountType(self.accountingGrid.Objects[CCol_Account,FRowNr]).AccountId;
+
+
+
+              Filtered:=False;
+              First;
+
+           // kontrollime, kas üldse on kontoga seotud objekte !! jah, siis filter peale ja kontrollime
+           if Locate('account_id',FAccountId,[]) then
+             try
+
+
+
+
+                   // hetkel nõuame, et kõik kontoga seotud objektid oleks olemas !!!!
+                   Filter:=format('account_id=%d',[FAccountId]);
+                   Filtered:=True;
+                   First;
+
+             while not eof do
+               begin
+                   FReqObjFound:=False;
+
+               // ---
+               for j:=CCol_Counterpart+1 to accountingGrid.colCount-1 do // viimane lahter on col + 1 lahter !!!
+               if (trim(self.accountingGrid.Cells[j,FRowNr])<>'') and assigned(self.accountingGrid.Objects[j,FRowNr]) then
+                 begin
+                    FReqObjFound:=(TCellObjectType(self.accountingGrid.Objects[j,FRowNr]).ObjectId=fieldByname('object_id').asInteger);
+                 if FReqObjFound then
+                    break;
+                    // ---
+                 end;
+
+                if not FReqObjFound then
+                   break
+                else
+                   next;
+               end;
+
+              // kohustuslikku objekti ei leitud, loome nimistu, mis objektid peaks olema
+              if not FReqObjFound then
+               begin
+                     First;
+                     FReqObjNames:='';
+               while not eof do
+                 begin
+                  FReqObjNames:=FReqObjNames+trim(fieldByname('objgrpname').asString)+' - '+trim(fieldByname('objname').asString)+#13#10;
+                  next;
+                 end;
+                     // ---
+                     dialogs.messageDlg(format(estbk_strmsg.SEAccReqObjectsMissing,
+                                              [self.accountingGrid.Cells[CCol_Account,FRowNr],
+                                               FReqObjNames]),mtError,[mbOk],0);
+
+                     self.accountingGrid.Col:=CCol_Counterpart+1 ;
+                     self.accountingGrid.Row:=FRowNr;
+
+                  if CanFocus then
+                     setFocus;
+                     exit;
+               end;
+               // ---
+             finally
+                  Filtered:=False;
+                  Filter:='';
+             end;
+             // ---
+         end;
+     end;
+
+
+
+
+
+    // ########################################################################
+    // KONTROLLID !
+    with qryAccData,SQL do
+     begin
+
+      // ainult uue kande puhul kontrollime, uuendamisel kande NR EI MUUTU !
+      if self.FInsertMode then
+        begin
+
+              // sama numbriga kanne juba olemas !!!!
+              close;
+              clear;
+              add(estbk_sqlclientcollection._CSQLVerifyEntryNr);
+              paramByName('entrynumber').AsInteger:=strToInt(edtAccnr.text);
+              paramByName('company_id').AsInteger:=estbk_globvars.glob_company_id;
+              open;
+           if not eof then
+            begin
+              Dialogs.messageDlg(format(estbk_strmsg.SEAccEntryWSNrExists,
+                                [edtAccnr.text,datetostr(fieldByName('transdate').asDateTime)]), // ärme lase vahekihil teha transformi !
+                                 mtError, [mbOK], 0);
+
+              close;
+              clear;
+
+              // ----
+              edtAccnr.setFocus;
+              Exit;
+            end;
+        end;
+
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // --- kas raamatupidamisaasta eksisteerib
+
+        close;
+        clear;
+        add(estbk_sqlclientcollection._SQLCheckAccperiod);
+//        paramByName('accdate').asDateTime:=estbk_utilities(datetoOdbcStr.FEntryDate;
+        // 05.11.2009 Ingmar; selectis parameeter asdatetime ei anna päringut, kuna sekundite osa lisatakse
+        paramByName('accdate').asString:=estbk_utilities.datetoOdbcStr(FEntryDate);
+        paramByname('company_id').asInteger:=estbk_globvars.glob_company_id;
+
+        open;
+     if eof  then
+       begin
+         Dialogs.messageDlg(estbk_strmsg.SEAccDtPeriodNotFound,mterror,[mbOk],0);
+         // ----
+         edtAccdate.setFocus;
+         Exit;
+       end;
+
+
+
+     // C - closed
+     if pos('C',ansiuppercase(fieldbyname('status').asString))>0 then
+       begin
+         Dialogs.messageDlg(estbk_strmsg.SEAccDtPeriodClosed,mterror,[mbOk],0);
+         // ----
+      if edtAccdate.CanFocus then  
+         edtAccdate.setFocus;
+         Exit;
+       end;
+
+        // jätame meelde raamatupidamisaasta
+        FAccYearId:=fieldByname('id').asInteger;
+
+
+// antud kontroll on vist küll liigne, me ei saa eeldada, et seda dokumenti ka mujal ei kasutata !
+{
+        close;
+        clear;
+        add(estbk_sqlclientcollection._CSQLVerifyDocNr);
+        paramByName('company_id').AsInteger:=estbk_globvars.glob_company_id;
+        paramByName('document_nr').AsString:=trim(edtDocNr.text);
+        open;
+     if not eof then
+      begin
+        Dialogs.messageDlg(format(estbk_strmsg.SEAccEntryDocNrExists,
+                          [edtDocNr.text,fieldbyName('entrynumber').asString]),mtError, [mbOK], 0);
+        close;
+        clear;
+
+        // ----
+        edtDocNr.setFocus;
+        Exit;
+      end;
+}
+
+        // ---- otsime ühe muutuja ka üles; defineerimata dokumendi tüüp; peaks cachema, muidu mõttetult teeme päringuid
+        close;
+        clear;
+        add(estbk_sqlclientcollection._SQLSelectUndefDocClsId);
+        open;
+     if not eof then
+        FUndefDocClsId:=fieldbyname('id').asInteger;
+     end;
+
+
+
+
+     // ----------------------------------------------------------------------
+     // oleme sisestusreziimil !!!!
+     //FAccRegID:=-1;
+     FAccRegID:=self.FOpenedEntryId;
+
+  try
+         estbk_clientdatamodule.dmodule.primConnection.StartTransaction;
+
+         FEntryDate:=now;
+         validateMiscDateEntry(edtAccdate.Text,FEntryDate);
+
+         // Kas peaksin antud kirjed ka regenereerima, et oleks võimalus muudatusi kannetes tagantjärgi jälitada ?
+              with qryAccData,SQL do
+               case self.FInsertMode of
+                 true: begin
+                         close;
+                         clear;
+                         add(estbk_sqlclientcollection._CSQLInsertNewAccReg);
+
+                         //FAccRegID:=qryAccregisterSeq.GetNextValue;
+
+                         FAccRegID:=estbk_clientdatamodule.dmodule.qryGenLedgerEntrysSeq.GetNextValue;
+                         parambyname('id').asInteger:=FAccRegID;
+
+
+
+                         // 04.01.2010 ingmar
+                         paramByName('type_').asString:=estbk_types.CAccRecIdentAsGenLedger;
+                         parambyname('entrynumber').asInteger:=strtoint(edtAccnr.text);
+                         parambyname('transdescr').asString:=edtTransDescr.Text;
+                         parambyname('transdate').asDate:=FEntryDate;
+                         // 08.01.2010 Ingmar
+                         paramByName('accounting_period_id').AsInteger :=FAccYearId; //estbk_globvars.glob_openacc_per_id;
+
+                         parambyname('rec_changed').asDateTime:=now;
+                         ParamByName('company_id').AsInteger := estbk_globvars.glob_company_id;
+                         paramByName('rec_changedby').AsInteger := estbk_globvars.glob_worker_id;
+                         paramByName('rec_addedby').AsInteger := estbk_globvars.glob_worker_id;
+                         execSQL;
+                       end;
+
+                 // uuendame aluskirjet
+                 false:begin
+
+
+                       // 29.10.2009 ingmar
+                       // Annuleerime kõik antud kande kirjed ning loome uuesti ! sellega väldime igasugu ebameeldivaid vigu !!!
+                       // Parem uuesti salvestada, kui lihtalt muutma hakata !
+                       // Kas reaalselt ka midagi kande kirjetes muutus
+
+                       if self.calcChksumStrForAccRecord<>self.FAccRowsChkStr then
+                          self.cancelAccRecords(self.FOpenedEntryId);
+
+
+
+                          // ----
+                          // uuendame baaskirjet !
+                          close;
+                          clear;
+                          add(estbk_sqlclientcollection._CSQLUpdateAccReg);
+                         // 08.01.2010 Ingmar
+                          paramByName('accounting_period_id').AsInteger :=FAccYearId; //estbk_globvars.glob_openacc_per_id;
+                          parambyname('transdescr').asString:=edtTransDescr.Text;
+                          parambyname('transdate').asDate:=FEntryDate;
+                          parambyname('rec_changed').asDateTime:=now;
+                          paramByName('rec_changedby').AsInteger := estbk_globvars.glob_worker_id;
+                          paramByName('id').AsInteger :=FAccRegID;
+                          execSQL;
+
+                       end;
+
+               end; // ---
+
+              with qryAccData,SQL do
+               case self.FInsertMode of
+                true: begin
+                          close;
+                          clear;
+                          add(estbk_sqlclientcollection._CSQLInsertNewDoc);
+
+                          //FAccDocId:=qryAccregisterDocSeq.GetNextValue;
+                          FAccDocId:=estbk_clientdatamodule.dmodule.qryGetdocumentIdSeq.GetNextValue;
+
+                          // 05.12.2009 Ingmar
+                          parambyname('id').asLargeInt:=FAccDocId;
+                          parambyname('document_nr').asString:=trim(edtDocNr.text);
+                          parambyname('document_date').asDate:=now; // milline kuupäev peaks siin olema, kas sama, mis kandel ?!?!
+
+                      if (cmbDocumentType.itemIndex>=0) and (cmbDocumentType.text<>'') then
+                        begin
+                          // paha teisendus ! aga listis on ainult positiivse väärtusega elemendid !
+                          parambyname('document_type_id').asInteger:=Integer(cmbDocumentType.items.Objects[cmbDocumentType.itemIndex]);
+                          parambyname('sdescr').asString:='';
+                        end else
+                        begin
+                          parambyname('document_type_id').asInteger:=FUndefDocClsId; // tüüp klassifikaatoritest
+                          parambyname('sdescr').asString:=cmbDocumentType.Text; // mingi täiendav lühikirjeldus
+                        end;
+
+                          // ------------
+                          paramByName('rec_changedby').AsInteger := estbk_globvars.glob_worker_id;
+                          paramByName('rec_addedby').AsInteger := estbk_globvars.glob_worker_id;
+                          // 01.12.2009 Ingmar; ebameeldiv viga, valet välja kasutasin !!
+                          paramByName('company_id').AsInteger := estbk_globvars.glob_company_id;
+                          parambyname('rec_changed').asDateTime:=now;
+                          execSQL;
+                      end;
+
+
+                // uuendame dokumenti
+                false:begin
+                          close;
+                          clear;
+                          add(estbk_sqlclientcollection._CSQLUpdateDoc);
+
+                          parambyname('id').asInteger:=self.FOpenedEntryBaseDocId;
+                          parambyname('document_nr').asString:=trim(edtDocNr.text);
+                          parambyname('document_date').asDate:=now; // milline kuupäev peaks siin olema, kas sama, mis kandel ?!?!
+
+                      if (cmbDocumentType.itemIndex>=0) and (cmbDocumentType.text<>'') then
+                        begin
+                          // paha teisendus ! aga listis on ainult positiivse väärtusega elemendid !
+                          parambyname('document_type_id').asInteger:=Integer(cmbDocumentType.items.Objects[cmbDocumentType.itemIndex]);
+                          parambyname('sdescr').asString:='';
+                        end else
+                        begin
+                          parambyname('document_type_id').asInteger:=FUndefDocClsId; // tüüp klassifikaatoritest
+                          parambyname('sdescr').asString:=cmbDocumentType.Text; // mingi täiendav lühikirjeldus
+                        end;
+
+                          // ---
+                          parambyname('rec_changed').asDate:=now;
+                          parambyname('rec_changedby').asInteger:=estbk_globvars.glob_worker_id;
+                          // säilitame eelmise staatuse !
+                          parambyname('status').Value:=null;
+                          execSQL;
+                      end;
+               end;
+
+
+               with qryAccData,SQL do
+               case self.FInsertMode of
+                true: begin
+                          close;
+                          clear;
+                          add(estbk_sqlclientcollection._CSQLInsertNewAccRegDoc);
+                          parambyname('accounting_register_id').asInteger:=FAccRegID;
+                          // 05.12.2009 Ingmar
+                          parambyname('document_id').AsLargeInt:=FAccDocId;
+                          paramByName('rec_changedby').AsInteger := estbk_globvars.glob_worker_id;
+                          paramByName('rec_addedby').AsInteger := estbk_globvars.glob_worker_id;
+                          parambyname('rec_changed').asDateTime:=now;
+                          execSQL;
+                     end;
+
+                // uuendame:
+                false:
+                     begin
+                     end;
+               end;
+
+
+
+              // kas peame kanderead lisama !
+              FAddAccRecs:=self.FInsertMode or (self.calcChksumStrForAccRecord<>self.FAccRowsChkStr);
+
+          // ----- käime need korrektsed read läbi !
+          if FAddAccRecs then
+          for i:=0 to FValidRows.Count-1 do
+           begin
+               FRowNr:=integer(FValidRows.items[i]);
+
+
+               with qryAccData,SQL do
+               begin
+                    // !!!!!
+                    // kontrollida, kontrollida ja veelkord kontrollida !!!
+                    //assert(assigned(self.accountingGrid.Objects[CCol_Account,FRowNr]),'SaveEntry[1]');
+
+                    FAccDCRecId:=int64(estbk_clientdatamodule.dmodule.qryGenLedgerAccRecId.GetNextValue);
+
+
+                    close;
+                    clear;
+                    add(estbk_sqlclientcollection._CSQLInsertNewAccDCRec);
+                    // 05.12.2009 ingmar; kirjendite id muutsin bigint peale !
+                    paramByName('id').AsLargeInt:=int64(FAccDCRecId);
+
+
+                    paramByName('accounting_register_id').AsInteger :=FAccRegID;
+                    paramByName('account_id').AsInteger:=TCellAccountType(self.accountingGrid.Objects[CCol_Account,FRowNr]).AccountId;
+                    paramByName('descr').AsString:=self.accountingGrid.Cells[CCol_Account+1,FRowNr];
+                    paramByName('rec_nr').AsInteger:=i+1; // ridade num
+                    paramByName('currency_vsum').AsCurrency:=0;
+                    paramByName('currency_id').asInteger:=0; // sisuliselt 0 viitab baasvaluutale !!!
+
+
+
+                    FCurrAcc:=trim(self.accountingGrid.Cells[CCol_AccCurrency,FRowNr]); // !!!!
+                    bfr:=trim(self.accountingGrid.Cells[CCol_AccDebit,FRowNr]);
+                if  bfr<>'' then
+                  begin
+                       paramByName('rec_type').AsString:=estbk_types.CAccRecTypeAsDebit;
+                       paramByName('currency_drate_ovr').asCurrency:=0; // hetkel ei toeta !                      
+                       FTmpCalc:=strtofloat(bfr);
+                       // ---
+                       paramByName('currency_vsum').asCurrency:=FTmpCalc; // originaal valuutasumma !
+                  // kui valuuta, siis peame võtma baasvaluuta teisenduse !!
+                  if  FCurrAcc<>'' then
+                    begin
+                      paramByName('currency_id').asInteger:=0;
+                      paramByName('currency_drate_ovr').asCurrency:=0;
+                      FTmpCalc:=roundto(FTmpCalc*TCurrencyObjType(self.FCurrDataList.Objects[FCurrIndx]).currVal,-2);
+                    end else
+                      paramByName('currency_drate_ovr').asCurrency:=1.00;
+
+                      // ---
+                      paramByName('rec_sum').asCurrency:=FTmpCalc;
+                  end;
+
+                    bfr:=trim(self.accountingGrid.Cells[CCol_AccCredit,FRowNr]);
+                if  bfr<>'' then
+                  begin
+                    paramByName('rec_type').AsString:=estbk_types.CAccRecTypeAsCredit;
+                    paramByName('currency_drate_ovr').asCurrency:=0; // hetkel ei toeta !
+                
+                    FTmpCalc:=strtofloat(bfr);
+                    paramByName('currency_vsum').asCurrency:=FTmpCalc; // originaal valuutasumma !
+
+                // KREEDIT                 
+                  // kui valuuta, siis peame võtma baasvaluuta teisenduse !!
+                  if  FCurrAcc<>estbk_globvars.glob_baseCurrency then
+                    begin
+                      FTmpCalc:=roundto(FTmpCalc*TCurrencyObjType(self.FCurrDataList.Objects[FCurrIndx]).currVal,-2);                     
+                      // ---
+                      paramByName('currency_id').asInteger:=0;
+                      paramByName('currency_drate_ovr').asCurrency:=0;
+                    
+                    end else
+                       paramByName('currency_drate_ovr').asCurrency:=1.00;
+                      
+                      paramByName('rec_sum').asCurrency:=FTmpCalc;
+                 
+                  end;
+
+                    // ---
+                    paramByName('status').AsString:='';
+
+
+
+                    // hetkel toetame vaid kroone
+                 if FCurrAcc<>'' then
+                    paramByName('currency').AsString:=FCurrAcc
+                 else
+                    paramByName('currency').AsString:=estbk_utilities.getDefaultCurrency;
+                    // ----
+
+                    paramByName('company_id').AsInteger := estbk_globvars.glob_company_id;
+                    parambyname('rec_changed').asDateTime:=now;
+                    paramByName('rec_changedby').AsInteger := estbk_globvars.glob_worker_id;
+                    paramByName('rec_addedby').AsInteger := estbk_globvars.glob_worker_id;
+                    // 04.01.2010 ingmar
+                    // TEHA
+                    paramByName('client_id').AsInteger:=0;
+                    execSQL;
+               end;
+
+
+              // reaga seotud objektide loetelu ka salvestada...
+              for j:=CCol_Counterpart+1 to self.accountingGrid.ColCount-1 do
+              with qryAccData,SQL do
+               begin
+               // ---
+               if trim(self.accountingGrid.Cells[j,FRowNr])='' then
+                    continue;
+
+                    // !!!!!!!!!!!!!
+                    assert(assigned(self.accountingGrid.Objects[j,FRowNr]));
+
+
+
+               // struktuur küll loodi, aga andmeid ei sisestatud !
+               if   TCellObjectType(self.accountingGrid.Objects[j,FRowNr]).ObjectId=0 then
+                    continue;
+
+                    FAccDCAttrRecId:=qryAccreEntryObjSeq.GetNextValue;
+                    close;
+                    clear;
+                    add(estbk_sqlclientcollection._CSQLInsertNewAccDCRecAttrb);
+                    parambyname('id').asInteger:=FAccDCAttrRecId;
+                    // 05.12.2009 Ingmar; large peal
+                    parambyname('accounting_record_id').asLargeInt:=FAccDcRecId;
+                    parambyname('attrib_type').asString:=CAttrecordObjType;
+                    parambyname('attrib_id').asInteger:=TCellObjectType(self.accountingGrid.Objects[j,FRowNr]).ObjectId;
+                    parambyname('attrib_val').asInteger:=0;
+                    parambyname('rec_changed').asDateTime:=now;
+                    paramByName('rec_changedby').AsInteger := estbk_globvars.glob_worker_id;
+                    paramByName('rec_addedby').AsInteger := estbk_globvars.glob_worker_id;
+                    execSQL;
+               end;
+
+           // _CSQLInsertNewAccDCRecAttrb
+           end;
+
+     // -------
+     estbk_clientdatamodule.dmodule.primConnection.Commit;
+
+     self.FAccRowsChkStr:=self.calcChksumStrForAccRecord;
+     self.FAccHeaderChkStr:=self.calcChksumStrForHdrRecord;
+
+
+
+     // jätame meelde siiski salvestatud kirje ID ntx kui vaja kohe annuleerida ?!?!
+     self.FOpenedEntryId:=FAccRegID;
+
+
+     self.FLastDSideSum:=0;
+     self.FLastCSideSum:=0;
+
+  except on e : exception do
+   begin
+      if  estbk_clientdatamodule.dmodule.primConnection.inTransaction then
+        try
+          estbk_clientdatamodule.dmodule.primConnection.Rollback;
+        except
+        end;
+
+       dialogs.MessageDlg(format(estbk_strmsg.SESaveFailed,[e.message]),mtError,[mbok],0);
+       accountingGrid.setFocus;
+       Exit; // -->
+   end; // ----
+  end;
+
+
+
+  if assigned(FFrameDataEvent) then
+     FFrameDataEvent(Self,__frameGenLedEntryChanged,FAccRegID);
+
+
+     // ------------------------------
+     // taastame algseisu !
+     // self.performCleanup;
+     self.btnNewEntry.Enabled := True;
+     self.btnNewEntry.SetFocus;
+     TBitBtn(Sender).Enabled := False;
+     btnCancelGd.Enabled:=True;
+
+     //estbk_utilities.changeWCtrlEnabledStatus(ovrAllGrpbox as TWinControl, False);
+     estbk_utilities.changeWCtrlReadOnlyStatus(ovrAllGrpbox as TWinControl, true);
+
+     self.FGridReadOnly:=true;
+     
+     ovrAllGrpbox.Enabled:=true;
+     accountingGrid.Enabled:=true;
+     accountingGrid.Editor:=nil;
+
+  end;
+ // ---
+ finally
+  freeAndNil(FValidRows);
+ end;
+end;
+
+procedure TframeGeneralLedger.edtAccdateAcceptDate(Sender: TObject; var ADate: TDateTime; var AcceptDate: Boolean);
+begin
+   AcceptDate:=True;
+end;
+
+
+procedure TframeGeneralLedger.gridCurrDataRecheck;
+var
+ i     : Integer;
+ pCurr : AStr;
+ pSaveCol : Integer;
+ pSaveRow : Integer;
+begin
+    // peame ka olema valmis olukorraks, kus valuutakursid paika pandud, aga muudetakse kande kuupäeva !!!!!!
+   for i:=1 to accountingGrid.RowCount-1 do
+    begin
+       pCurr:=trim(accountingGrid.Cells[CCol_AccCurrency,i]);
+    if pCurr<>'' then
+      try
+        pSaveCol:=accountingGrid.Col;
+        pSaveRow:=accountingGrid.Row;
+
+
+        // toome sipelgapesse elu... handlerid avastavad, et midagi toimus
+        accountingGrid.Col:=CCol_AccCurrency;
+        accountingGrid.Row:=i;
+
+        accountingGrid.Cells[CCol_AccCurrency,i]:='';
+        accountingGrid.Cells[CCol_AccCurrency,i]:=pCurr;
+        // --------
+        accountingGridPickListSelect(accountingGrid);
+        break;
+
+      finally
+        accountingGrid.Col:=pSaveCol;
+        accountingGrid.Row:=pSaveRow;
+      end;
+
+    // ---
+    end;
+end;
+
+procedure TframeGeneralLedger.edtAccdateChange(Sender: TObject);
+begin
+ if not TDateEdit(Sender).Focused and TDateEdit(Sender).Enabled then
+  begin
+      self.gridCurrDataRecheck;
+      SelectNext(Sender as twincontrol, True, True);
+  // ------------
+  end;
+end;
+
+
+procedure TframeGeneralLedger.edtAccdateExit(Sender: TObject);
+var
+ cval : TDatetime;
+ pStr : AStr;
+ i    : Integer;
+ pCurr : AStr;
+begin
+   cval:=now;
+   pStr:=trim(TEdit(Sender).Text);
+if pStr<>'' then
+  begin
+    if not estbk_utilities.validateMiscDateEntry(pStr,cval) then
+      begin
+         dialogs.messageDlg(estbk_strmsg.SEInvalidDate,mterror,[mbOk],0);
+      if TEdit(Sender).CanFocus then
+         TEdit(Sender).setFocus;
+      end else
+       TEdit(Sender).Text:=datetostr(cval);
+
+    if accountingGrid.CanFocus then
+     begin
+       accountingGrid.Repaint;
+       // peame ka olema valmis olukorraks, kus valuutakursid paika pandud, aga muudetakse kande kuupäeva !!!!!!
+       self.gridCurrDataRecheck;
+     end;
+
+    // ----
+  end;
+
+  // ----------- uuendame kannet; detectime muudatusi
+  if not self.FInsertMode then
+     btnSaveEntry.Enabled:=btnSaveEntry.Enabled or (self.calcChksumStrForHdrRecord<>self.FAccHeaderChkStr);
+
+end;
+
+
+
+
+
+procedure TframeGeneralLedger.edtAccdateKeyPress(Sender: TObject; var Key: char);
+begin
+  if key in [#13] then
+  begin
+    SelectNext(Sender as twincontrol, True, True);
+    key := #0;
+  end;
+end;
+
+procedure TframeGeneralLedger.edtAccnrExit(Sender: TObject);
+begin
+  with TEdit(Sender) do
+    if (trim(Text) <> '') and (StrToIntDef(Text, -1) < 1) then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEIncorrectAccnumbering, mtError, [mbOK], 0);
+      SetFocus;
+    end;
+end;
+
+procedure TframeGeneralLedger.edtAccnrKeyPress(Sender: TObject; var Key: char);
+begin
+
+  if key in [#13] then
+  begin
+    SelectNext(Sender as twincontrol, True, True);
+    key := #0;
+  end
+  else
+    estbk_utilities.edit_allowNumericEntry(Sender as TCustomEdit, key, False);
+end;
+
+procedure TframeGeneralLedger.edtDocNrExit(Sender: TObject);
+begin
+   if not self.FInsertMode then
+     btnSaveEntry.Enabled:= btnSaveEntry.Enabled or (self.calcChksumStrForHdrRecord<>self.FAccHeaderChkStr);
+end;
+
+procedure TframeGeneralLedger.edtTransDescrChange(Sender: TObject);
+begin
+
+end;
+
+procedure TframeGeneralLedger.FSafeObjListOpenTimer(Sender: TObject);
+begin
+     //TTimer(Sender).Enabled:=false;
+     // self.FAccObjTypes.visible:=true;
+      {
+      self.FAccObjTypes.setFocus;
+ if  not self.FAccObjTypes.PopupVisible then
+     self.FAccObjTypes.PopupVisible:=true;
+     self.}
+end;
+
+
+
+
+
+// kuvame ainult kontosid, mis pole suletud
+procedure TframeGeneralLedger.qryAllAccountsFilterRecord(DataSet: TDataSet; var Accept: Boolean);
+begin
+if self.FHideClosedAccounts then
+   Accept:=((DataSet.FieldByName('flags').AsInteger and estbk_types.CAccFlagsClosed)<>CAccFlagsClosed)
+else
+   Accept:=true;
+end;
+
+
+initialization
+  {$I estbk_generalledger.lrs}
+
+end.
+

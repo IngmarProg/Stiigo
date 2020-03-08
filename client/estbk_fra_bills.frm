@@ -1,0 +1,1825 @@
+inherited frameBills: TframeBills
+  Height = 434
+  Width = 855
+  ClientHeight = 434
+  ClientWidth = 855
+  Color = clBtnFace
+  ParentColor = False
+  DesignLeft = 161
+  DesignTop = 262
+  object tabCtrlBill: TPageControl[0]
+    Left = 8
+    Height = 179
+    Top = 203
+    Width = 845
+    TabStop = False
+    ActivePage = tabBillLines
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Constraints.MinHeight = 100
+    Constraints.MinWidth = 400
+    TabIndex = 0
+    TabOrder = 8
+    TabPosition = tpBottom
+    object tabBillLines: TTabSheet
+      Caption = 'Read'
+      ClientHeight = 153
+      ClientWidth = 837
+      object panelbottom: TPanel
+        Tag = -1
+        Left = 0
+        Height = 149
+        Top = 0
+        Width = 834
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BevelOuter = bvNone
+        BorderStyle = bsSingle
+        ClientHeight = 145
+        ClientWidth = 830
+        Color = clCaptionText
+        Constraints.MinHeight = 100
+        Constraints.MinWidth = 500
+        Font.Color = clCaptionText
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object lblSectionVatStatus: TLabel
+          Left = 1
+          Height = 115
+          Top = 30
+          Width = 290
+          Anchors = [akLeft, akBottom]
+          AutoSize = False
+          Color = clActiveBorder
+          ParentColor = False
+          Transparent = False
+        end
+        object gridBillLines: TStringGrid
+          Tag = -1
+          Left = 1
+          Height = 30
+          Top = 0
+          Width = 828
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          ColCount = 16
+          Columns = <          
+            item
+              Title.Caption = 'Artikkel'
+              Width = 80
+            end          
+            item
+              Title.Caption = 'Kirjeldus'
+              Width = 145
+            end          
+            item
+              Title.Caption = 'Konto'
+              Width = 75
+            end          
+            item
+              ButtonStyle = cbsPickList
+              DropDownRows = 15
+              Title.Caption = 'Ühik'
+              Width = 37
+            end          
+            item
+              Title.Caption = 'Kogus'
+              Width = 55
+            end          
+            item
+              Title.Caption = 'Hind'
+              Width = 55
+            end          
+            item
+              Title.Caption = 'Al. %'
+              Width = 35
+            end          
+            item
+              Title.Caption = 'Käibemaks'
+              Width = 95
+            end          
+            item
+              Title.Caption = 'KM konto'
+              Width = 80
+            end          
+            item
+              Title.Caption = 'KM summa'
+              Width = 85
+            end          
+            item
+              ReadOnly = True
+              Title.Caption = 'Summa'
+              Width = 85
+            end          
+            item
+              ReadOnly = True
+              Title.Caption = 'Kokku'
+              Width = 85
+            end          
+            item
+              Title.Caption = 'KM tagasi %'
+              Width = 70
+            end          
+            item
+              Title.Caption = 'Objekt'
+              Width = 85
+            end          
+            item
+              MinSize = 32
+              MaxSize = 32
+              ReadOnly = True
+              SizePriority = 1000
+              Title.Caption = ' '
+              Width = 32
+            end>
+          Constraints.MinHeight = 20
+          Constraints.MinWidth = 500
+          DefaultColWidth = 16
+          DefaultRowHeight = 22
+          Flat = True
+          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goEditing, goAlwaysShowEditor, goSmoothScroll, goHeaderHotTracking, goHeaderPushedLook]
+          ParentFont = False
+          RowCount = 999
+          TabOrder = 0
+          OnClick = gridBillLinesClick
+          OnDblClick = gridBillLinesDblClick
+          OnDrawCell = gridBillLinesDrawCell
+          OnEditingDone = gridBillLinesEditingDone
+          OnEnter = gridBillLinesEnter
+          OnExit = gridBillLinesExit
+          OnGetEditText = gridBillLinesGetEditText
+          OnKeyDown = gridBillLinesKeyDown
+          OnKeyPress = gridBillLinesKeyPress
+          OnPickListSelect = gridBillLinesPickListSelect
+          OnPrepareCanvas = gridBillLinesPrepareCanvas
+          OnSelectEditor = gridBillLinesSelectEditor
+          OnSelection = gridBillLinesSelection
+          OnSelectCell = gridBillLinesSelectCell
+        end
+        object lblTotalSumWVat: TLabel
+          Left = 556
+          Height = 14
+          Top = 40
+          Width = 152
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          AutoSize = False
+          Caption = 'Summa käibemaksuta:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblVatSum: TLabel
+          Left = 556
+          Height = 14
+          Top = 63
+          Width = 152
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          AutoSize = False
+          Caption = 'Käibemaks:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblRoundSum: TLabel
+          Left = 556
+          Height = 14
+          Top = 87
+          Width = 152
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          AutoSize = False
+          Caption = 'Ümardus:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblBillSumTotal: TLabel
+          Left = 556
+          Height = 14
+          Top = 108
+          Width = 152
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          AutoSize = False
+          Caption = 'Arve summa kokku:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object edtSumWOVatBc: TEdit
+          Tag = -1
+          Left = 710
+          Height = 21
+          Top = 37
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          OnEnter = edtContractorEnter
+          ParentFont = False
+          ReadOnly = True
+          TabStop = False
+          TabOrder = 1
+        end
+        object edtVatSumBc: TEdit
+          Tag = -1
+          Left = 710
+          Height = 21
+          Top = 60
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          OnEnter = edtContractorEnter
+          ParentFont = False
+          ReadOnly = True
+          TabStop = False
+          TabOrder = 2
+        end
+        object edtRoundBc: TEdit
+          Tag = -1
+          Left = 710
+          Height = 21
+          Top = 83
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          OnChange = edtRoundBcChange
+          OnEnter = edtContractorEnter
+          OnExit = edtRoundBcExit
+          OnKeyPress = edtRoundBcKeyPress
+          ParentFont = False
+          ReadOnly = True
+          TabStop = False
+          TabOrder = 3
+        end
+        object edtBillSumTotalBc: TEdit
+          Tag = -1
+          Left = 710
+          Height = 21
+          Top = 106
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          OnEnter = edtContractorEnter
+          ParentFont = False
+          ReadOnly = True
+          TabStop = False
+          TabOrder = 4
+        end
+        object lblVatSpc: TLabel
+          Left = 38
+          Height = 14
+          Top = 40
+          Width = 136
+          Alignment = taRightJustify
+          Anchors = [akLeft, akBottom]
+          AutoSize = False
+          Caption = 'Käibemaksu lisaklausel'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object bv1: TBevel
+          Left = 6
+          Height = 8
+          Top = 46
+          Width = 20
+          Anchors = [akLeft, akBottom]
+          Shape = bsTopLine
+        end
+        object bv2: TBevel
+          Left = 182
+          Height = 8
+          Top = 46
+          Width = 103
+          Anchors = [akLeft, akBottom]
+          Shape = bsTopLine
+        end
+        object mmVatSpecs: TMemo
+          Left = 6
+          Height = 84
+          Top = 57
+          Width = 279
+          Anchors = [akLeft, akBottom]
+          OnChange = mmVatSpecsChange
+          OnEnter = edtContractorEnter
+          ParentFont = False
+          TabOrder = 5
+        end
+        object lblBillStatus: TLabel
+          Tag = -1
+          Left = 298
+          Height = 14
+          Top = 37
+          Width = 160
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          AutoSize = False
+          Caption = 'Arve staatus:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object edtBillStatus: TEdit
+          Tag = -1
+          Left = 460
+          Height = 21
+          Top = 37
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          BorderStyle = bsNone
+          Color = clActiveBorder
+          ParentFont = False
+          ReadOnly = True
+          TabStop = False
+          TabOrder = 6
+        end
+        object lblPmtStatus: TLabel
+          Left = 298
+          Height = 14
+          Top = 60
+          Width = 160
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          AutoSize = False
+          Caption = 'Tasutud:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object edtIncSum: TEdit
+          Tag = -1
+          Left = 460
+          Height = 21
+          Top = 61
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          BorderStyle = bsNone
+          Color = clActiveBorder
+          ParentFont = False
+          ReadOnly = True
+          TabStop = False
+          TabOrder = 7
+        end
+        object edtUsedPrpSum: TEdit
+          Tag = -1
+          Left = 460
+          Height = 21
+          Top = 82
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          BorderStyle = bsNone
+          Color = clActiveBorder
+          ParentFont = False
+          ReadOnly = True
+          TabStop = False
+          TabOrder = 8
+        end
+        object lblUsedPrepayment: TLabel
+          Left = 298
+          Height = 14
+          Top = 84
+          Width = 160
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          AutoSize = False
+          Caption = 'Kasutatud ettemaks:'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object stripe: TBevel
+          Left = 460
+          Height = 7
+          Top = 105
+          Width = 90
+          Anchors = [akRight, akBottom]
+          Shape = bsTopLine
+        end
+        object edtPaidSumTotal: TEdit
+          Tag = -1
+          Left = 460
+          Height = 21
+          Top = 106
+          Width = 90
+          Alignment = taRightJustify
+          Anchors = [akRight, akBottom]
+          BorderStyle = bsNone
+          Color = clActiveBorder
+          ParentFont = False
+          TabStop = False
+          TabOrder = 9
+        end
+      end
+    end
+  end
+  object btnClose: TBitBtn[1]
+    Tag = -1
+    Left = 738
+    Height = 30
+    Top = 389
+    Width = 95
+    Anchors = [akRight, akBottom]
+    Caption = 'Sulge'
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001D63
+      9B1619609839145D9562105A92880D5890A4135C92FC0C578FED999999FF7171
+      71FF545454FF515151FF4F4F4FFF4C4C4CFF4A4A4AFF474747FF454545FF2567
+      9DFF3274A8FF3D7CAFFF4784B5FF4E8ABAFF3E7EADFF0C578FEAFFFFFF00FFFF
+      FF00585858FFA2A2A2FFA2A2A2FFA3A3A3FFA4A4A4FFA4A4A4FFA5A5A5FF2F6F
+      A5FF78ABD2FF78ABD3FF73A7D1FF69A0CDFF407FAEFF0F5991EAFFFFFF00FFFF
+      FF005C5C5CFFA1A1A1FF3C7340FFA0A1A1FFA3A3A3FFA3A3A3FFA4A4A4FF3674
+      AAFF7DAFD4FF5B9AC9FF5495C7FF5896C8FF4180AEFF135C94EAFFFFFF00FFFF
+      FF00606060FFA0A0A0FF3D7641FF367139FFA2A2A2FFA2A2A2FFA3A3A3FF3D79
+      B0FF82B3D7FF629FCCFF5A9AC9FF5E9BCAFF4381AFFF196098EA37823EFF347E
+      3BFF317937FF2E7534FF499150FF468F4CFF39733DFFA1A1A1FFA2A2A2FF457E
+      B4FF88B7D9FF67A3CFFF619ECCFF639FCCFF4583B1FF1F649CEA3B8742FF89CB
+      92FF84C88DFF80C688FF7BC383FF77C17FFF478F4DFF3B743FFFA1A1A1FF4C84
+      BAFF8DBBDBFF6EA8D1FF66A6D1FF5FB4DFFF4785B1FF2569A1EA3E8B46FF8FCE
+      99FF7DC687FF78C381FF73C07CFF74C07CFF79C281FF49904FFF547F57FF5489
+      BFFF94BFDDFF75ADD4FF63B8E1FF4BD4FFFF428BB8FF2C6EA6EA41904AFF94D2
+      9FFF91D09AFF8DCD96FF89CB92FF84C88DFF519858FF417C46FF9F9F9FFF5A8E
+      C4FF98C3E0FF7CB3D7FF74AFD6FF5EC4EDFF4B88B3FF3473ABEA44944DFF4291
+      4BFF3F8D48FF3D8945FF5DA465FF5AA061FF45834BFF9E9E9EFF9E9E9EFF6092
+      C9FF9EC7E2FF83B8DAFF7DB4D7FF7EB3D7FF4F89B4FF3B79B1EAFFFFFF00FFFF
+      FF00777777FF9A9A9AFF3D8A45FF498A4FFF9C9C9CFF9D9D9DFF9D9D9DFF6696
+      CCFFA2CBE3FF89BDDCFF83B9DAFF84B9DAFF518BB5FF437EB6EAFFFFFF00FFFF
+      FF007A7A7AFF999999FF529159FF999A99FF9B9B9BFF9C9C9CFF9C9C9CFF6C9A
+      D0FFA7CEE5FF8FC1DFFF89BDDCFF8BBDDCFF538DB6FF4B84BCEAFFFFFF00FFFF
+      FF007D7D7DFF999999FF999999FF9A9A9AFF9A9A9AFF9B9B9BFF9B9B9BFF6F9D
+      D3FFAAD1E7FFABD1E7FF98C7E1FF91C2DEFF568FB7FF5289C1EAFFFFFF00FFFF
+      FF00808080FF7E7E7EFF7C7C7CFF7A7A7AFF777777FF757575FF727272FF719E
+      D4FF6F9ED6FF87B2DCFFABD3E8FFA9D0E6FF5890B8FF598EC6EAFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00709ED6DB6D9CD4FF85B1DAFF5A91B9FF6093CBEAFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF006D9CD4896A9AD2FB6697CFEE
+    }
+    OnClick = btnCloseClick
+    TabOrder = 9
+  end
+  object bs1: TBevel[2]
+    Left = 8
+    Height = 2
+    Top = 382
+    Width = 828
+    Anchors = [akLeft, akRight, akBottom]
+    Shape = bsTopLine
+    Style = bsRaised
+  end
+  object btnBillNewBill: TBitBtn[3]
+    Left = 668
+    Height = 30
+    Top = 3
+    Width = 132
+    Caption = 'Uus arve'
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00BB6A
+      346BBA6530BCBB6631EDBA6630F7BA6630F7BA6630F7BA6530F7BA652FF7B965
+      2EF7B9652EF7B9642EF7B9642EEFB7622CBDB7622E63FFFFFF00FFFFFF00BC69
+      33DEF8F1EAF2F7ECDFFDF6EBDEFFF6EADEFFF6EADCFFF6EADCFFFAF3EBFFFAF3
+      EBFFFAF2EAFFFCF7F3FFFCF8F4FDFEFEFDF0B7602AD5FFFFFF00FFFFFF00BF71
+      38F5F5EBDFFEFDBF68FFFCBD67FFFBBE65FFFCBE64FFFCBE64FFFCBD62FFFBBD
+      63FFFBBC61FFFCBE60FFFCBC62FFFDFBF8FDB9642DF3FFFFFF00FFFFFF00C178
+      3CF7F7EDE3FFFDC26EFFFFD8A0FFFFD79EFFFFD69BFFFFD798FFFFD696FFFFD6
+      95FFFFD594FFFFD493FFFBBE65FFFBF7F4FFBB6731F7FFFFFF00FFFFFF00C47C
+      40F7F7F0E6FFF8B455FFF7B456FFF7B554FFF8B453FFF8B253FFF7B352FFF7B3
+      52FFF7B251FFF7B24FFFF7B24FFFFCF9F5FFBF6F36F7FFFFFF00FFFFFF00C580
+      42F7F8F1E8FFFEE5D5FFFDE5D3FFFDE5D3FFFCE5D3FFFCE5D3FFFCE4D1FFFCE2
+      CEFFFCE2CCFFFBE0C9FFFBE1C8FFFDFAF7FFC1763BF7FFFFFF00FFFFFF00C582
+      45F7F8F2EBFFFEE7D6FFFDE7D6FFFDE7D6FFFDE7D6FFFDE6D5FFFDE5D3FFFCE4
+      D1FFFCE2CDFFFBE1CBFFFBE1C9FFFBF7F2FFC57C3FF7FFFFFF00FFFFFF00C684
+      47F7F9F3ECFFFEE8D6FFFEE8D7FFFDE7D6FFFDE7D6FFFDE7D5FFFDE5D3FFFBE4
+      D0FFFBE3CCFFFADFC7FFFADFC6FFFAF2EAFFC68042F7FFFFFF00FFFFFF00C688
+      49F7F9F4EDFFFEE8D8FFFEE8D8FFFEE8D7FFFEE7D6FFFDE5D3FFFCE4D1FFFBE1
+      CCFFFAE0C7FFF9DDC3FFF8DCC2FFFAF4EDFFC68245F7FFFFFF00FFFFFF00C688
+      4AF7F9F4EFFFFEE7D7FFFDE7D6FFFDE7D5FFFDE6D4FFFCE6D2FFFBE1CCFFFADF
+      C7FFF8DCC2FFF6DABDFFF6D8BBFFFAF4EFFFC68346F7FFFFFF00FFFFFF00C689
+      4BF7F9F4F0FFFCE6D3FFFCE6D4FFFDE7D3FFFCE4D1FFFBE3CDFFFAE0C8FFF8DC
+      C2FFF5D6BBFFF3D4B5FFF1D2B3FFF8F4F0FFC48246F7FFFFFF00FFFFFF00C689
+      4BF7F9F5F1FFFCE3CFFFFBE4D0FFFCE4CFFFFCE3CDFFFAE1CAFFF9DDC4FFF6D9
+      BCFFF4E9DFFFF7F2ECFFFBF7F3FFF5EFE9FFC27E45FBFFFFFF00FFFFFF00C689
+      4CF6F9F5F1FFFCE3CDFFFBE3CEFFFBE3CDFFFBE2CBFFF9E0C8FFF8DCC2FFF5D6
+      BAFFFDFBF8FFFCE6CDFFFAE5C9FFE2B684FFBF7942A6FFFFFF00FFFFFF00C588
+      4BEAFAF6F2FCFAE0C7FFFBE1C9FFFBE2C9FFFBE0C8FFF9DFC5FFF8DBC1FFF4D6
+      B8FFFFFBF8FFF6D8B4FFE1B07DFFDB9264F6B46B3E07FFFFFF00FFFFFF00C485
+      49C3F7F2ECECF8F4EEFCF8F4EDFFF8F3EDFFF8F3EDFFF8F3EDFFF8F2ECFFF7F2
+      ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
+      4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
+      4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = btnBillNewBillClick
+    OnEnter = edtContractorEnter
+    TabOrder = 2
+  end
+  object btnSaveBill: TBitBtn[4]
+    Left = 668
+    Height = 30
+    Top = 97
+    Width = 148
+    Caption = 'Salvesta'
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00BA6833C5C38458FFD38B68FFE18F70FFDC8D
+      6CFFDA8B6DFFD78A6EFFCD8B6CFFAB6D44FFA65F2EFFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00C68355FFEFCEBAFFDDFFFFFF87EEC7FFA2F4
+      D7FFA2F6D7FF8CEEC7FFE0FFFFFFDDA285FFAB6A3EFFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00BA6833ACC38458DEC37F51FFEFB69AFFEAF3E8FF51BF84FF6FC9
+      98FF71C999FF54BF84FFE4F4E9FFDD9C7BFFAA693AFFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00C68355DEEFCEBADEC48154FFEAB697FFF3F3EAFFEDF1E6FFEFF1
+      E6FFEFF0E6FFEDF1E5FFF3F5EDFFD59C79FFB07044FFFFFFFF00FFFFFF00BA68
+      339BC38458C9C58053F8EEB296F8C98B61FFE6B592FFE2A781FFE1A781FFDEA3
+      7DFFDCA17BFFDB9F79FFD99E77FFD49A73FFBB7E57FFFFFFFF00FFFFFF00C683
+      55C9EFCEBAC9C78E66F8E0BC9CF8CA8D65FFEAB899FFDDA57EFFDDA680FFDBA3
+      7CFFD9A07AFFD9A079FFD89F78FFD89E78FFBF845DFFFFFFFF00FFFFFF00C37F
+      51C9EFB69AC9CC966FF8D6B691F8C8885DFFEFBFA1FFFDFCFAFFFEFCFBFFFEFD
+      FDFFFEFDFCFFFDFBFAFFFDFCFBFFDDA885FFC17F53FFFFFFFF00FFFFFF00C481
+      54C9EAB697C9CE9873F8EABEA1F8C7865BFFEFC09EFFFFFFFFFFCC936EFFFFFF
+      FFFFFFFFFFFFFFFBF7FFFFF8F1FFE4AF8CFFC78A61FFFFFFFF00FFFFFF00C98B
+      61C9E6B592C9CB8B61F8EEBC9EF8CC8D65FFF3CDB0FFFFFFFFFFE3C7B3FFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFEABFA1FFC98960FFFFFFFF00FFFFFF00CA8D
+      65C9EAB899C9C9895FF8EDBD9BF8D4976EFFD49E7BFFD09871FFD6A482FFCD8E
+      68FFCD9069FFD09A75FFD19973FFC88B62FFAD5A2036FFFFFF00FFFFFF00C888
+      5DC9EFBFA1C9D19975F8F4D2B8F8FFFFFFF8E6CDBBF8FFFFFEF8FFFFFFF8FBF6
+      F2F8F8F1EDF8EABFA1DEC98960DEFFFFFF00FFFFFF00FFFFFF00FFFFFF00C786
+      5BC9EFC09EC9D9A27DF8D39D7AF8D5A380F8DAAE8FF8D29A77F8D29B77F8D29C
+      77F8D09771F8C88B62DEAD5A202FFFFFFF00FFFFFF00FFFFFF00FFFFFF00CC8D
+      65C9F3CDB0C9FFFFFFC9E3C7B3C9FFFFFFC9FFFFFFC9FFFFFFC9FFFFFFC9EABF
+      A1C9C98960C9FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D497
+      6EC9D49E7BC9D09871C9D6A482C9CD8E68C9CD9069C9D09A75C9D19973C9C88B
+      62C9AD5A202BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = btnSaveBillClick
+    OnEnter = edtContractorEnter
+    TabOrder = 6
+  end
+  object btnPrint: TBitBtn[5]
+    Left = 668
+    Height = 30
+    Top = 65
+    Width = 132
+    Caption = 'Prindi'
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00C89662FDCA9865FFCA9765FFCA9765FFCA9765FFCA9764FFC997
+      64FFC99764FFCA9865FFC89562FDFFFFFF00FFFFFF00FFFFFF00A1A1A1C27A7A
+      7ADA585858FFC79561FFF9F7F6FFF9F1ECFFF9F1EBFFF8F0E9FFF7EDE6FFF4EA
+      E1FFF2E8DEFFFAF8F6FFC79461FF242424FF4B4B4BD9969696BF6B6B6BFDA7A7
+      A7FFB5B5B5FF818181FFAFACAAFFC5C0BDFFC5C0BDFFC5C0BDFFC5C0BDFFC5C0
+      BDFFC5C0BDFFADAAA8FF2C2C2CFFB5B5B5FF9B9B9BFF232323FF707070FFB5B5
+      B5FFB5B5B5FF959595FF818181FF818181FF797979FF6E6E6EFF616161FF5252
+      52FF434343FF424242FF6E6E6EFFB5B5B5FFB5B5B5FF252525FF757575FFBBBB
+      BBFFBBBBBBFF8D8D8DFFD4D4D4FFB9B9B9FFB9B9B9FFB9B9B9FFB9B9B9FFB9B9
+      B9FFB9B9B9FFD3D3D3FF838383FFBBBBBBFFBBBBBBFF2A2A2AFF7A7A7AFFD7D7
+      D7FFD7D7D7FF979797FFD8D8D8FFBFBFBFFFBFBFBFFFBFBFBFFFBFBFBFFFBFBF
+      BFFFBFBFBFFFD7D7D7FF8E8E8EFFD7D7D7FFD7D7D7FF3F3F3FFF7E7E7EFFF9F9
+      F9FFF9F9F9FFABABABFFDFDFDFFFCBCBCBFFCBCBCBFFCBCBCBFFCBCBCBFFCBCB
+      CBFFCBCBCBFFDFDFDFFFA3A3A3FFF9F9F9FFF9F9F9FF616161FF848484F9FCFC
+      FCFFFCFCFCFFCBCBCBFFF2F2F2FFF2F2F2FFF2F2F2FFF2F2F2FFF2F2F2FFF2F2
+      F2FFF2F2F2FFF2F2F2FFC6C6C6FFFCFCFCFFFCFCFCFF717171FE979797DAD2D2
+      D2FFE8E8E8FF7D7D7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D7DFF7D7D
+      7DFF7D7D7DFF7D7D7DFF7D7D7DFFE8E8E8FFC4C4C4FF6D6D6DE1DDDDDDCD9A9A
+      9AFFCCCCCCFFC78B4EFFF9F4EDFFFEE8D8FFFEE8D7FFFDE5D3FFFCE4D1FFFAE0
+      C7FFF9DDC3FFFAF4EDFFC7854AFFC3C3C3FF747474FFCDCDCDCDFFFFFF00CECE
+      CEC2878787F4C5894CFFF9F4EFFFFEE7D7FFFDE7D5FFFCE6D2FFFBE1CCFFF8DC
+      C2FFF6DABDFFFAF4EFFFC48348FF616161F4BCBCBCC2FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00C68C4FF9F9F4F0FFFCE6D3FFFDE7D3FFFBE3CDFFFAE0C8FFF5D6
+      BBFFF3D4B5FFF8F4F0FFC4854AF9FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00C88D51F7F9F5F1FFFCE3CFFFFCE4CFFFFAE1CAFFF9DDC4FFF4E9
+      DFFFF7F2ECFFF5EFE9FFC38048FBFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00C88D52F6F9F5F1FFFCE3CDFFFBE3CDFFF9E0C8FFF8DCC2FFFDFB
+      F8FFFCE6CDFFE2B684FFD5A884C5FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00C5884DFAF7F2ECFFF8F4EEFFF8F3EDFFF8F3EDFFF8F2ECFFF2E6
+      D7FFE2B27DFFDB9569F6FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00E8CEB9C3D7AA7CCDC88C50FEC88C4FFFCA9155F7CB9055F7C589
+      4DFEDDAF8DC1FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = btnPrintClick
+    OnEnter = edtContractorEnter
+    TabOrder = 4
+  end
+  object btnChooseOutput: TBitBtn[6]
+    Left = 800
+    Height = 21
+    Top = 68
+    Width = 16
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE1BFFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE0E004CA4DA0069
+      DE0BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE7E0050A9FF0038
+      7777FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE0E0061CEEE0051ADFF0038
+      77EA0038770BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE7E0066D7FF0052B0FF0038
+      77FF00387777FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF000061CE0E0065D5EE0075F6FF0079FFFF006A
+      DFFF004087EA0038770BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF000061CE2E0066D77F0076FB7F0076FB7F0076
+      FB7F0069E07F0038772BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = btnChooseOutputClick
+    OnEnter = edtContractorEnter
+    TabOrder = 5
+  end
+  object btnOpenAccEntry: TBitBtn[7]
+    Left = 8
+    Height = 30
+    Top = 389
+    Width = 95
+    Anchors = [akLeft, akBottom]
+    Caption = 'Ava kanne'
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000545655FF5456
+      55FF545655FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00C4C4C4FF8484
+      84FF848484FF848484FF848484FF848484FF848484FFFFFFFF00545655FF0EB2
+      5FFF7ECAA3FF545655FFFFFFFF00848484FF848484FF848484FF848484FFE5E5
+      E5FFE5E5E5FFE5E5E5FFE5E5E5FFE5E5E5FF848484FFFFFFFF00545655FF0EB2
+      5FFF0EB25FFF7ECAA3FF545655FF848484FFFFFFFF00FFFFFF00848484FF8484
+      84FF848484FF848484FF848484FF848484FFC4C4C4FFFFFFFF00FFFFFF005456
+      55FF0EB25FFF0EB25FFF7ECAA3FF545655FFFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00545655FF0EB25FFF0EB25FFF7ECAA3FF545655FF545655FF545655FF5456
+      55FF545655FF848484FF848484FF848484FF848484FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00545655FF0EB25FFF545655FF545655FFE4B881FFB97F5FFFE2B6
+      8EFF545655FF545655FFE5E5E5FFE5E5E5FF848484FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00545655FF545655FFE4B881FFE4B881FFB97F5FFFB67A
+      58FFBD7C4FFF545655FF545655FF848484FFC4C4C4FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00545655FF947868FFE4B881FFDCBAA0FFD9BFA9FFD7C1
+      B4FFDFB896FFE3BB7EFF545655FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00545655FFAD795DFFDFBB94FFD4C3C0FFD8C0AEFFAD85
+      6BFFC1824DFFA87F66FF545655FF848484FF848484FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00545655FF8F746BFFC67B3CFF9D8B86FF9C8D8AFFD8C0
+      AEFFE3BB7EFFE4B881FF545655FFE5E5E5FF848484FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00545655FF545655FFD4B2A4FFD4C3C0FFF9E9D8FFD4C3
+      C0FFBA774FFF545655FF545655FF848484FFC4C4C4FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00545655FF545655FFD4C3C0FFF9E9D8FFD4C3
+      C0FF545655FF545655FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00C4C4C4FF8484
+      84FF848484FF848484FFFFFFFF00848484FF545655FF545655FF545655FF5456
+      55FF545655FF848484FF848484FF848484FF848484FFFFFFFF00848484FFE5E5
+      E5FFE5E5E5FF848484FF848484FF848484FF848484FF848484FF848484FFE5E5
+      E5FFE5E5E5FFE5E5E5FFE5E5E5FFE5E5E5FF848484FFFFFFFF00848484FF8484
+      84FF848484FFC4C4C4FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00848484FF8484
+      84FF848484FF848484FF848484FF848484FFC4C4C4FFFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = btnOpenAccEntryClick
+    OnEnter = edtContractorEnter
+    TabOrder = 10
+  end
+  object btnCreditBill: TBitBtn[8]
+    Left = 104
+    Height = 30
+    Top = 389
+    Width = 95
+    Anchors = [akLeft, akBottom]
+    Caption = 'Kreeditarve'
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000018A6C3691AA7C46900A0C4180000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000A0C45D66DBEAB211A6C2AE0000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000A0C42243C4DBFC43C5D8FE23A6C07F00000000000000000000
+      00000000000000000000000000000000000000A0C4FF00000000000000000000
+      000000000000000000000EAACBFE5DDAE9FE23A6C0EF00000000000000000000
+      000000000000000000000000000000A0C4FF00A0C4FF00000000000000000000
+      000000000000009EC11A02ACC8FF88E7F2FE11A2C2FF00000000000000000000
+      00000000000005797D1100A0C4FF76EDFBFF00A0C4FF000000000000000000A0
+      C4300099B95000A0C4C96DE6F5FF76E2EFFF19A3C1FF00000000000000000000
+      000005797D1100A0C4FF76EDFBFF76EDFBFF00A0C4FF00A0C4FF00A0C4FF00A0
+      C4FF01A9C4FF6EE1EEFF0FC9DFFF69E4F2FF1AA4C0F800000000000000000579
+      7D1100A0C4FF76EDFBFF04C3DAFF76EDFBFF69EAF9FF69EAF9FF69EAF9FF69EA
+      F9FF05DDF7FF0AC8DFFF07C2D8FF6FDCEBFF1BA3BFF40000000005797E1100A0
+      C4FF79EDFBFF32E2F8FF2CDFF4FF04C0D6FF04C0D6FF04C0D6FF1DD2E8FF1DD2
+      E8FF1DD2E8FF0BC8DFFF6AE5F3FF1BABC5F815A0BCCB0000000000A0C4FFADF3
+      FBFF2FE0F6FF32E2F8FF32E2F7FF32E2F7FF2FE0F5FF29DBF1FF1DD2E8FF1DD2
+      E8FF1DD2E8FF36D9ECFF40CDE1FF16A1BDCA05797D0A0000000005797D0A00A0
+      C4FFADF3FBFF2FE0F6FF32E2F7FF29DBF1FF2FE0F5FF29DBF1FF16CDE3FF36D9
+      ECFF69E7F6FF41CEE3FE13A3C1E405797D320000000000000000000000000579
+      7D1100A0C4FFADF3FBFF31E1F6FF20E3FAFF73ECFAFF6FEBFAFF6EE8F7FF6CE8
+      F7F814A1BCD414A3C1D505797D1C000000000000000000000000000000000000
+      000005797D1100A0C4FFADF3FBFF25E4FBFF00A0C4FF00A0C4FF13A1BEE7159F
+      BBCF1BA1BBA4067A7C0B00000000000000000000000000000000000000000000
+      00000000000005797D1100A0C4FFADF3FBFF00A0C4FF00000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000009DBF1400A0C4FF00A0C4FF00000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000A0C4FF00000000000000000000
+      0000000000000000000000000000000000000000000000000000
+    }
+    OnClick = btnCreditBillClick
+    OnEnter = edtContractorEnter
+    TabOrder = 11
+  end
+  object taskPanel: TPanel[9]
+    Left = 8
+    Height = 23
+    Top = 180
+    Width = 654
+    BevelOuter = bvNone
+    ClientHeight = 23
+    ClientWidth = 654
+    Color = clInactiveBorder
+    ParentColor = False
+    TabOrder = 7
+    object cmbWareHouses: TComboBox
+      Left = 97
+      Height = 21
+      Top = 1
+      Width = 175
+      ItemHeight = 13
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 0
+    end
+    object lblWarehouse: TLabel
+      Left = -1
+      Height = 14
+      Top = 4
+      Width = 94
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Sihtladu:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object chkBillConfirmed: TCheckBox
+      Tag = -1
+      Left = 549
+      Height = 17
+      Top = 4
+      Width = 96
+      AutoSize = False
+      Caption = 'Kinnitatud'
+      Font.Style = [fsBold]
+      OnChange = chkBillConfirmedChange
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object grpClientData: TGroupBox[10]
+    Left = 7
+    Height = 88
+    Top = 2
+    Width = 655
+    Caption = ' Klient '
+    ClientHeight = 70
+    ClientWidth = 651
+    Color = cl3DLight
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    object lblCustId: TLabel
+      Left = 7
+      Height = 14
+      Top = 0
+      Width = 86
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Klient:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object edtContractor: TEdit
+      Left = 96
+      Height = 21
+      Top = -3
+      Width = 95
+      MaxLength = 10
+      OnChange = edtContractorChange
+      OnEnter = edtContractorEnter
+      OnExit = edtContractorExit
+      OnKeyDown = edtContractorKeyDown
+      OnKeyPress = edtContractorKeyPress
+      TabOrder = 2
+    end
+    object btnOpenClientList: TBitBtn
+      Left = 191
+      Height = 21
+      Top = -3
+      Width = 16
+      Cancel = True
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE1BFFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE0E004CA4DA0069
+        DE0BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE7E0050A9FF0038
+        7777FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE0E0061CEEE0051ADFF0038
+        77EA0038770BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000061CE7E0066D7FF0052B0FF0038
+        77FF00387777FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF000061CE0E0065D5EE0075F6FF0079FFFF006A
+        DFFF004087EA0038770BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF000061CE2E0066D77F0076FB7F0076FB7F0076
+        FB7F0069E07F0038772BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = btnOpenClientListClick
+      OnEnter = edtContractorEnter
+      TabOrder = 1
+      TabStop = False
+    end
+    object lblProv1: TLabel
+      Left = 6
+      Height = 14
+      Top = 23
+      Width = 87
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Nimi:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object edtCustname: TEdit
+      Left = 96
+      Height = 21
+      Top = 20
+      Width = 175
+      MaxLength = 255
+      OnChange = edtCustnameChange
+      OnEnter = edtContractorEnter
+      OnExit = edtCustnameExit
+      OnKeyPress = edtCustnameKeyPress
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+    end
+    object lblAddr: TLabel
+      Left = 231
+      Height = 14
+      Top = 0
+      Width = 100
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Aadress:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object edtCustAddr: TEdit
+      Tag = -1
+      Left = 334
+      Height = 21
+      Top = -3
+      Width = 312
+      ReadOnly = True
+      TabStop = False
+      TabOrder = 7
+    end
+    object lblProvBankAcc: TLabel
+      Left = 275
+      Height = 14
+      Top = 23
+      Width = 56
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = ' A/A:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+    end
+    object edtBankaccount: TEdit
+      Left = 334
+      Height = 21
+      Top = 20
+      Width = 112
+      MaxLength = 25
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 4
+      Visible = False
+    end
+    object lblRefNumber: TLabel
+      Left = 448
+      Height = 14
+      Top = 23
+      Width = 83
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Viitenumber:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+    end
+    object edtRefNumber: TEdit
+      Left = 534
+      Height = 21
+      Top = 20
+      Width = 112
+      MaxLength = 25
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 5
+      Visible = False
+    end
+    object lblProvDefAcc: TLabel
+      Left = 6
+      Height = 14
+      Top = 45
+      Width = 87
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Konto:'
+      ParentColor = False
+    end
+    object cmbSalePuchAcc: TRxDBLookupCombo
+      Left = 96
+      Height = 21
+      Top = 43
+      Width = 175
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      PopUpFormOptions.BorderStyle = bsSingle
+      PopUpFormOptions.Columns = <      
+        item
+          Alignment = taLeftJustify
+          Color = clWindow
+          FieldName = 'account_coding'
+          Title.Orientation = toHorizontal
+          Title.Alignment = taCenter
+          Title.Layout = tlTop
+          Title.Caption = 'Konto'
+          Title.Color = clBtnFace
+          Width = 65
+        end      
+        item
+          Alignment = taLeftJustify
+          Color = clWindow
+          FieldName = 'account_name'
+          Title.Orientation = toHorizontal
+          Title.Alignment = taCenter
+          Title.Layout = tlTop
+          Title.Caption = 'Konto nimetus'
+          Title.Color = clBtnFace
+          Width = 215
+        end>
+      PopUpFormOptions.DropDownCount = 15
+      PopUpFormOptions.DropDownWidth = 385
+      PopUpFormOptions.ShowTitles = True
+      PopUpFormOptions.TitleButtons = True
+      Flat = False
+      Glyph.Data = {
+        72000000424D7200000000000000360000002800000005000000030000000100
+        2000000000003C00000064000000640000000000000000000000000000000000
+        0000000000FF000000000000000000000000000000FF000000FF000000FF0000
+        0000000000FF000000FF000000FF000000FF000000FF
+      }
+      EmptyValue = ' '
+      NumGlyphs = 1
+      OnButtonClick = cmbSalePuchAccClick
+      OnChange = cmbSalePuchAccChange
+      OnClick = cmbSalePuchAccClick
+      OnClosePopupNotif = cmbSalePuchAccClosePopupNotif
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      OnSelect = cmbSalePuchAccSelect
+      ParentColor = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 6
+      TabStop = True
+      DropDownCount = 15
+      DropDownWidth = 385
+      LookupDisplay = 'account_coding;account_name'
+      LookupField = 'id'
+      LookupSource = qryGetAccountsDChd
+    end
+    object edtFocusFix: TEdit
+      Left = 3
+      Height = 21
+      Top = -3
+      Width = 0
+      ReadOnly = True
+      TabOrder = 0
+    end
+  end
+  object grpBoxBill: TGroupBox[11]
+    Left = 7
+    Height = 88
+    Top = 91
+    Width = 655
+    Caption = ' Arve '
+    ClientHeight = 70
+    ClientWidth = 651
+    Color = cl3DLight
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    object edtBillNr: TEdit
+      Left = 96
+      Height = 21
+      Top = -2
+      Width = 149
+      MaxLength = 30
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 0
+    end
+    object lblBillNr: TLabel
+      Left = 6
+      Height = 14
+      Top = 1
+      Width = 87
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Arve nr:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblDate: TLabel
+      Left = 6
+      Height = 17
+      Top = 23
+      Width = 87
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Arve kuupäev:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object billDate: TDateEdit
+      Left = 96
+      Height = 21
+      Top = 21
+      Width = 85
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OnAcceptDate = billDateAcceptDate
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DefaultToday = True
+      DateOrder = doNone
+      ButtonWidth = 23
+      CharCase = ecNormal
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+        72C4D3996EF4D19668FFCE9263FFCB8E5EFFC98A5BFFC78756FFC38452FFC384
+        52FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+        75FFF8F2EDFFF7F0EAFFF6EDE6FFF4EAE2FFF3E7DEFFF1E4DBFFF0E2D8FFEAD6
+        C8FFF2E5DCFFFAF4F1FFF9F3F0FFFAF5F2FFC58A5DFDFFFFFF00FFFFFF00D9A4
+        7AFFF9F3EEFFEBD2BEFFFFFFFFFFEBD3BFFFFFFFFFFFEBD3C0FFFFFFFFFFEAC7
+        ADFFECD9CDFFF1E4DBFFF9F3F0FFF9F2EFFFC68C5FFFFFFFFF00FFFFFF00DDA8
+        7EFFF9F3EFFFEBD0BAFFEBD0BBFF75B57AFF75B57AFF75B57AFFEBD1BDFFEACD
+        B5FFFAF4F0FFEBD9CCFFF1E4DBFFFAF4F1FFC68A5CFFFFFFFF00FFFFFF00DFAA
+        82FFF9F3EFFFEACEB7FFFFFFFFFF75B57AFF94D49BFF74B579FFFFFFFFFFEACF
+        BAFFFBF6F2FFFAF3F0FFEBD8CBFFF2E6DDFFC88D5FFFFFFFFF00FFFFFF00E1AE
+        87FFFAF4F0FFEACBB2FFEACCB3FF75B57AFF74B579FF73B478FFEACEB7FF70B3
+        75FF6FB274FF6EB172FFE8C8AEFFEAD7C9FFC48654FFFFFFFF00FFFFFF00E3B1
+        8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFE9CBB3FFFFFFFFFF6FB1
+        73FF8ED295FF6BAF6FFFFFFFFFFFF1E5DBFFC68655FFFFFFFF00FFFFFF00E5B4
+        8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FF6CB0
+        71FF6AAF6EFF68AD6DFFE8CCB5FFF2E7DEFFC88A59FFFFFFFF00FFFFFF00E7B7
+        94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFE9C6AAFFFFFFFFFFE8C7
+        ACFFFFFFFFFFE8C8B0FFFFFFFFFFF7F1EBFFCB8F5FFFFFFFFF00FFFFFF00E9BA
+        98FFFBF7F4FF65A4FFFF64A3FFFF62A2FFFF61A1FFFF5F9FFFFF5C9DFFFF5A9A
+        FFFF5798FFFF5495FFFF5294FFFFFBF7F4FFCE9364FFFFFFFF00FFFFFF00EBBD
+        9BFFFBF7F4FF64A4FFFF79BDFFFF75BBFFFF71B9FFFF6DB8FFFF68B3FFFF61B0
+        FFFF5AABFFFF54A7FFFF3B7DFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+        9EFFFBF7F4FF65A4FFFF64A3FFFF60A0FFFF5D9EFFFF5899FFFF5496FFFF4D90
+        FFFF478BFFFF4284FFFF3D7FFFFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+        A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+        F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+        A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+        8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      NumGlyphs = 0
+      MaxLength = 12
+      OnEditingDone = billDateEditingDone
+      OnEnter = edtContractorEnter
+      OnExit = billDateExit
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 1
+    end
+    object lblPaymentDesc: TLabel
+      Left = 6
+      Height = 14
+      Top = 46
+      Width = 87
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Maksetähtaeg:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object dueDate: TDateEdit
+      Left = 96
+      Height = 21
+      Top = 44
+      Width = 85
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OnAcceptDate = dueDateAcceptDate
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DefaultToday = True
+      DateOrder = doNone
+      ButtonWidth = 23
+      CharCase = ecNormal
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+        72C4D3996EF4D19668FFCE9263FFCB8E5EFFC98A5BFFC78756FFC38452FFC384
+        52FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+        75FFF8F2EDFFF7F0EAFFF6EDE6FFF4EAE2FFF3E7DEFFF1E4DBFFF0E2D8FFEAD6
+        C8FFF2E5DCFFFAF4F1FFF9F3F0FFFAF5F2FFC58A5DFDFFFFFF00FFFFFF00D9A4
+        7AFFF9F3EEFFEBD2BEFFFFFFFFFFEBD3BFFFFFFFFFFFEBD3C0FFFFFFFFFFEAC7
+        ADFFECD9CDFFF1E4DBFFF9F3F0FFF9F2EFFFC68C5FFFFFFFFF00FFFFFF00DDA8
+        7EFFF9F3EFFFEBD0BAFFEBD0BBFF75B57AFF75B57AFF75B57AFFEBD1BDFFEACD
+        B5FFFAF4F0FFEBD9CCFFF1E4DBFFFAF4F1FFC68A5CFFFFFFFF00FFFFFF00DFAA
+        82FFF9F3EFFFEACEB7FFFFFFFFFF75B57AFF94D49BFF74B579FFFFFFFFFFEACF
+        BAFFFBF6F2FFFAF3F0FFEBD8CBFFF2E6DDFFC88D5FFFFFFFFF00FFFFFF00E1AE
+        87FFFAF4F0FFEACBB2FFEACCB3FF75B57AFF74B579FF73B478FFEACEB7FF70B3
+        75FF6FB274FF6EB172FFE8C8AEFFEAD7C9FFC48654FFFFFFFF00FFFFFF00E3B1
+        8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFE9CBB3FFFFFFFFFF6FB1
+        73FF8ED295FF6BAF6FFFFFFFFFFFF1E5DBFFC68655FFFFFFFF00FFFFFF00E5B4
+        8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FF6CB0
+        71FF6AAF6EFF68AD6DFFE8CCB5FFF2E7DEFFC88A59FFFFFFFF00FFFFFF00E7B7
+        94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFE9C6AAFFFFFFFFFFE8C7
+        ACFFFFFFFFFFE8C8B0FFFFFFFFFFF7F1EBFFCB8F5FFFFFFFFF00FFFFFF00E9BA
+        98FFFBF7F4FF65A4FFFF64A3FFFF62A2FFFF61A1FFFF5F9FFFFF5C9DFFFF5A9A
+        FFFF5798FFFF5495FFFF5294FFFFFBF7F4FFCE9364FFFFFFFF00FFFFFF00EBBD
+        9BFFFBF7F4FF64A4FFFF79BDFFFF75BBFFFF71B9FFFF6DB8FFFF68B3FFFF61B0
+        FFFF5AABFFFF54A7FFFF3B7DFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+        9EFFFBF7F4FF65A4FFFF64A3FFFF60A0FFFF5D9EFFFF5899FFFF5496FFFF4D90
+        FFFF478BFFFF4284FFFF3D7FFFFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+        A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+        F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+        A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+        8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      NumGlyphs = 0
+      MaxLength = 12
+      OnEnter = edtContractorEnter
+      OnExit = billDateExit
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 2
+    end
+    object lblInterest: TLabel
+      Left = 483
+      Height = 14
+      Top = 46
+      Width = 62
+      Alignment = taRightJustify
+      Anchors = [akTop, akRight]
+      AutoSize = False
+      Caption = 'Viivise %:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object edtInterestPerc: TEdit
+      Left = 549
+      Height = 21
+      Top = 44
+      Width = 55
+      Anchors = [akTop, akRight]
+      MaxLength = 4
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 6
+    end
+    object lblCurrency: TLabel
+      Left = 487
+      Height = 17
+      Top = 23
+      Width = 58
+      Alignment = taRightJustify
+      Anchors = [akTop, akRight]
+      AutoSize = False
+      Caption = 'Valuuta:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cmbCurrencyList: TComboBox
+      Left = 549
+      Height = 21
+      Top = 21
+      Width = 55
+      Anchors = [akTop, akRight]
+      ItemHeight = 13
+      OnChange = cmbCurrencyListChange
+      OnKeyPress = edtBankaccountKeyPress
+      TabOrder = 5
+    end
+    object lblCurrVal: TLabel
+      Left = 191
+      Height = 14
+      Top = 102
+      Width = 87
+      AutoSize = False
+      ParentColor = False
+    end
+    object lblAccNr: TLabel
+      Left = 257
+      Height = 14
+      Top = 1
+      Width = 74
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Kande nr:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object accDate: TDateEdit
+      Left = 548
+      Height = 21
+      Top = -2
+      Width = 75
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OnAcceptDate = accDateAcceptDate
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DefaultToday = True
+      DateOrder = doNone
+      ButtonWidth = 23
+      CharCase = ecNormal
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+        72C4D3996EF4D19668FFCE9263FFCB8E5EFFC98A5BFFC78756FFC38452FFC384
+        52FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+        75FFF8F2EDFFF7F0EAFFF6EDE6FFF4EAE2FFF3E7DEFFF1E4DBFFF0E2D8FFEAD6
+        C8FFF2E5DCFFFAF4F1FFF9F3F0FFFAF5F2FFC58A5DFDFFFFFF00FFFFFF00D9A4
+        7AFFF9F3EEFFEBD2BEFFFFFFFFFFEBD3BFFFFFFFFFFFEBD3C0FFFFFFFFFFEAC7
+        ADFFECD9CDFFF1E4DBFFF9F3F0FFF9F2EFFFC68C5FFFFFFFFF00FFFFFF00DDA8
+        7EFFF9F3EFFFEBD0BAFFEBD0BBFF75B57AFF75B57AFF75B57AFFEBD1BDFFEACD
+        B5FFFAF4F0FFEBD9CCFFF1E4DBFFFAF4F1FFC68A5CFFFFFFFF00FFFFFF00DFAA
+        82FFF9F3EFFFEACEB7FFFFFFFFFF75B57AFF94D49BFF74B579FFFFFFFFFFEACF
+        BAFFFBF6F2FFFAF3F0FFEBD8CBFFF2E6DDFFC88D5FFFFFFFFF00FFFFFF00E1AE
+        87FFFAF4F0FFEACBB2FFEACCB3FF75B57AFF74B579FF73B478FFEACEB7FF70B3
+        75FF6FB274FF6EB172FFE8C8AEFFEAD7C9FFC48654FFFFFFFF00FFFFFF00E3B1
+        8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFE9CBB3FFFFFFFFFF6FB1
+        73FF8ED295FF6BAF6FFFFFFFFFFFF1E5DBFFC68655FFFFFFFF00FFFFFF00E5B4
+        8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FF6CB0
+        71FF6AAF6EFF68AD6DFFE8CCB5FFF2E7DEFFC88A59FFFFFFFF00FFFFFF00E7B7
+        94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFE9C6AAFFFFFFFFFFE8C7
+        ACFFFFFFFFFFE8C8B0FFFFFFFFFFF7F1EBFFCB8F5FFFFFFFFF00FFFFFF00E9BA
+        98FFFBF7F4FF65A4FFFF64A3FFFF62A2FFFF61A1FFFF5F9FFFFF5C9DFFFF5A9A
+        FFFF5798FFFF5495FFFF5294FFFFFBF7F4FFCE9364FFFFFFFF00FFFFFF00EBBD
+        9BFFFBF7F4FF64A4FFFF79BDFFFF75BBFFFF71B9FFFF6DB8FFFF68B3FFFF61B0
+        FFFF5AABFFFF54A7FFFF3B7DFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+        9EFFFBF7F4FF65A4FFFF64A3FFFF60A0FFFF5D9EFFFF5899FFFF5496FFFF4D90
+        FFFF478BFFFF4284FFFF3D7FFFFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+        A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+        F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+        A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+        8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      NumGlyphs = 0
+      MaxLength = 12
+      OnEnter = edtContractorEnter
+      OnExit = billDateExit
+      OnKeyPress = edtBankaccountKeyPress
+      ParentShowHint = False
+      PopupMenu = mnuPopupSpecialOpt
+      ShowHint = True
+      TabOrder = 4
+    end
+    object edtAccEntryNr: TEdit
+      Tag = -1
+      Left = 334
+      Height = 21
+      Top = -2
+      Width = 105
+      ParentColor = True
+      ReadOnly = True
+      TabStop = False
+      TabOrder = 7
+    end
+    object lblAccDate: TLabel
+      Left = 443
+      Height = 14
+      Top = 1
+      Width = 101
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Kande kuupäev:'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblPaymentTerm: TLabel
+      Left = 231
+      Height = 14
+      Top = 46
+      Width = 99
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Maksetingimus:'
+      ParentColor = False
+    end
+    object cmbPaymentTerm: TComboBox
+      Left = 334
+      Height = 21
+      Top = 44
+      Width = 105
+      ItemHeight = 13
+      OnChange = cmbPaymentTermChange
+      OnEnter = edtContractorEnter
+      OnKeyPress = edtBankaccountKeyPress
+      Style = csDropDownList
+      TabOrder = 3
+    end
+    object pcurrVal: TLabel
+      Left = 606
+      Height = 19
+      Top = 21
+      Width = 40
+      AutoSize = False
+      Color = 13487565
+      Font.Height = -9
+      Layout = tlCenter
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+  end
+  object btnIncomings: TBitBtn[12]
+    Left = 200
+    Height = 30
+    Top = 389
+    Width = 95
+    Anchors = [akLeft, akBottom]
+    Caption = 'Laekumised'
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00975435239453347D925234DB8A5034F3884F34F38950
+      35DB8950357D84503623FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF009F563453995534E6B28057FFD5B793FFDBC3A6FFDAC3A6FFD2B4
+      90FFAB7A52FF864F34E688503553FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00A76234539F5533F4CBA77DFFD8BB9FFFC39C77FFB68A62FFB48660FFBE96
+      72FFD1B397FFC5A377FF844F35F489503553FFFFFF00FFFFFF00FFFFFF00AF70
+      3522AB6935E5CFAA81FFDABCA2FFBE9166FFBA8C62FFB7895FFFB3845EFFB183
+      5DFFB0835CFFCDAA8DFFC6A579FF895034E589503522FFFFFF00FFFFFF00B878
+      357EBF915EFFE0C2A8FFC5966CFFC29169FFE1CBB8FFFEFDFCFFFFFFFEFFEADC
+      D0FFB4855EFFB3855EFFD4B599FFAE7B56FF8F51357EFFFFFF00FFFFFF00BC7E
+      35DBDBBC9CFFD5AD89FFC7986CFFC39569FFC19367FFEDDFD3FFFAF7F4FFBB8B
+      63FFB98A63FFB88A62FFC59D78FFD2B893FF905135DBFFFFFF00FFFFFF00BF7E
+      35F6E3C7AFFFD0A276FFC5996BFFC4976AFFC49669FFEEE0D4FFFBF7F4FFBF90
+      66FFBE8F65FFBE8F64FFBE9269FFDFC6AAFF925034F6FFFFFF00FFFFFF00C585
+      3BF6E4C9B0FFD0A37AFFCC9D71FFC79A6CFFC5986BFFFFFFFFFFFFFFFEFFC396
+      69FFC19468FFC29468FFC3986DFFDFC5ABFF955334F6FFFFFF00FFFFFF00CB8E
+      41DBE0BC9FFFDBB393FFCFA075FFCD9E72FFCB9C71FFDDBFA3FFDDBFA2FFC599
+      6BFFC5996BFFC4986BFFD1AB85FFD8BA97FF9E5635DBFFFFFF00FFFFFF00CE91
+      477ECD9C68FFE7CBB4FFD4A57AFFD0A077FFCF9E74FFFBF8F5FFFBF8F5FFCB9E
+      71FFCB9D71FFCDA177FFDFC0A5FFB98A5BFFA45C347EFFFFFF00FFFFFF00D293
+      4C22CE8E47E5D9B28CFFE6CAB3FFD6A97DFFD1A579FFE2C4A8FFE1C3A8FFD0A2
+      76FFD1A477FFDDBDA2FFD0AC85FFAB6635E5A9653522FFFFFF00FFFFFF00FFFF
+      FF00D4964D53CF8D47F4D9B28CFFE6CDB8FFE0BA9DFFD7AB85FFD6A982FFD9B3
+      91FFE1C2ABFFD4AE86FFB16B35F4B16F3553FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00D6974F53D19149E6D0A06AFFE0BFA0FFE3C5AEFFE3C5AEFFDFBC
+      9FFFC89762FFBD7D35E6BC7E3553FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D8985223D4964D7DD2924CDBCD8C45F3CB8B41F3C98B
+      40DBC78B407DC5873D23FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = btnIncomingsClick
+    OnEnter = edtContractorEnter
+    TabOrder = 12
+  end
+  object btnAddFile: TSpeedButton[13]
+    Left = 698
+    Height = 22
+    Hint = 'Lisa arvega seotud failid'
+    Top = 127
+    Width = 23
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF00FF40358E
+      45C0309240C0FF00FF40FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF00FF40BABA
+      BA9E9D9D9DDFB7B7B7DFD7D7D79EFF00FF40FFFFFF00FF00FF40209D32C03191
+      41FF2C943DFF498058C0FF00FF40FFFFFF00FFFFFF00FFFFFF00C2C2C29EA5A5
+      A5FFD0D0D0FFAFAFAFFFA1A1A1FFD7D7D7C0FF00FF401F9E317F239C35FF358E
+      46FF219C33FF349044FF2699377FFFFFFF00FFFFFF00FFFFFF009D9D9DDFC9C9
+      C9FFFF00FF7FFF00FF40C2C2C2C09F9F9FFFD7D7D7FFADB8AFBC30A23FFF2C95
+      3DFF2C953DFF517B5FFFFF00FF69FFFFFF00FFFFFF00FFFFFF00ABABABDFBCBC
+      BCFFFF00FF40FFFFFF00FF00FF40BABABAC0A3A3A3FFDBDBDBC846A152DF22A1
+      33FF309240FF1CA02EE9FF00FF3FFFFFFF00FFFFFF00FFFFFF00BCBCBC9EA1A1
+      A1FFE3E3E3C0FF26FF40FFFFFF00FFFFFF00B2B2B2C0ADADADE94AAE579E1CA0
+      2EFF32A642FF1CA02EBEFF00FF15FFFFFF00FFFFFF00FFFFFF00FF00FF40A1A1
+      A1FFDDDDDDFFEBEBEBFFADADADC0FF00FF40FFFFFF00A9A9A9FF70AC787F1DA0
+      2FFF22A034FF1FA13194FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00DBDB
+      DBC0ABABABFFDADADAFFA5A5A5FFBCBCBCC0FF00FF40D2D2D2FF4AA056FF55AC
+      61FF55AC61FF61A16A8FBDC8BFC0FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF00
+      FF40CECECEC09F9F9FFFC2C2C2FFA1A1A1FFC9C9C9FFFF00FF40D2D2D2FF9D9D
+      9DFFC9C9C9FFADADADFFB7B7B7FFFF00FF40FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FF00FF40C1C1C1C0A3A3A3FFC2C2C2FF9F9F9FFFD0D0D0FFFF00FF40D2D2
+      D2FFA1A1A1FFD2D2D2FF9D9D9DFFDBDBDB9EFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FF00FF40B7B7B7C0A9A9A9FFC2C2C2FF9F9F9FFFCBCBCBFFFF00
+      FF40A5A5A5FFD0D0D0FFC2C2C2FFADADADE0FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FF00FF40B2B2B2C0ADADADFFCBCBCBFFA3A3A3FFAFAF
+      AFFF9F9F9FFFDFDFDFFFDBDBDBFF9D9D9DFFFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FF00FF40ADADADC0ADADADFFD2D2D2FFC0C0
+      C0FFCECECEFFFF00FF40BCBCBCFFABABABDEFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF00FF40B2B2B2C0A1A1A1FFC0C0
+      C0FFCECECEFFB2B2B2FF9D9D9DFFE3E3E39EFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF00FF40D7D7D79EABAB
+      ABDE9D9D9DFFB2B2B2E0E3E3E39EFF00FF40FFFFFF00FFFFFF00
+    }
+    NumGlyphs = 0
+    OnClick = btnAddFileClick
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object pBillInfoText: TStaticText[14]
+    Left = 668
+    Height = 49
+    Top = 151
+    Width = 205
+    TabOrder = 13
+  end
+  object btnEmailbill: TSpeedButton[15]
+    Left = 727
+    Height = 22
+    Hint = 'Arve e-postiga'
+    Top = 127
+    Width = 23
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000FF0000
+      00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF0000
+      00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFF000000FF000000FFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFF7F7F7FFF7F7F7FFF7F7F7FFFFAE6BBFFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFF000000FF000000FFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFF000000FF000000FFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFF7F7F7FFF7F7F7FFF7F7F7FFF7F7F7FFF7F7F
+      7FFF7F7F7FFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFF000000FF000000FFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6
+      BBFFFAE6BBFFFAE6BBFF0000FFFF0000FFFF0000FFFF000000FF000000FFFAE6
+      BBFF7F7F7FFF7F7F7FFF7F7F7FFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6
+      BBFFFAE6BBFFFAE6BBFF0000FFFFFAE6BBFFFAE6BBFF000000FF000000FFFAE6
+      BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6BBFFFAE6
+      BBFFFAE6BBFFFAE6BBFF0000FFFFFAE6BBFF0000FFFF000000FF000000FF0000
+      00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF0000
+      00FF000000FF000000FF000000FF000000FF000000FF000000FFFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    NumGlyphs = 0
+    OnClick = btnEmailbillClick
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object btnBillCopy: TBitBtn[16]
+    Left = 668
+    Height = 30
+    Top = 34
+    Width = 132
+    Caption = 'Koopia'
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00898E
+      8C94858A88FF858A88FF858A88FF858A88FF858A88FF858A88FF858A88FF858A
+      88FF858A88FF858A88FF858A88FF858A88FF8A8F8D94FFFFFF00FFFFFF00858A
+      88FEF8F8F8FFF8F8F8FFF8F8F8FFF8F8F8FFF8F8F8FFF8F8F8FF000000FFF8F8
+      F8FF000000FFF8F8F8FFF8F8F8FFF8F8F8FF888D8BFEFFFFFF00FFFFFF00858A
+      88FFF9F9F9FFDBC3ADFFDCC4AEFFDDC5AFFFDEC6B0FFDFC7B1FFE0C8B2FF0000
+      00FFF7F7F7FFF9F9F9FFF8F8F8FFF7F7F7FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFF9F9F9FFDBC3ADFFB09882FFB09882FFB09882FFB09882FFE0C8B2FF0000
+      00FFF7F7F7FFF8F8F8FFF7F7F7FFF7F7F7FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFAFAFAFFDBC3ADFFDCC4AEFFDDC5AFFFDEC6B0FFDFC7B1FFE0C8B2FF0000
+      00FFF5F5F5FFF6F6F6FFF6F6F6FFF7F7F7FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFBFBFBFFDBC3ADFFDCC4AEFFDDC5AFFFDEC6B0FFDEC6B0FF000000FFE0C8
+      B2FF000000FFE1C9B3FFF4F4F4FFF7F7F7FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFBFBFBFFDAC2ACFFAF9781FFAF9781FFAF9781FFAF9781FFAF9781FFAF97
+      81FFAF9781FFE0C8B2FFF2F2F2FFF7F7F7FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFCFCFCFFDAC2ACFFDBC3ADFFDCC4AEFFDDC5AFFFDDC5AFFFDEC6B0FFDEC6
+      B0FFDFC7B1FFDFC7B1FFF0F0F0FFF8F8F8FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFCFCFCFFDAC2ACFFDAC2ACFFDBC3ADFFDCC4AEFFDDC5AFFFDDC5AFFFDEC6
+      B0FFDEC6B0FFDEC6B0FFEEEEEEFFF8F8F8FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFCFCFCFFD9C1ABFFAF9781FFAF9781FFAF9781FFAF9781FFDCC4AEFFAF97
+      81FFAF9781FFDDC5AFFFECECECFFF8F8F8FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFDFDFDFFD8C0AAFFAF9781FFAF9781FFAF9781FFAF9781FFDBC3ADFFDCC4
+      AEFFDCC4AEFFDCC4AEFFEBEBEBFFF8F8F8FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFDFDFDFFD8C0AAFFAF9781FFAF9781FFAF9781FFAF9781FFDBC3ADFFDBC3
+      ADFFDBC3ADFFDBC3ADFFDBC3ADFFF8F8F8FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFEFEFEFFD7BFA9FFAF9781FFAF9781FFAF9781FFAF9781FFDAC2ACFFAF97
+      81FFAF9781FFAF9781FFDAC2ACFFF8F8F8FF888D8BFFFFFFFF00FFFFFF00858A
+      88FFFDFDFDFFD6BEA8FFD7BFA9FFD7BFA9FFD8C0AAFFD8C0AAFFD9C1ABFFD9C1
+      ABFFD9C1ABFFD9C1ABFFD9C1ABFFF8F8F8FF888D8BFFFFFFFF00FFFFFF00858A
+      88FEFDFDFDFFFEFEFEFFFEFEFEFFFDFDFDFFFDFDFDFFFCFCFCFFFCFCFCFFFBFB
+      FBFFFBFBFBFFFAFAFAFFFAFAFAFFF9F9F9FF888D8BFEFFFFFF00FFFFFF00898D
+      8B94858A88FF858A88FF858A88FF858A88FF858A88FF858A88FF858A88FF858A
+      88FF858A88FF858A88FF858A88FF858A88FF898E8C94FFFFFF00
+    }
+    OnClick = btnBillCopyClick
+    OnEnter = edtContractorEnter
+    TabOrder = 3
+  end
+  object btnEBill: TSpeedButton[17]
+    Left = 668
+    Height = 22
+    Hint = 'Koostab e-arve faili'
+    Top = 127
+    Width = 23
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D4D4D480D4D4D480D4D4D480D4D4D480D4D4D480D4D4
+      D480D4D4D480D4D4D480D4D4D453FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00D4D4D42FC5CAD6FF6C91E8FF698FE8FF698FE8FF698FE8FF698F
+      E8FF698FE8FF7094E7FFD4D4D4FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00D4D4D409D4D4D4C79FB2DDFF618AEAFF3E74F1FFCFD1D3FFC7CB
+      D5FF7C9CE4FF1C5EF8FFB3BFD9FFD4D4D436FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D4D4D40FC7CBD5FF4579EFFF5C87EBFFD4D4D490D4D4
+      D4B9D4D4D4B98EA7E1FF7A9AE5FFD4D4D47BFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D4D4D40FC7CBD5FF4579EFFF5D87EBFFD4D4D490B6C0
+      D9FFA5B6DCFFD4D4D4B4CECFD4FFD4D4D47CFFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D4D4D40FC7CBD5FF4579EFFF4579EFFF99AEDEFF4679
+      EFFF90A8E0FFD4D4D452D4D4D40BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D4D4D40FC7CBD5FF4579EFFF5180EDFFACBADAFF5180
+      EDFF90A8E0FFD4D4D4C5D4D4D48CFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D4D4D40FC7CBD5FF4579EFFF5D87EBFFD4D4D490C4C9
+      D6FFB6C1D8FF7D9CE4FFD4D4D4DCFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00D4D4D402D4D4D4B9B0BCDAFF5381EDFF4A7CEEFFD4D4D4D8D4D4
+      D4D89CB0DEFF366FF2FFD4D4D4C3FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00D4D4D42FC6CBD5FF6A90E8FF819FE3FF628BE9FF7E9DE4FF7C9C
+      E4FF648CE9FF829FE3FFD4D4D4AAFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00D4D4D490D4D4D490D4D4D490D4D4D490D4D4D490D4D4
+      D490D4D4D490D4D4D490D4D4D43DFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    NumGlyphs = 0
+    OnClick = btnEBillClick
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object qryGetArticles: TZQuery[18]
+    AutoCalcFields = False
+    OnFilterRecord = qryGetArticlesFilterRecord
+    CachedUpdates = True
+    ReadOnly = True
+    Params = <>
+    left = 16
+    top = 160
+  end
+  object qryGetArticlesDs: TDatasource[19]
+    DataSet = qryGetArticles
+    left = 424
+    top = 336
+  end
+  object qryTemp: TZReadOnlyQuery[20]
+    AutoCalcFields = False
+    Params = <>
+    left = 96
+    top = 336
+  end
+  object qryGetAccounts: TZQuery[21]
+    AutoCalcFields = False
+    ReadOnly = True
+    Params = <>
+    left = 16
+    top = 56
+  end
+  object qryGetAccountsDs: TDatasource[22]
+    DataSet = qryGetAccounts
+    left = 504
+    top = 336
+  end
+  object qryVat: TZQuery[23]
+    AutoCalcFields = False
+    OnFilterRecord = qryVatFilterRecord
+    ReadOnly = True
+    Params = <>
+    left = 16
+    top = 104
+  end
+  object qryVatDs: TDatasource[24]
+    DataSet = qryVat
+    left = 592
+    top = 336
+  end
+  object qryBillMainRec: TZQuery[25]
+    AutoCalcFields = False
+    CachedUpdates = True
+    Params = <>
+    left = 16
+    top = 336
+  end
+  object qryGenLedgerEntrys: TZQuery[26]
+    AutoCalcFields = False
+    Params = <>
+    left = 16
+    top = 216
+  end
+  object qInvoiceMemDataset: TMemDataset[27]
+    FieldDefs = <>
+    left = 184
+    top = 336
+  end
+  object qInvoiceReport: TfrReport[28]
+    Dataset = reportdata
+    GrayedButtons = True
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    OnBeginPage = qInvoiceReportBeginPage
+    OnBeginBand = qInvoiceReportBeginBand
+    OnEndBand = qInvoiceReportEndBand
+    OnGetValue = qInvoiceReportGetValue
+    OnEnterRect = qInvoiceReportEnterRect
+    left = 840
+    top = 72
+    ReportForm = {
+      19000000
+    }
+  end
+  object reportdata: TfrDBDataSet[29]
+    DataSet = qInvoiceMemDataset
+    left = 840
+    top = 16
+  end
+  object qryBanks: TZReadOnlyQuery[30]
+    AutoCalcFields = False
+    Params = <>
+    left = 16
+    top = 8
+  end
+  object qryGetAccountsDChd: TDatasource[31]
+    DataSet = qryGetAccounts
+    left = 336
+    top = 336
+  end
+  object lazFocusFix: TTimer[32]
+    Enabled = False
+    Interval = 45
+    OnTimer = lazFocusFixTimer
+    OnStopTimer = lazFocusFixStopTimer
+    left = 16
+    top = 280
+  end
+  object mnuItems: TPopupMenu[33]
+    left = 840
+    top = 128
+    object mnuScreen: TMenuItem
+      Caption = 'Ekraanile'
+      Checked = True
+      OnClick = mnuScreenClick
+    end
+    object mnuPdfFile: TMenuItem
+      Caption = 'Pdf faili'
+      OnClick = mnuScreenClick
+    end
+    object mnuBillHtmlFile: TMenuItem
+      Caption = 'Html faili'
+      Visible = False
+      OnClick = mnuScreenClick
+    end
+  end
+  object pSaveDialog: TSaveDialog[34]
+    Title = 'Salvesta arve kui'
+    left = 840
+    top = 190
+  end
+  object mnuPopupSpecialOpt: TPopupMenu[35]
+    left = 64
+    top = 104
+    object mnuNoAccRecs: TMenuItem
+      Caption = 'Ära tee kandeid'
+      OnClick = mnuNoAccRecsClick
+    end
+  end
+  object qryGetObjects: TZQuery[36]
+    Params = <>
+    left = 504
+    top = 384
+  end
+  object qryGetObjectsDs: TDatasource[37]
+    AutoEdit = False
+    DataSet = qryGetObjects
+    left = 592
+    top = 384
+  end
+  object pSaveXMLFile: TSaveDialog[38]
+    Title = 'E-arve fail salvestada...'
+    left = 840
+    top = 248
+  end
+end

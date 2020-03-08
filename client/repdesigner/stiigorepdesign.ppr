@@ -1,0 +1,22 @@
+program stiigorepdesign;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms, stiigorepdesign_unit, lazreport
+  { you can add units after this };
+
+{$R *.res}
+
+begin
+  Application.Title:='Aruande disainer';
+  Application.ShowMainForm:=false;
+  Application.Initialize;
+  Application.CreateForm(TpDesignerForm, pDesignerForm);
+  Application.Run;
+end.
+

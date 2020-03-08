@@ -1,0 +1,11 @@
+TyphonResources.Add('Tuserdm','FORMDATA',[
+  'TPF0'#7'Tuserdm'#6'userdm'#8'OnCreate'#7#16'DataModuleCreate'#9'OnDestroy'#7
+  +#17'DataModuleDestroy'#6'Height'#3','#1#16'HorizontalOffset'#3'"'#1#14'Verti'
+  +'calOffset'#3#186#0#5'Width'#3#144#1#0#12'TZConnection'#15'user_connection'#8
+  +'Protocol'#6#12'postgresql-8'#8'HostName'#6#9'localhost'#22'TransactIsolatio'
+  +'nLevel'#7#15'tiReadCommitted'#4'left'#2#16#3'top'#2#16#0#0#12'TZConnection'
+  +#21'user_helperconnection'#8'Protocol'#6#12'postgresql-8'#8'HostName'#6#9'lo'
+  +'calhost'#22'TransactIsolationLevel'#7#15'tiReadCommitted'#4'left'#2'0'#3'to'
+  +'p'#2#16#0#0#7'TZQuery'#9'confQuery'#10'Connection'#7#15'user_connection'#6
+  +'Params'#14#0#4'left'#3#160#0#3'top'#2#16#0#0#0
+]);

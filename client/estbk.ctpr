@@ -1,0 +1,1843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <PathDelim Value="\"/>
+    <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <MajorVersionNr Value="1"/>
+      <RevisionNr Value="5"/>
+      <BuildNr Value="24"/>
+      <StringTable FileDescription="Raamatupidamistarkvara Stiigo" LegalCopyright="Ingmar Tammeväli" ProductVersion="1.05"/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="-generatepofile c:\stiigo.po"/>
+            <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T &apos;Typhon Run Output&apos; -e $(TyphonDir)/tools/runwait.sh $(TargetCmdLine)"/>
+          </local>
+        </Mode0>
+      </Modes>
+    </RunParams>
+    <RequiredPackages Count="12">
+      <Item1>
+        <PackageName Value="lz_printers"/>
+        <MinVersion Minor="5" Valid="True"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="lz_datetimectrls"/>
+        <MinVersion Major="1" Minor="2" Valid="True"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="smnetgradientlaz"/>
+        <MinVersion Major="2" Release="6" Valid="True"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="pl_virtualtrees"/>
+        <MinVersion Major="4" Minor="8" Release="6" Valid="True"/>
+      </Item4>
+      <Item5>
+        <PackageName Value="pl_rx"/>
+        <MinVersion Major="2" Minor="1" Release="1" Build="103" Valid="True"/>
+      </Item5>
+      <Item6>
+        <PackageName Value="lz_memds"/>
+        <MinVersion Major="1" Minor="2" Release="1" Valid="True"/>
+      </Item6>
+      <Item7>
+        <PackageName Value="lz_sdf"/>
+        <MinVersion Minor="1" Release="1" Valid="True"/>
+      </Item7>
+      <Item8>
+        <PackageName Value="lz_report"/>
+        <MinVersion Minor="9" Release="5" Valid="True"/>
+      </Item8>
+      <Item9>
+        <PackageName Value="lz_rtticontrols"/>
+        <MinVersion Minor="1" Valid="True"/>
+      </Item9>
+      <Item10>
+        <PackageName Value="adFCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item10>
+      <Item11>
+        <PackageName Value="pl_zeosdbo"/>
+        <MinVersion Major="6" Minor="6" Release="5" Valid="True"/>
+      </Item11>
+      <Item12>
+        <PackageName Value="adLCL"/>
+      </Item12>
+    </RequiredPackages>
+    <Units Count="159">
+      <Unit0>
+        <Filename Value="estbk.ppr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="33"/>
+        <TopLine Value="139"/>
+        <CursorPos X="27" Y="165"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="estbk_main.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="estBkMainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="2101"/>
+        <CursorPos X="16" Y="2134"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="estbk_clientdatamodule.pas"/>
+        <FRMtype Value="300"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dmodule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="241"/>
+        <CursorPos X="37" Y="259"/>
+        <UsageCount Value="200"/>
+        <Bookmarks Count="1">
+          <Item0 Y="2050" ID="8"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\shared_units\estbk_utilities.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="1222"/>
+        <CursorPos Y="1222"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\shared_units\estbk_dbcompability.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="336"/>
+        <CursorPos X="28" Y="356"/>
+        <UsageCount Value="200"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="estbk_sqlclientcollection.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="14"/>
+        <TopLine Value="1604"/>
+        <CursorPos Y="1626"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="estbk_fra_createmodaccounts.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameManageAccounts"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="1729"/>
+        <CursorPos X="5" Y="1760"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\shared_units\estbk_globvars.pas"/>
+        <TopLine Value="48"/>
+        <CursorPos X="2" Y="76"/>
+        <UsageCount Value="89"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\shared_units\estbk_types.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1192"/>
+        <CursorPos X="16" Y="1212"/>
+        <UsageCount Value="100"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="estbk_fra_generalledger.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameGeneralLedger"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="17"/>
+        <TopLine Value="3055"/>
+        <CursorPos Y="3077"/>
+        <UsageCount Value="203"/>
+        <Bookmarks Count="1">
+          <Item0 Y="1301" ID="2"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="estbk_lib_locals.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="15" Y="7"/>
+        <UsageCount Value="201"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="estbk_uivisualinit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="18"/>
+        <CursorPos X="21" Y="30"/>
+        <UsageCount Value="200"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="estbk_tests.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="17" Y="2"/>
+        <UsageCount Value="200"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="estbk_fra_objects.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameObjects"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <CursorPos X="52" Y="15"/>
+        <UsageCount Value="200"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="estbk_fra_genledgerentrys.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameGenLedgerEntrys"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="323"/>
+        <CursorPos X="70" Y="344"/>
+        <UsageCount Value="203"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="estbk_fra_articles.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameArticles"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="1319"/>
+        <CursorPos X="40" Y="1332"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\shared_units\estbk_strmsg.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="18"/>
+        <TopLine Value="7"/>
+        <CursorPos X="24" Y="30"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\shared_units\estbk_filereader.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="16"/>
+        <UsageCount Value="201"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="estbk_lib_datareader.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="834"/>
+        <CursorPos X="8" Y="872"/>
+        <UsageCount Value="200"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="..\shared_units\estbk_progressform.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_progress"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="205"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="estbk_reportconst.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="24" Y="3"/>
+        <UsageCount Value="200"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="estbk_reportsqlcollection.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="19"/>
+        <TopLine Value="688"/>
+        <CursorPos Y="704"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="estbk_fra_genledgreportcriterias.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameGenledreportcrit"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="20"/>
+        <CursorPos Y="8"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="estbk_fra_customer.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameCustomers"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="15"/>
+        <TopLine Value="1635"/>
+        <CursorPos X="47" Y="1657"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="..\shared_units\estbk_frame_chooseaddr.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrameAddrPicker"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="538"/>
+        <CursorPos X="50" Y="538"/>
+        <UsageCount Value="200"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="..\shared_units\estbk_customdialogsform.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formCustomDialog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="25"/>
+        <CursorPos X="38" Y="20"/>
+        <UsageCount Value="200"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="estbk_frm_choosecustmer.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formChooseCustomer"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="172"/>
+        <CursorPos X="62" Y="193"/>
+        <UsageCount Value="201"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="estbk_lib_grapheffects.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="67"/>
+        <CursorPos X="30" Y="18"/>
+        <UsageCount Value="201"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameBills"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="21"/>
+        <TopLine Value="10999"/>
+        <CursorPos X="27" Y="11020"/>
+        <UsageCount Value="200"/>
+        <Bookmarks Count="2">
+          <Item0 ID="3"/>
+          <Item1 X="21" Y="3377" ID="9"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="estbk_testunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="23" Y="22"/>
+        <UsageCount Value="201"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="estbk_fra_bill_list.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameBillList"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="493"/>
+        <CursorPos X="22" Y="521"/>
+        <UsageCount Value="200"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="estbk_fra_banks.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameBanks"/>
+        <ResourceBaseClass Value="Frame"/>
+        <CursorPos X="85" Y="4"/>
+        <UsageCount Value="200"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="estbk_fra_warehouse.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameWarehouses"/>
+        <ResourceBaseClass Value="Frame"/>
+        <CursorPos X="24" Y="18"/>
+        <UsageCount Value="200"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="estbk_fra_orders.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameOrders"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="25"/>
+        <TopLine Value="3687"/>
+        <CursorPos X="5" Y="3701"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="estbk_fra_paymentorders.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="framePaymentOrder"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="26"/>
+        <TopLine Value="2844"/>
+        <CursorPos Y="2857"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="..\shared_units\estbk_intdbsyserrors.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="9" Y="19"/>
+        <UsageCount Value="203"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="estbk_lib_commoncls.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="324"/>
+        <CursorPos X="21" Y="345"/>
+        <UsageCount Value="200"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="estbk_lib_commonevents.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="2"/>
+        <CursorPos X="84" Y="16"/>
+        <UsageCount Value="200"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="estbk_fra_payment_list.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="framePaymentList"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="536"/>
+        <CursorPos X="67" Y="556"/>
+        <UsageCount Value="200"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="estbk_fra_configureaccounts.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameConfAccounts"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="31"/>
+        <TopLine Value="521"/>
+        <CursorPos X="3" Y="535"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="estbk_lib_rep_errorcodes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="155"/>
+        <CursorPos Y="175"/>
+        <UsageCount Value="203"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="estbk_lib_erprtwriter.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="213"/>
+        <CursorPos X="41" Y="232"/>
+        <UsageCount Value="200"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="..\shared_units\estbk_crc32.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="13"/>
+        <CursorPos X="24" Y="16"/>
+        <UsageCount Value="210"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="estbk_lib_bankfilesconverr.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="14"/>
+        <CursorPos X="139" Y="60"/>
+        <UsageCount Value="206"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="estbk_frm_custunpaiditems.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formCustUnpaiditems"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="256"/>
+        <CursorPos X="45" Y="3"/>
+        <UsageCount Value="200"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="estbk_formxframes.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formXFrames"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="446"/>
+        <CursorPos X="98" Y="455"/>
+        <UsageCount Value="200"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="estbk_testframe.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameX"/>
+        <ResourceBaseClass Value="Frame"/>
+        <CursorPos X="36" Y="4"/>
+        <UsageCount Value="200"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="estbk_fra_order_list.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameOrderList"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="393"/>
+        <CursorPos X="6" Y="408"/>
+        <UsageCount Value="201"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="estbk_fra_declformulacreator.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameFormulaCreator"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="27"/>
+        <TopLine Value="853"/>
+        <CursorPos Y="876"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="estbk_fra_formdrez.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameDeclRez"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="28"/>
+        <TopLine Value="1459"/>
+        <CursorPos X="48" Y="1476"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="estbk_fra_declforms.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameDeclForms"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="29"/>
+        <TopLine Value="1458"/>
+        <CursorPos Y="1479"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="estbk_defs.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3"/>
+        <UsageCount Value="100"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="estbk_frm_formincomefiles.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formSelectIncomeFiles"/>
+        <ResourceBaseClass Value="Form"/>
+        <CursorPos X="51" Y="10"/>
+        <UsageCount Value="200"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="..\shared_units\estbk_progressformanimated.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formAnimatedProgress"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="81" Y="18"/>
+        <UsageCount Value="200"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="estbk_lib_paymentmanager.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="30"/>
+        <TopLine Value="1197"/>
+        <CursorPos Y="1218"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="estbk_fra_incomings_edit.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameBankIncomeManually"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="32"/>
+        <TopLine Value="2682"/>
+        <CursorPos X="30" Y="2703"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="estbk_lib_bankfiledefs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="586"/>
+        <CursorPos X="22" Y="601"/>
+        <UsageCount Value="208"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="estbk_lib_incomings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="575"/>
+        <CursorPos X="73" Y="575"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="estbk_lib_mapdatatypes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="10"/>
+        <CursorPos X="40" Y="16"/>
+        <UsageCount Value="200"/>
+      </Unit58>
+      <Unit59>
+        <Filename Value="estbk_fra_payment_information.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="framePaymentInformation"/>
+        <ResourceBaseClass Value="Frame"/>
+        <CursorPos X="12" Y="4"/>
+        <UsageCount Value="200"/>
+      </Unit59>
+      <Unit60>
+        <Filename Value="estbk_fra_appsettings.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameAppSettings"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="168"/>
+        <CursorPos X="26" Y="204"/>
+        <UsageCount Value="200"/>
+      </Unit60>
+      <Unit61>
+        <Filename Value="estbk_fra_incomings_list.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameIncomingsList"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="187"/>
+        <CursorPos X="56" Y="205"/>
+        <UsageCount Value="203"/>
+      </Unit61>
+      <Unit62>
+        <Filename Value="estbk_frm_about.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formAbout"/>
+        <ResourceBaseClass Value="Form"/>
+        <CursorPos X="3" Y="53"/>
+        <UsageCount Value="200"/>
+      </Unit62>
+      <Unit63>
+        <Filename Value="estbk_inputformex.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="inputExForm"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="49"/>
+        <CursorPos X="78" Y="54"/>
+        <UsageCount Value="200"/>
+      </Unit63>
+      <Unit64>
+        <Filename Value="estbk_choose_dform.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formChoosedFrm"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="35"/>
+        <CursorPos X="23" Y="88"/>
+        <UsageCount Value="204"/>
+      </Unit64>
+      <Unit65>
+        <Filename Value="estbk_fra_docfilesmgr.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameDocFilesMgr"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="177"/>
+        <CursorPos X="35" Y="200"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit65>
+      <Unit66>
+        <Filename Value="estbk_fra_debtorlist.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameDebtors"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="694"/>
+        <CursorPos X="36" Y="739"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit66>
+      <Unit67>
+        <Filename Value="estbk_fra_cashregister.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameCashRegister"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="3273"/>
+        <CursorPos Y="3316"/>
+        <UsageCount Value="207"/>
+        <Loaded Value="True"/>
+      </Unit67>
+      <Unit68>
+        <Filename Value="estbk_frm_choosebank.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formChooseBank"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="89"/>
+        <CursorPos X="50" Y="97"/>
+        <UsageCount Value="200"/>
+      </Unit68>
+      <Unit69>
+        <Filename Value="estbk_lib_suminwords.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="estbk_lib_suminWords"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="226"/>
+        <CursorPos X="47" Y="195"/>
+        <UsageCount Value="200"/>
+      </Unit69>
+      <Unit70>
+        <Filename Value="estbk_fra_cashbook.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameCashbook"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="24"/>
+        <TopLine Value="543"/>
+        <CursorPos X="104" Y="564"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit70>
+      <Unit71>
+        <Filename Value="estbk_settings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="54"/>
+        <CursorPos X="54" Y="83"/>
+        <UsageCount Value="200"/>
+      </Unit71>
+      <Unit72>
+        <Filename Value="estbk_lib_declcalc.pas"/>
+        <EditorIndex Value="12"/>
+        <CursorPos X="16" Y="17"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit72>
+      <Unit73>
+        <Filename Value="estbk_lib_calcdhelper.pas"/>
+        <EditorIndex Value="13"/>
+        <TopLine Value="379"/>
+        <CursorPos X="11" Y="393"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit73>
+      <Unit74>
+        <Filename Value="..\shared_units\estbk_filecheck.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="100" Y="25"/>
+        <UsageCount Value="200"/>
+      </Unit74>
+      <Unit75>
+        <Filename Value="..\shared_units\estbk_lib_sendemail.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="189"/>
+        <CursorPos Y="317"/>
+        <UsageCount Value="207"/>
+      </Unit75>
+      <Unit76>
+        <Filename Value="estbk_frm_esendbill.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formEMailBill"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="213"/>
+        <CursorPos X="109" Y="229"/>
+        <UsageCount Value="201"/>
+      </Unit76>
+      <Unit77>
+        <Filename Value="estbk_debugwnd.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_debug"/>
+        <ResourceBaseClass Value="Form"/>
+        <CursorPos X="57" Y="5"/>
+        <UsageCount Value="201"/>
+      </Unit77>
+      <Unit78>
+        <Filename Value="estbk_fra_personalcard.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="framePersonalCard"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="423"/>
+        <CursorPos Y="462"/>
+        <UsageCount Value="207"/>
+      </Unit78>
+      <Unit79>
+        <Filename Value="estbk_fra_workcontract.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameWorkContract"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="1440"/>
+        <CursorPos X="3" Y="1454"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit79>
+      <Unit80>
+        <Filename Value="estbk_fra_personalcardlist.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="framePersonalCardList"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="16"/>
+        <CursorPos X="46" Y="19"/>
+        <UsageCount Value="201"/>
+      </Unit80>
+      <Unit81>
+        <Filename Value="estbk_fra_employee_wagetemplate.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameEmpwageTypeDefTemplate"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="1115"/>
+        <CursorPos Y="1123"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit81>
+      <Unit82>
+        <Filename Value="estbk_lib_formulaparserext.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="20"/>
+        <CursorPos X="53" Y="270"/>
+        <UsageCount Value="200"/>
+      </Unit82>
+      <Unit83>
+        <Filename Value="estbk_fra_workertimetable.pas"/>
+        <FRMtype Value="400"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameWorkerTimeTable"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UsageCount Value="200"/>
+      </Unit83>
+      <Unit84>
+        <Filename Value="estbk_lib_deleteaccitems.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="44"/>
+        <CursorPos X="24" Y="57"/>
+        <UsageCount Value="200"/>
+      </Unit84>
+      <Unit85>
+        <Filename Value="estbk_frm_currlist.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formCurrlist"/>
+        <ResourceBaseClass Value="Form"/>
+        <CursorPos X="37" Y="15"/>
+        <UsageCount Value="200"/>
+      </Unit85>
+      <Unit86>
+        <Filename Value="estbk_ebill.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="90"/>
+        <UsageCount Value="200"/>
+      </Unit86>
+      <Unit87>
+        <Filename Value="estbk_acc_perfinalize.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="23"/>
+        <TopLine Value="102"/>
+        <CursorPos X="68" Y="123"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit87>
+      <Unit88>
+        <Filename Value="estbk_frm_accperfinalize.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formAccPerFinalize"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="166"/>
+        <CursorPos X="82" Y="198"/>
+        <UsageCount Value="200"/>
+      </Unit88>
+      <Unit89>
+        <Filename Value="C:\LIBS\zeos\src\dbc\ZDbcPostgreSqlUtils.pas"/>
+        <TopLine Value="763"/>
+        <CursorPos X="65" Y="778"/>
+        <UsageCount Value="9"/>
+      </Unit89>
+      <Unit90>
+        <Filename Value="estbk_frm_donations.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formDonation"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="2"/>
+        <CursorPos X="84" Y="9"/>
+        <UsageCount Value="200"/>
+      </Unit90>
+      <Unit91>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <TopLine Value="2271"/>
+        <CursorPos Y="2289"/>
+        <UsageCount Value="5"/>
+      </Unit91>
+      <Unit92>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysstrh.inc"/>
+        <TopLine Value="158"/>
+        <CursorPos X="10" Y="178"/>
+        <UsageCount Value="4"/>
+      </Unit92>
+      <Unit93>
+        <Filename Value="C:\Program Files\dxgettext\freepascal\gnugettext.pas"/>
+        <TopLine Value="2076"/>
+        <CursorPos X="41" Y="2085"/>
+        <UsageCount Value="3"/>
+      </Unit93>
+      <Unit94>
+        <Filename Value="C:\Program Files\dxgettext\freepascal\gnugettext_fpc.pp"/>
+        <TopLine Value="50"/>
+        <CursorPos Y="186"/>
+        <UsageCount Value="3"/>
+      </Unit94>
+      <Unit95>
+        <Filename Value="estbk_fra_template.pas"/>
+        <ComponentName Value="fra_template"/>
+        <ResourceBaseClass Value="Frame"/>
+        <TopLine Value="410"/>
+        <CursorPos Y="416"/>
+        <UsageCount Value="178"/>
+      </Unit95>
+      <Unit96>
+        <Filename Value="..\shared_units\estbk_frm_template.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmTemplate"/>
+        <ResourceBaseClass Value="Form"/>
+        <CursorPos X="43" Y="21"/>
+        <UsageCount Value="200"/>
+      </Unit96>
+      <Unit97>
+        <Filename Value="C:\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <TopLine Value="626"/>
+        <CursorPos X="31" Y="646"/>
+        <UsageCount Value="11"/>
+      </Unit97>
+      <Unit98>
+        <Filename Value="estbk_lib_ebillimporter.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="137"/>
+        <CursorPos Y="202"/>
+        <UsageCount Value="200"/>
+      </Unit98>
+      <Unit99>
+        <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <TopLine Value="469"/>
+        <CursorPos Y="487"/>
+        <UsageCount Value="7"/>
+      </Unit99>
+      <Unit100>
+        <Filename Value="estbk_frm_ebill_import.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEBillImport"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="86"/>
+        <CursorPos X="25" Y="81"/>
+        <UsageCount Value="206"/>
+      </Unit100>
+      <Unit101>
+        <Filename Value="estbk_lib_vat_ext2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="170"/>
+        <CursorPos X="12" Y="180"/>
+        <UsageCount Value="205"/>
+      </Unit101>
+      <Unit102>
+        <Filename Value="estbk_lib_commonaccprop.pas"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos Y="10"/>
+        <UsageCount Value="200"/>
+      </Unit102>
+      <Unit103>
+        <Filename Value="estbk_lib_numerators.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="22"/>
+        <TopLine Value="435"/>
+        <CursorPos X="5" Y="456"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit103>
+      <Unit104>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\objpas\classes\classesh.inc"/>
+        <TopLine Value="652"/>
+        <CursorPos X="3" Y="855"/>
+        <UsageCount Value="2"/>
+      </Unit104>
+      <Unit105>
+        <Filename Value="..\shared_units\estbk_fra_template.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fra_template"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="575"/>
+        <CursorPos X="92" Y="590"/>
+        <UsageCount Value="200"/>
+      </Unit105>
+      <Unit106>
+        <Filename Value="estbk_lib_sepa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="91"/>
+        <CursorPos Y="91"/>
+        <UsageCount Value="200"/>
+      </Unit106>
+      <Unit107>
+        <Filename Value="estbk_lib_sepagen.pas"/>
+        <TopLine Value="13"/>
+        <CursorPos X="17" Y="29"/>
+        <UsageCount Value="16"/>
+      </Unit107>
+      <Unit108>
+        <Filename Value="C:\lazarus\lcl\avglvltree.pas"/>
+        <UnitName Value="AvgLvlTree"/>
+        <TopLine Value="797"/>
+        <CursorPos X="55" Y="823"/>
+        <UsageCount Value="2"/>
+      </Unit108>
+      <Unit109>
+        <Filename Value="estbk_frm_sepapayments.pas"/>
+        <FRMtype Value="200"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="formSepaPayments"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="96"/>
+        <CursorPos X="25" Y="125"/>
+        <UsageCount Value="200"/>
+      </Unit109>
+      <Unit110>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\packages\winunits-base\src\shfolder.pp"/>
+        <TopLine Value="40"/>
+        <CursorPos X="25" Y="51"/>
+        <UsageCount Value="3"/>
+      </Unit110>
+      <Unit111>
+        <Filename Value="..\shared_units\estbk_lib_asyncload.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="65"/>
+        <CursorPos X="74" Y="126"/>
+        <UsageCount Value="200"/>
+      </Unit111>
+      <Unit112>
+        <Filename Value="estbk_lib_fin_sampo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="386"/>
+        <CursorPos X="25" Y="394"/>
+        <UsageCount Value="101"/>
+      </Unit112>
+      <Unit113>
+        <Filename Value="..\shared_units\estbk_http.pas"/>
+        <CursorPos X="98" Y="24"/>
+        <UsageCount Value="26"/>
+      </Unit113>
+      <Unit114>
+        <Filename Value="..\shared_units\estbk_wininet.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="272"/>
+        <CursorPos X="22" Y="286"/>
+        <UsageCount Value="10"/>
+      </Unit114>
+      <Unit115>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\packages\fcl-json\src\fpjson.pp"/>
+        <TopLine Value="363"/>
+        <CursorPos X="28" Y="392"/>
+        <UsageCount Value="13"/>
+      </Unit115>
+      <Unit116>
+        <Filename Value="C:\lazarus\lcl\utrace.pp"/>
+        <UnitName Value="UTrace"/>
+        <TopLine Value="35"/>
+        <CursorPos Y="64"/>
+        <UsageCount Value="9"/>
+      </Unit116>
+      <Unit117>
+        <Filename Value="C:\lazarus\lcl\utf8process.pp"/>
+        <UnitName Value="UTF8Process"/>
+        <TopLine Value="124"/>
+        <CursorPos X="35" Y="138"/>
+        <UsageCount Value="9"/>
+      </Unit117>
+      <Unit118>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\inc\objpash.inc"/>
+        <TopLine Value="165"/>
+        <CursorPos X="23" Y="185"/>
+        <UsageCount Value="9"/>
+      </Unit118>
+      <Unit119>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32wsdialogs.pp"/>
+        <UnitName Value="Win32WSDialogs"/>
+        <TopLine Value="991"/>
+        <CursorPos Y="1011"/>
+        <UsageCount Value="9"/>
+      </Unit119>
+      <Unit120>
+        <Filename Value="C:\lazarus\lcl\dbgrids.pas"/>
+        <UnitName Value="DBGrids"/>
+        <TopLine Value="2650"/>
+        <CursorPos X="37" Y="2671"/>
+        <UsageCount Value="9"/>
+      </Unit120>
+      <Unit121>
+        <Filename Value="C:\lazarus\components\synedit\synedit.pp"/>
+        <UnitName Value="SynEdit"/>
+        <TopLine Value="3395"/>
+        <CursorPos Y="3415"/>
+        <UsageCount Value="2"/>
+      </Unit121>
+      <Unit122>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\packages\fcl-base\src\base64.pp"/>
+        <TopLine Value="247"/>
+        <CursorPos X="30" Y="62"/>
+        <UsageCount Value="2"/>
+      </Unit122>
+      <Unit123>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Protocols\IdCoderHeader.pas"/>
+        <TopLine Value="89"/>
+        <CursorPos X="12" Y="109"/>
+        <UsageCount Value="4"/>
+      </Unit123>
+      <Unit124>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Protocols\IdMessage.pas"/>
+        <TopLine Value="1142"/>
+        <CursorPos X="60" Y="1169"/>
+        <UsageCount Value="4"/>
+      </Unit124>
+      <Unit125>
+        <Filename Value="C:\lazarus\lcl\lclproc.pas"/>
+        <UnitName Value="LCLProc"/>
+        <TopLine Value="336"/>
+        <CursorPos X="10" Y="332"/>
+        <UsageCount Value="5"/>
+      </Unit125>
+      <Unit126>
+        <Filename Value="C:\LIBS\zeos\src\component\ZAbstractRODataset.pas"/>
+        <TopLine Value="59"/>
+        <CursorPos X="27" Y="79"/>
+        <UsageCount Value="9"/>
+      </Unit126>
+      <Unit127>
+        <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
+        <TopLine Value="6399"/>
+        <CursorPos X="23" Y="6417"/>
+        <UsageCount Value="7"/>
+      </Unit127>
+      <Unit128>
+        <Filename Value="C:\lazarus\lcl\include\customedit.inc"/>
+        <TopLine Value="520"/>
+        <CursorPos Y="530"/>
+        <UsageCount Value="8"/>
+      </Unit128>
+      <Unit129>
+        <Filename Value="C:\lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <TopLine Value="111"/>
+        <CursorPos X="37" Y="131"/>
+        <UsageCount Value="11"/>
+      </Unit129>
+      <Unit130>
+        <Filename Value="..\shared_units\estbk_loginform.pas"/>
+        <ComponentName Value="form_login"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="183"/>
+        <CursorPos X="37" Y="218"/>
+        <UsageCount Value="12"/>
+      </Unit130>
+      <Unit131>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbComCtrls.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1179"/>
+        <CursorPos X="18" Y="1199"/>
+        <UsageCount Value="10"/>
+      </Unit131>
+      <Unit132>
+        <Filename Value="..\komponendid\smnetgradient\smnetgradient.pas"/>
+        <UnitName Value="SMNetGradient"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="175"/>
+        <CursorPos X="3" Y="192"/>
+        <UsageCount Value="10"/>
+      </Unit132>
+      <Unit133>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbZipKit.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="117"/>
+        <CursorPos X="3" Y="136"/>
+        <UsageCount Value="10"/>
+      </Unit133>
+      <Unit134>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbZipOut.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1748"/>
+        <CursorPos X="2" Y="1772"/>
+        <UsageCount Value="10"/>
+      </Unit134>
+      <Unit135>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbZView.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="150"/>
+        <CursorPos X="17" Y="168"/>
+        <UsageCount Value="10"/>
+      </Unit135>
+      <Unit136>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbCBrows.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="89"/>
+        <CursorPos X="3" Y="109"/>
+        <UsageCount Value="10"/>
+      </Unit136>
+      <Unit137>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbCabExt.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="67"/>
+        <CursorPos X="3" Y="95"/>
+        <UsageCount Value="10"/>
+      </Unit137>
+      <Unit138>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbCabMak.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="76"/>
+        <CursorPos X="3" Y="96"/>
+        <UsageCount Value="10"/>
+      </Unit138>
+      <Unit139>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbCabKit.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="66"/>
+        <CursorPos X="3" Y="105"/>
+        <UsageCount Value="10"/>
+      </Unit139>
+      <Unit140>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\AbCView.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="122"/>
+        <CursorPos X="3" Y="147"/>
+        <UsageCount Value="10"/>
+      </Unit140>
+      <Unit141>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Abbrevia\source\allAbbreviaReg.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="130"/>
+        <CursorPos X="27" Y="162"/>
+        <UsageCount Value="10"/>
+      </Unit141>
+      <Unit142>
+        <Filename Value="..\shared_units\gnugettext_fpc.pp"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="42"/>
+        <CursorPos X="39" Y="54"/>
+        <UsageCount Value="10"/>
+      </Unit142>
+      <Unit143>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\classes\stringl.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1944"/>
+        <CursorPos X="45" Y="1956"/>
+        <UsageCount Value="10"/>
+      </Unit143>
+      <Unit144>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\classes\classesh.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="685"/>
+        <CursorPos X="3" Y="616"/>
+        <UsageCount Value="10"/>
+      </Unit144>
+      <Unit145>
+        <Filename Value="C:\codetyphon\typhon\components\pl_RX\source\rxlookup.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="694"/>
+        <CursorPos X="22" Y="707"/>
+        <UsageCount Value="18"/>
+        <Loaded Value="True"/>
+      </Unit145>
+      <Unit146>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\component\ZAbstractRODataset.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1786"/>
+        <CursorPos Y="1797"/>
+        <UsageCount Value="15"/>
+      </Unit146>
+      <Unit147>
+        <Filename Value="C:\codetyphon\fpcsrc\packages\fcl-base\examples\stringl.pp"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="teststrings"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="32"/>
+        <CursorPos X="19" Y="78"/>
+        <UsageCount Value="14"/>
+      </Unit147>
+      <Unit148>
+        <Filename Value="C:\codetyphon\typhon\components\lz_Report\addons\lrPdfExport\source\lr_e_pdf.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="11"/>
+        <CursorPos X="21" Y="23"/>
+        <UsageCount Value="14"/>
+      </Unit148>
+      <Unit149>
+        <Filename Value="estbk_progressformanimated.ctrs"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="13"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit149>
+      <Unit150>
+        <Filename Value="C:\codetyphon\typhon\components\lz_Report\lz_report.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit150>
+      <Unit151>
+        <Filename Value="..\shared_units\estbk_loginform.frm"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="32" Y="8"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="FRM"/>
+      </Unit151>
+      <Unit152>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\component\ZConnection.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="39"/>
+        <CursorPos X="47" Y="78"/>
+        <UsageCount Value="10"/>
+      </Unit152>
+      <Unit153>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\ZDbcPostgreSqlUtils.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="803"/>
+        <CursorPos X="55" Y="814"/>
+        <UsageCount Value="10"/>
+      </Unit153>
+      <Unit154>
+        <Filename Value="C:\codetyphon\typhon\components\pl_RX\source\rxpopupunit.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="181"/>
+        <CursorPos X="60" Y="219"/>
+        <UsageCount Value="10"/>
+      </Unit154>
+      <Unit155>
+        <Filename Value="C:\codetyphon\typhon\components\pl_RX\source\rxdbgrid.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="34"/>
+        <TopLine Value="54"/>
+        <CursorPos X="41" Y="70"/>
+        <UsageCount Value="12"/>
+        <Loaded Value="True"/>
+      </Unit155>
+      <Unit156>
+        <Filename Value="C:\codetyphon\typhon\components\pl_RX\source\lrrxcontrols.pas"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="lrRxControls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="290"/>
+        <CursorPos X="45" Y="306"/>
+        <UsageCount Value="10"/>
+      </Unit156>
+      <Unit157>
+        <Filename Value="C:\codetyphon\typhon\lcl\include\control.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="16"/>
+        <TopLine Value="3930"/>
+        <CursorPos Y="3946"/>
+        <UsageCount Value="12"/>
+        <Loaded Value="True"/>
+      </Unit157>
+      <Unit158>
+        <Filename Value="estbk_lib_databaseschema.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="7"/>
+        <UsageCount Value="10"/>
+      </Unit158>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="estbk_fra_formdrez.pas"/>
+        <Caret Line="1120" Column="70" TopLine="1098"/>
+      </Position1>
+      <Position2>
+        <Filename Value="estbk_fra_formdrez.pas"/>
+        <Caret Line="1476" Column="48" TopLine="1459"/>
+      </Position2>
+      <Position3>
+        <Filename Value="estbk_fra_incomings_edit.pas"/>
+        <Caret Line="1100" Column="58" TopLine="1079"/>
+      </Position3>
+      <Position4>
+        <Filename Value="estbk_fra_incomings_edit.pas"/>
+        <Caret Line="1340" TopLine="1318"/>
+      </Position4>
+      <Position5>
+        <Filename Value="estbk_fra_incomings_edit.pas"/>
+        <Caret Line="1457" Column="9" TopLine="1439"/>
+      </Position5>
+      <Position6>
+        <Filename Value="estbk_fra_incomings_edit.pas"/>
+        <Caret Line="1515" Column="60" TopLine="1508"/>
+      </Position6>
+      <Position7>
+        <Filename Value="estbk.ppr"/>
+        <Caret Line="165" Column="27" TopLine="139"/>
+      </Position7>
+      <Position8>
+        <Filename Value="estbk_clientdatamodule.pas"/>
+        <Caret Line="259" Column="37" TopLine="241"/>
+      </Position8>
+      <Position9>
+        <Filename Value="..\shared_units\estbk_utilities.pas"/>
+        <Caret Line="151" Column="23" TopLine="128"/>
+      </Position9>
+      <Position10>
+        <Filename Value="estbk_lib_declcalc.pas"/>
+        <Caret Line="10" Column="89"/>
+      </Position10>
+      <Position11>
+        <Filename Value="estbk_lib_declcalc.pas"/>
+        <Caret Line="1209" Column="20" TopLine="1177"/>
+      </Position11>
+      <Position12>
+        <Filename Value="estbk_lib_declcalc.pas"/>
+        <Caret Line="1240" Column="19" TopLine="1203"/>
+      </Position12>
+      <Position13>
+        <Filename Value="estbk_lib_declcalc.pas"/>
+        <Caret Line="1246" Column="15" TopLine="1209"/>
+      </Position13>
+      <Position14>
+        <Filename Value="estbk_lib_calcdhelper.pas"/>
+        <Caret Line="6" Column="104"/>
+      </Position14>
+      <Position15>
+        <Filename Value="estbk_lib_calcdhelper.pas"/>
+        <Caret Line="183" Column="5" TopLine="145"/>
+      </Position15>
+      <Position16>
+        <Filename Value="estbk_lib_calcdhelper.pas"/>
+        <Caret Line="184" Column="33" TopLine="146"/>
+      </Position16>
+      <Position17>
+        <Filename Value="estbk_lib_calcdhelper.pas"/>
+        <Caret Line="393" Column="11" TopLine="379"/>
+      </Position17>
+      <Position18>
+        <Filename Value="estbk_sqlclientcollection.pas"/>
+        <Caret Line="1064" TopLine="1042"/>
+      </Position18>
+      <Position19>
+        <Filename Value="estbk_sqlclientcollection.pas"/>
+        <Caret Line="1626" TopLine="1604"/>
+      </Position19>
+      <Position20>
+        <Filename Value="estbk_fra_customer.pas"/>
+        <Caret Line="1657" Column="47" TopLine="1635"/>
+      </Position20>
+      <Position21>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <Caret Line="1875" TopLine="1860"/>
+      </Position21>
+      <Position22>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <Caret Line="3926" TopLine="3915"/>
+      </Position22>
+      <Position23>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <Caret Line="8193" Column="27" TopLine="8179"/>
+      </Position23>
+      <Position24>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <Caret Line="8302" Column="27" TopLine="8279"/>
+      </Position24>
+      <Position25>
+        <Filename Value="estbk_lib_incomings.pas"/>
+        <Caret Line="575" Column="73" TopLine="575"/>
+      </Position25>
+      <Position26>
+        <Filename Value="estbk_fra_incomings_edit.pas"/>
+        <Caret Line="1065" Column="11" TopLine="1044"/>
+      </Position26>
+      <Position27>
+        <Filename Value="estbk_fra_incomings_edit.pas"/>
+        <Caret Line="2703" Column="30" TopLine="2682"/>
+      </Position27>
+      <Position28>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <Caret Line="8168" Column="28" TopLine="8147"/>
+      </Position28>
+      <Position29>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <Caret Line="8277" Column="28" TopLine="8256"/>
+      </Position29>
+      <Position30>
+        <Filename Value="estbk_fra_bills.pas"/>
+        <Caret Line="10240" TopLine="10219"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="C:\LAZUNITS\$(TargetCPU)-$(TargetOS)\;C:\codetyphon\typhon\components\pl_Indy\source\;..\shared_units;C:\codetyphon\typhon\components\pl_Abbrevia\source\;C:\codetyphon\typhon\components\lz_Report\addons\lrPdfExport\source\;C:\codetyphon\typhon\components\lz_Report\addons\lrSpreadsheetExport\source\;C:\codetyphon\typhon\components\pl_PowerPDF\source\"/>
+      <UnitOutputDirectory Value="C:\LAZUNITS\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <IncludeAssertionCode Value="True"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <TargetCPU Value="i386"/>
+      <TargetOS Value="win32"/>
+    </CodeGeneration>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CustomOptions Value="-dLAZ_POWERPDF"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <BreakPoints Count="14">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="C:\LIBS\rxfpc2\rxlookup.pas"/>
+        <InitialEnabled Value="False"/>
+        <Line Value="572"/>
+      </Item1>
+      <Item2>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="C:\LIBS\rxfpc2\rxdbgrid.pas"/>
+        <InitialEnabled Value="False"/>
+        <Line Value="2005"/>
+      </Item2>
+      <Item3>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_incomings_edit.pas"/>
+        <Line Value="671"/>
+      </Item3>
+      <Item4>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_bills.pas"/>
+        <Line Value="9720"/>
+      </Item4>
+      <Item5>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_fra_bills.pas"/>
+        <Line Value="2560"/>
+      </Item5>
+      <Item6>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\shared_units\gnugettext.pas"/>
+        <Line Value="2797"/>
+      </Item6>
+      <Item7>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="..\shared_units\gnugettext.pas"/>
+        <Line Value="2644"/>
+      </Item7>
+      <Item8>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_frm_choosecustmer.frm"/>
+        <Line Value="4"/>
+      </Item8>
+      <Item9>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_fra_bills.pas"/>
+        <Line Value="5828"/>
+      </Item9>
+      <Item10>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_acc_perfinalize.pas"/>
+        <Line Value="108"/>
+      </Item10>
+      <Item11>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_acc_perfinalize.pas"/>
+        <Line Value="146"/>
+      </Item11>
+      <Item12>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_fra_incomings_edit.pas"/>
+        <Line Value="1167"/>
+      </Item12>
+      <Item13>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_fra_employee_wagetemplate.pas"/>
+        <Line Value="1034"/>
+      </Item13>
+      <Item14>
+        <Kind Value="bpkData"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Actions Stop="False"/>
+      </Item14>
+    </BreakPoints>
+    <Watches Count="31">
+      <Item1>
+        <Expression Value="FCurrVal"/>
+        <Enabled Value="False"/>
+      </Item1>
+      <Item2>
+        <Expression Value="pCellObjType.ObjectGrp"/>
+        <Enabled Value="False"/>
+      </Item2>
+      <Item3>
+        <Expression Value="FCredit"/>
+        <Enabled Value="False"/>
+      </Item3>
+      <Item4>
+        <Expression Value="FDebit"/>
+        <Enabled Value="False"/>
+      </Item4>
+      <Item5>
+        <Expression Value="FPaNewColPos"/>
+        <Enabled Value="False"/>
+      </Item5>
+      <Item6>
+        <Expression Value="Request.URL"/>
+        <Enabled Value="False"/>
+      </Item6>
+      <Item7>
+        <Expression Value=" ARequest.URL"/>
+        <Enabled Value="False"/>
+      </Item7>
+      <Item8>
+        <Expression Value="ARequest.URL"/>
+        <Enabled Value="False"/>
+      </Item8>
+      <Item9>
+        <Expression Value="FCurrShortDesc"/>
+        <Enabled Value="False"/>
+      </Item9>
+      <Item10>
+        <Expression Value="cText"/>
+        <Enabled Value="False"/>
+      </Item10>
+      <Item11>
+        <Expression Value="Password"/>
+        <Enabled Value="False"/>
+      </Item11>
+      <Item12>
+        <Expression Value="pSelAccounts"/>
+        <Enabled Value="False"/>
+      </Item12>
+      <Item13>
+        <Expression Value="pSelAccounts0[]"/>
+        <Enabled Value="False"/>
+      </Item13>
+      <Item14>
+        <Expression Value="pSelAccounts[0]"/>
+        <Enabled Value="False"/>
+      </Item14>
+      <Item15>
+        <Expression Value="liveMode"/>
+        <Enabled Value="False"/>
+      </Item15>
+      <Item16>
+        <Expression Value="FCurrentClientId"/>
+        <Enabled Value="False"/>
+      </Item16>
+      <Item17>
+        <Expression Value="FAccObjCntLpCnt"/>
+        <Enabled Value="False"/>
+      </Item17>
+      <Item18>
+        <Expression Value="col"/>
+        <Enabled Value="False"/>
+      </Item18>
+      <Item19>
+        <Expression Value="FAccDCRecId"/>
+        <Enabled Value="False"/>
+      </Item19>
+      <Item20>
+        <Expression Value="qReportDataset.datasource"/>
+        <Enabled Value="False"/>
+      </Item20>
+      <Item21>
+        <Expression Value="pFParent"/>
+        <Enabled Value="False"/>
+      </Item21>
+      <Item22>
+        <Expression Value="FAccountId"/>
+        <Enabled Value="False"/>
+      </Item22>
+      <Item23>
+        <Expression Value="pRecSumInBaseCurr"/>
+      </Item23>
+      <Item24>
+        <Expression Value="pUnPrepaidSum"/>
+        <Enabled Value="False"/>
+      </Item24>
+      <Item25>
+        <Expression Value="pIncomeSum"/>
+      </Item25>
+      <Item26>
+        <Expression Value="pBline.linenr"/>
+        <Enabled Value="False"/>
+      </Item26>
+      <Item27>
+        <Expression Value="FOnKeyDown"/>
+      </Item27>
+      <Item28>
+        <Expression Value="pAttrNode"/>
+      </Item28>
+      <Item29>
+        <Expression Value="pIncomeAccData.sum"/>
+      </Item29>
+      <Item30>
+        <Expression Value="pExistingAccRec"/>
+      </Item30>
+      <Item31>
+        <Expression Value="pExistingAccRec"/>
+      </Item31>
+    </Watches>
+    <Exceptions Count="5">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+      <Item4>
+        <Name Value="EZSQLException"/>
+      </Item4>
+      <Item5>
+        <Name Value="EZSQLConnectionLost"/>
+      </Item5>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

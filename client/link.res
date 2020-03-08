@@ -1,0 +1,693 @@
+SEARCH_DIR(R:\OsProjects\shared_units\)
+SEARCH_DIR(R:\OsProjects\)
+SEARCH_DIR(C:\LIBS\indy10_2_5\Lib\Core\)
+SEARCH_DIR(C:\LIBS\indy10_2_5\Lib\System\)
+SEARCH_DIR(C:\LIBS\indy10_2_5\Lib\SuperCore\)
+SEARCH_DIR(C:\LIBS\indy10_2_5\Lib\Protocols\)
+SEARCH_DIR(C:\LIBS\compression\)
+SEARCH_DIR(C:\lazarus\components\tachart\lib\i386-win32\win32\)
+SEARCH_DIR(C:\LIBS\zeos\packages\lazarus\build\)
+SEARCH_DIR(C:\lazarus\components\rtticontrols\lib\i386-win32\win32\)
+SEARCH_DIR(C:\lazarus\ideintf\units\i386-win32\)
+SEARCH_DIR(C:\lazarus\lcl\units\i386-win32\)
+SEARCH_DIR(C:\lazarus\lcl\units\i386-win32\win32\)
+SEARCH_DIR(C:\lazarus\packager\units\i386-win32\)
+SEARCH_DIR(.\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\zlib\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-jedi\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\winceunits\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\unzip\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\tcl\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\symbolic\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\sqlite\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\sdl\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\regexpr\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\pxlib\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\postgres\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\pcap\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\oracle\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\openssl\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\opengl\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\openal\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\oggvorbis\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\odbc\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\numlib\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\mysql\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\mad\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\libpng\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\libgd\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\lexyacc\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\imagemagick\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\ibase\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\httpd22\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\httpd20\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\httpd13\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\hash\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\gtk2\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\gtk1\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\graph\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\gdbint\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fv\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fppkg\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fpmkunit\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fpgtk\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fftw\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-xml\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-web\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-registry\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-process\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-passrc\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-net\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-json\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-fpcunit\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-db\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\chm\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\cdrom\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\cairo\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\bfd\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\a52\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\units\i386-win32\)
+SEARCH_DIR(C:\lazarus\fpc\2.2.4\bin\i386-win32\)
+INPUT(
+R:\OsProjects\client\estbk.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\system.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\lineinfo.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\exeinfo.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\strings.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\windows.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\objpas.o
+C:\lazarus\lcl\units\i386-win32\win32\interfaces.o
+C:\lazarus\lcl\units\i386-win32\forms.o
+R:\OsProjects\client\estbk_dbcompability.o
+R:\OsProjects\client\estbk_main.o
+C:\lazarus\lcl\units\i386-win32\lresources.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\sysutils.o
+C:\lazarus\lcl\units\i386-win32\dialogs.o
+R:\OsProjects\client\estbk_clientdatamodule.o
+R:\OsProjects\client\estbk_tests.o
+R:\OsProjects\client\estbk_loginform.o
+R:\OsProjects\client\estbk_types.o
+R:\OsProjects\client\estbk_strmsg.o
+C:\LIBS\zeos\packages\lazarus\build\zcomponent.o
+R:\OsProjects\client\estbk_sqlclientcollection.o
+R:\OsProjects\client\estbk_generalledger.o
+R:\OsProjects\client\estbk_locals.o
+R:\OsProjects\client\estbk_createmodaccounts.o
+R:\OsProjects\client\estbk_uivisualinit.o
+R:\OsProjects\client\estbk_objects.o
+C:\lazarus\components\rtticontrols\lib\i386-win32\win32\runtimetypeinfocontrols.o
+R:\OsProjects\client\estbk_genledgerentrys.o
+R:\OsProjects\client\estbk_articles.o
+R:\OsProjects\client\estbk_datareader.o
+R:\OsProjects\client\estbk_progressform.o
+C:\lazarus\lcl\units\i386-win32\interfacebase.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\types.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\classes.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\math.o
+C:\lazarus\lcl\units\i386-win32\lclstrconsts.o
+C:\lazarus\lcl\units\i386-win32\lcltype.o
+C:\lazarus\lcl\units\i386-win32\lclproc.o
+C:\lazarus\lcl\units\i386-win32\lmessages.o
+C:\lazarus\lcl\units\i386-win32\graphtype.o
+C:\lazarus\lcl\units\i386-win32\graphmath.o
+C:\lazarus\lcl\units\i386-win32\themes.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\rtlconsts.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\typinfo.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\sysconst.o
+C:\lazarus\lcl\units\i386-win32\fpcadds.o
+C:\lazarus\lcl\units\i386-win32\avglvltree.o
+C:\lazarus\lcl\units\i386-win32\fileutil.o
+C:\lazarus\lcl\units\i386-win32\wsreferences.o
+C:\lazarus\lcl\units\i386-win32\masks.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\contnrs.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\gettext.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\messages.o
+C:\lazarus\lcl\units\i386-win32\tmschema.o
+C:\lazarus\lcl\units\i386-win32\lclintf.o
+C:\lazarus\lcl\units\i386-win32\graphics.o
+C:\lazarus\lcl\units\i386-win32\imglist.o
+C:\lazarus\lcl\units\i386-win32\dynqueue.o
+C:\lazarus\lcl\units\i386-win32\lazconfigstorage.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpimage.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpcanvas.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpwritebmp.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpwritepng.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\pngcomn.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpreadpnm.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpwritepnm.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpreadjpeg.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpwritejpeg.o
+C:\lazarus\lcl\units\i386-win32\intfgraphics.o
+C:\lazarus\lcl\units\i386-win32\lclrescache.o
+C:\lazarus\lcl\units\i386-win32\icnstypes.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\clipping.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\bmpcomn.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpimgcmn.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\zstream.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\zbase.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\gzio.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\dos.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\hash\crc.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\zdeflate.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\zinflate.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\trees.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\adler.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\infblock.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\infutil.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\infcodes.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\inftrees.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\paszlib\inffast.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jpeglib.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdapimin.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdatasrc.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdapistd.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jmorecfg.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdeferr.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jinclude.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jerror.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jmemmgr.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdmarker.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdinput.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcomapi.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jutils.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jmemnobs.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdmaster.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdcolor.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdsample.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdpostct.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jddctmgr.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdphuff.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdhuff.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdcoefct.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdmainct.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jquant1.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jquant2.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdmerge.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdct.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jidctfst.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jidctint.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jidctflt.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jidctred.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcapistd.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcapimin.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jdatadst.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcparam.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcinit.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcmarker.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcphuff.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jchuff.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcmaster.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jccolor.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcsample.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcprepct.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcdctmgr.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jccoefct.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jcmainct.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jfdctint.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jfdctfst.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\pasjpeg\jfdctflt.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpreadbmp.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-image\fpreadpng.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\syncobjs.o
+C:\lazarus\lcl\units\i386-win32\lclclasses.o
+C:\lazarus\lcl\units\i386-win32\wslclclasses.o
+C:\lazarus\lcl\units\i386-win32\wsimglist.o
+C:\lazarus\lcl\units\i386-win32\wsproc.o
+C:\lazarus\lcl\units\i386-win32\wsfactory.o
+C:\lazarus\lcl\units\i386-win32\controls.o
+C:\lazarus\lcl\units\i386-win32\menus.o
+C:\lazarus\lcl\units\i386-win32\utrace.o
+C:\lazarus\lcl\units\i386-win32\propertystorage.o
+C:\lazarus\lcl\units\i386-win32\actnlist.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\rttiutils.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\strutils.o
+C:\lazarus\lcl\units\i386-win32\wsmenus.o
+C:\lazarus\lcl\units\i386-win32\maps.o
+C:\lazarus\lcl\units\i386-win32\lclversion.o
+C:\lazarus\lcl\units\i386-win32\customtimer.o
+C:\lazarus\lcl\units\i386-win32\clipbrd.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\custapp.o
+C:\lazarus\lcl\units\i386-win32\helpintfs.o
+C:\lazarus\lcl\units\i386-win32\wscontrols.o
+C:\lazarus\lcl\units\i386-win32\wsforms.o
+C:\lazarus\lcl\units\i386-win32\win32\win32int.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\activex.o
+C:\lazarus\lcl\units\i386-win32\translations.o
+C:\lazarus\lcl\units\i386-win32\comctrls.o
+C:\lazarus\lcl\units\i386-win32\buttons.o
+C:\lazarus\lcl\units\i386-win32\extctrls.o
+C:\lazarus\lcl\units\i386-win32\stdctrls.o
+C:\lazarus\lcl\units\i386-win32\win32\win32def.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\commctrl.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\variants.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\ctypes.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\varutils.o
+C:\lazarus\lcl\units\i386-win32\stringhashlist.o
+C:\lazarus\lcl\units\i386-win32\lconvencoding.o
+C:\lazarus\lcl\units\i386-win32\toolwin.o
+C:\lazarus\lcl\units\i386-win32\extendedstrings.o
+C:\lazarus\lcl\units\i386-win32\textstrings.o
+C:\lazarus\lcl\units\i386-win32\wsstdctrls.o
+C:\lazarus\lcl\units\i386-win32\popupnotifier.o
+C:\lazarus\lcl\units\i386-win32\wsextctrls.o
+C:\lazarus\lcl\units\i386-win32\imagelistcache.o
+C:\lazarus\lcl\units\i386-win32\wsbuttons.o
+C:\lazarus\lcl\units\i386-win32\wscomctrls.o
+C:\lazarus\lcl\units\i386-win32\wstoolwin.o
+C:\lazarus\lcl\units\i386-win32\win32\win32proc.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsfactory.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsbuttons.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsextctrls.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsmenus.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsspin.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsstdctrls.o
+C:\lazarus\lcl\units\i386-win32\win32\win32themes.o
+C:\lazarus\lcl\units\i386-win32\arrow.o
+C:\lazarus\lcl\units\i386-win32\calendar.o
+C:\lazarus\lcl\units\i386-win32\spin.o
+C:\lazarus\lcl\units\i386-win32\checklst.o
+C:\lazarus\lcl\units\i386-win32\win32\win32extra.o
+C:\lazarus\lcl\units\i386-win32\lclmessageglue.o
+C:\lazarus\lcl\units\i386-win32\buttonpanel.o
+C:\lazarus\lcl\units\i386-win32\wsdialogs.o
+C:\lazarus\lcl\units\i386-win32\extdlgs.o
+C:\lazarus\lcl\units\i386-win32\grids.o
+C:\lazarus\lcl\units\i386-win32\wscalendar.o
+C:\lazarus\lcl\units\i386-win32\wsarrow.o
+C:\lazarus\lcl\units\i386-win32\wsspin.o
+C:\lazarus\lcl\units\i386-win32\wsextdlgs.o
+C:\lazarus\lcl\units\i386-win32\wschecklst.o
+C:\lazarus\lcl\units\i386-win32\dynamicarray.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-xml\xmlcfg.o
+C:\lazarus\lcl\units\i386-win32\maskedit.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-xml\dom.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-xml\xmlread.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-xml\xmlwrite.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\avl_tree.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-xml\xmlutils.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\uriparser.o
+C:\lazarus\lcl\units\i386-win32\wsgrids.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsarrow.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wscalendar.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wschecklst.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wscomctrls.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wscontrols.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsdialogs.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsextdlgs.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsforms.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsgrids.o
+C:\lazarus\lcl\units\i386-win32\win32\win32wsimglist.o
+C:\lazarus\lcl\units\i386-win32\win32\win32uxtheme.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\shlobj.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\shellapi.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\commdlg.o
+C:\LIBS\zeos\packages\lazarus\build\ZConnection.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcDbLib.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcMySql.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcPostgreSql.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcInterbase6.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcSqLite.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcOracle.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcASA.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcIntfs.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-db\db.o
+C:\LIBS\zeos\packages\lazarus\build\ZCompatibility.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\comobj.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcConnection.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcLogging.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainDbLibDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZTokenizer.o
+C:\LIBS\zeos\packages\lazarus\build\ZGenericSqlAnalyser.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\comconst.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\ole2.o
+C:\LIBS\zeos\packages\lazarus\build\ZClasses.o
+C:\LIBS\zeos\packages\lazarus\build\ZGenericSqlToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZMessages.o
+C:\LIBS\zeos\packages\lazarus\build\ZCollections.o
+C:\LIBS\zeos\packages\lazarus\build\ZSysUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZSelectSchema.o
+C:\LIBS\zeos\packages\lazarus\build\ZVariant.o
+C:\LIBS\zeos\packages\lazarus\build\ZMatchPattern.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcResultSetMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcCachedResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcCache.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcGenericResolver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainDbLibSybaseAse125.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainDbLibMsSql7.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainLoader.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcDbLibStatement.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcDbLibMsSqlMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZSybaseToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZSybaseAnalyser.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcDbLibSybaseMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcStatement.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcDbLibUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcDbLibResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainMySqlDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainMySqlConstants.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainMySql41.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainMySql5.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcMySqlStatement.o
+C:\LIBS\zeos\packages\lazarus\build\ZMySqlToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcMySqlUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcMySqlMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZMySqlAnalyser.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcMySqlResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainPostgreSqlDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainPostgreSql7.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainPostgreSql8.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcPostgreSqlStatement.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcPostgreSqlUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcPostgreSqlMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZPostgreSqlToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZPostgreSqlAnalyser.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcPostgreSqlResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainInterbaseDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainFirebirdDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainFirebirdInterbaseConstants.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcInterbase6Utils.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainInterbase5.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainInterbase6.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainFirebird10.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainFirebird15.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainFirebird20.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainFirebird21.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcInterbase6Statement.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcInterbase6Metadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZInterbaseToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZInterbaseAnalyser.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcInterbase6ResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainSqLiteDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainSqLite28.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainSqLite3.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcSqLiteStatement.o
+C:\LIBS\zeos\packages\lazarus\build\ZSqLiteToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcSqLiteUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcSqLiteMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZSqLiteAnalyser.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcSqLiteResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainOracleDriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainOracle9i.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcOracleStatement.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcOracleUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcOracleMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZOracleToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZOracleAnalyser.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcOracleResultSet.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainASADriver.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainASA7.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainASA8.o
+C:\LIBS\zeos\packages\lazarus\build\ZPlainASA9.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcASAMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcASAStatement.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcASAUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZDbcASAResultSet.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\fmtbcd.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-db\dbconst.o
+C:\LIBS\zeos\packages\lazarus\build\ZAbstractRODataset.o
+C:\LIBS\zeos\packages\lazarus\build\ZSequence.o
+C:\LIBS\zeos\packages\lazarus\build\ZSqlStrings.o
+C:\LIBS\zeos\packages\lazarus\build\ZExpression.o
+C:\LIBS\zeos\packages\lazarus\build\ZDatasetUtils.o
+C:\LIBS\zeos\packages\lazarus\build\ZSqlProcessor.o
+C:\LIBS\zeos\packages\lazarus\build\ZExprToken.o
+C:\LIBS\zeos\packages\lazarus\build\ZExprParser.o
+C:\LIBS\zeos\packages\lazarus\build\ZVariables.o
+C:\LIBS\zeos\packages\lazarus\build\ZFunctions.o
+C:\LIBS\zeos\packages\lazarus\build\ZStreamBlob.o
+C:\LIBS\zeos\packages\lazarus\build\ZAbstractDataset.o
+C:\LIBS\zeos\packages\lazarus\build\ZSqlUpdate.o
+C:\LIBS\zeos\packages\lazarus\build\ZScriptParser.o
+R:\OsProjects\client\estbk_utilities.o
+R:\OsProjects\client\estbk_globvars.o
+R:\OsProjects\client\dateutils.o
+R:\OsProjects\client\IdURI.o
+C:\lazarus\lcl\units\i386-win32\dbctrls.o
+C:\LIBS\zeos\packages\lazarus\build\ZDataset.o
+C:\lazarus\lcl\units\i386-win32\chart.o
+C:\LIBS\zeos\packages\lazarus\build\ZAbstractTable.o
+C:\lazarus\lcl\units\i386-win32\editbtn.o
+R:\OsProjects\client\typesarchive.o
+C:\lazarus\lcl\units\i386-win32\calendarpopup.o
+C:\lazarus\lcl\units\i386-win32\dbgrids.o
+R:\OsProjects\client\estbk_sqlcollection.o
+R:\OsProjects\client\estbk_databaseschema.o
+C:\lazarus\components\rtticontrols\lib\i386-win32\win32\rttictrls.o
+C:\lazarus\ideintf\units\i386-win32\graphpropedits.o
+C:\lazarus\ideintf\units\i386-win32\propedits.o
+C:\lazarus\ideintf\units\i386-win32\graphicpropedit.o
+C:\lazarus\ideintf\units\i386-win32\texttools.o
+C:\lazarus\ideintf\units\i386-win32\frmselectprops.o
+C:\lazarus\ideintf\units\i386-win32\stringspropeditdlg.o
+C:\lazarus\ideintf\units\i386-win32\columndlg.o
+C:\lazarus\ideintf\units\i386-win32\objinspstrconsts.o
+C:\lazarus\ideintf\units\i386-win32\ideimagesintf.o
+C:\lazarus\ideintf\units\i386-win32\idewindowintf.o
+C:\lazarus\ideintf\units\i386-win32\idedialogs.o
+R:\OsProjects\client\IdHTTP.o
+R:\OsProjects\client\IdSSL.o
+R:\OsProjects\client\IdAuthenticationDigest.o
+R:\OsProjects\client\IdAuthenticationSSPI.o
+R:\OsProjects\client\IdAuthentication.o
+R:\OsProjects\client\IdHeaderList.o
+R:\OsProjects\client\IdGlobalProtocols.o
+R:\OsProjects\client\IdSSLOpenSSL.o
+R:\OsProjects\client\IdException.o
+R:\OsProjects\client\IdIOHandler.o
+R:\OsProjects\client\IdIOHandlerSocket.o
+R:\OsProjects\client\abgztyp.o
+R:\OsProjects\client\abutils.o
+R:\OsProjects\client\IdExceptionCore.o
+R:\OsProjects\client\IdAssignedNumbers.o
+R:\OsProjects\client\IdHTTPHeaderInfo.o
+R:\OsProjects\client\IdReplyRFC.o
+R:\OsProjects\client\IdZLibCompressorBase.o
+R:\OsProjects\client\IdTCPClient.o
+R:\OsProjects\client\IdCookie.o
+R:\OsProjects\client\IdCookieManager.o
+R:\OsProjects\client\IdAuthenticationManager.o
+R:\OsProjects\client\IdMultipartFormData.o
+R:\OsProjects\client\IdGlobal.o
+R:\OsProjects\client\IdBaseComponent.o
+R:\OsProjects\client\IdStack.o
+R:\OsProjects\client\IdStackConsts.o
+R:\OsProjects\client\IdWship6.o
+R:\OsProjects\client\IdWinsock2.o
+R:\OsProjects\client\IdResourceStrings.o
+R:\OsProjects\client\IdStream.o
+R:\OsProjects\client\IdStreamVCL.o
+R:\OsProjects\client\IdStackWindows.o
+R:\OsProjects\client\IdStackBSDBase.o
+R:\OsProjects\client\IdCharsets.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-registry\registry.o
+R:\OsProjects\client\IdResourceStringsCore.o
+R:\OsProjects\client\IdResourceStringsProtocols.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\fcl-base\inifiles.o
+R:\OsProjects\client\IdCoderMIME.o
+R:\OsProjects\client\IdCoder3to4.o
+R:\OsProjects\client\IdCoder.o
+R:\OsProjects\client\IdReply.o
+R:\OsProjects\client\IdIOHandlerStack.o
+R:\OsProjects\client\IdScheduler.o
+R:\OsProjects\client\IdServerIOHandler.o
+R:\OsProjects\client\IdYarn.o
+R:\OsProjects\client\IdAntiFreezeBase.o
+R:\OsProjects\client\IdBuffer.o
+R:\OsProjects\client\IdComponent.o
+R:\OsProjects\client\IdIntercept.o
+R:\OsProjects\client\IdCustomTransparentProxy.o
+R:\OsProjects\client\IdSocketHandle.o
+R:\OsProjects\client\IdSocks.o
+R:\OsProjects\client\IdIPAddress.o
+R:\OsProjects\client\IdTCPConnection.o
+R:\OsProjects\client\IdThread.o
+R:\OsProjects\client\IdTask.o
+R:\OsProjects\client\IdThreadSafe.o
+R:\OsProjects\client\IdHashMessageDigest.o
+R:\OsProjects\client\IdHash.o
+R:\OsProjects\client\IdSSPI.o
+R:\OsProjects\client\IdGlobalCore.o
+R:\OsProjects\client\IdCTypes.o
+R:\OsProjects\client\IdSSLOpenSSLHeaders.o
+R:\OsProjects\client\IdTCPServer.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\dynlibs.o
+R:\OsProjects\client\IdCustomTCPServer.o
+R:\OsProjects\client\IdContext.o
+R:\OsProjects\client\IdSchedulerOfThread.o
+R:\OsProjects\client\IdServerIOHandlerStack.o
+R:\OsProjects\client\IdServerIOHandlerSocket.o
+R:\OsProjects\client\IdSchedulerOfThreadDefault.o
+R:\OsProjects\client\abconst.o
+R:\OsProjects\client\abexcept.o
+R:\OsProjects\client\abarctyp.o
+R:\OsProjects\client\abtartyp.o
+R:\OsProjects\client\abdfbase.o
+R:\OsProjects\client\abdfdec.o
+R:\OsProjects\client\abdfenc.o
+R:\OsProjects\client\abvmstrm.o
+R:\OsProjects\client\abbitbkt.o
+R:\OsProjects\client\abspanst.o
+R:\OsProjects\client\abdfstrm.o
+R:\OsProjects\client\abdfhufd.o
+R:\OsProjects\client\abdfoutw.o
+R:\OsProjects\client\abdfcrys.o
+R:\OsProjects\client\abdfinw.o
+R:\OsProjects\client\abdfxlat.o
+R:\OsProjects\client\abdfpkmg.o
+C:\LIBS\zeos\packages\lazarus\build\ZComponentReg.o
+C:\LIBS\zeos\packages\lazarus\build\ZUpdateSqlEditor.o
+C:\lazarus\packager\units\i386-win32\lazaruspackageintf.o
+C:\LIBS\zeos\packages\lazarus\build\ZPropertyEditor.o
+C:\lazarus\ideintf\units\i386-win32\componenteditors.o
+C:\LIBS\zeos\packages\lazarus\build\ZStoredProcedure.o
+C:\LIBS\zeos\packages\lazarus\build\ZSqlMonitor.o
+C:\LIBS\zeos\packages\lazarus\build\ZSqlMetadata.o
+C:\LIBS\zeos\packages\lazarus\build\ZIBEventAlerter.o
+C:\lazarus\ideintf\units\i386-win32\lazstringgridedit.o
+C:\lazarus\ideintf\units\i386-win32\checklistboxeditordlg.o
+C:\lazarus\ideintf\units\i386-win32\checkgroupeditordlg.o
+C:\lazarus\components\rtticontrols\lib\i386-win32\win32\rttigrids.o
+C:\lazarus\ideintf\units\i386-win32\objectinspector.o
+C:\lazarus\ideintf\units\i386-win32\listviewpropedit.o
+C:\lazarus\ideintf\units\i386-win32\imagelisteditor.o
+C:\lazarus\ideintf\units\i386-win32\componenttreeview.o
+C:\lazarus\ideintf\units\i386-win32\oifavouriteproperties.o
+C:\lazarus\lcl\units\i386-win32\colorbox.o
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\sysinitpas.o
+)
+GROUP(
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\libimpsystem.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\libimpwindows.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\libimpsysutils.a
+C:\lazarus\lcl\units\i386-win32\libimplclintf.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\libimpdos.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\libimpactivex.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\libimpcommctrl.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\libimpvarutils.a
+C:\lazarus\lcl\units\i386-win32\win32\libimpwin32wsforms.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\libimpshlobj.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\libimpshellapi.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\winunits-base\libimpcommdlg.a
+C:\lazarus\fpc\2.2.4\units\i386-win32\rtl\libimpsysinitpas.a
+)
+SEARCH_DIR("/usr/i686-pc-cygwin/lib"); SEARCH_DIR("/usr/lib"); SEARCH_DIR("/usr/lib/w32api");
+OUTPUT_FORMAT(pei-i386)
+ENTRY(_mainCRTStartup)
+SECTIONS
+{
+  . = SIZEOF_HEADERS;
+  . = ALIGN(__section_alignment__);
+  .text  __image_base__ + ( __section_alignment__ < 0x1000 ? . : __section_alignment__ ) :
+  {
+    *(.init)
+    *(.text .stub .text.* .gnu.linkonce.t.*)
+    *(SORT(.text$*))
+     ___CTOR_LIST__ = .; __CTOR_LIST__ = . ;
+			LONG (-1);*(.ctors); *(.ctor); *(SORT(.ctors.*));  LONG (0);
+     ___DTOR_LIST__ = .; __DTOR_LIST__ = . ;
+			LONG (-1); *(.dtors); *(.dtor); *(SORT(.dtors.*));  LONG (0);
+     *(.fini)
+    PROVIDE (etext = .);
+    *(.gcc_except_table)
+  }
+  .data BLOCK(__section_alignment__) :
+  {
+    __data_start__ = . ;
+    *(.data .data.* .gnu.linkonce.d.* .fpc*)
+    *(.data2)
+    *(SORT(.data$*))
+    __data_end__ = . ;
+    *(.data_cygwin_nocopy)
+  }
+  .rdata BLOCK(__section_alignment__) :
+  {
+    *(.rdata)
+    *(.rodata .rodata.* .gnu.linkonce.r.*)
+    *(SORT(.rdata$*))
+    *(.eh_frame)
+    ___RUNTIME_PSEUDO_RELOC_LIST__ = .;
+    __RUNTIME_PSEUDO_RELOC_LIST__ = .;
+    *(.rdata_runtime_pseudo_reloc)
+    ___RUNTIME_PSEUDO_RELOC_LIST_END__ = .;
+    __RUNTIME_PSEUDO_RELOC_LIST_END__ = .;
+  }
+  .pdata BLOCK(__section_alignment__) : { *(.pdata) }
+  .bss BLOCK(__section_alignment__) :
+  {
+    __bss_start__ = . ;
+    *(.bss .bss.* .gnu.linkonce.b.*)
+    *(SORT(.bss$*))
+    *(COMMON)
+    __bss_end__ = . ;
+  }
+  .edata BLOCK(__section_alignment__) : { *(.edata) }
+  .idata BLOCK(__section_alignment__) :
+  {
+    SORT(*)(.idata$2)
+    SORT(*)(.idata$3)
+    /* These zeroes mark the end of the import list.  */
+    LONG (0); LONG (0); LONG (0); LONG (0); LONG (0);
+    SORT(*)(.idata$4)
+    SORT(*)(.idata$5)
+    SORT(*)(.idata$6)
+    SORT(*)(.idata$7)
+  }
+  .CRT BLOCK(__section_alignment__) :
+  {
+    ___crt_xc_start__ = . ;
+    *(SORT(.CRT$XC*))  /* C initialization */
+    ___crt_xc_end__ = . ;
+    ___crt_xi_start__ = . ;
+    *(SORT(.CRT$XI*))  /* C++ initialization */
+    ___crt_xi_end__ = . ;
+    ___crt_xl_start__ = . ;
+    *(SORT(.CRT$XL*))  /* TLS callbacks */
+    /* ___crt_xl_end__ is defined in the TLS Directory support code */
+    ___crt_xp_start__ = . ;
+    *(SORT(.CRT$XP*))  /* Pre-termination */
+    ___crt_xp_end__ = . ;
+    ___crt_xt_start__ = . ;
+    *(SORT(.CRT$XT*))  /* Termination */
+    ___crt_xt_end__ = . ;
+  }
+  .tls BLOCK(__section_alignment__) :
+  {
+    ___tls_start__ = . ;
+    *(.tls .tls.*)
+    *(.tls$)
+    *(SORT(.tls$*))
+    ___tls_end__ = . ;
+  }
+  .rsrc BLOCK(__section_alignment__) :
+  {
+    *(.rsrc)
+    *(SORT(.rsrc$*))
+  }
+  .reloc BLOCK(__section_alignment__) : { *(.reloc) }
+  .stab BLOCK(__section_alignment__) (NOLOAD) : { *(.stab) }
+  .stabstr BLOCK(__section_alignment__) (NOLOAD) : { *(.stabstr) }
+  .debug_aranges BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_aranges) }
+  .debug_pubnames BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_pubnames) }
+  .debug_info BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_info) *(.gnu.linkonce.wi.*) }
+  .debug_abbrev BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_abbrev) }
+  .debug_line BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_line) }
+  .debug_frame BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_frame) }
+  .debug_str BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_str) }
+  .debug_loc BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_loc) }
+  .debug_macinfo BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_macinfo) }
+  .debug_weaknames BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_weaknames) }
+  .debug_funcnames BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_funcnames) }
+  .debug_typenames BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_typenames) }
+  .debug_varnames BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_varnames) }
+  .debug_ranges BLOCK(__section_alignment__) (NOLOAD) : { *(.debug_ranges) }
+}

@@ -1,0 +1,255 @@
+program estbk;
+
+{$mode objfpc}{$H+}
+{$i estbk_defs.inc}
+uses {$IFDEF UNIX} {$IFDEF UseCThreads}
+  cthreads, {$ENDIF} {$ENDIF} {$ifdef windows}
+  Windows, {$endif}
+  Interfaces, // this includes the LCL widgetset
+  Forms,
+  SysUtils,
+  Dialogs,
+  estbk_dbcompability,
+  estbk_main,
+  estbk_clientdatamodule,
+  estbk_tests,
+  estbk_loginform,
+  estbk_types,
+  estbk_strmsg,
+  // zcomponent,
+  estbk_sqlclientcollection,
+  estbk_fra_generalledger,
+  estbk_lib_locals,
+  estbk_fra_createmodaccounts,
+  estbk_uivisualinit,
+  estbk_fra_objects,
+  // RunTimeTypeInfoControls,
+  // SDFLaz,
+  // MemDSLaz,
+  // printer4lazarus,
+  estbk_fra_genledgerentrys,
+  estbk_fra_articles,
+  estbk_reportconst,
+  estbk_lib_datareader,
+  estbk_progressform,
+  estbk_frame_chooseaddr,
+  estbk_customdialogsform,
+  estbk_reportsqlcollection,
+  estbk_fra_genledgreportcriterias,
+  lz_report,
+  estbk_fra_customer,
+  estbk_frm_choosecustmer,
+  // lz_rxnew,
+  smnetgradientlaz,
+  VirtualTrees,
+  estbk_lib_grapheffects,
+  estbk_fra_bills,
+  estbk_testunit,
+  estbk_fra_bill_list,
+  estbk_fra_banks,
+  estbk_fra_warehouse,
+  estbk_artpricehistory,
+  estbk_intdbsyserrors,
+  estbk_lib_commoncls,
+  estbk_lib_commonevents,
+  estbk_fra_payment_list,
+  estbk_fra_configureaccounts,
+  estbk_lib_rep_errorcodes,
+  estbk_lib_erprtwriter,
+  estbk_crc32,
+  estbk_lib_revpolish,
+  estbk_lib_bankfilesconverr,
+  estbk_frm_custunpaiditems,
+  estbk_testframe,
+  estbk_formxframes,
+  estbk_fra_paymentorders,
+  estbk_fra_orders,
+  estbk_lib_paymentmanager,
+  estbk_fra_order_list,
+  estbk_fra_declforms,
+  estbk_fra_declformulacreator,
+  estbk_lib_calcdhelper,
+  estbk_lib_declcalc,
+  estbk_fra_formdrez,
+  estbk_frm_formincomefiles,
+  estbk_progressformanimated,
+  estbk_lib_mapdatatypes,
+  estbk_fra_incomings_edit,
+  estbk_lib_bankfiledefs,
+  estbk_lib_incomings,
+  estbk_fra_payment_information,
+  estbk_fra_appsettings,
+  estbk_fra_incomings_list,
+  estbk_inputformex,
+  estbk_frm_about,
+  estbk_choose_dform,
+  estbk_fra_docfilesmgr,
+  estbk_fra_debtorlist,
+  estbk_fra_cashregister,
+  estbk_frm_choosebank,
+  estbk_lib_suminwords,
+  estbk_fra_cashbook,
+  estbk_settings,
+  estbk_filecheck,
+  estbk_utilities,
+  estbk_lib_sendemail,
+  estbk_frm_esendbill,
+  estbk_debugwnd,
+  estbk_fra_personalcard,
+  estbk_fra_workcontract,
+  estbk_fra_personalcardlist,
+  estbk_fra_employee_wagetemplate,
+  estbk_lib_formulaparserext,
+  estbk_fra_workertimetable,
+  estbk_lib_deleteaccitems,
+  estbk_frm_currlist,
+  estbk_ebill,
+  estbk_acc_perfinalize,
+  estbk_frm_accperfinalize,
+  estbk_frm_donations,
+  estbk_frm_template,
+  estbk_fra_template,
+  estbk_lib_ebillimporter,
+  estbk_frm_ebill_import,
+  estbk_lib_vat_ext2,
+  estbk_lib_commonaccprop,
+  estbk_lib_numerators,
+  estbk_lib_SEPA,
+  estbk_frm_sepapayments,
+  estbk_lib_fin_sampo,
+  estbk_lib_asyncload;
+
+//{$IFDEF WINDOWS}{$R estbk.rc}{$ENDIF}
+
+  function tryToConnect(): boolean;
+  var
+    rez: boolean;
+ {$ifndef debugmode}
+    pLCnt: byte;
+ {$endif}
+    usrName: AStr;
+    usrPassword: AStr;
+    srvHostname: AStr;
+    srvPort: integer;
+    pDbVerIsOk: boolean;
+  begin
+    Result := False;
+    pDbVerIsOk := True;
+
+    // 25.07.2011 Ingmar; kui mõni stiigo fail puudub, siis programm ei käivitu ! teade on funktsioonis !
+    if not estbk_filecheck.__verifyFiles then
+      Exit;
+
+
+  {$ifndef debugmode}
+    pLCnt := 0;
+  {$endif}
+    usrName := '';
+    usrPassword := '';
+    srvHostname := '';
+    srvPort := 0;
+    // ---
+    while True do
+      try
+    {$ifndef debugmode}
+        // Tavaline kasutajareziim !
+        Inc(pLCnt);
+        rez := estbk_loginform.loginDialog(usrName, usrPassword, srvHostname, srvPort);
+    {$else}
+        rez := True;
+        srvHostname := 'localhost';
+        usrName := 'postgres';
+        if FileExists('c:\devarvuti.txt') then
+          srvPort := 4896
+        else
+          srvPort := 5432;
+  {$endif}
+
+        if not rez then
+        begin
+          // muidu jääbki karjuma draiverit ei leitud !
+          //dmodule.connect('',0,'','',true); // Z-init
+          Result := False;
+          Exit;
+        end
+        else
+        begin
+          dmodule.connect(srvHostname, srvPort, usrName, usrPassword, pDbVerIsOk);
+          Result := True;
+          if not pDbVerIsOk and assigned(estBkMainForm) then
+            try
+              try
+                // tõmbame adminni tööle !
+                estBkMainForm.asyncExec.CommandLine := 'stiigoadmin';
+                estBkMainForm.asyncExec.Execute;
+              except
+                on e: Exception do
+                  Dialogs.MessageDlg(e.Message, mtError, [mbOK], 0);
+              end;
+            finally
+              application.Terminate; // peaprogrammi töö lõpetame !
+            end;
+          // TODO ! koht, mis ütleb, et programmi versioon liiga vana !
+          //   pSoftVerIsOk:=estbk_clientdatamodule.dmodule._verifyProgramVer;
+        end;
+
+
+        // --
+        Break;
+
+      except
+        on E: Exception do
+          messageDlg(SELoginFailed + #13#10 + e.message, mtError, [mbOK], 0);
+      end;
+  end;
+
+{$R *.res}
+
+  procedure ___globalException(Obj: TObject; Addr: Pointer; FrameCount: longint; Frame: PPointer);
+  var
+    pLongErrMsg: AStr;
+  begin
+    if Obj is Exception then
+      pLongErrMsg := Exception(Obj).ClassName + ' : ' + Exception(Obj).Message
+    else
+      pLongErrMsg := BackTraceStrFunc(ExceptAddr);
+    Dialogs.MessageDlg(format(estbk_strmsg.SEMajorAppError, [pLongErrMsg]), mtError, [mbOK], 0);
+  end;
+
+var
+  pOrigExceptionProc: TExceptProc;
+  {$ifdef windows}
+  pStiigoWrkMutex: THandle;
+  {$endif}
+begin
+   {$ifdef windows}
+  pStiigoWrkMutex := OpenMutex(MUTEX_ALL_ACCESS, False, estbk_types.CStiigoMutexId);
+  if pStiigoWrkMutex = 0 then
+    pStiigoWrkMutex := CreateMutex(nil, False, estbk_types.CStiigoMutexId);
+  // else siin tulevikus ütleme, et programm juba töötab ! või toome uuesti foregroundi !
+   {$endif}
+
+  pOrigExceptionProc := system.ExceptProc;
+  system.ExceptProc := @___globalException;
+  Application.Initialize;
+  Application.CreateForm(Tdmodule, dmodule);
+  Application.CreateForm(TestBkMainForm, estBkMainForm);
+
+
+
+  // ... kui logimine õnnestus
+  if tryToConnect then
+  begin
+
+    // -- vale versioon; kohe sulgeti ?!?
+    if not Application.Terminated then
+    begin
+      Application.Run;
+    end; // ---
+  end;
+
+  system.ExceptProc := pOrigExceptionProc;
+   {$ifdef windows}
+  closehandle(pStiigoWrkMutex);
+   {$endif}
+end.

@@ -1,0 +1,134 @@
+﻿TASE	KONTO NR	VALUUTA	KONTO NIMETUS	TÜÜP	LIIK
+1	1	EEK	VARAD	Üld	Aktiva
+2	10	EEK	KÄIBEVARA	Üld	Aktiva
+3	101	EEK	RAHA	Üld	Aktiva
+4	1011	EEK	Sularaha	Koond	Aktiva
+5	10110	EEK	Kassa	Detailne	Aktiva
+5	10111	EUR	Kassa EUR	Detailne	Aktiva
+5	10112	LTL	Kassa LTL	Detailne	Aktiva
+5	10113	LVL	Kassa LVL	Detailne	Aktiva
+5	10114	USD	Kassa USD	Detailne	Aktiva
+5	10115	PLN	Kassa PLN	Detailne	Aktiva
+5	10116	SLK	Kassa SLK	Detailne	Aktiva
+5	10117	EEK	Kaupluse kassa	Detailne	Aktiva
+4	1012	EEK	Arvelduskontod	Koond	Aktiva
+5	10120	EEK	Arveldusarve Swedbank EEK	Detailne	Aktiva
+5	10121	EUR	Arveldusarve Swedbank EUR	Detailne	Aktiva
+5	10122	USD	Arveldusarve Swedbank USD	Detailne	Aktiva
+5	10123	EEK	Arveldusarve Nordea pank EEK	Detailne	Aktiva
+5	10124	EUR	Arveldusarve Nordea pank EUR	Detailne	Aktiva
+5	10125	EEK	Arveldusarve SEB EEK	Detailne	Aktiva
+4	1013	EEK	Tähtajalised hoiused	Koond	Aktiva
+5	10130	EEK	..... Tähtajaline hoius	Detailne	Aktiva
+4	1014	EEK	Paigutused ülilikviidsetesse fondidesse	Koond	Aktiva
+5	10140	EEK	..... Rahaturufond	Detailne	Aktiva
+4	1015	EEK	Rahad teel	Koond	Aktiva
+5	10150	EEK	Rahad teel	Detailne	Aktiva
+3	102	EEK	FINANTSINVESTEERINGUD	Üld	Aktiva
+4	1020	EEK	Kauplemiseesmärgil hoitavad väärtpaberid	Koond	Aktiva
+5	10200	EEK	.... Väärtpaber	Detailne	Aktiva
+4	1029	EEK	Lühiajaliste finantsinvesteeringute allahindlus	Koond	Aktiva
+5	10290	EEK	.... Allahindlus	Detailne	Aktiva
+3	103	EEK	NÕUDED JA ETTEMAKSED	Üld	Aktiva
+4	1031	EEK	Nõuded ostjate vastu	Koond	Aktiva
+5	10310	EEK	Arveldused ostjatega	Detailne	Aktiva
+6	103100	EEK	Arveldused ostjatega EEK	Detailne	Aktiva
+6	103101	EUR	Arveldused ostjatega EUR	Detailne	Aktiva
+6	103112	USD	Arveldused ostjatega USD	Detailne	Aktiva
+6	103114	EUR	Kassasüsteemi arveldused	Detailne	Aktiva
+5	10312	EEK	Ebatõenäoliselt laekuvad arved (-)	Detailne	Aktiva
+6	103120	EEK	Ebatõenäoliselt laekuvad arved EEK(-)	Detailne	Aktiva
+6	103121	EUR	Ebatõenäoliselt laekuvad arved EUR (-)	Detailne	Aktiva
+4	1032	EEK	Maksude ettemaksed ja tagasinõuded	Koond	Aktiva
+5	10320	EEK	Ettemaksukonto (Maksu- ja Tolliamet)	Detailne	Aktiva
+5	10321	EEK	Käibemaksu ettemaks tollile	Detailne	Aktiva
+4	1033	EEK	Lühiajalised laenunõuded	Koond	Aktiva
+5	10330	EEK	Antud lühiajalist laenu	Detailne	Aktiva
+4	1034	EEK	Muud lühiajalised nõuded	Koond	Aktiva
+5	10340	EEK	Nõuded emaettevõtjate ja teiste konsolideerimisgrupi ettevõtjate vastu	Detailne	Aktiva
+5	10341	EEK	Nõuded sidusettevõtjate vastu	Detailne	Aktiva
+5	10342	EEK	Nõuded omanike vastu	Detailne	Aktiva
+5	10343	EEK	Mitmesugused lühiajalised nõuded	Detailne	Aktiva
+6	103430	EEK	Arveldused aruandvate isikutega	Detailne	Aktiva
+6	103431	EEK	Kassa puudujääk	Detailne	Aktiva
+6	103432	EEK	Kaardimakse	Detailne	Aktiva
+6	103433	EEK	Ettemakstud palk (avanss)	Detailne	Aktiva
+5	10344	EEK	Viitlaekumised	Detailne	Aktiva
+5	10345	EEK	Laekumata intressid	Detailne	Aktiva
+5	10346	EEK	Laekumata dividendid	Detailne	Aktiva
+5	10347	EEK	Muud viitlaekumised	Detailne	Aktiva
+4	1035	EEK	Ettemakstud tulevaste perioodide kulud	Koond	Aktiva
+5	10350	EEK	Ettemakstud tuleva aasta rent	Detailne	Aktiva
+5	10351	EEK	Ettemakstud tuleva aasta kindl.maksed	Detailne	Aktiva
+5	10352	EEK	Muud ettemakstud kulud	Detailne	Aktiva
+3	104	EEK	VARUD	Üld	Aktiva
+4	1041	EEK	Tooraine ja materjal	Koond	Aktiva
+5	10410	EEK	Tooraine ja materjal	Detailne	Aktiva
+5	10411	EEK	Kaubad konsignatsioonis	Detailne	Aktiva
+4	1042	EEK	Lõpetamata ja valmistoodang	Koond	Aktiva
+5	10420	EEK	Lõpetamata toodang	Detailne	Aktiva
+5	10421	EEK	Valmistoodang	Detailne	Aktiva
+4	1043	EEK	Müügiks ostetud kaubad	Koond	Aktiva
+5	10430	EEK	Hulgimüügi kaup	Detailne	Aktiva
+5	10431	EEK	Jaemüügi kaup müügihinnas	Detailne	Aktiva
+5	10432	EEK	Taara müügis	Detailne	Aktiva
+5	10433	EEK	Jaemüügi hinnalisand	Detailne	Aktiva
+4	1044	EEK	Ettemaksed tarnijatele	Koond	Aktiva
+5	10440	EEK	Ettemaksed varude eest	Detailne	Aktiva
+3	105	EEK	BIOLOOGILISED VARAD	Üld	Aktiva
+4	1051	EEK	Edasimüügi eesmärgil soetatud bioloogilised varad	Koond	Aktiva
+5	10510	EEK	Loomsed varad	Detailne	Aktiva
+5	10511	EEK	Istandikud	Detailne	Aktiva
+5	10512	EEK	Mets	Detailne	Aktiva
+5	10513	EEK	Vili	Detailne	Aktiva
+5	10514	EEK	Rohumaa	Detailne	Aktiva
+3	106	EEK	MÜÜGIOOTEL PÕHIVARA	Üld	Aktiva
+4	1061	EEK	Materiaalse ja immateriaalse põhivara objektid, mis müüakse lähima 12 kuu jooksul	Koond	Aktiva
+5	10610	EEK	Materiaalne põhivara müügiks	Detailne	Aktiva
+5	10611	EEK	Immateriaalne põhivara müügiks	Detailne	Aktiva
+2	11	EEK	PÕHIVARA	Üld	Aktiva
+3	110	EEK	FINANTSINVESTEERINGUD	Üld	Aktiva
+4	1101	EEK	Mitte kauplemiseesmärgil hoitavad väärtpaberid	Koond	Aktiva
+5	11010	EEK	Tütarettevõtjate aktsiad või osad	Detailne	Aktiva
+5	11011	EEK	Sidusettevõtjate aktsiad või osad	Detailne	Aktiva
+4	1102	EEK	Muud pikaajalised finantsinvesteeringud	Detailne	Aktiva
+5	11020	EEK	Aktsiad ja osad	Detailne	Aktiva
+5	11021	EEK	Fondiosakud	Detailne	Aktiva
+5	11022	EEK	Võlakirjad	Detailne	Aktiva
+3	111	EEK	NÕUDED JA ETTEMAKSED	Üld	Aktiva
+4	1110	EEK	Muud pikaajalised nõuded	Koond	Aktiva
+5	11100	EEK	Laenunõuded	Detailne	Aktiva
+5	11101	EEK	Intressinõuded	Detailne	Aktiva
+5	11102	EEK	Dividendinõuded	Detailne	Aktiva
+5	11103	EEK	Viitlaekumised	Detailne	Aktiva
+5	11104	EEK	Muud pikaajalised nõuded	Detailne	Aktiva
+4	1111	EEK	Pikaajalised ettemaksed teenuste eest	Koond	Aktiva
+5	11110	EEK	PA-d Tulevaste perioodide kulud	Detailne	Aktiva
+5	11111	EEK	Muud PA-lt makstud ettemaksed	Detailne	Aktiva
+3	112	EEK	KINNISVARAINVESTEERINGUD	Üld	Aktiva
+4	1121	EEK	Renditulu teenimise või väärtuse kasvu eesmärgil hoitav maa	Koond	Aktiva
+5	11210	EEK	Maa .......... (kinnisvarainvesteering)	Detailne	Aktiva
+4	1122	EEK	Renditulu teenimise või väärtuse kasvu eesmärgil hoitavad hooned	Koond	Aktiva
+5	11220	EEK	Hoone ........ (kinnisvarainvesteering)	Detailne	Aktiva
+3	113	EEK	MATERIAALNE PÕHIVARA	Üld	Aktiva
+4	1130	EEK	Materiaalne põhivara	Koond	Aktiva
+5	11301	EEK	Maa	Detailne	Aktiva
+5	11302	EEK	Hooned ja rajatised	Detailne	Aktiva
+6	113021	EEK	Hooned ja rajatised soetusmaksumuses	Detailne	Aktiva
+6	113022	EEK	Hoonete ja rajatiste akumuleeritud kulum (-)	Detailne	Aktiva
+5	11303	EEK	Masinad ja seadmed	Detailne	Aktiva
+6	113031	EEK	Transpordivahendid soetusmaksumuses	Detailne	Aktiva
+6	113032	EEK	Transpordivahendite akumuleeritud kulum (-)	Detailne	Aktiva
+6	113033	EEK	Arvutid ja arvutisüsteemid soetusmaksumuses	Detailne	Aktiva
+6	113034	EEK	Arvutite ja arvutisüsteemide akumuleeritud kulum (-)	Detailne	Aktiva
+6	113035	EEK	Muud masinad ja seadmed soetusmaksumuses	Detailne	Aktiva
+6	113036	EEK	Muude masinate ja seadmete akumuleeritud kulum (-)	Detailne	Aktiva
+5	11304	EEK	Muu materiaalne põhivara	Detailne	Aktiva
+5	11305	EEK	Lõpetamata projektid	Detailne	Aktiva
+5	11306	EEK	Ettemaksed põhivara eest	Detailne	Aktiva
+4	1140	EEK	Immateriaalne põhivara	Koond	Aktiva
+5	11401	EEK	Firmaväärtus	Detailne	Aktiva
+5	11402	EEK	Arenguväljaminekud	Detailne	Aktiva
+5	11403	EEK	Arvuti tarkvara, patendid, litsentsid, kaubamärgid ja kontsessioonid	Detailne	Aktiva
+5	11404	EEK	Muu immateriaalne põhivara	Detailne	Aktiva
+5	11405	EEK	Lõpetamata projektid ja ettemaksed im. Põhivara eest	Detailne	Aktiva

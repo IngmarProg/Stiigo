@@ -1,0 +1,8 @@
+{ This is an automatically generated lazarus resource file }
+
+TyphonResources.Add('TFrameCompanyList','FORMDATA',[
+  'TPF0'#17'TFrameCompanyList'#16'FrameCompanyList'#4'Left'#2#0#6'Height'#3','#1
+  +#3'Top'#2#0#5'Width'#3#144#1#18'HorzScrollBar.Page'#3#143#1#18'VertScrollBar'
+  +'.Page'#3'+'#1#10'AutoScroll'#8#8'TabOrder'#2#0#10'DesignLeft'#3'#'#1#9'Desi'
+  +'gnTop'#3#186#0#0#0
+]);

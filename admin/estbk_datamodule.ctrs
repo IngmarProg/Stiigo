@@ -1,0 +1,26 @@
+{ This is an automatically generated typhon resource file }
+
+TyphonResources.Add('TadmDatamodule','FORMDATA',[
+  'TPF0'#14'TadmDatamodule'#13'admDatamodule'#8'OnCreate'#7#16'DataModuleCreate'
+  +#14'OldCreateOrder'#8#6'Height'#3'z'#1#16'HorizontalOffset'#3#248#1#14'Verti'
+  +'calOffset'#3'u'#1#5'Width'#3'_'#3#3'PPI'#2'x'#0#12'TZConnection'#13'admConn'
+  +'ection'#16'ControlsCodePage'#7#8'cCP_UTF8'#4'Port'#2#0#4'Left'#3#230#0#3'To'
+  +'p'#2#20#0#0#11'TZUpdateSQL'#16'admCompListUpSql'#29'UseSequenceFieldForRefr'
+  +'eshSQL'#9#15'MultiStatements'#8#4'Left'#3#230#0#3'Top'#2'n'#0#0#10'TZSequen'
+  +'ce'#14'admCompListSeq'#10'Connection'#7#13'admConnection'#12'SequenceName'#6
+  +#14'company_id_seq'#4'Left'#3#18#2#3'Top'#2'n'#0#0#11'TZUpdateSQL'#15'admWor'
+  +'kerMgmSql'#29'UseSequenceFieldForRefreshSQL'#9#15'MultiStatements'#8#4'Left'
+  +#3'h'#1#3'Top'#2'n'#0#0#10'TZSequence'#15'admWorkerMgmSeq'#10'Connection'#7
+  +#13'admConnection'#12'SequenceName'#6#12'users_id_seq'#4'Left'#3#238#2#3'Top'
+  +#2'n'#0#0#7'TZQuery'#12'admTempQuery'#10'Connection'#7#13'admConnection'#14
+  +'AutoCalcFields'#8#13'CachedUpdates'#9#8'ReadOnly'#9#6'Params'#14#0#4'Left'#3
+  +'r'#1#3'Top'#2#20#0#0#7'TZQuery'#28'admBufferedRolePermRelations'#10'Connect'
+  +'ion'#7#13'admConnection'#14'AutoCalcFields'#8#6'Params'#14#0#4'Left'#3#18#2
+  +#3'Top'#2#20#0#0#10'TZSequence'#9'qryVatSeq'#10'Connection'#7#13'admConnecti'
+  +'on'#12'SequenceName'#6#10'vat_id_seq'#4'Left'#3#128#2#3'Top'#2'n'#0#0#10'TZ'
+  +'Sequence'#15'qryFormLinesSeq'#10'Connection'#7#13'admConnection'#12'Sequenc'
+  +'eName'#6#18'formd_lines_id_seq'#4'Left'#3#230#0#3'Top'#3#200#0#0#0#7'TZQuer'
+  +'y'#13'admTempQuery2'#10'Connection'#7#13'admConnection'#14'AutoCalcFields'#8
+  +#13'CachedUpdates'#9#8'ReadOnly'#9#6'Params'#14#0#4'Left'#3'h'#1#3'Top'#3#200
+  +#0#0#0#0
+]);
