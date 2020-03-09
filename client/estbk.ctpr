@@ -87,7 +87,7 @@
       <Unit0>
         <Filename Value="estbk.ppr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="33"/>
+        <EditorIndex Value="34"/>
         <TopLine Value="139"/>
         <CursorPos X="27" Y="165"/>
         <UsageCount Value="200"/>
@@ -361,7 +361,6 @@
         <ComponentName Value="frameBills"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="21"/>
         <TopLine Value="10999"/>
         <CursorPos X="27" Y="11020"/>
@@ -371,6 +370,7 @@
           <Item1 X="21" Y="3377" ID="9"/>
         </Bookmarks>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit28>
       <Unit29>
         <Filename Value="estbk_testunit.pas"/>
@@ -414,7 +414,7 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameOrders"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="25"/>
+        <EditorIndex Value="26"/>
         <TopLine Value="3687"/>
         <CursorPos X="5" Y="3701"/>
         <UsageCount Value="201"/>
@@ -426,7 +426,7 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="framePaymentOrder"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="26"/>
+        <EditorIndex Value="27"/>
         <TopLine Value="2844"/>
         <CursorPos Y="2857"/>
         <UsageCount Value="200"/>
@@ -468,7 +468,7 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameConfAccounts"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="31"/>
+        <EditorIndex Value="32"/>
         <TopLine Value="521"/>
         <CursorPos X="3" Y="535"/>
         <UsageCount Value="203"/>
@@ -550,7 +550,7 @@
         <ComponentName Value="frameFormulaCreator"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="27"/>
+        <EditorIndex Value="28"/>
         <TopLine Value="853"/>
         <CursorPos Y="876"/>
         <UsageCount Value="201"/>
@@ -563,7 +563,7 @@
         <ComponentName Value="frameDeclRez"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="28"/>
+        <EditorIndex Value="29"/>
         <TopLine Value="1459"/>
         <CursorPos X="48" Y="1476"/>
         <UsageCount Value="201"/>
@@ -576,7 +576,7 @@
         <ComponentName Value="frameDeclForms"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="29"/>
+        <EditorIndex Value="30"/>
         <TopLine Value="1458"/>
         <CursorPos Y="1479"/>
         <UsageCount Value="201"/>
@@ -611,7 +611,7 @@
       <Unit54>
         <Filename Value="estbk_lib_paymentmanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="30"/>
+        <EditorIndex Value="31"/>
         <TopLine Value="1197"/>
         <CursorPos Y="1218"/>
         <UsageCount Value="200"/>
@@ -624,7 +624,7 @@
         <ComponentName Value="frameBankIncomeManually"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="32"/>
+        <EditorIndex Value="33"/>
         <TopLine Value="2682"/>
         <CursorPos X="30" Y="2703"/>
         <UsageCount Value="200"/>
@@ -772,12 +772,13 @@
         <FRMtype Value="400"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameCashbook"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <EditorIndex Value="24"/>
-        <TopLine Value="543"/>
         <CursorPos X="104" Y="564"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit70>
       <Unit71>
         <Filename Value="estbk_settings.pas"/>
@@ -914,15 +915,17 @@
       <Unit86>
         <Filename Value="estbk_ebill.pas"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="90"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="25"/>
+        <TopLine Value="34"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit86>
       <Unit87>
         <Filename Value="estbk_acc_perfinalize.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="23"/>
-        <TopLine Value="102"/>
-        <CursorPos X="68" Y="123"/>
+        <CursorPos Y="146"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
       </Unit87>
@@ -1418,7 +1421,7 @@
       <Unit155>
         <Filename Value="C:\codetyphon\typhon\components\pl_RX\source\rxdbgrid.pas"/>
         <FRMtype Value="0"/>
-        <EditorIndex Value="34"/>
+        <EditorIndex Value="35"/>
         <TopLine Value="54"/>
         <CursorPos X="41" Y="70"/>
         <UsageCount Value="12"/>
@@ -1602,7 +1605,7 @@
     </Other>
   </CompilerOptions>
   <Debugging>
-    <BreakPoints Count="14">
+    <BreakPoints Count="13">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsGlobal"/>
@@ -1679,29 +1682,22 @@
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsGlobal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="estbk_acc_perfinalize.pas"/>
-        <Line Value="146"/>
-      </Item11>
-      <Item12>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsGlobal"/>
-        <WatchKind Value="wpkWrite"/>
         <Source Value="estbk_fra_incomings_edit.pas"/>
         <Line Value="1167"/>
-      </Item12>
-      <Item13>
+      </Item11>
+      <Item12>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="estbk_fra_employee_wagetemplate.pas"/>
         <Line Value="1034"/>
-      </Item13>
-      <Item14>
+      </Item12>
+      <Item13>
         <Kind Value="bpkData"/>
         <WatchScope Value="wpsGlobal"/>
         <WatchKind Value="wpkWrite"/>
         <Actions Stop="False"/>
-      </Item14>
+      </Item13>
     </BreakPoints>
     <Watches Count="31">
       <Item1>

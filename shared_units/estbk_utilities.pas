@@ -575,11 +575,11 @@ end;
 
 {$ENDIF}
 
-// 26.01.2013 Ingmar; väga huvitav viga Rasmus põllul ' ja \ puhul tuleb escape char lugemisel ! ja ka kirjutamisel !
+// 26.01.2013 Ingmar;  ' ja \ puhul tuleb escape char lugemisel ! ja ka kirjutamisel !
 function _resolveEscapeSeq(const pStr: AStr): AStr;
 begin
   Result := pStr;
-  // Rasmus Põld
+
   // Lisaks on müügiarvete kirjelduse lahtri puhul probleemiks, et salvestades muutub ülakoma (') koodiks \047
   //  \ muutub koodiks \134
   // Miks Postgre mõne inimese arvutis nii käitub ei tea hetkel !
@@ -713,15 +713,6 @@ begin
 
 end;
 
-
-// 28.03.2010 Ingmar; pean endale kohe lausa funktsioonid üles kirjutama; Delphis neid polnud
-{
-function  Copy(const s: string; StartCharIndex, CharCount: integer): string;
-function  Length(const s: string): integer;
-function  Pos(const SearchForText, SearchInText: string): integer;
-procedure Delete(var S: string; Index, Size: integer);
-procedure Insert(const Source: string; var S: string; Index: integer);
-}
 function conv_strToStrDynArray(const pStr: AStr): TADynStrArray; // semikoolon
 var
   pTmpconv: TAStrList;
