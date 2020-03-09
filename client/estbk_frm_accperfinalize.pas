@@ -9,7 +9,7 @@ uses
   DateUtils, rxlookup, ExtCtrls, StdCtrls, EditBtn, Buttons, estbk_uivisualinit,
   estbk_acc_perfinalize, estbk_utilities, estbk_clientdatamodule,
   estbk_globvars, estbk_sqlclientcollection, estbk_types, estbk_strmsg, estbk_frm_template,
-  ZDataset, db;
+  ZDataset, DB;
 
 type
 
@@ -39,7 +39,7 @@ type
     procedure fillDateTimeEdt;
   public
     class procedure showAndCreate;
-  end; 
+  end;
 
 var
   formAccPerFinalize: TformAccPerFinalize;
@@ -49,54 +49,55 @@ implementation
 class procedure TformAccPerFinalize.showAndCreate;
 begin
   with self.Create(nil) do
-       showmodal;
+    showmodal;
 end;
 
 { TformAccPerFinalize }
 procedure TformAccPerFinalize.fillDateTimeEdt;
 var
-  b : Boolean;
-  pPerStart : TDatetime;
-  pPerEnd   : TDatetime;
+  b: boolean;
+  pPerStart: TDatetime;
+  pPerEnd: TDatetime;
 begin
-  with estbk_clientdatamodule.dmodule.tempQuery,SQL do
-  try
-     b:=ParamCheck;
-     ParamCheck:=true;
-     close;
-     clear;
-     add(estbk_sqlclientcollection._SQLPrevAccPeriods);
-     paramByname('company_id').AsInteger:=estbk_globvars.glob_company_id;
-     open;
-  if eof then
-    begin
-       pPerEnd:=now;
-       pPerStart:=dateutils.StartOfAYear(YearOf(pPerEnd));
-    end else
-    begin
-       pPerStart:=fieldByname('period_start').AsDateTime;
-    if fieldByname('period_end').IsNull then
-       pPerEnd:=dateutils.EndOfAYear(YearOf(pPerStart))
-    else
-       pPerEnd:=fieldByname('period_end').AsDateTime;
+  with estbk_clientdatamodule.dmodule.tempQuery, SQL do
+    try
+      b := ParamCheck;
+      ParamCheck := True;
+      Close;
+      Clear;
+      add(estbk_sqlclientcollection._SQLPrevAccPeriods);
+      paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
+      Open;
+      if EOF then
+      begin
+        pPerEnd := now;
+        pPerStart := dateutils.StartOfAYear(YearOf(pPerEnd));
+      end
+      else
+      begin
+        pPerStart := FieldByName('period_start').AsDateTime;
+        if FieldByName('period_end').IsNull then
+          pPerEnd := dateutils.EndOfAYear(YearOf(pPerStart))
+        else
+          pPerEnd := FieldByName('period_end').AsDateTime;
+      end;
+      // ---
+      dtBalStart.Date := pPerStart;
+      dtBalStart.Text := datetostr(pPerStart);
+
+      dtBalEnd.Date := pPerEnd;
+      dtBalEnd.Text := datetostr(pPerEnd);
+
+
+      dtAccDate.Date := pPerEnd;
+      dtAccDate.Text := datetostr(pPerEnd);
+
+    finally
+      Close;
+      Clear;
+      ParamCheck := b;
+
     end;
-    // ---
-    dtBalStart.Date:=pPerStart;
-    dtBalStart.Text:=datetostr(pPerStart);
-
-    dtBalEnd.Date:=pPerEnd;
-    dtBalEnd.Text:=datetostr(pPerEnd);
-
-
-    dtAccDate.Date:=pPerEnd;
-    dtAccDate.Text:=datetostr(pPerEnd);
-
-  finally
-    close;
-    clear;
-    ParamCheck:=b;
-
-  end;
 
 end;
 
@@ -106,29 +107,28 @@ begin
   self.fillDateTimeEdt();
   qryAccounts.Close;
   qryAccounts.SQL.Clear;
-  qryAccounts.SQL.Text:=estbk_sqlclientcollection._CSQLGetAllAccounts;
-  qryAccounts.paramByname('company_id').AsInteger:=estbk_globvars.glob_company_id;
+  qryAccounts.SQL.Text := estbk_sqlclientcollection._CSQLGetAllAccounts;
+  qryAccounts.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
   qryAccounts.Open;
   // PS see vaid hetke lahendus, tulevikus tee konfitavaks !!!!!!!!!!!!!!!!!!!!!!
   // me oletame, et tegemist vaid vaikimisi kontoplaaniga
-  qryAccounts.Locate('account_coding','22270',[]);
-  rxLookup.Value:=inttostr(qryAccounts.FieldByName('id').AsInteger);
+  qryAccounts.Locate('account_coding', '22270', []);
+  rxLookup.Value := IntToStr(qryAccounts.FieldByName('id').AsInteger);
 
 end;
 
 procedure TformAccPerFinalize.dtAccDateKeyPress(Sender: TObject; var Key: char);
 begin
-  if key=#13 then
-      begin
-          SelectNext(Sender as twincontrol, True, True);
-          key := #0;
-      end
+  if key = #13 then
+  begin
+    SelectNext(Sender as twincontrol, True, True);
+    key := #0;
+  end;
 end;
 
-procedure TformAccPerFinalize.FormClose(Sender: TObject;
-  var CloseAction: TCloseAction);
+procedure TformAccPerFinalize.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  CloseAction:=caFree;
+  CloseAction := caFree;
 end;
 
 procedure TformAccPerFinalize.btnCloseClick(Sender: TObject);
@@ -138,67 +138,67 @@ end;
 
 procedure TformAccPerFinalize.dtAccDateExit(Sender: TObject);
 var
-  cval : TDatetime;
-  pStr : AStr;
+  cval: TDatetime;
+  pStr: AStr;
 begin
-  cval:=now;
-  pStr:=trim(TEdit(Sender).Text);
-  if pStr<>'' then
+  cval := now;
+  pStr := trim(TEdit(Sender).Text);
+  if pStr <> '' then
   begin
-    if not estbk_utilities.validateMiscDateEntry(pStr,cval) then
+    if not estbk_utilities.validateMiscDateEntry(pStr, cval) then
     begin
-      dialogs.messageDlg(estbk_strmsg.SEInvalidDate,mterror,[mbOk],0);
+      Dialogs.messageDlg(estbk_strmsg.SEInvalidDate, mtError, [mbOK], 0);
       if TEdit(Sender).CanFocus then
         TEdit(Sender).SetFocus;
       Exit;
     end
     else
-      TEdit(Sender).Text:=datetostr(cval);
+      TEdit(Sender).Text := datetostr(cval);
   end;
 end;
 
 procedure TformAccPerFinalize.btnGenerateClick(Sender: TObject);
 var
-  pAccNrs : AStr;
-  pExistsAccRec : Integer;
-  b : Boolean;
-  pPcAccID : Integer; // kasumi / kahjumi konto !
+  pAccNrs: AStr;
+  pExistsAccRec: integer;
+  b: boolean;
+  pPcAccID: integer; // kasumi / kahjumi konto !
 begin
   // ---
-  if (dtBalStart.Text='') or (dtBalEnd.Text='') or (dtBalStart.Date>dtBalEnd.Date) then
+  if (dtBalStart.Text = '') or (dtBalEnd.Text = '') or (dtBalStart.Date > dtBalEnd.Date) then
   begin
-    dialogs.MessageDlg(estbk_strmsg.SEInvalidDate,mtError,[mbOk],0);
+    Dialogs.MessageDlg(estbk_strmsg.SEInvalidDate, mtError, [mbOK], 0);
     if dtBalStart.CanFocus then
       dtBalStart.SetFocus;
     Exit;
   end;
 
-  pAccNrs:='';
-  pExistsAccRec:=0;
+  pAccNrs := '';
+  pExistsAccRec := 0;
   // pPcAccID:=585;
-  pPcAccID:=qryAccounts.FieldByName('id').AsInteger;
-  Assert(pPcAccID>0,'#1');
+  pPcAccID := qryAccounts.FieldByName('id').AsInteger;
+  Assert(pPcAccID > 0, '#1');
   try
-    b:=estbk_acc_perfinalize._generateAccFinalizatingRec(pPcAccID,dtAccDate.Date,dtBalStart.Date,dtBalEnd.Date,pAccNrs,pExistsAccRec);
+    b := estbk_acc_perfinalize._generateAccFinalizatingRec(pPcAccID, dtAccDate.Date, dtBalStart.Date, dtBalEnd.Date, pAccNrs, pExistsAccRec);
     // vahemikus juba kanne olemas !
-    if not b and (pAccNrs<>'') then
-     if dialogs.MessageDlg(format(estbk_strmsg.SEAccSGrpRecAlreadyExists,[pAccNrs]),mtConfirmation,[mbYes,mbNo],0)=mrYes then
-     begin
-       pExistsAccRec:=99999999;
-       b:=estbk_acc_perfinalize._generateAccFinalizatingRec(pPcAccID,dtAccDate.Date,dtBalStart.Date,dtBalEnd.Date,pAccNrs,pExistsAccRec);
-     end
-     else
-     b:=estbk_acc_perfinalize._generateAccFinalizatingRec(pPcAccID,dtAccDate.Date,dtBalStart.Date,dtBalEnd.Date,pAccNrs,pExistsAccRec);
+    if not b and (pAccNrs <> '') then
+      if Dialogs.MessageDlg(format(estbk_strmsg.SEAccSGrpRecAlreadyExists, [pAccNrs]), mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      begin
+        pExistsAccRec := 99999999;
+        b := estbk_acc_perfinalize._generateAccFinalizatingRec(pPcAccID, dtAccDate.Date, dtBalStart.Date, dtBalEnd.Date, pAccNrs, pExistsAccRec);
+      end
+      else
+        b := estbk_acc_perfinalize._generateAccFinalizatingRec(pPcAccID, dtAccDate.Date, dtBalStart.Date, dtBalEnd.Date, pAccNrs, pExistsAccRec);
 
     if b then
-      Dialogs.MessageDlg(estbk_strmsg.SCommDone,mtinformation,[mbOk],0)
+      Dialogs.MessageDlg(estbk_strmsg.SCommDone, mtInformation, [mbOK], 0)
     else
-      Dialogs.MessageDlg(estbk_strmsg.SCommFailed,mtinformation,[mbOk],0);
-      estbk_utilities.changeWCtrlEnabledStatus(self,false);
-      Self.Enabled:=true;
+      Dialogs.MessageDlg(estbk_strmsg.SCommFailed, mtInformation, [mbOK], 0);
+    estbk_utilities.changeWCtrlEnabledStatus(self, False);
+    Self.Enabled := True;
   except
-    on E : exception do
-      dialogs.MessageDlg(format(estbk_strmsg.SESaveFailed,[e.message]),mtError,[mbOk],0);
+    on E: Exception do
+      Dialogs.MessageDlg(format(estbk_strmsg.SESaveFailed, [e.message]), mtError, [mbOK], 0);
   end;
 end;
 
@@ -206,4 +206,3 @@ initialization
   {$I estbk_frm_accperfinalize.ctrs}
 
 end.
-

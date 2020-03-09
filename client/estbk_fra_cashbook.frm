@@ -1,21 +1,18 @@
-object frameCashbook: TframeCashbook
-  Left = 0
+inherited frameCashbook: TframeCashbook
   Height = 206
-  Top = 0
   Width = 618
   ClientHeight = 206
   ClientWidth = 618
-  TabOrder = 0
-  DesignLeft = 219
-  DesignTop = 193
-  object grpCashbook: TGroupBox
+  DesignLeft = 23
+  DesignTop = 317
+  object grpCashbook: TGroupBox[0]
     Left = 4
     Height = 198
     Top = 0
     Width = 609
     Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = ' Kassaraamat'
-    ClientHeight = 180
+    ClientHeight = 173
     ClientWidth = 605
     Font.Style = [fsBold]
     ParentFont = False
@@ -34,7 +31,7 @@ object frameCashbook: TframeCashbook
     end
     object edtClientCode: TEdit
       Left = 118
-      Height = 21
+      Height = 28
       Top = 9
       Width = 95
       MaxLength = 10
@@ -91,7 +88,7 @@ object frameCashbook: TframeCashbook
     object edtCustNameAndRegCode: TEdit
       Tag = -1
       Left = 233
-      Height = 21
+      Height = 28
       Top = 9
       Width = 253
       Color = cl3DLight
@@ -205,10 +202,10 @@ object frameCashbook: TframeCashbook
     end
     object cmbPreDefPer: TComboBox
       Left = 118
-      Height = 21
+      Height = 28
       Top = 32
       Width = 112
-      ItemHeight = 13
+      ItemHeight = 20
       OnChange = cmbPreDefPerChange
       OnKeyPress = edtClientCodeKeyPress
       ParentFont = False
@@ -217,15 +214,12 @@ object frameCashbook: TframeCashbook
     end
     object dtEditStart: TDateEdit
       Left = 118
-      Height = 21
+      Height = 28
       Top = 55
       Width = 91
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-      OKCaption = 'OK'
-      CancelCaption = 'Cancel'
       DateOrder = doNone
       ButtonWidth = 23
-      CharCase = ecNormal
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -262,7 +256,7 @@ object frameCashbook: TframeCashbook
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
-      NumGlyphs = 0
+      NumGlyphs = 1
       MaxLength = 0
       OnExit = dtEditStartExit
       OnKeyPress = edtClientCodeKeyPress
@@ -271,15 +265,12 @@ object frameCashbook: TframeCashbook
     end
     object dtEditEnd: TDateEdit
       Left = 118
-      Height = 21
+      Height = 28
       Top = 78
       Width = 91
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-      OKCaption = 'OK'
-      CancelCaption = 'Cancel'
       DateOrder = doNone
       ButtonWidth = 23
-      CharCase = ecNormal
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -316,7 +307,7 @@ object frameCashbook: TframeCashbook
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
-      NumGlyphs = 0
+      NumGlyphs = 1
       MaxLength = 0
       OnExit = dtEditStartExit
       OnKeyPress = edtClientCodeKeyPress
@@ -379,7 +370,7 @@ object frameCashbook: TframeCashbook
     end
     object lcpCashRegAccount: TRxDBLookupCombo
       Left = 118
-      Height = 21
+      Height = 32
       Top = 101
       Width = 112
       AutoSize = True
@@ -465,25 +456,25 @@ object frameCashbook: TframeCashbook
       ParentFont = False
     end
   end
-  object qryCashbookEntrys: TZQuery
+  object qryCashbookEntrys: TZQuery[1]
     Params = <>
-    left = 288
-    top = 152
+    Left = 288
+    Top = 152
   end
-  object qryAccounts: TZQuery
+  object qryAccounts: TZQuery[2]
     Params = <>
-    left = 560
-    top = 152
+    Left = 560
+    Top = 152
   end
-  object qryAccountsDs: TDatasource
+  object qryAccountsDs: TDataSource[3]
     AutoEdit = False
     DataSet = qryAccounts
-    left = 392
-    top = 152
+    Left = 392
+    Top = 152
   end
-  object popupReportType: TPopupMenu
-    left = 496
-    top = 152
+  object popupReportType: TPopupMenu[4]
+    Left = 496
+    Top = 152
     object mnuItemScreen: TMenuItem
       Caption = 'Ekraanile'
       Checked = True
@@ -498,28 +489,25 @@ object frameCashbook: TframeCashbook
       OnClick = mnuItemScreenClick
     end
   end
-  object frReport: TfrReport
+  object frReport: TfrReport[5]
     Dataset = reportdata
     InitialZoom = pzDefault
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
     DataType = dtDataSet
     OnGetValue = frReportGetValue
-    left = 200
-    top = 152
-    ReportForm = {
-      19000000
-    }
+    Left = 200
+    Top = 152
   end
-  object reportdata: TfrDBDataSet
+  object reportdata: TfrDBDataSet[6]
     DataSet = qryCashbookEntrys
-    left = 144
-    top = 152
+    Left = 144
+    Top = 152
   end
-  object saveRep: TSaveDialog
+  object saveRep: TSaveDialog[7]
     Title = 'Salvestame'
     DefaultExt = '.*.pdf'
-    left = 88
-    top = 152
+    Left = 88
+    Top = 152
   end
 end

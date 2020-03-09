@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, Buttons,estbk_types,estbk_strmsg,estbk_clientdatamodule,
-  estbk_lib_commoncls, ZDataset,estbk_frm_template;
+  StdCtrls, Buttons, estbk_types, estbk_strmsg, estbk_clientdatamodule,
+  estbk_lib_commoncls, ZDataset, estbk_frm_template;
 
 type
 
@@ -30,29 +30,27 @@ type
     procedure cmbBankListKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
   private
-    { private declarations }
   public
-    function showmodal(var pFilename : AStr;
-                       var pBankId   : Integer;
-                       var pBankLCode : AStr):Boolean;reintroduce;
-  end; 
+    function showmodal(var pFilename: AStr; var pBankId: integer; var pBankLCode: AStr): boolean;
+      reintroduce;
+  end;
 
 var
   formSelectIncomeFiles: TformSelectIncomeFiles;
 
 implementation
-uses estbk_uivisualinit,estbk_sqlclientcollection,estbk_globvars;
+
+uses estbk_uivisualinit, estbk_sqlclientcollection, estbk_globvars;
 
 procedure TformSelectIncomeFiles.FormCreate(Sender: TObject);
 begin
-   estbk_uivisualinit.__preparevisual(self);
-   cmbBankList.ItemIndex:=0;
+  estbk_uivisualinit.__preparevisual(self);
+  cmbBankList.ItemIndex := 0;
 end;
 
-procedure TformSelectIncomeFiles.cmbBankListKeyPress(Sender: TObject;
-  var Key: char);
+procedure TformSelectIncomeFiles.cmbBankListKeyPress(Sender: TObject; var Key: char);
 begin
- if key = #13 then
+  if key = #13 then
   begin
     SelectNext(Sender as twincontrol, True, True);
     key := #0;
@@ -61,128 +59,128 @@ end;
 
 procedure TformSelectIncomeFiles.btnCancelClick(Sender: TObject);
 begin
-  self.ModalResult:=mrCancel;
+  self.ModalResult := mrCancel;
 end;
 
 procedure TformSelectIncomeFiles.btnOkClick(Sender: TObject);
 var
-  pFilename : AStr;
+  pFilename: AStr;
 begin
 
-    pFilename:=trim(edtFilename.Text);
- if pFilename='' then
-   begin
-    dialogs.MessageDlg(estbk_strmsg.SEFileNameIsMissing,mtError,[mbOk],0);
+  pFilename := trim(edtFilename.Text);
+  if pFilename = '' then
+  begin
+    Dialogs.MessageDlg(estbk_strmsg.SEFileNameIsMissing, mtError, [mbOK], 0);
     edtFilename.SetFocus;
     exit;
-   end; // ---
+  end; // ---
 
- if not fileexists(pFilename) then
-   begin
-    dialogs.MessageDlg(format(estbk_strmsg.SEFileNotFound,[pFilename]),mtError,[mbOk],0);
+  if not fileexists(pFilename) then
+  begin
+    Dialogs.MessageDlg(format(estbk_strmsg.SEFileNotFound, [pFilename]), mtError, [mbOK], 0);
     edtFilename.SetFocus;
     exit;
-   end; // ---
+  end; // ---
 
 
- if cmbBankList.ItemIndex<=0 then
-   begin
-    dialogs.MessageDlg(estbk_strmsg.SEIncfBankNotChoosen,mtError,[mbOk],0);
+  if cmbBankList.ItemIndex <= 0 then
+  begin
+    Dialogs.MessageDlg(estbk_strmsg.SEIncfBankNotChoosen, mtError, [mbOK], 0);
     cmbBankList.SetFocus;
     exit;
-   end; // ---
+  end; // ---
 
-   self.ModalResult:=mrOk;
+  self.ModalResult := mrOk;
 end;
 
 procedure TformSelectIncomeFiles.btnSelectFileClick(Sender: TObject);
 begin
- if pBankFile.Execute and (pBankFile.Files.Count>0) then
-   begin
-    edtFilename.Text:=pBankFile.Files.Strings[0];
-   end;
+  if pBankFile.Execute and (pBankFile.Files.Count > 0) then
+  begin
+    edtFilename.Text := pBankFile.Files.Strings[0];
+  end;
 end;
 
-function  TformSelectIncomeFiles.showmodal(var pFilename : AStr;
-                                           var pBankId   : Integer;
-                                           var pBankLCode : AStr):Boolean;
+function TformSelectIncomeFiles.showmodal(var pFilename: AStr; var pBankId: integer;
+  var pBankLCode: AStr): boolean;
 var
-  pDescr    : estbk_lib_commoncls.TIntIDAndCTypes;
-  pBankCode : AStr;
-  i : Integer;
+  pDescr: estbk_lib_commoncls.TIntIDAndCTypes;
+  pBankCode: AStr;
+  i: integer;
 begin
-     cmbBankList.Clear;
+  cmbBankList.Clear;
 
-     pFilename:='';
-     pBankId:=0;
-     pBankLCode:='';
+  pFilename := '';
+  pBankId := 0;
+  pBankLCode := '';
 
-     // ---
-with qryBanks,SQL do
- try
+  // ---
+  with qryBanks, SQL do
+    try
 
-       close;
-       clear;
-       add(estbk_sqlclientcollection._SQLSelectBanksEx);
-       parambyname('company_id').asInteger:=estbk_globvars.glob_company_id;
-       open;
-       first;
-       // ---
+      Close;
+      Clear;
+      add(estbk_sqlclientcollection._SQLSelectBanksEx);
+      parambyname('company_id').AsInteger := estbk_globvars.glob_company_id;
+      Open;
+      First;
+      // ---
 
-       cmbBankList.ItemIndex:=cmbBankList.Items.AddObject(estbk_strmsg.SUnDefComboChoise,nil);
+      cmbBankList.ItemIndex := cmbBankList.Items.AddObject(estbk_strmsg.SUnDefComboChoise, nil);
 
- while not eof do
-   begin
-       pBankCode:=trim(fieldByname('lcode').asString);
-    if pBankCode='' then
-       pBankCode:=trim(fieldByname('swift').asString)
-    else
-       pBankCode:=pBankCode+'|'+trim(fieldByname('swift').asString);
-
-
-    if pBankCode<>'' then
+      while not EOF do
       begin
-        pDescr:=estbk_lib_commoncls.TIntIDAndCTypes.Create;
-        pDescr.id:=fieldByname('id').asInteger;
-        pDescr.clf:=pBankCode;
+        pBankCode := trim(FieldByName('lcode').AsString);
+        if pBankCode = '' then
+          pBankCode := trim(FieldByName('swift').AsString)
+        else
+          pBankCode := pBankCode + '|' + trim(FieldByName('swift').AsString);
 
-        // ---
-        cmbBankList.Items.AddObject(fieldByname('bankname').asString,pDescr);
-        next;
+
+        if pBankCode <> '' then
+        begin
+          pDescr := estbk_lib_commoncls.TIntIDAndCTypes.Create;
+          pDescr.id := FieldByName('id').AsInteger;
+          pDescr.clf := pBankCode;
+
+          // ---
+          cmbBankList.Items.AddObject(FieldByName('bankname').AsString, pDescr);
+          Next;
+        end;
       end;
-   end;
- finally
-      close;
-      clear;
- end; // --
+    finally
+      Close;
+      Clear;
+    end; // --
 
 
-     result:=inherited showmodal=mrOk;
-  if result then
-    begin
-         pFilename:=edtFilename.Text;
-    if   cmbBankList.ItemIndex>0 then
-    with TIntIDAndCTypes(cmbBankList.Items.Objects[cmbBankList.ItemIndex]) do
+  Result := inherited showmodal = mrOk;
+  if Result then
+  begin
+    pFilename := edtFilename.Text;
+    if cmbBankList.ItemIndex > 0 then
+      with TIntIDAndCTypes(cmbBankList.Items.Objects[cmbBankList.ItemIndex]) do
       begin
-         pBankId:=id;
-         pBankLCode:=clf;
+        pBankId := id;
+        pBankLCode := clf;
       end;
-    end;
+  end;
 
 
   // ---
- for i:=0 to cmbBankList.Items.Count-1 do
- if  assigned(cmbBankList.Items.Objects[i]) then
-   begin
-     cmbBankList.Items.Objects[i].Free;
-     cmbBankList.Items.Objects[i]:=nil;
-   end;
+  for i := 0 to cmbBankList.Items.Count - 1 do
+    if assigned(cmbBankList.Items.Objects[i]) then
+    begin
+      cmbBankList.Items.Objects[i].Free;
+      cmbBankList.Items.Objects[i] := nil;
+    end;
 
-      cmbBankList.Clear;
+  cmbBankList.Clear;
+
+
 end;
 
 initialization
   {$I estbk_frm_formincomefiles.ctrs}
 
 end.
-

@@ -46,8 +46,8 @@ type
     procedure __markNumeratorValAsReserved(const pNumeratorType: TCNumeratorTypes; const pNumVal: AStr;
       const pCallerIsGeneralLedgerModule: boolean = False);
     procedure __markNumeratorValAsReservedExt(const pCallerId: PtrUInt; const pNumeratorType: TCNumeratorTypes;
-      const pNumeratorVal: AStr; const pNumeratorDate: TDatetime; const pReloadNumber: boolean;
-      const pCallerIsGeneralLedgerModule: boolean);
+      const pNumeratorVal: AStr; const pNumeratorDate: TDatetime; const pReloadNumber: boolean; const pCallerIsGeneralLedgerModule: boolean);
+
     procedure __markNumeratorValAsUsedExt(const pCallerId: PtrUInt; const pNumeratorType: TCNumeratorTypes;
       const pNumeratorVal: AStr; const pNumeratorDate: TDatetime; const pCallerIsGeneralLedgerModule: boolean = False);
     procedure markNumeratorValAsUsed(const pCallerId: PtrUInt; const pNumeratorType: TCNumeratorTypes;

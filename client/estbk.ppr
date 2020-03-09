@@ -106,7 +106,6 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   estbk_ebill,
   estbk_acc_perfinalize,
   estbk_frm_accperfinalize,
-  estbk_frm_donations,
   estbk_frm_template,
   estbk_fra_template,
   estbk_lib_ebillimporter,

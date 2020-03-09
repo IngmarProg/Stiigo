@@ -7,7 +7,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls,estbk_types,LCLType,LCLIntf,LCLProc, Buttons;
+  StdCtrls, estbk_types, LCLType, LCLIntf, LCLProc, Buttons;
 
 type
 
@@ -24,76 +24,75 @@ type
   private
     { private declarations }
   public
-    function showmodal(const pMiscDescr: AStr; var pNewValue : AStr):Boolean;overload;reintroduce; // TEDIT
-    function showmodal(const pMiscDescr: AStr; const pComboItems : TAStrList; var pSelectedId : Integer):Boolean;overload;reintroduce; // TCOMBO
-  end; 
+    function showmodal(const pMiscDescr: AStr; var pNewValue: AStr): boolean; overload; reintroduce; // TEDIT
+    function showmodal(const pMiscDescr: AStr; const pComboItems: TAStrList; var pSelectedId: integer): boolean; overload; reintroduce; // TCOMBO
+  end;
 
 // ----
-function inputFormEx(const descr : AStr; var value : AStr):Boolean;
-function inputFormEx2(const descr : AStr; const items : TAStrList; var id : Integer):Boolean;
+function inputFormEx(const descr: AStr; var Value: AStr): boolean;
+function inputFormEx2(const descr: AStr; const items: TAStrList; var id: integer): boolean;
 // ----
 implementation
 
-function inputFormEx(const descr : AStr; var value : AStr):Boolean;
+function inputFormEx(const descr: AStr; var Value: AStr): boolean;
 begin
   with TinputExForm.Create(nil) do
-   try
-      result:=showmodal(descr,value);
-   finally
-      free;
-   end;
+    try
+      Result := showmodal(descr, Value);
+    finally
+      Free;
+    end;
 end;
 
 
-function inputFormEx2(const descr : AStr; const items : TAStrList; var id : Integer):Boolean;
+function inputFormEx2(const descr: AStr; const items: TAStrList; var id: integer): boolean;
 begin
-   with TinputExForm.Create(nil) do
-   try
-      result:=showmodal(descr,items,id);
-   finally
-      free;
-   end;
+  with TinputExForm.Create(nil) do
+    try
+      Result := showmodal(descr, items, id);
+    finally
+      Free;
+    end;
 end;
 
 procedure TinputExForm.edtNewItemnameChange(Sender: TObject);
 begin
-     btnOk.Enabled:=trim(TEdit(Sender).Text)<>'';
+  btnOk.Enabled := trim(TEdit(Sender).Text) <> '';
 end;
 
-function TinputExForm.showmodal(const pMiscDescr: AStr; var pNewValue : AStr):Boolean;
+function TinputExForm.showmodal(const pMiscDescr: AStr; var pNewValue: AStr): boolean;
 begin
-     cmbChooseItem.Visible:=false;
-     edtNewItemname.Visible:=true;
+  cmbChooseItem.Visible := False;
+  edtNewItemname.Visible := True;
 
-     lblItemname.Caption:=pMiscDescr;
-     edtNewItemname.Text:=pNewValue;
+  lblItemname.Caption := pMiscDescr;
+  edtNewItemname.Text := pNewValue;
 
-     btnOk.Enabled:=trim(pNewValue)<>'';
-     result:=inherited showmodal=mrOk;
-  if result then
-     pNewValue:=trim(edtNewItemname.Text);
+  btnOk.Enabled := trim(pNewValue) <> '';
+  Result := inherited showmodal = mrOk;
+  if Result then
+    pNewValue := trim(edtNewItemname.Text);
 end;
 
-function TinputExForm.showmodal(const pMiscDescr: AStr; const pComboItems : TAStrList; var pSelectedId : Integer):Boolean;
+function TinputExForm.showmodal(const pMiscDescr: AStr; const pComboItems: TAStrList; var pSelectedId: integer): boolean;
 begin
-     pSelectedId:=0;
-     cmbChooseItem.Visible:=true;
-     edtNewItemname.Visible:=false;
+  pSelectedId := 0;
+  cmbChooseItem.Visible := True;
+  edtNewItemname.Visible := False;
 
-     lblItemname.Caption:=pMiscDescr;
-     cmbChooseItem.Items.Assign(pComboItems);
+  lblItemname.Caption := pMiscDescr;
+  cmbChooseItem.Items.Assign(pComboItems);
 
-     btnOk.Enabled:=cmbChooseItem.Items.Count>0;
-  if cmbChooseItem.Items.Count>0 then
-     cmbChooseItem.ItemIndex:=0; // märgistame ära esimese valiku, tulevikus jätame meelde viimase firma ja pakume uuesti seda !
+  btnOk.Enabled := cmbChooseItem.Items.Count > 0;
+  if cmbChooseItem.Items.Count > 0 then
+    cmbChooseItem.ItemIndex := 0; // märgistame ära esimese valiku, tulevikus jätame meelde viimase firma ja pakume uuesti seda !
 
-     result:=(inherited showmodal=mrOk) and (cmbChooseItem.ItemIndex>=0);
-  if result then
-     pSelectedId:=PtrInt(cmbChooseItem.Items.Objects[cmbChooseItem.ItemIndex]);
+  Result := (inherited showmodal = mrOk) and (cmbChooseItem.ItemIndex >= 0);
+  if Result then
+    pSelectedId := PtrInt(cmbChooseItem.Items.Objects[cmbChooseItem.ItemIndex]);
 end;
 
 initialization
   {$I estbk_inputformex.ctrs}
 
 end.
-

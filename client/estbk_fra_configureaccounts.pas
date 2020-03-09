@@ -499,7 +499,7 @@ begin
   FAccounts.OnEnter := @self.OnLookupComboEnter;
   FAccounts.OnExit := @self.OnLookupComboExit;
   FAccounts.OnSelect := @self.OnLookupComboSelect;
-  FAccounts.OnClosePopupNotif:=@self.OnLookupComboPopupClose;
+  FAccounts.OnClosePopupNotif := @self.OnLookupComboPopupClose;
   FAccounts.OnKeyDown := @self.OnLookupComboKeydown;
 
 
@@ -532,7 +532,7 @@ begin
   end;
 
   // 29.05.2011 Ingmar
-  FAccounts.OnLookupTitleColClick:=@__intUIMiscHelperClass.OnLookupComboTitleClick;
+  FAccounts.OnLookupTitleColClick := @__intUIMiscHelperClass.OnLookupComboTitleClick;
 end;
 
 procedure TframeConfAccounts.clearObjItems(const pCleanOnlyCellStrVal: boolean = False);

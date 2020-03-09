@@ -1184,14 +1184,6 @@ begin
         // --------------------------------------------------------------------
 
 
-           (*
-           showmessage('A) '+floattostr(sum)+' _ '+floattostr(FDBalanceSum)+' _ '+floattostr((pCurrConvWin * pmtItemCurrRate))+'_'+floattostr((pCurrConvCost * pmtItemCurrRate))+#13#10+
-                       'B) '+floattostr(sum)+' _ '+floattostr(FCBalanceSum));
-           *)
-
-
-
-
         // kontrollime võimalikud ümmardamised üle
         // self.checkIfRoundingAccRecNeeded(sum);
 

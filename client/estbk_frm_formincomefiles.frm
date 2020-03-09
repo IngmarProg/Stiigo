@@ -1,4 +1,4 @@
-object formSelectIncomeFiles: TformSelectIncomeFiles
+inherited formSelectIncomeFiles: TformSelectIncomeFiles
   Left = 269
   Height = 137
   Top = 373
@@ -8,15 +8,14 @@ object formSelectIncomeFiles: TformSelectIncomeFiles
   ClientWidth = 484
   OnCreate = FormCreate
   Position = poDesktopCenter
-  LCLVersion = '0.9.30'
-  object GroupBox1: TGroupBox
+  object GroupBox1: TGroupBox[0]
     Left = 8
     Height = 88
     Top = 2
     Width = 470
     Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = ' Pangafail '
-    ClientHeight = 70
+    ClientHeight = 63
     ClientWidth = 466
     Font.Style = [fsBold]
     ParentFont = False
@@ -33,10 +32,10 @@ object formSelectIncomeFiles: TformSelectIncomeFiles
     end
     object cmbBankList: TComboBox
       Left = 70
-      Height = 21
+      Height = 28
       Top = 8
       Width = 380
-      ItemHeight = 13
+      ItemHeight = 20
       OnKeyPress = cmbBankListKeyPress
       Style = csDropDownList
       TabOrder = 0
@@ -53,7 +52,7 @@ object formSelectIncomeFiles: TformSelectIncomeFiles
     end
     object edtFilename: TEdit
       Left = 70
-      Height = 21
+      Height = 28
       Top = 33
       Width = 344
       MaxLength = 1024
@@ -104,7 +103,7 @@ object formSelectIncomeFiles: TformSelectIncomeFiles
       TabOrder = 2
     end
   end
-  object btnOk: TBitBtn
+  object btnOk: TBitBtn[1]
     Tag = -1
     Left = 316
     Height = 30
@@ -115,7 +114,7 @@ object formSelectIncomeFiles: TformSelectIncomeFiles
     OnClick = btnOkClick
     TabOrder = 1
   end
-  object btnCancel: TBitBtn
+  object btnCancel: TBitBtn[2]
     Tag = -1
     Left = 398
     Height = 30
@@ -127,13 +126,13 @@ object formSelectIncomeFiles: TformSelectIncomeFiles
     OnClick = btnCancelClick
     TabOrder = 2
   end
-  object qryBanks: TZQuery
+  object qryBanks: TZQuery[3]
     Connection = dmodule.primConnection
     Params = <>
-    left = 16
+    Left = 16
   end
-  object pBankFile: TOpenDialog
+  object pBankFile: TOpenDialog[4]
     Title = 'Valin laekumiste faili'
-    left = 72
+    Left = 72
   end
 end

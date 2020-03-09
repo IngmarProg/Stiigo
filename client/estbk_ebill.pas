@@ -88,13 +88,13 @@ const
 var
   Doc: TXMLDocument;
   Root, Header, Footer, Invoice, InvoiceParties, SellerParty, BuyerParty, InvoiceInformation, InvoiceSumGroup,
-  InvoiceItem, InvoiceItemGroup, ItemEntry, ContactData, VAT, Item, TextNode, LegalAddress, MailAddress,
-  ItemReserve, PaymentInfo, ItemDetailInfo: TDOMNode;
+  InvoiceItem, InvoiceItemGroup, ItemEntry, ContactData, VAT, Item, TextNode, LegalAddress, MailAddress, ItemReserve,
+  PaymentInfo, ItemDetailInfo: TDOMNode;
 
   pTestMode: boolean;
   pClientId: integer;
-  pClientRegCode, pCompPhoneNr, pCompEmail, pCompPostalAddr, pCompCity, pCompPostalCode, pCompCountry,
-  pCompMailPostalAddr, pCompMailCity, pCompMailPostalCode, pCompMailCountry: AStr;
+  pClientRegCode, pCompPhoneNr, pCompEmail, pCompPostalAddr, pCompCity, pCompPostalCode, pCompCountry, pCompMailPostalAddr,
+  pCompMailCity, pCompMailPostalCode, pCompMailCountry: AStr;
 
   pCustomername, pCustomerregnr, pCustomerVATRegnr, pCustomerPhoneNr, pCustomerEmail, pCustomerPostalAddr,
   pCustomerCity, pCustomerPostalCode, pCustomerCountry: AStr;
@@ -578,7 +578,8 @@ begin
       Item := Doc.CreateElement('ItemSum');
       //     Item.AppendChild(Doc.CreateTextNode(_sx(stringreplace(format(estbk_types.CCurrentMoneyFmt2,[pBillLine.FArtSalepr-pBillLine.FCalcLineVatSum]),',','.',[]))));
       // 04.05.2014 Ingmar; ikka ItemSum on kogusumma !
-      Item.AppendChild(Doc.CreateTextNode(_sx(stringreplace(format(estbk_types.CCurrentMoneyFmt2, [pBillLine.FPrice * pBillLine.FQty]), ',', '.', []))));
+      Item.AppendChild(Doc.CreateTextNode(_sx(stringreplace(format(estbk_types.CCurrentMoneyFmt2, [pBillLine.FPrice * pBillLine.FQty]),
+        ',', '.', []))));
       ItemEntry.AppendChild(Item);
 
 
