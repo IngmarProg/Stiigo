@@ -15,42 +15,7 @@ uses
   estbk_lib_commonevents, estbk_lib_commoncls, LR_DBSet, LR_Class, DB, memds, ZDataset,
   ZSequence;
 
-{
-#4 viimane assert
-
-
-http://74.125.77.132/search?q=cache:qDS8DQoTm3AJ:www.rmp.ee/foorum/60/6569+ettemaksuarve&cd=1&hl=et&ct=clnk&gl=ee
-
-Re: Ettemaksuarve
-meie teeme ka ettemaksuga
-1. ettemaks 50% 1000
-km 180
-tasumiseks 1180
-2 arve
-kaup/teenus 2000
-ettemaks -1000 siia toon ülesse ettemaksuarve nr.
-km 180
-tasumiseks 1180
-
-03.07.2008 21:34   Re: Ettemaksuarve
-NELELIIS, on jah õige nõudmine ja paljud firmad niimoodi ka teevad.
-meil ka mõnikord vaja tasuda tellimuse alusel ettemaksu,mis võib olla sõnastatud ARVE või TEATIS,
-kui on väljastatud ettemaksuarve (läheb hankijate ettemaksu kontole täissummana, mitte käibesse),siis käibe tekkimise seisukohalt on tähtis tasumise kuupäev (nii hankijale kui ka ostjale !) ja seepärast peab väljastama selle kuupäevaga Ettemaksulaekumise arve ja selle summa ulatuses tekib sel kuupäeval käive.Kui teenus osutatud,siis väljastab hankija arve,millel märgitud miinus ette tasutud summa koos km-ga ja selle lõpparve alusel tekib käive ainult 50 % summa ulatuses.
-Seepärast ei ole me ise praktiseerinud nn. ettemaksuarve kasutamist, vaid ettemaks tehakse ainult tellimuse või hinnapakkumise alusel ja siis jääb vahele see ettemaksulaekumise arve väljastamine. Ainuke ARVE tuleb teenuse osutamise järel.
-Tarvi
-
-04.07.2008 10:36   Re: Ettemaksuarve
-Vastavalt Käibemaksu seaduse §11 lg 1 p 1 ja 2 on käibe tekkimise aeg:
-* kauba ostjale lähetamine või kättesaadavaks tegemine või teenuse ostamine
-* kauba või teenuse eest osalise või täieliku makse laekumine, teenuse saamisel osaline või täielik maksmine
-
-Seega peaks ka nendel samadel põhimõtetel saama tagasi küsida sisendkäibemaksu. ma ei näe põhjust, miks nõuda täendavaid pabereid sisendkäibemaksu tagasi küsimiseks.
-}
-
 type
-
-  { TframeOrders }
-
   TframeOrders = class(Tfra_template)
     bh1: TBevel;
     bh2: TBevel;
@@ -382,16 +347,8 @@ var
   pTemp: integer;
 begin
 
-{
-  //grpOrder.visible:=false;
- pOrdppanel.visible:=false;
-  {
-  edtSupplierCode.visible:=false;    }
-  exit;
 
-
-}
-  assert(not (csLoading in self.ComponentState), '#1');
+  Assert(not (csLoading in self.ComponentState), '#1');
   FOrderType := v;
   b := (v = _coSaleOrder);
   lblPrepaimentDue.Visible := b;

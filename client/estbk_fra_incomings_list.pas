@@ -6,10 +6,10 @@ unit estbk_fra_incomings_list;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Buttons, StdCtrls,Dialogs,Math,Graphics,estbk_fra_template,estbk_settings,
-  estbk_uivisualinit, estbk_strmsg, estbk_clientdatamodule, estbk_types,estbk_reportconst,estbk_fra_customer,estbk_frm_choosecustmer,
-  estbk_utilities, LCLType, EditBtn, ExtCtrls, DBGrids, estbk_globvars,estbk_sqlclientcollection,estbk_lib_commoncls,
-  estbk_lib_commonevents,estbk_lib_deleteaccitems, ZDataset, rxlookup, db, Grids;
+  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Buttons, StdCtrls, Dialogs, Math, Graphics, estbk_fra_template, estbk_settings,
+  estbk_uivisualinit, estbk_strmsg, estbk_clientdatamodule, estbk_types, estbk_reportconst, estbk_fra_customer, estbk_frm_choosecustmer,
+  estbk_utilities, LCLType, EditBtn, ExtCtrls, DBGrids, estbk_globvars, estbk_sqlclientcollection, estbk_lib_commoncls,
+  estbk_lib_commonevents, estbk_lib_deleteaccitems, ZDataset, rxlookup, DB, Grids;
 
 type
 
@@ -63,120 +63,109 @@ type
     procedure edtClientIdExit(Sender: TObject);
     procedure edtClientIdKeyPress(Sender: TObject; var Key: char);
     procedure incomingGridDblClick(Sender: TObject);
-    procedure incomingGridDrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure incomingGridKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure incomingGridDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: integer; Column: TColumn; State: TGridDrawState);
+    procedure incomingGridKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure incomingGridKeyPress(Sender: TObject; var Key: char);
-    procedure incomingGridPrepareCanvas(sender: TObject; DataCol: Integer;
-      Column: TColumn; AState: TGridDrawState);
+    procedure incomingGridPrepareCanvas(Sender: TObject; DataCol: integer; Column: TColumn; AState: TGridDrawState);
     procedure lblBankAcc1Click(Sender: TObject);
     procedure rxLookupBanksChange(Sender: TObject);
-    procedure rxLookupBanksClosePopupNotif(Sender: TObject;
-      SearchResult: boolean);
+    procedure rxLookupBanksClosePopupNotif(Sender: TObject; SearchResult: boolean);
   private
     FframeKillSignal: TNotifyEvent;
-    FParentKeyNotif : TKeyNotEvent;
-    FFrameDataEvent : TFrameReqEvent;
-    FLastClientCode : AStr;
-    FLastClientId   : Integer;
+    FParentKeyNotif: TKeyNotEvent;
+    FFrameDataEvent: TFrameReqEvent;
+    FLastClientCode: AStr;
+    FLastClientId: integer;
     // ---
-    function  getDataLoadStatus: boolean;
+    function getDataLoadStatus: boolean;
     procedure setDataLoadStatus(const v: boolean);
-    procedure assignClientData(const pClient : TClientData);
+    procedure assignClientData(const pClient: TClientData);
   public
-    constructor create(frameOwner: TComponent); override;
-    destructor  destroy; override;
-  // RTTI probleem
+    constructor Create(frameOwner: TComponent); override;
+    destructor Destroy; override;
+    // RTTI probleem
   published
-    property onFrameKillSignal     : TNotifyEvent read FframeKillSignal write FframeKillSignal;
-    property onParentKeyPressNotif : TKeyNotEvent read FParentKeyNotif;
-    property onFrameDataEvent : TFrameReqEvent read FFrameDataEvent write FFrameDataEvent;
-    property loadData         : boolean read getDataLoadStatus write setDataLoadStatus;
+    property onFrameKillSignal: TNotifyEvent read FframeKillSignal write FframeKillSignal;
+    property onParentKeyPressNotif: TKeyNotEvent read FParentKeyNotif;
+    property onFrameDataEvent: TFrameReqEvent read FFrameDataEvent write FFrameDataEvent;
+    property loadData: boolean read getDataLoadStatus write setDataLoadStatus;
   end;
 
 implementation
+
 const
   CCmbUndefinedComboVal = 0;
 
 const
-  CCmbStatusVerified   = 1;
+  CCmbStatusVerified = 1;
   CCmbStatusUnVerified = 2;
 
 const
   CCmbIncAddedManually = 1;
-  CCmbIncFromFile      = 2;
+  CCmbIncFromFile = 2;
 
 const
-  CCol_Bank_name      = 0;
-  CCol_Incomenr       = 1;
+  CCol_Bank_name = 0;
+  CCol_Incomenr = 1;
   CCol_Account_coding = 2;
-  CCol_IncomeDate     = 3;
-  CCol_PaidBy         = 4;
-  CCol_Sum            = 5;
-  CCol_Currency       = 6;
-  CCol_Currency_ovr   = 7;
-  CCol_Status         = 8;
-  CCol_Descr          = 9;
-  CCol_RefNr          = 10;
+  CCol_IncomeDate = 3;
+  CCol_PaidBy = 4;
+  CCol_Sum = 5;
+  CCol_Currency = 6;
+  CCol_Currency_ovr = 7;
+  CCol_Status = 8;
+  CCol_Descr = 9;
+  CCol_RefNr = 10;
 
 procedure TframeIncomingsList.btnCloseClick(Sender: TObject);
 begin
   if assigned(self.onFrameKillSignal) then
-     onFrameKillSignal(self);
+    onFrameKillSignal(self);
 end;
 
 procedure TframeIncomingsList.btnNewIncomingClick(Sender: TObject);
 begin
-  self.onFrameDataEvent(self,__frameCreateNewIncoming,-1,nil)
+  self.onFrameDataEvent(self, __frameCreateNewIncoming, -1, nil);
 end;
 
 procedure TframeIncomingsList.btnOpenClientListClick(Sender: TObject);
 var
-  pClient : TClientData;
+  pClient: TClientData;
 begin
   try
-     pClient:=estbk_frm_choosecustmer.__chooseClient(edtClientId.text);
-     // ---
-     assignClientData(pClient);
+    pClient := estbk_frm_choosecustmer.__chooseClient(edtClientId.Text);
+    // ---
+    assignClientData(pClient);
   finally
-     freeAndNil(pClient);
+    FreeAndNil(pClient);
   end;
 end;
 
 procedure TframeIncomingsList.btnSrcClick(Sender: TObject);
 var
-  pAccountId : Integer;
-  pIncDateStart : TDatetime;
-  pIncDateEnd   : TDatetime;
-  pStatus : Byte;
-  pSource : Byte;
+  pAccountId: integer;
+  pIncDateStart: TDatetime;
+  pIncDateEnd: TDatetime;
+  pStatus: byte;
+  pSource: byte;
 begin
-  if ((Trim(edtClientId.Text) = '') and
-  (Trim(edtRefNr.Text) = '') and
-  (Trim(edtIncNumber.Text) = '') and
-  (Trim(rxLookupBanks.Text) = '') and
-  (Trim(edtIncBankFilename.Text) = '') and
-  (Trim(dtEditStart.Text) = '') and
-  (Trim(dtEditEnd.Text) = '') and
-  (cmbStaatus.ItemIndex < 1) and // 08.09.2016 Ingmar; lubame ka staatuse järgi otsida, ntx kinnitatud kinnitamata laekumised
-  (cmbSource.ItemIndex < 1) and
-  (cmbPreDefPer.ItemIndex < 1)) then
+  if ((Trim(edtClientId.Text) = '') and (Trim(edtRefNr.Text) = '') and (Trim(edtIncNumber.Text) = '') and
+    (Trim(rxLookupBanks.Text) = '') and (Trim(edtIncBankFilename.Text) = '') and (Trim(dtEditStart.Text) = '') and
+    (Trim(dtEditEnd.Text) = '') and (cmbStaatus.ItemIndex < 1) and
+    // 08.09.2016 Ingmar; lubame ka staatuse järgi otsida, ntx kinnitatud kinnitamata laekumised
+    (cmbSource.ItemIndex < 1) and (cmbPreDefPer.ItemIndex < 1)) then
   begin
-    dialogs.messageDlg(estbk_strmsg.SESrcParamsIncomplete,MtError,[mbOk],0);
+    Dialogs.messageDlg(estbk_strmsg.SESrcParamsIncomplete, mtError, [mbOK], 0);
     if edtClientId.CanFocus then
-     edtClientId.SetFocus;
+      edtClientId.SetFocus;
     Exit;
   end;
 
 
-  if ((Trim(dtEditStart.Text) <> '') and
-  (Trim(dtEditEnd.Text) <> '') and
-  (dtEditStart.Date > dtEditEnd.Date)) or
-  (dtEditStart.Date > now) or
-  (dtEditEnd.Date > now) then
+  if ((Trim(dtEditStart.Text) <> '') and (Trim(dtEditEnd.Text) <> '') and (dtEditStart.Date > dtEditEnd.Date)) or
+    (dtEditStart.Date > now) or (dtEditEnd.Date > now) then
   begin
-    dialogs.messageDlg(estbk_strmsg.SEIncorrectCriteria,MtError,[mbOk],0);
+    Dialogs.messageDlg(estbk_strmsg.SEIncorrectCriteria, mtError, [mbOK], 0);
     if dtEditStart.CanFocus then
       dtEditStart.SetFocus;
     Exit;
@@ -191,292 +180,297 @@ begin
 
   pIncDateEnd := NaN;
   if dtEditEnd.Text <> '' then
-    pIncDateEnd:=dtEditEnd.Date;
+    pIncDateEnd := dtEditEnd.Date;
 
   pAccountId := -1;
   if Trim(rxLookupBanks.Text) <> '' then
     pAccountId := qryBanks.FieldByName('id').AsInteger;
 
-  pStatus := Byte(PtrUInt(cmbStaatus.Items.Objects[cmbStaatus.ItemIndex]));
-  pSource := Byte(PtrUInt(cmbSource.Items.Objects[cmbSource.ItemIndex]));
+  pStatus := byte(PtrUInt(cmbStaatus.Items.Objects[cmbStaatus.ItemIndex]));
+  pSource := byte(PtrUInt(cmbSource.Items.Objects[cmbSource.ItemIndex]));
 
   qrySearch.Close;
   qrySearch.SQL.Clear;
   qrySearch.SQL.add(estbk_sqlclientcollection._SQLSrcIncomings(estbk_globvars.glob_company_id,
-                                                               //strtoIntdef(edtClientId.text,0),
-                                                               self.FLastClientId,
-                                                               edtRefNr.Text,
-                                                               edtIncNumber.Text,
-                                                               pAccountId,
-                                                               edtIncBankFilename.Text,
-                                                               pSource,
-                                                               pStatus,
-                                                               pIncDateStart,
-                                                               pIncDateEnd));
+    //strtoIntdef(edtClientId.text,0),
+    self.FLastClientId,
+    edtRefNr.Text,
+    edtIncNumber.Text,
+    pAccountId,
+    edtIncBankFilename.Text,
+    pSource, pStatus,
+    pIncDateStart,
+    pIncDateEnd));
 
   qrySearch.Open;
   qrySearch.First;
   if qrySearch.EOF then
   begin
-    dialogs.MessageDlg(estbk_strmsg.SEQryRetNoData,mtError,[mbOk],0);
+    Dialogs.MessageDlg(estbk_strmsg.SEQryRetNoData, mtError, [mbOK], 0);
     Exit;
   end;
 end;
 
 procedure TframeIncomingsList.cmbPreDefPerChange(Sender: TObject);
 var
-  pDtType : estbk_types.TdtPeriod;
-  pdtStart  : TDatetime;
-  pdtEnd    : TDatetime;
-  zVal      : Boolean;
+  pDtType: estbk_types.TdtPeriod;
+  pdtStart: TDatetime;
+  pdtEnd: TDatetime;
+  zVal: boolean;
 begin
-        zVal:=true;
-   with TComboBox(sender) do
-   if itemIndex>=0 then
-     begin
-         pDtType:=estbk_types.TdtPeriod(Cardinal(Items.Objects[itemIndex]));
-      if pDtType<>cdt_undefined then
-        begin
-            estbk_utilities.decodeDtRange(pDtType,pdtStart,pdtEnd);
+  zVal := True;
+  with TComboBox(Sender) do
+    if ItemIndex >= 0 then
+    begin
+      pDtType := estbk_types.TdtPeriod(cardinal(Items.Objects[ItemIndex]));
+      if pDtType <> cdt_undefined then
+      begin
+        estbk_utilities.decodeDtRange(pDtType, pdtStart, pdtEnd);
 
-            dtEditStart.date:=pdtStart;
-            dtEditEnd.date:=pdtEnd;
+        dtEditStart.date := pdtStart;
+        dtEditEnd.date := pdtEnd;
 
-            dtEditStart.Text:=datetostr(pdtStart);
-            dtEditEnd.Text:=datetostr(pdtEnd);
-            zVal:=false;
-        end;
-     end;
+        dtEditStart.Text := datetostr(pdtStart);
+        dtEditEnd.Text := datetostr(pdtEnd);
+        zVal := False;
+      end;
+    end;
 
   // ----
   if zVal then
-     begin
-      dtEditStart.date:=now;
-      dtEditEnd.date:=now;
+  begin
+    dtEditStart.date := now;
+    dtEditEnd.date := now;
 
-      dtEditStart.Text:='';
-      dtEditEnd.Text:='';
-     end;
+    dtEditStart.Text := '';
+    dtEditEnd.Text := '';
+  end;
 end;
 
 procedure TframeIncomingsList.dtEditStartExit(Sender: TObject);
 var
-  fVdate   : TDatetime;
-  fDateStr : AStr;
+  fVdate: TDatetime;
+  fDateStr: AStr;
 begin
-   fVdate:=Now;
-   fDateStr:=TDateEdit(Sender).Text;
+  fVdate := Now;
+  fDateStr := TDateEdit(Sender).Text;
 
-if (trim(fDateStr)<>'') then
- if not validateMiscDateEntry(fDateStr,fVDate) then
-  begin
-      dialogs.messageDlg(estbk_strmsg.SEInvalidDate,mterror,[mbOk],0);
-      TDateEdit(Sender).setFocus;
+  if (trim(fDateStr) <> '') then
+    if not validateMiscDateEntry(fDateStr, fVDate) then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEInvalidDate, mtError, [mbOK], 0);
+      TDateEdit(Sender).SetFocus;
       exit;
-  end else
-      TDateEdit(Sender).text:=datetostr(fVDate);
+    end
+    else
+      TDateEdit(Sender).Text := datetostr(fVDate);
 end;
 
-procedure TframeIncomingsList.assignClientData(const pClient : TClientData);
+procedure TframeIncomingsList.assignClientData(const pClient: TClientData);
 var
-  pData : AStr;
+  pData: AStr;
 
 begin
-    if not assigned(pClient) then
-     begin
-       edtCustNameAndAddr.Text:='';
-       edtClientId.text:='';
-       self.FLastClientId:=0;
-       self.FLastClientCode:='';
-     end else
-     begin
-       pData:=trim(pClient.FCustFullName);
-    if trim(pClient.FCustRegNr)<>'' then
-       pData:=pData+' ('+pClient.FCustRegNr+')';
+  if not assigned(pClient) then
+  begin
+    edtCustNameAndAddr.Text := '';
+    edtClientId.Text := '';
+    self.FLastClientId := 0;
+    self.FLastClientCode := '';
+  end
+  else
+  begin
+    pData := trim(pClient.FCustFullName);
+    if trim(pClient.FCustRegNr) <> '' then
+      pData := pData + ' (' + pClient.FCustRegNr + ')';
 
-       edtCustNameAndAddr.Text:=pData;
-       edtClientId.text:=pClient.FClientCode;// inttostr(pClient.FClientId);
+    edtCustNameAndAddr.Text := pData;
+    edtClientId.Text := pClient.FClientCode;// inttostr(pClient.FClientId);
 
-       // --
-       self.FLastClientId:=pClient.FClientId;
-       self.FLastClientCode:=pClient.FClientCode;
+    // --
+    self.FLastClientId := pClient.FClientId;
+    self.FLastClientCode := pClient.FClientCode;
 
-     end;
+  end;
 end;
 
 procedure TframeIncomingsList.edtClientIdExit(Sender: TObject);
 var
-   pClient : TClientData;
+  pClient: TClientData;
 begin
-   pClient:=nil;
+  pClient := nil;
 
   with TEdit(Sender) do
-  if text<>'' then
-   try
+    if Text <> '' then
+      try
 
-     // ---
-     if self.FLastClientCode<>text then
-       begin
-        pClient:=estbk_fra_customer.getClientDataWUI(text);
-        self.assignClientData(pClient);
-       end;
+        // ---
+        if self.FLastClientCode <> Text then
+        begin
+          pClient := estbk_fra_customer.getClientDataWUI(Text);
+          self.assignClientData(pClient);
+        end;
 
-   finally
-   if assigned(pClient) then
-      freeAndNil(pClient);
-   end else
+      finally
+        if assigned(pClient) then
+          FreeAndNil(pClient);
+      end
+    else
       self.assignClientData(nil);
 end;
 
 procedure TframeIncomingsList.btnCleanClick(Sender: TObject);
 begin
-     self.FLastClientCode:='';
-     // ---
-     estbk_utilities.clearControlsWithTextValue(gppBoxIncomings);
+  self.FLastClientCode := '';
+  // ---
+  estbk_utilities.clearControlsWithTextValue(gppBoxIncomings);
 
 
-     edtCustNameAndAddr.Text:='';
-     rxLookupBanks.Text:='';
-     rxLookupBanks.Value:='';
+  edtCustNameAndAddr.Text := '';
+  rxLookupBanks.Text := '';
+  rxLookupBanks.Value := '';
 
 
-     dtEditStart.Date:=now;
-     dtEditEnd.Date:=now;
+  dtEditStart.Date := now;
+  dtEditEnd.Date := now;
 
-     dtEditStart.text:='';
-     dtEditEnd.text:='';
+  dtEditStart.Text := '';
+  dtEditEnd.Text := '';
 
 
-     cmbSource.ItemIndex:=0;
-     cmbPreDefPer.ItemIndex:=0;
-     cmbStaatus.ItemIndex:=0;
+  cmbSource.ItemIndex := 0;
+  cmbPreDefPer.ItemIndex := 0;
+  cmbStaatus.ItemIndex := 0;
 
   if edtClientId.CanFocus then
-     edtClientId.SetFocus;
+    edtClientId.SetFocus;
 
-     qrySearch.Close;
-     qrySearch.SQL.Clear;
-     qrySearch.SQL.add(estbk_sqlclientcollection._SQLSrcIncomings(estbk_globvars.glob_company_id));
-     qrySearch.Open;
+  qrySearch.Close;
+  qrySearch.SQL.Clear;
+  qrySearch.SQL.add(estbk_sqlclientcollection._SQLSrcIncomings(estbk_globvars.glob_company_id));
+  qrySearch.Open;
 end;
 
 procedure TframeIncomingsList.edtClientIdKeyPress(Sender: TObject; var Key: char);
 begin
-  if key=#13 then
-   begin
-      SelectNext(Sender as twincontrol, True, True);
-      key:=#0;
-   end;
+  if key = #13 then
+  begin
+    SelectNext(Sender as twincontrol, True, True);
+    key := #0;
+  end;
 end;
 
 procedure TframeIncomingsList.incomingGridDblClick(Sender: TObject);
 begin
   if assigned(self.FFrameDataEvent) and not qrySearch.isEmpty then
-     self.FFrameDataEvent(Self,__frameOpenIncoming,qrySearch.fieldbyname('parent_entry_id').asInteger);
+    self.FFrameDataEvent(Self, __frameOpenIncoming, qrySearch.FieldByName('parent_entry_id').AsInteger);
 end;
 
-procedure TframeIncomingsList.incomingGridDrawColumnCell(Sender: TObject;
-  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+procedure TframeIncomingsList.incomingGridDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: integer;
+  Column: TColumn; State: TGridDrawState);
 var
-  pData : AStr;
-  pts  : TTextStyle;
+  pData: AStr;
+  pts: TTextStyle;
 begin
 
-       pData:='';
+  pData := '';
   with TDbGrid(Sender) do
-   begin
-           Canvas.FillRect(Rect);
-           pts:=Canvas.TextStyle;
-           pts.Alignment := taLeftJustify;
-           Canvas.TextStyle:=pts;
-        if qrySearch.RecordCount<1 then
-         begin
-            Canvas.TextOut(Rect.Left + 5, Rect.Top + 2,'');
-            Exit;
-         end;
+  begin
+    Canvas.FillRect(Rect);
+    pts := Canvas.TextStyle;
+    pts.Alignment := taLeftJustify;
+    Canvas.TextStyle := pts;
+    if qrySearch.RecordCount < 1 then
+    begin
+      Canvas.TextOut(Rect.Left + 5, Rect.Top + 2, '');
+      Exit;
+    end;
 
 
 
-     // ---
-     if assigned(Column.Field) then
-       begin
-           pData:=Column.Field.AsString;
-       // --
-       if (DataCol=CCol_Sum) then
-         begin
-             pts:=Canvas.TextStyle;
-             pts.Alignment := taRightJustify;
-             Canvas.TextStyle:=pts;
-             Canvas.TextRect(Rect,Rect.Left+2,Rect.Top+2,trim(format(estbk_types.CCurrentMoneyFmt2,[Column.Field.asFloat]))+#32,Canvas.TextStyle);
-        end else
-        if (DataCol=CCol_Currency_ovr) then
-          begin
-             pts:=Canvas.TextStyle;
-             pts.Alignment := taRightJustify;
-             Canvas.TextStyle:=pts;
-             Canvas.TextRect(Rect,Rect.Left+2,Rect.Top+2,trim(format(estbk_types.CCurrentAmFmt4,[Column.Field.asFloat]))+#32,Canvas.TextStyle);
-         end else
-         if (DataCol=CCol_Status) then
-         begin
-         if  pos(estbk_types.CRecIsClosed,Column.Field.AsString)>0 then
-             pData:=estbk_strmsg.SCStatusConfirmed
-         else
-             pData:=estbk_strmsg.SCStatusUnConfirmed;
-             // --
-             Canvas.TextOut(Rect.Left + 5, Rect.Top + 2,pData)
-         end else
-             Canvas.TextOut(Rect.Left + 5, Rect.Top + 2,pData)
-       end else
-             Canvas.TextOut(Rect.Left + 5, Rect.Top + 2, pData);
-   end;
+    // ---
+    if assigned(Column.Field) then
+    begin
+      pData := Column.Field.AsString;
+      // --
+      if (DataCol = CCol_Sum) then
+      begin
+        pts := Canvas.TextStyle;
+        pts.Alignment := taRightJustify;
+        Canvas.TextStyle := pts;
+        Canvas.TextRect(Rect, Rect.Left + 2, Rect.Top + 2, trim(format(estbk_types.CCurrentMoneyFmt2, [Column.Field.AsFloat])) + #32, Canvas.TextStyle);
+      end
+      else
+      if (DataCol = CCol_Currency_ovr) then
+      begin
+        pts := Canvas.TextStyle;
+        pts.Alignment := taRightJustify;
+        Canvas.TextStyle := pts;
+        Canvas.TextRect(Rect, Rect.Left + 2, Rect.Top + 2, trim(format(estbk_types.CCurrentAmFmt4, [Column.Field.AsFloat])) + #32, Canvas.TextStyle);
+      end
+      else
+      if (DataCol = CCol_Status) then
+      begin
+        if pos(estbk_types.CRecIsClosed, Column.Field.AsString) > 0 then
+          pData := estbk_strmsg.SCStatusConfirmed
+        else
+          pData := estbk_strmsg.SCStatusUnConfirmed;
+        // --
+        Canvas.TextOut(Rect.Left + 5, Rect.Top + 2, pData);
+      end
+      else
+        Canvas.TextOut(Rect.Left + 5, Rect.Top + 2, pData);
+    end
+    else
+      Canvas.TextOut(Rect.Left + 5, Rect.Top + 2, pData);
+  end;
   // --
 end;
 
-procedure TframeIncomingsList.incomingGridKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TframeIncomingsList.incomingGridKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-   if qrySearch.Active and (qrySearch.RecordCount>0) then
-    if key=VK_DELETE then
-     begin
-      if  _deleteAccItems(qrySearch.FieldByname('parent_entry_id').asInteger,
-                          qrySearch.FieldByname('income_number').asString,
-                          cbDeleteIncoming) then
-       begin
-         //btnSrc.OnClick(btnSrc);
-         qrySearch.Active:=false;
-         qrySearch.Active:=true;
-       end;
+  if qrySearch.Active and (qrySearch.RecordCount > 0) then
+    if key = VK_DELETE then
+    begin
+      if _deleteAccItems(qrySearch.FieldByName('parent_entry_id').AsInteger, qrySearch.FieldByName(
+        'income_number').AsString, cbDeleteIncoming) then
+      begin
+        //btnSrc.OnClick(btnSrc);
+        qrySearch.Active := False;
+        qrySearch.Active := True;
+      end;
 
-       key:=0;
-     end;
+      key := 0;
+    end;
 end;
 
 procedure TframeIncomingsList.incomingGridKeyPress(Sender: TObject; var Key: char);
 begin
-  if key=#13 then
-   begin
-     self.incomingGridDblClick(Sender);
-     key:=#0;
-   end;
+  if key = #13 then
+  begin
+    self.incomingGridDblClick(Sender);
+    key := #0;
+  end;
 end;
 
-procedure TframeIncomingsList.incomingGridPrepareCanvas(sender: TObject;  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+procedure TframeIncomingsList.incomingGridPrepareCanvas(Sender: TObject; DataCol: integer; Column: TColumn; AState: TGridDrawState);
 begin
   // --
   with TDbGrid(Sender) do
-  if assigned(DataSource) then
-   begin
+    if assigned(DataSource) then
+    begin
 
-     if(gdSelected in AState) then
+      if (gdSelected in AState) then
       begin
-         Canvas.Brush.Color:=clHighlight;
-         Canvas.Font.Color:=clHighlightText;
-      end else
-     if (pos(estbk_types.CRecIsClosed,DataSource.Dataset.fieldByname('status').asString)=0) then
-         Canvas.Brush.Color := glob_userSettings.uvc_colors[uvc_gridColorForUnconfirmedItems]
-     else
-         Canvas.Brush.Color := clWindow;
-   end; // ---
+        Canvas.Brush.Color := clHighlight;
+        Canvas.Font.Color := clHighlightText;
+      end
+      else
+      if (pos(estbk_types.CRecIsClosed, DataSource.Dataset.FieldByName('status').AsString) = 0) then
+        Canvas.Brush.Color := glob_userSettings.uvc_colors[uvc_gridColorForUnconfirmedItems]
+      else
+        Canvas.Brush.Color := clWindow;
+    end; // ---
 end;
 
 procedure TframeIncomingsList.lblBankAcc1Click(Sender: TObject);
@@ -494,66 +488,62 @@ begin
   estbk_utilities.rxLibAndMainMenuFix;
 end;
 
-function  TframeIncomingsList.getDataLoadStatus: boolean;
+function TframeIncomingsList.getDataLoadStatus: boolean;
 begin
 end;
 
 procedure TframeIncomingsList.setDataLoadStatus(const v: boolean);
 begin
-      qryBanks.Close;
-      qryBanks.SQL.Clear;
+  qryBanks.Close;
+  qryBanks.SQL.Clear;
 
-      qrySearch.Close;
-      qrySearch.SQL.Clear;
+  qrySearch.Close;
+  qrySearch.SQL.Clear;
 
-   if v then
-    begin
-      qryBanks.Connection:=estbk_clientdatamodule.dmodule.primConnection;
-//      qryAccounts.Connection:=estbk_clientdatamodule.dmodule.primConnection;
-      qrySearch.Connection:=estbk_clientdatamodule.dmodule.primConnection;
-      qrySearch.SQL.add(estbk_sqlclientcollection._SQLSrcIncomings(estbk_globvars.glob_company_id));
-      qrySearch.Open;
+  if v then
+  begin
+    qryBanks.Connection := estbk_clientdatamodule.dmodule.primConnection;
+    //      qryAccounts.Connection:=estbk_clientdatamodule.dmodule.primConnection;
+    qrySearch.Connection := estbk_clientdatamodule.dmodule.primConnection;
+    qrySearch.SQL.add(estbk_sqlclientcollection._SQLSrcIncomings(estbk_globvars.glob_company_id));
+    qrySearch.Open;
 
-      // @@DEBUG
-      // qrySearch.SQL.SaveToFile('c:\debug\incomings.txt');
+    qryBanks.SQL.Add(estbk_sqlclientcollection._SQLSelectAccountsWithBankData);
+    qryBanks.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
+    qryBanks.Open;
 
-
-
-      qryBanks.SQL.Add(estbk_sqlclientcollection._SQLSelectAccountsWithBankData);
-      qryBanks.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
-      qryBanks.Open;
-
-    end else
-    begin
-      qryBanks.Connection:=nil;
-//      qryAccounts.Connection:=nil;
-      qrySearch.Connection:=nil;
-    end;
+  end
+  else
+  begin
+    qryBanks.Connection := nil;
+    //      qryAccounts.Connection:=nil;
+    qrySearch.Connection := nil;
+  end;
 end;
 
-constructor TframeIncomingsList.create(frameOwner: TComponent);
+constructor TframeIncomingsList.Create(frameOwner: TComponent);
 begin
-   inherited create(frameOwner);
-   estbk_uivisualinit.__preparevisual(self);
+  inherited Create(frameOwner);
+  estbk_uivisualinit.__preparevisual(self);
 
-   cmbStaatus.Items.AddObject(estbk_strmsg.SUnDefComboChoise,TObject(CCmbUndefinedComboVal));
-   cmbStaatus.Items.AddObject(estbk_strmsg.SCStatusConfirmed,TObject(CCmbStatusVerified));
-   cmbStaatus.Items.AddObject(estbk_strmsg.SCStatusUnConfirmed,TObject(CCmbStatusUnVerified));
-   cmbStaatus.ItemIndex:=0;
-   // ---------
-   estbk_reportconst.fillReportDtPer(TAStrings(cmbPreDefPer.items));
+  cmbStaatus.Items.AddObject(estbk_strmsg.SUnDefComboChoise, TObject(CCmbUndefinedComboVal));
+  cmbStaatus.Items.AddObject(estbk_strmsg.SCStatusConfirmed, TObject(CCmbStatusVerified));
+  cmbStaatus.Items.AddObject(estbk_strmsg.SCStatusUnConfirmed, TObject(CCmbStatusUnVerified));
+  cmbStaatus.ItemIndex := 0;
 
-   // ---------
-   cmbSource.Items.AddObject(estbk_strmsg.SUnDefComboChoise,TObject(CCmbUndefinedComboVal));
-   cmbSource.Items.AddObject(estbk_strmsg.SCSourceFile,TObject(CCmbIncFromFile));
-   cmbSource.Items.AddObject(estbk_strmsg.SCSourceManual,TObject(CCmbIncAddedManually));
-   cmbSource.ItemIndex:=0;
+  estbk_reportconst.fillReportDtPer(TAStrings(cmbPreDefPer.items));
+
+
+  cmbSource.Items.AddObject(estbk_strmsg.SUnDefComboChoise, TObject(CCmbUndefinedComboVal));
+  cmbSource.Items.AddObject(estbk_strmsg.SCSourceFile, TObject(CCmbIncFromFile));
+  cmbSource.Items.AddObject(estbk_strmsg.SCSourceManual, TObject(CCmbIncAddedManually));
+  cmbSource.ItemIndex := 0;
 
 end;
 
-destructor  TframeIncomingsList.destroy;
+destructor TframeIncomingsList.Destroy;
 begin
-   inherited destroy;
+  inherited Destroy;
 end;
 
 
@@ -561,4 +551,3 @@ initialization
   {$I estbk_fra_incomings_list.ctrs}
 
 end.
-

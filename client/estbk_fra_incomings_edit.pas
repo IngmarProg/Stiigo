@@ -2714,21 +2714,6 @@ begin
       // 05.02.2011 Ingmar; bugi peame ka uuesti kuvama ebakorrektseid kirjeid !
       qryIncomeLines.Filtered := False;
       qryIncomeLines.Filter := '';
-      // DEBUG
-    {
-    with qryWorker,sql do
-        begin
-        close; clear;
-        add('update bills');
-         add('set payment_status='''',incomesum=0.00,prepaidsum=0.00');
-         execsql;
-
-         close; clear;
-         add('delete from incomings_bank');
-         execsql;
-        end;
-    }
-
 
 
       // 18.03.2011 Ingmar; peale edukat salvestamist lähme tavalisse reziimi, et saaks vajadusel täiendavalt redigeerida

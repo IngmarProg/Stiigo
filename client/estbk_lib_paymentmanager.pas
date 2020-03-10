@@ -1158,17 +1158,6 @@ begin
         Inc(pBankTypeCnt); // välistame rumalused; korraga tohib olla vaid üks pangaga seotud kanne !
 
 
-
-
-        //pCurrDiffTotal:=abs(pCurrDiffTotal);
-           (*
-           # 22.09.2013 Ingmar
-           pCmp1:=roundto(pConvSumTotal+pCurrDiffTotal,Z2);
-           pCmp2:=sum;
-           *)
-
-
-
         //  lisakontroll
         //  SameValue
         //  20.09.2013 Ingmar; ühel inimesel oli see vahe lausa 400
@@ -1231,8 +1220,6 @@ var
 begin
   Result := False; // oletame, et alguses, kõik ilus ja tore
   pErrorInf := '';
-
-
   with self.FWrkQuery2, SQL do
     try
       Close;
@@ -1272,41 +1259,6 @@ begin
     end;
 end;
 
-{
-02.09.2010
-K ütleb:
- tasaarveldused tohivad olla vaid pooltevahelisel kokkuleppel
-
-K ütleb:
-  no ütleme, et ma kandsin 500 rohkem. siis ma ütlen, et tasun arve 100%, aga ettemakstud summa soovin enda pangaarvele tagasi saada
-
-spordipoiss: esmaspäev ütleb:
-   ala sina teatad hankijale ?
-
-K ütleb:
-   või et mina tasusin rohkem ja ütlen, mis teha
-   variante on kaks
-   jätta ülelaekunud/ülemakstud summa ettemaksusk või siis see tagastada/tagasi küsida
-
-K ütleb:
-   telefoni teel või meili teel
-   teen taotluse, et palun kanda ekslikult rohkem makstud summa pangaarvele nr ....
-
- K ütleb:
-   siis kui mina olen rohkem tasunud tekib tasumisel kanne
-
-   D hankijatele ettemaksed K pank
-   ja kui nad nüüd tagasi kannavad raha:
-
-   D pank K hankijatele ettemaksed
-   vahel hoitakse neid summasid lihtsalt "hankijatele võlgnevus" kontol
-   ei hakatagi ettemaksu kontoga jahuma
-   aga sul oleks vist ikkagi õigem need eraldi teha
-   endal selgem
-   muidu Eevas on see, et konto võib olla ka "tulemus" tüüpi konto
-   st. kui hankijate kontol on kreeditsaldo, siis on tavaline hankija võlg
-   aga kui deebetsaldo, siis on ettemaks
-}
 
 procedure TPaymentManager.doItemsumRecalculation(const prData: TPaymentRollBackDataRec);
 // @@SUB
@@ -1335,7 +1287,7 @@ begin
         precalcIncSum := prData.pLItemIncomeSum - prData.pPaidSum;
         {
            29.08.2011 Ingmar; seoses ostuarvetega võivad tekkida ka negatiivsed tasumised
-          if  precalcIncSum<0 then
+          if  precalcIncSum < 0 then
               negValCheck(precalcIncSum);
         }
 

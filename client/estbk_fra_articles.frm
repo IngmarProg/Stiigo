@@ -3,8 +3,8 @@ inherited frameArticles: TframeArticles
   Width = 720
   ClientHeight = 504
   ClientWidth = 720
-  DesignLeft = 284
-  DesignTop = 223
+  DesignLeft = 23
+  DesignTop = 215
   object grpBoxObjects: TGroupBox[0]
     Left = 6
     Height = 434

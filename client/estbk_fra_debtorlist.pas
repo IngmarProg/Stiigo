@@ -677,13 +677,13 @@ begin
       pCurrency := cmbCurrencyList.Text
     else
       pCurrency := '';
-    add(estbk_sqlclientcollection._SQLGetUnpaidBills(estbk_globvars.glob_company_id,
-      billType, self.FSelectedClientId,
-      strtointdef(edtDDaysOver.Text, 0),
-      pBillDate, pCurrency,
-      chkBoxPartiallyPaid.Checked,
-      pSalePersonId, pSortByField,
-      pchkboxSortOrder.Checked));
+    add(estbk_sqlclientcollection._SQLGetUnpaidBills(estbk_globvars.glob_company_id, billType, self.FSelectedClientId,
+      strtointdef(edtDDaysOver.Text, 0), pBillDate, pCurrency, chkBoxPartiallyPaid.Checked, pSalePersonId,
+      pSortByField, pchkboxSortOrder.Checked));
+
+
+
+
     Open;
     First;
 

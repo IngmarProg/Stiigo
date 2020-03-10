@@ -8,7 +8,7 @@ interface
 uses
   Classes, SysUtils, DB, FileUtil, LResources, Forms, StdCtrls, Buttons,
   DBGrids, ExtCtrls, DBCtrls, Dialogs, Controls,
-  ZDataset, ZSqlUpdate, ZSequence, LCLType,estbk_fra_template, estbk_uivisualinit,estbk_lib_commonevents,
+  ZDataset, ZSqlUpdate, ZSequence, LCLType, estbk_fra_template, estbk_uivisualinit, estbk_lib_commonevents,
   estbk_clientdatamodule, estbk_sqlclientcollection, estbk_globvars, estbk_utilities,
   estbk_types, estbk_strmsg;
 
@@ -17,27 +17,27 @@ type
   { TframeObjects }
 
   TframeObjects = class(Tfra_template)
-    btnCancel:    TBitBtn;
+    btnCancel: TBitBtn;
     btnNewObject: TBitBtn;
-    btnSave:      TBitBtn;
+    btnSave: TBitBtn;
     cmbFilterByGrp: TComboBox;
     dbObjGrid: TDBGrid;
     edtSearchObject: TEdit;
-    grpObjType:   TComboBox;
+    grpObjType: TComboBox;
     dbEdtobjname: TDBEdit;
     lblFilt: TLabel;
-    lblObjNimi:   TLabel;
-    lblObjGrp:    TLabel;
-    btnClose:     TBitBtn;
+    lblObjNimi: TLabel;
+    lblObjGrp: TLabel;
+    btnClose: TBitBtn;
     lblSearch: TLabel;
     pgrpPanel: TPanel;
     panelLogSeparator: TPanel;
-    qryObjDs:     TDatasource;
+    qryObjDs: TDatasource;
     grpBoxObjects: TGroupBox;
-    qryObjects:   TZQuery;
+    qryObjects: TZQuery;
     qryObjTypesMisc: TZQuery;
     qryObjInsUpt: TZUpdateSQL;
-    qryObjSeq:    TZSequence;
+    qryObjSeq: TZSequence;
     qryObjTypesSeq: TZSequence;
     procedure btnCancelClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
@@ -56,29 +56,29 @@ type
     procedure qryObjectsBeforePost(DataSet: TDataSet);
     procedure qryObjectsBeforeScroll(DataSet: TDataSet);
   protected
-    FDataIsNotSaved:   boolean;
-    FNewObjectMode:    boolean;
+    FDataIsNotSaved: boolean;
+    FNewObjectMode: boolean;
     FSkipScrollEvents: boolean;
-    FframeKillSignal:  TNotifyEvent;
-    FParentKeyNotif:   TKeyNotEvent;
-    FFrameDataEvent:   TFrameReqEvent;
+    FframeKillSignal: TNotifyEvent;
+    FParentKeyNotif: TKeyNotEvent;
+    FFrameDataEvent: TFrameReqEvent;
     // --
     procedure loadComboData;
   private
-    function   getDataLoadStatus: boolean;
-    procedure  setDataLoadStatus(const v: boolean);
-    procedure  addNewObjectGroupRequest;
+    function getDataLoadStatus: boolean;
+    procedure setDataLoadStatus(const v: boolean);
+    procedure addNewObjectGroupRequest;
   public
-    constructor create(frameOwner: TComponent); override;
-    destructor  destroy; override;
+    constructor Create(frameOwner: TComponent); override;
+    destructor Destroy; override;
   published // RTTI kala
-    property onFrameKillSignal: TNotifyEvent Read FframeKillSignal Write FframeKillSignal;
+    property onFrameKillSignal: TNotifyEvent read FframeKillSignal write FframeKillSignal;
     // saadame vanemale...
     // kuna frame ei võimalda keypreview'd, kasutame vanema võimalusi
-    property onParentKeyPressNotif: TKeyNotEvent Read FParentKeyNotif;
-    property onFrameDataEvent: TFrameReqEvent Read FFrameDataEvent Write FFrameDataEvent;
+    property onParentKeyPressNotif: TKeyNotEvent read FParentKeyNotif;
+    property onFrameDataEvent: TFrameReqEvent read FFrameDataEvent write FFrameDataEvent;
     // --------------
-    property loadData: boolean Read getDataLoadStatus Write setDataLoadStatus;
+    property loadData: boolean read getDataLoadStatus write setDataLoadStatus;
   end;
 
 implementation
@@ -110,10 +110,10 @@ begin
   qryObjInsUpt.InsertSQL.Add(estbk_sqlclientcollection._SQLInsertObject);
 
   qryObjSeq.SequenceName := 'objects_id_seq';
-  qryObjSeq.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  qryObjSeq.Connection := estbk_clientdatamodule.dmodule.primConnection;
 
   qryObjTypesSeq.SequenceName := 'classificators_id_seq';
-  qryObjTypesSeq.Connection   := estbk_clientdatamodule.dmodule.primConnection;
+  qryObjTypesSeq.Connection := estbk_clientdatamodule.dmodule.primConnection;
 
   qryObjects.sequencefield := 'id';
   qryObjects.active := v;
@@ -122,14 +122,14 @@ begin
 
   if v then
   begin
-       grpBoxObjects.enabled:=True;
+    grpBoxObjects.Enabled := True;
 
-    if dbObjGrid.Enabled and  dbObjGrid.CanFocus and TWincontrol(self.Parent).Visible then
-       dbObjGrid.SetFocus;
+    if dbObjGrid.Enabled and dbObjGrid.CanFocus and TWincontrol(self.Parent).Visible then
+      dbObjGrid.SetFocus;
 
-       self.loadComboData;
-       // helistame iseendale
-       self.qryObjectsAfterScroll(qryObjects);
+    self.loadComboData;
+    // helistame iseendale
+    self.qryObjectsAfterScroll(qryObjects);
   end
   else
     self.grpObjType.Clear;
@@ -147,31 +147,32 @@ end;
 
 procedure TframeObjects.btnNewObjectClick(Sender: TObject);
 begin
-   estbk_utilities.changeWCtrlEnabledStatus(self, True);
-   // filtrid ja stuff kinni
-   estbk_utilities.changeWCtrlEnabledStatus(panelLogSeparator, False);
-   // ------
-   TBitBtn(Sender).Enabled := False;
-   btnCancel.Enabled    := True;
-   btnSave.Enabled      := True;
-   //grpObjType.ItemIndex := -1;
+  estbk_utilities.changeWCtrlEnabledStatus(self, True);
+  // filtrid ja stuff kinni
+  estbk_utilities.changeWCtrlEnabledStatus(panelLogSeparator, False);
+  // ------
+  TBitBtn(Sender).Enabled := False;
+  btnCancel.Enabled := True;
+  btnSave.Enabled := True;
+  //grpObjType.ItemIndex := -1;
 
 
-   self.FNewObjectMode := True;
-if grpObjType.ItemIndex<0 then
- begin
-   if grpObjType.CanFocus then
+  self.FNewObjectMode := True;
+  if grpObjType.ItemIndex < 0 then
+  begin
+    if grpObjType.CanFocus then
       grpObjType.SetFocus;
- end else
-if dbEdtobjname.CanFocus then
-   dbEdtobjname.SetFocus;
+  end
+  else
+  if dbEdtobjname.CanFocus then
+    dbEdtobjname.SetFocus;
 
- try
-  FSkipScrollEvents:=true;
-  qryObjects.Insert;
- finally
-   FSkipScrollEvents:=false;
- end;
+  try
+    FSkipScrollEvents := True;
+    qryObjects.Insert;
+  finally
+    FSkipScrollEvents := False;
+  end;
 end;
 
 procedure TframeObjects.btnCancelClick(Sender: TObject);
@@ -181,12 +182,12 @@ begin
   //  qryObjects.Cancel;
   // TODO: vii kõik nuppude staatuse omistamised eventide alla; testversioonis võib nii olla
   btnNewObject.Enabled := True;
-  btnCancel.Enabled    := False;
-  btnSave.Enabled      := False;
+  btnCancel.Enabled := False;
+  btnSave.Enabled := False;
   estbk_utilities.changeWCtrlEnabledStatus(panelLogSeparator, True);
 
   self.FDataIsNotSaved := False;
-  self.FNewObjectMode  := False;
+  self.FNewObjectMode := False;
   // ----
   self.qryObjectsAfterScroll(qryObjects);
 end;
@@ -203,15 +204,15 @@ var
   i: integer;
   FntxSeqVal: int64;
 begin
-     FntxSeqVal := 0;
-     FCurrFltObjId := 0;
-     // ---
+  FntxSeqVal := 0;
+  FCurrFltObjId := 0;
+  // ---
 
-  if qryObjects.FieldByName('objtypeid').AsInteger=0 then
-     grpObjTypeChange(grpObjType);
+  if qryObjects.FieldByName('objtypeid').AsInteger = 0 then
+    grpObjTypeChange(grpObjType);
 
-     // laseme ikka kirje üle kontrollida, kas kõik andmed saabunud !!!!
-     self.qryObjectsBeforeScroll(qryObjects);
+  // laseme ikka kirje üle kontrollida, kas kõik andmed saabunud !!!!
+  self.qryObjectsBeforeScroll(qryObjects);
 
 
 
@@ -236,7 +237,7 @@ begin
         primConnection.Commit;
 
         self.FDataIsNotSaved := False;
-        self.FNewObjectMode  := False;
+        self.FNewObjectMode := False;
 
         // ---
         // Saadame signaali välja, et võiks andmeid ka mujal uuendada...
@@ -253,7 +254,7 @@ begin
             end;
 
 
-          Dialogs.messageDlg(format(estbk_strmsg.SESaveFailed,[e.message]), mtError, [mbOK], 0);
+          Dialogs.messageDlg(format(estbk_strmsg.SESaveFailed, [e.message]), mtError, [mbOK], 0);
         end;
       end;
       // ---
@@ -274,20 +275,20 @@ begin
       begin
         cmbFilterByGrp.ItemIndex := i;
         qryObjects.Filtered := False;
-        qryObjects.Filter   := format('objtypeid=%d', [FCurrFltObjId]);
+        qryObjects.Filter := format('objtypeid=%d', [FCurrFltObjId]);
         qryObjects.Filtered := True;
         break;
       end;
   end; // --
 
-   // ---------
-   btnNewObject.Enabled := True;
+  // ---------
+  btnNewObject.Enabled := True;
 
-if btnNewObject.CanFocus then
-   btnNewObject.SetFocus;
-   TBitBtn(Sender).Enabled := False;
-   btnCancel.Enabled := False;
-   estbk_utilities.changeWCtrlEnabledStatus(panelLogSeparator, True);
+  if btnNewObject.CanFocus then
+    btnNewObject.SetFocus;
+  TBitBtn(Sender).Enabled := False;
+  btnCancel.Enabled := False;
+  estbk_utilities.changeWCtrlEnabledStatus(panelLogSeparator, True);
 
 end;
 
@@ -298,13 +299,13 @@ begin
     if ItemIndex > 0 then
     begin
       qryObjects.Filtered := False;
-      qryObjects.Filter   := Format('objtypeid=%d', [cardinal(items.Objects[ItemIndex])]);
+      qryObjects.Filter := Format('objtypeid=%d', [cardinal(items.Objects[ItemIndex])]);
       qryObjects.Filtered := True;
     end
     else
     begin
       qryObjects.Filtered := False;
-      qryObjects.Filter   := '';
+      qryObjects.Filter := '';
     end;
 
   self.qryObjectsAfterScroll(qryObjects);
@@ -317,11 +318,12 @@ begin
     SelectNext(Sender as twincontrol, True, True);
     Key := #0;
     Exit;
-  end else
-    edit_autoCompData(Sender As TCustomEdit,
-                      Key,
-                      qryObjects,
-                      'objname');
+  end
+  else
+    edit_autoCompData(Sender as TCustomEdit,
+      Key,
+      qryObjects,
+      'objname');
 end;
 
 
@@ -333,175 +335,168 @@ end;
 
 procedure TframeObjects.grpObjTypeChange(Sender: TObject);
 var
-  pNewEdt : boolean;
-  pCmb    :    TComboBox;
+  pNewEdt: boolean;
+  pCmb: TComboBox;
 begin
 
   if not self.FSkipScrollEvents and TComboBox(Sender).Focused then //  and TComboBox(Sender).Focused then
-  try
-        self.FSkipScrollEvents:=true;
-        pCmb    := Sender as TComboBox;
-        // peaks ehk lahti jätma, muidu pidev eventidega tõmblemine
-        pNewEdt := not (qryObjects.state in [dsEdit, dsInsert]);
-    if  pNewEdt then
+    try
+      self.FSkipScrollEvents := True;
+      pCmb := Sender as TComboBox;
+      // peaks ehk lahti jätma, muidu pidev eventidega tõmblemine
+      pNewEdt := not (qryObjects.state in [dsEdit, dsInsert]);
+      if pNewEdt then
         qryObjects.Edit;
 
-    // ----
-    if (pCmb.items.indexOf(pCmb.Text) >= 0) and (trim(pCmb.Text) <> '') then
-    begin
-      qryObjects.FieldByName('objtypeid').AsInteger :=cardinal(TComboBox(Sender).Items.Objects[TComboBox(Sender).ItemIndex]);
-      qryObjects.FieldByName('objtype').AsString    := TComboBox(Sender).Text;
-    end else
-      qryObjects.FieldByName('objtype').AsString    := '';
+      // ----
+      if (pCmb.items.indexOf(pCmb.Text) >= 0) and (trim(pCmb.Text) <> '') then
+      begin
+        qryObjects.FieldByName('objtypeid').AsInteger := cardinal(TComboBox(Sender).Items.Objects[TComboBox(Sender).ItemIndex]);
+        qryObjects.FieldByName('objtype').AsString := TComboBox(Sender).Text;
+      end
+      else
+        qryObjects.FieldByName('objtype').AsString := '';
 
-    {
-    else
-    begin
-      qryObjects.FieldByName('objtype').AsString    := '';
-      qryObjects.FieldByName('objtypeid').AsInteger := 0;
+
+      if pNewEdt then
+        qryObjects.Post;
+      // ---
+      //self.qryObjectsAfterScroll(qryObjects);
+    finally
+      self.FSkipScrollEvents := False;
     end;
-    }
-    // --
-    if pNewEdt then
-       qryObjects.Post;
-    // ---
-    //self.qryObjectsAfterScroll(qryObjects);
-  finally
-      self.FSkipScrollEvents:=false;
-  end;
 end;
 
 procedure TframeObjects.addNewObjectGroupRequest;
 var
-  i          : Integer;
-  pCmbVal    : AStr;
-  pntxSeqVal : int64;
+  i: integer;
+  pCmbVal: AStr;
+  pntxSeqVal: int64;
   pNewSession: boolean;
 begin
-     pCmbVal := trim(grpObjType.Text);
- if (pCmbVal <> '') and (grpObjType.items.indexOf(pCmbVal) = -1) then
- begin
+  pCmbVal := trim(grpObjType.Text);
+  if (pCmbVal <> '') and (grpObjType.items.indexOf(pCmbVal) = -1) then
+  begin
 
-
-   if Dialogs.MessageDlg(format(estbk_strmsg.SConfCreateNewObjGroup,[pCmbVal]), mtConfirmation, [mbYes, mbNo], 0) = mrNo then
-   begin
+    if Dialogs.MessageDlg(format(estbk_strmsg.SConfCreateNewObjGroup, [pCmbVal]), mtConfirmation, [mbYes, mbNo], 0) = mrNo then
+    begin
       self.qryObjectsAfterScroll(qryObjects);
 
-   if grpObjType.CanFocus then
-      grpObjType.SetFocus;
+      if grpObjType.CanFocus then
+        grpObjType.SetFocus;
       grpObjType.DroppedDown := True;
 
       // --
       exit;
-   end;
+    end;
 
 
-   // kas tulevikus peaks ehk nupu tegema loo grupp, mitte nii, et sisestab ja siis luuakse onlines...hmmm
-   // samas selline meetod väga kiire ja mõnus
-   with estbk_clientdatamodule.dmodule do
-     try
+    // kas tulevikus peaks ehk nupu tegema loo grupp, mitte nii, et sisestab ja siis luuakse onlines...hmmm
+    // samas selline meetod väga kiire ja mõnus
+    with estbk_clientdatamodule.dmodule do
+      try
 
-       try
-         self.FSkipScrollEvents := True;
-         primConnection.StartTransaction;
-
-
-         // vana hea sequence
-         pntxSeqVal := qryObjTypesSeq.GetNextValue;
-
-         qryObjTypesMisc.Close;
-         qryObjTypesMisc.SQL.Clear;
-         qryObjTypesMisc.SQL.Add(estbk_sqlclientcollection._CSQLInsertObjType);
-         qryObjTypesMisc.parambyname('id').AsInteger     := pntxSeqVal;
-         qryObjTypesMisc.parambyname('parent').AsInteger := 0;
-         qryObjTypesMisc.parambyname('objname').AsString := pcmbVal;
-         qryObjTypesMisc.parambyname('shortidef').AsString := '';
-         qryObjTypesMisc.parambyname('weight').AsInteger := 0;
-         qryObjTypesMisc.parambyname('company_id').AsInteger := estbk_globvars.glob_company_id;
-         qryObjTypesMisc.ExecSQL;
+        try
+          self.FSkipScrollEvents := True;
+          primConnection.StartTransaction;
 
 
-         // ----------
-         primConnection.Commit;
+          // vana hea sequence
+          pntxSeqVal := qryObjTypesSeq.GetNextValue;
+
+          qryObjTypesMisc.Close;
+          qryObjTypesMisc.SQL.Clear;
+          qryObjTypesMisc.SQL.Add(estbk_sqlclientcollection._CSQLInsertObjType);
+          qryObjTypesMisc.parambyname('id').AsInteger := pntxSeqVal;
+          qryObjTypesMisc.parambyname('parent').AsInteger := 0;
+          qryObjTypesMisc.parambyname('objname').AsString := pcmbVal;
+          qryObjTypesMisc.parambyname('shortidef').AsString := '';
+          qryObjTypesMisc.parambyname('weight').AsInteger := 0;
+          qryObjTypesMisc.parambyname('company_id').AsInteger := estbk_globvars.glob_company_id;
+          qryObjTypesMisc.ExecSQL;
 
 
-         grpObjType.Items.addObject(pcmbVal, TObject(cardinal(pntxSeqVal)));
-         // nõme; generics alles 2.3.0 versioonis
-         grpObjType.Sorted    := True;
-         grpObjType.Sorted    := False;
-         grpObjType.ItemIndex := grpObjType.items.indexOf(pcmbVal);
-
-         // --- peame ka grupi lisama; reg. reziim, kui puudub...
-         pNewSession := not (qryObjects.state in [dsEdit, dsInsert]);
-      if pNewSession then
-         qryObjects.Edit;
+          // ----------
+          primConnection.Commit;
 
 
+          grpObjType.Items.addObject(pcmbVal, TObject(cardinal(pntxSeqVal)));
+          // nõme; generics alles 2.3.0 versioonis
+          grpObjType.Sorted := True;
+          grpObjType.Sorted := False;
+          grpObjType.ItemIndex := grpObjType.items.indexOf(pcmbVal);
 
-         // ---- onchange suht mõttetu; pidevalt tõmbaksime evente käime !
-         qryObjects.FieldByName('objtypeid').AsInteger := pntxSeqVal;
-         qryObjects.FieldByName('objtype').AsString    := grpObjType.Text;
+          // --- peame ka grupi lisama; reg. reziim, kui puudub...
+          pNewSession := not (qryObjects.state in [dsEdit, dsInsert]);
+          if pNewSession then
+            qryObjects.Edit;
 
 
 
-      // sulgeme sisestuse ...
-      if pNewSession then
-         qryObjects.Post;
+          // ---- onchange suht mõttetu; pidevalt tõmbaksime evente käime !
+          qryObjects.FieldByName('objtypeid').AsInteger := pntxSeqVal;
+          qryObjects.FieldByName('objtype').AsString := grpObjType.Text;
 
 
-         // filtreerime
-         cmbFilterByGrp.Items.Assign(grpObjType.Items);
-         cmbFilterByGrp.Items.Insert(0, ' '); // tühi valik...
 
-       finally
-         self.FSkipScrollEvents := False;
-         qryObjTypesMisc.Close;
-         qryObjTypesMisc.SQL.Clear;
-       end;
-
-    // ---
-    if dbEdtobjname.CanFocus then
-       dbEdtobjname.SetFocus;
-     except
-       on e: Exception do
-       begin
-         if primConnection.inTransaction then
-           try
-             primConnection.Rollback;
-           except
-           end;
-
-            Dialogs.messageDlg(format(estbk_strmsg.SESaveFailed, [e.message]),mtError, [mbOK], 0);
-       end;
-     end;
-
-   // ---------
- end
- else
-
- if pCmbVal = '' then
-   for i := 0 to grpObjType.items.Count - 1 do
-     if PtrInt(grpObjType.items.objects[i]) =PtrInt(qryObjects.FieldByName('objtypeid').AsInteger) then
-     try
-        self.FSkipScrollEvents:=true;
-        // -----
-     if pNewSession then
-        qryObjects.Edit;
+          // sulgeme sisestuse ...
+          if pNewSession then
+            qryObjects.Post;
 
 
-        qryObjects.FieldByName('objtype').AsString:=grpObjType.items.Strings[i];
-        // --
-        grpObjType.ItemIndex := i;
-        grpObjType.Text:=grpObjType.items.Strings[i]; // imelik värk; item index ei aita igakord :(
+          // filtreerime
+          cmbFilterByGrp.Items.Assign(grpObjType.Items);
+          cmbFilterByGrp.Items.Insert(0, ' '); // tühi valik...
 
-     if pNewSession then
-        qryObjects.Post;
-        break;
+        finally
+          self.FSkipScrollEvents := False;
+          qryObjTypesMisc.Close;
+          qryObjTypesMisc.SQL.Clear;
+        end;
 
-     finally
-        self.FSkipScrollEvents:=false;
-     end;
-     // --
+        // ---
+        if dbEdtobjname.CanFocus then
+          dbEdtobjname.SetFocus;
+      except
+        on e: Exception do
+        begin
+          if primConnection.inTransaction then
+            try
+              primConnection.Rollback;
+            except
+            end;
+
+          Dialogs.messageDlg(format(estbk_strmsg.SESaveFailed, [e.message]), mtError, [mbOK], 0);
+        end;
+      end;
+
+    // ---------
+  end
+  else
+
+  if pCmbVal = '' then
+    for i := 0 to grpObjType.items.Count - 1 do
+      if PtrInt(grpObjType.items.objects[i]) = PtrInt(qryObjects.FieldByName('objtypeid').AsInteger) then
+        try
+          self.FSkipScrollEvents := True;
+          // -----
+          if pNewSession then
+            qryObjects.Edit;
+
+
+          qryObjects.FieldByName('objtype').AsString := grpObjType.items.Strings[i];
+          // --
+          grpObjType.ItemIndex := i;
+          grpObjType.Text := grpObjType.items.Strings[i]; // imelik värk; item index ei aita igakord :(
+
+          if pNewSession then
+            qryObjects.Post;
+          break;
+
+        finally
+          self.FSkipScrollEvents := False;
+        end;
+  // --
 end;
 
 
@@ -528,8 +523,8 @@ end;
 procedure TframeObjects.qryObjectsAfterEdit(DataSet: TDataSet);
 begin
   self.FDataIsNotSaved := True;
-  btnSave.Enabled      := True;
-  btnCancel.Enabled    := True;
+  btnSave.Enabled := True;
+  btnCancel.Enabled := True;
 end;
 
 procedure TframeObjects.qryObjectsAfterPost(DataSet: TDataSet);
@@ -550,11 +545,11 @@ begin
       self.FSkipScrollEvents := True;
       // ----------
 
-      btnSave.Enabled      := self.FDataIsNotSaved;
-      btnCancel.Enabled    := self.FDataIsNotSaved;
+      btnSave.Enabled := self.FDataIsNotSaved;
+      btnCancel.Enabled := self.FDataIsNotSaved;
       btnNewObject.Enabled := not self.FNewObjectMode;
       // ----------
-      self.FNewObjectMode  := False;
+      self.FNewObjectMode := False;
 
 
       if DataSet.FieldByName('objtypeid').AsInteger > 0 then
@@ -583,46 +578,34 @@ begin
     dataSet.FieldByName('rec_addedby').AsInteger := estbk_globvars.glob_worker_id;
 
   dataSet.FieldByName('rec_changedby').AsInteger := estbk_globvars.glob_worker_id;
-  dataSet.FieldByName('rec_changed').AsDateTime  := now;
-  dataSet.FieldByName('company_id').AsInteger    := estbk_globvars.glob_company_id;
+  dataSet.FieldByName('rec_changed').AsDateTime := now;
+  dataSet.FieldByName('company_id').AsInteger := estbk_globvars.glob_company_id;
 end;
 
 procedure TframeObjects.qryObjectsBeforeScroll(DataSet: TDataSet);
 begin
- if not self.FSkipScrollEvents then
-   begin
-        // if (length(trim(qryObjects.FieldByName('objname').AsString)) < 1) then
-        if DataSet.FieldByName('objtypeid').AsInteger < 1 then
-        begin
-          Dialogs.messageDlg(estbk_strmsg.SEGrpNameIsMissing, mtError, [mbOK], 0);
-          grpObjType.SetFocus;
-          abort;
-        end;
+  if not self.FSkipScrollEvents then
+  begin
+    // if (length(trim(qryObjects.FieldByName('objname').AsString)) < 1) then
+    if DataSet.FieldByName('objtypeid').AsInteger < 1 then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEGrpNameIsMissing, mtError, [mbOK], 0);
+      grpObjType.SetFocus;
+      abort;
+    end;
 
 
-        if (length(trim(qryObjects.FieldByName('objname').AsString)) < 1) then
-        begin
-          Dialogs.messageDlg(estbk_strmsg.SEObjNameisMissing, mtError, [mbOK], 0);
-          dbEdtobjname.SetFocus;
-          abort;
-        end;
-
-
-      {
-           if self.FDataIsNotSaved then
-            begin
-                 self.FDataIsNotSaved:=False;
-              if dialogs.messageDlg(estbk_strmsg.SConfSaveChanges,mtconfirmation,[mbyes,mbno],0)=mrno then
-                 self.btnCancelClick(btnCancel)
-              else
-                 self.btnSaveClick(btnSave);
-              end;
-      }
-   end; // --
+    if (length(trim(qryObjects.FieldByName('objname').AsString)) < 1) then
+    begin
+      Dialogs.messageDlg(estbk_strmsg.SEObjNameisMissing, mtError, [mbOK], 0);
+      dbEdtobjname.SetFocus;
+      abort;
+    end;
+  end; // --
 end;
 
- // ei aita meid DBCombo; ega lookupcombo, meil nö loose sisestus
- // Kui elementi pole, siis luuakse uus
+// ei aita meid DBCombo; ega lookupcombo, meil nö loose sisestus
+// Kui elementi pole, siis luuakse uus
 procedure TframeObjects.loadComboData;
 begin
   grpObjType.items.Clear;
@@ -671,4 +654,3 @@ initialization
   {$I estbk_fra_objects.ctrs}
 
 end.
-

@@ -7,7 +7,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, StdCtrls, EditBtn,estbk_types;
+  ExtCtrls, StdCtrls, EditBtn, estbk_types;
 
 type
 
@@ -29,6 +29,7 @@ type
   private
   public
   end;
+
 (*
 
   LCLVersion, ...
@@ -56,25 +57,27 @@ var
   formAbout: TformAbout;
 
 implementation
-uses estbk_main,estbk_uivisualinit,estbk_utilities,LCLIntf;
+
+uses estbk_main, estbk_uivisualinit, estbk_utilities, LCLIntf;
+
 { TformAbout }
 
 procedure TformAbout.FormCreate(Sender: TObject);
 begin
- estbk_uivisualinit.__preparevisual(self);
- self.pCpPanel.Color:=estbk_types.MyFavGray;
- self.lblVersion.Caption:=estbk_main.CAppVersion;
- Label1.Font.Style:=[fsbold];
- lblVersion.Font.Style:=[fsbold];
- lblCopyright.Caption:=estbk_utilities._softwareCreator+' © '+estbk_utilities._softwareCopyrightYearRange;
- pStiigoPath.Text:=extractFilepath(ParamStr(0));
+  estbk_uivisualinit.__preparevisual(self);
+  self.pCpPanel.Color := estbk_types.MyFavGray;
+  self.lblVersion.Caption := estbk_main.CAppVersion;
+  Label1.Font.Style := [fsbold];
+  lblVersion.Font.Style := [fsbold];
+  lblCopyright.Caption := estbk_utilities._softwareCreator + ' © ' + estbk_utilities._softwareCopyrightYearRange;
+  pStiigoPath.Text := extractFilepath(ParamStr(0));
 
 end;
 
 
 procedure TformAbout.closeImgClick(Sender: TObject);
 begin
- self.Close;
+  self.Close;
 end;
 
 procedure TformAbout.lblOpenStiigoUrlDblClick(Sender: TObject);
@@ -86,4 +89,3 @@ initialization
   {$I estbk_frm_about.ctrs}
 
 end.
-

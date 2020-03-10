@@ -47,8 +47,7 @@ type
     procedure writeEntry(const pRepLCode: AStr; // ntx veakood, mingi informatiivne kood
       const pRepLongDescr: AStr; // ntx vea pikk kirjeldus
       const pRepLineNr: integer = 0; // suvaline reainfo
-      const pRepIdentDescr: AStr = '';
-      const pRepIdentif: integer = 0 // mingi reaga seotud kood; kliendiID ntx
+      const pRepIdentDescr: AStr = ''; const pRepIdentif: integer = 0 // mingi reaga seotud kood; kliendiID ntx
       );
     // ---
     constructor Create(const pGenConnection: TZConnection; const pGenRepCode: AStr); reintroduce;
@@ -208,8 +207,9 @@ end;
 procedure TStatusRepWriter.writeEntry(const pRepLCode: AStr; const pRepLongDescr: AStr;
   // enamasti vea pikk kirjeldus !
   const pRepLineNr: integer = 0; // suvaline reainfo
-  const pRepIdentDescr: AStr = '';
-  const pRepIdentif: integer = 0);
+  const pRepIdentDescr: AStr = ''; const pRepIdentif: integer = 0);
+
+
 var
   pSeqId: int64;
 begin

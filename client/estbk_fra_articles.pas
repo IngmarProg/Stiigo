@@ -11,59 +11,8 @@ uses
   estbk_types, estbk_strmsg, ZDataset, ZSqlUpdate, ZSequence, LCLType, rxdbgrid, ZAbstractRODataset, rxlookup, DB, Grids, Dialogs,
   Controls, EditBtn, Buttons, Graphics, ComCtrls, Typinfo, rxpopupunit;
 
-{
 
-
- päikesekiir ütleb:
- no kõigis programmides ei kasutata müügil artikleid
- aga sa ei vastanud mu küsimusele
- et kas laokaup või teenus?
- mida sa müüa tahad
-spordipoiss ütleb:
- laokaup
- päikesekiir ütleb:
- siis saan öelda konteeringua
-spordipoiss ütleb:
- liisu kõrvarõngad
- isegi pilt olemas juba, mida teinud
- päikesekiir ütleb:
- D OLA summa y
-D kaubakulu x
-K käive
-K müügi km
-K laokaup summa y
-
-
- sest kes teab, millal realiseerida saad
- õige on see laos hoida ja alles müügihetkel kulusse kanda
- ei
- ostuhinnas kannad kaubakulusse
- siis kui müüd
- müügihinna paned ise selle mis tahad
- ja millega ostetakse
-
-
- ja müües kliendile kannad omal selle laos oleva kauba ostuhinnas kulusse
- mis peab siis väiksem olema kui müügihind
- no saad kohe ka siis kulusse kanda, kui kaupa sisse ostad
-
-
-
- sest kes teab, millal realiseerida saad
- õige on see laos hoida ja alles müügihetkel kulusse kanda
- ei
- ostuhinnas kannad kaubakulusse
- siis kui müüd
- müügihinna paned ise selle mis tahad
- ja millega ostetakse
-
-}
 type
-
-  { TframeArticles }
-  // 29.11.2009 Ingmar
-  //THackGrid = Class(TDBGrid); // täiesti elvis...pean tegema hacki, et saada kätte property titleImagelist
-
   TframeArticles = class(Tfra_template)
     btnCancel: TBitBtn;
     btnClose: TBitBtn;
@@ -1318,8 +1267,8 @@ begin
     // 11.09.2010 Ingmar; seoses "special"
     self.validateControlStatuses(DataSet.FieldByName('special_type_flags').AsInteger);
 
-    b := (trim(DataSet.FieldByName('arttype').AsString) <> '') and
-      (pos(estbk_types._CItemAsService, DataSet.FieldByName('arttype').AsString) = 0);
+    b := (trim(DataSet.FieldByName('arttype').AsString) <> '') and (pos(estbk_types._CItemAsService,
+      DataSet.FieldByName('arttype').AsString) = 0);
 
     lblArtAmount.Enabled := b;
     edtArtRelAmountTotal.Enabled := b;
@@ -1590,11 +1539,6 @@ begin
 
     qryVAT.SQL.Add(estbk_sqlclientcollection._CSQLGetVAT);
     qryVAT.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
-    //qryArticles.paramByname('itemtype').AsString:=_CItemAsProduct;
-    // skip töötab ainult beforescrollil !!!
-    //qryVAT.SQL.SaveToFile('c:\test.txt');
-    // üldiselt parema idee tekkimisel muuda see koht ära; 3x ühed ja samad andmed pole just geniaalne;
-    // memdataset ? bookmarkidega jama
     qrySaleAccounts.SQL.Add(estbk_sqlclientcollection._CSQLGetOpenAccounts);
     qryPurcAccounts.SQL.Add(estbk_sqlclientcollection._CSQLGetOpenAccounts);
     qryExpensesAccounts.SQL.Add(estbk_sqlclientcollection._CSQLGetOpenAccounts);

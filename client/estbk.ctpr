@@ -87,11 +87,10 @@
       <Unit0>
         <Filename Value="estbk.ppr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="35"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="138"/>
         <CursorPos X="27" Y="164"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="estbk_main.pas"/>
@@ -143,11 +142,10 @@
       <Unit5>
         <Filename Value="estbk_sqlclientcollection.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="21"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="1604"/>
         <CursorPos Y="1626"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="estbk_fra_createmodaccounts.pas"/>
@@ -182,19 +180,19 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameGeneralLedger"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="22"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3055"/>
         <CursorPos Y="3077"/>
         <UsageCount Value="203"/>
         <Bookmarks Count="1">
           <Item0 Y="1301" ID="2"/>
         </Bookmarks>
-        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="estbk_lib_locals.pas"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="15" Y="7"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="136" Y="33"/>
         <UsageCount Value="201"/>
       </Unit10>
       <Unit11>
@@ -217,8 +215,11 @@
         <ComponentName Value="frameObjects"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <CursorPos X="52" Y="15"/>
+        <EditorIndex Value="19"/>
+        <TopLine Value="76"/>
+        <CursorPos X="48" Y="363"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="estbk_fra_genledgerentrys.pas"/>
@@ -238,8 +239,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <EditorIndex Value="12"/>
-        <TopLine Value="1319"/>
-        <CursorPos X="40" Y="1332"/>
+        <TopLine Value="1557"/>
+        <CursorPos Y="1576"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -247,11 +248,10 @@
       <Unit16>
         <Filename Value="..\shared_units\estbk_strmsg.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="23"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="24" Y="30"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="..\shared_units\estbk_filereader.pas"/>
@@ -279,17 +279,17 @@
       <Unit20>
         <Filename Value="estbk_reportconst.pas"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="24" Y="3"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="7" Y="85"/>
         <UsageCount Value="200"/>
       </Unit20>
       <Unit21>
         <Filename Value="estbk_reportsqlcollection.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="24"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="688"/>
         <CursorPos Y="704"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit21>
       <Unit22>
         <Filename Value="estbk_fra_genledgreportcriterias.pas"/>
@@ -298,11 +298,10 @@
         <ComponentName Value="frameGenledreportcrit"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="25"/>
-        <TopLine Value="300"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="299"/>
         <CursorPos X="48" Y="254"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit22>
       <Unit23>
         <Filename Value="estbk_fra_customer.pas"/>
@@ -311,10 +310,11 @@
         <ComponentName Value="frameCustomers"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1653"/>
+        <EditorIndex Value="15"/>
+        <TopLine Value="1736"/>
         <CursorPos X="47" Y="1657"/>
         <UsageCount Value="201"/>
+        <Loaded Value="True"/>
       </Unit23>
       <Unit24>
         <Filename Value="..\shared_units\estbk_frame_chooseaddr.pas"/>
@@ -352,8 +352,9 @@
       <Unit27>
         <Filename Value="estbk_lib_grapheffects.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="67"/>
-        <CursorPos X="30" Y="18"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="116"/>
+        <CursorPos X="51" Y="152"/>
         <UsageCount Value="201"/>
       </Unit27>
       <Unit28>
@@ -364,7 +365,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="10999"/>
+        <TopLine Value="2879"/>
         <CursorPos X="27" Y="11020"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="2">
@@ -386,8 +387,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="493"/>
-        <CursorPos X="22" Y="521"/>
+        <TopLine Value="17"/>
+        <CursorPos X="9" Y="45"/>
         <UsageCount Value="200"/>
       </Unit30>
       <Unit31>
@@ -396,8 +397,11 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameBanks"/>
         <ResourceBaseClass Value="Frame"/>
-        <CursorPos X="85" Y="4"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="16"/>
+        <CursorPos Y="2"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit31>
       <Unit32>
         <Filename Value="estbk_fra_warehouse.pas"/>
@@ -414,9 +418,9 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameOrders"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="33"/>
-        <TopLine Value="3687"/>
-        <CursorPos X="49" Y="3697"/>
+        <EditorIndex Value="21"/>
+        <TopLine Value="399"/>
+        <CursorPos X="4" Y="351"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit33>
@@ -440,9 +444,11 @@
       <Unit36>
         <Filename Value="estbk_lib_commoncls.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="324"/>
-        <CursorPos X="21" Y="345"/>
+        <EditorIndex Value="24"/>
+        <TopLine Value="127"/>
+        <CursorPos X="5" Y="165"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit36>
       <Unit37>
         <Filename Value="estbk_lib_commonevents.pas"/>
@@ -467,25 +473,28 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameConfAccounts"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="521"/>
+        <EditorIndex Value="14"/>
+        <TopLine Value="204"/>
         <CursorPos X="86" Y="535"/>
         <UsageCount Value="203"/>
+        <Loaded Value="True"/>
       </Unit39>
       <Unit40>
         <Filename Value="estbk_lib_rep_errorcodes.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="155"/>
-        <CursorPos Y="175"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="39"/>
+        <CursorPos Y="39"/>
         <UsageCount Value="203"/>
       </Unit40>
       <Unit41>
         <Filename Value="estbk_lib_erprtwriter.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="213"/>
-        <CursorPos X="41" Y="232"/>
+        <EditorIndex Value="23"/>
+        <TopLine Value="237"/>
+        <CursorPos Y="189"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit41>
       <Unit42>
         <Filename Value="..\shared_units\estbk_crc32.pas"/>
@@ -518,11 +527,10 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formXFrames"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="28"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="627"/>
         <CursorPos X="58" Y="636"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit45>
       <Unit46>
         <Filename Value="estbk_testframe.pas"/>
@@ -540,10 +548,11 @@
         <ComponentName Value="frameOrderList"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="20"/>
         <TopLine Value="59"/>
         <CursorPos Y="84"/>
         <UsageCount Value="201"/>
+        <Loaded Value="True"/>
       </Unit47>
       <Unit48>
         <Filename Value="estbk_fra_declformulacreator.pas"/>
@@ -594,12 +603,10 @@
         <ComponentName Value="formSelectIncomeFiles"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="18"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="10" Y="32"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit52>
       <Unit53>
         <Filename Value="..\shared_units\estbk_progressformanimated.pas"/>
@@ -616,8 +623,6 @@
         <Filename Value="estbk_lib_paymentmanager.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1149"/>
-        <CursorPos X="28" Y="1158"/>
         <UsageCount Value="200"/>
       </Unit54>
       <Unit55>
@@ -627,12 +632,11 @@
         <ComponentName Value="frameBankIncomeManually"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="34"/>
-        <TopLine Value="2682"/>
-        <CursorPos X="30" Y="2703"/>
+        <EditorIndex Value="17"/>
+        <TopLine Value="3042"/>
+        <CursorPos X="96" Y="3062"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit55>
       <Unit56>
         <Filename Value="estbk_lib_bankfiledefs.pas"/>
@@ -654,8 +658,9 @@
       <Unit58>
         <Filename Value="estbk_lib_mapdatatypes.pas"/>
         <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
-        <CursorPos X="40" Y="16"/>
+        <CursorPos X="66" Y="30"/>
         <UsageCount Value="200"/>
       </Unit58>
       <Unit59>
@@ -673,8 +678,7 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameAppSettings"/>
         <ResourceBaseClass Value="Frame"/>
-        <TopLine Value="168"/>
-        <CursorPos X="26" Y="204"/>
+        <EditorIndex Value="-1"/>
         <UsageCount Value="200"/>
       </Unit60>
       <Unit61>
@@ -683,9 +687,11 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameIncomingsList"/>
         <ResourceBaseClass Value="Frame"/>
-        <TopLine Value="187"/>
-        <CursorPos X="56" Y="205"/>
+        <EditorIndex Value="18"/>
+        <TopLine Value="66"/>
+        <CursorPos Y="92"/>
         <UsageCount Value="203"/>
+        <Loaded Value="True"/>
       </Unit61>
       <Unit62>
         <Filename Value="estbk_frm_about.pas"/>
@@ -693,8 +699,11 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formAbout"/>
         <ResourceBaseClass Value="Form"/>
-        <CursorPos X="3" Y="53"/>
+        <EditorIndex Value="26"/>
+        <TopLine Value="30"/>
+        <CursorPos X="14" Y="80"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit62>
       <Unit63>
         <Filename Value="estbk_inputformex.pas"/>
@@ -702,7 +711,7 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="inputExForm"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="30"/>
+        <EditorIndex Value="25"/>
         <TopLine Value="10"/>
         <CursorPos X="81" Y="92"/>
         <UsageCount Value="200"/>
@@ -725,8 +734,7 @@
         <ComponentName Value="frameDocFilesMgr"/>
         <ResourceBaseClass Value="Frame"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="177"/>
-        <CursorPos X="35" Y="200"/>
+        <CursorPos Y="19"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit65>
@@ -737,8 +745,8 @@
         <ComponentName Value="frameDebtors"/>
         <ResourceBaseClass Value="Frame"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="694"/>
-        <CursorPos X="36" Y="739"/>
+        <TopLine Value="686"/>
+        <CursorPos Y="686"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit66>
@@ -759,11 +767,10 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formChooseBank"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="14"/>
-        <TopLine Value="126"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="125"/>
         <CursorPos Y="157"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit68>
       <Unit69>
         <Filename Value="estbk_lib_suminwords.pas"/>
@@ -781,10 +788,11 @@
         <ComponentName Value="frameCashbook"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="13"/>
         <TopLine Value="272"/>
         <CursorPos Y="272"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit70>
       <Unit71>
         <Filename Value="estbk_settings.pas"/>
@@ -795,19 +803,18 @@
       </Unit71>
       <Unit72>
         <Filename Value="estbk_lib_declcalc.pas"/>
-        <EditorIndex Value="13"/>
-        <TopLine Value="279"/>
-        <CursorPos Y="282"/>
+        <EditorIndex Value="22"/>
+        <TopLine Value="16"/>
+        <CursorPos X="77"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit72>
       <Unit73>
         <Filename Value="estbk_lib_calcdhelper.pas"/>
-        <EditorIndex Value="20"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="379"/>
         <CursorPos X="11" Y="393"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit73>
       <Unit74>
         <Filename Value="..\shared_units\estbk_filecheck.pas"/>
@@ -905,10 +912,10 @@
       <Unit84>
         <Filename Value="estbk_lib_deleteaccitems.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="19"/>
-        <CursorPos Y="95"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="51" Y="24"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit84>
       <Unit85>
         <Filename Value="estbk_frm_currlist.pas"/>
@@ -917,22 +924,18 @@
         <ComponentName Value="formCurrlist"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="32"/>
-        <TopLine Value="85"/>
-        <CursorPos X="74" Y="78"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="84"/>
+        <CursorPos X="112" Y="92"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit85>
       <Unit86>
         <Filename Value="estbk_ebill.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="27"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="545"/>
         <CursorPos X="26" Y="582"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit86>
       <Unit87>
         <Filename Value="estbk_acc_perfinalize.pas"/>
@@ -947,11 +950,10 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formAccPerFinalize"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="26"/>
-        <TopLine Value="108"/>
-        <CursorPos X="94" Y="201"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="170"/>
+        <CursorPos Y="208"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit88>
       <Unit89>
         <Filename Value="C:\LIBS\zeos\src\dbc\ZDbcPostgreSqlUtils.pas"/>
@@ -1020,11 +1022,10 @@
       <Unit98>
         <Filename Value="estbk_lib_ebillimporter.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="31"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="202"/>
         <CursorPos Y="218"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit98>
       <Unit99>
         <Filename Value="C:\lazarus\lcl\dialogs.pp"/>
@@ -1046,24 +1047,23 @@
       <Unit101>
         <Filename Value="estbk_lib_vat_ext2.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="170"/>
-        <CursorPos X="12" Y="180"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="16"/>
         <UsageCount Value="205"/>
       </Unit101>
       <Unit102>
         <Filename Value="estbk_lib_commonaccprop.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="16"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="139"/>
         <CursorPos X="14" Y="213"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit102>
       <Unit103>
         <Filename Value="estbk_lib_numerators.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos Y="50"/>
+        <CursorPos X="93" Y="18"/>
         <UsageCount Value="200"/>
       </Unit103>
       <Unit104>
@@ -1087,11 +1087,10 @@
       <Unit106>
         <Filename Value="estbk_lib_sepa.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="29"/>
-        <TopLine Value="71"/>
-        <CursorPos Y="64"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="72"/>
+        <CursorPos X="117" Y="80"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit106>
       <Unit107>
         <Filename Value="estbk_lib_sepagen.pas"/>
@@ -1132,11 +1131,10 @@
       <Unit112>
         <Filename Value="estbk_lib_fin_sampo.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="15"/>
-        <TopLine Value="809"/>
-        <CursorPos Y="863"/>
-        <UsageCount Value="102"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="826"/>
+        <CursorPos X="65" Y="817"/>
+        <UsageCount Value="103"/>
       </Unit112>
       <Unit113>
         <Filename Value="..\shared_units\estbk_http.pas"/>
@@ -1442,11 +1440,10 @@
       <Unit155>
         <Filename Value="C:\codetyphon\typhon\components\pl_RX\source\rxdbgrid.pas"/>
         <FRMtype Value="0"/>
-        <EditorIndex Value="36"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="54"/>
         <CursorPos X="41" Y="70"/>
         <UsageCount Value="12"/>
-        <Loaded Value="True"/>
       </Unit155>
       <Unit156>
         <Filename Value="C:\codetyphon\typhon\components\pl_RX\source\lrrxcontrols.pas"/>
@@ -1475,10 +1472,9 @@
       <Unit159>
         <Filename Value="estbk_frm_formincomefiles.frm"/>
         <FRMtype Value="0"/>
-        <EditorIndex Value="17"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="50" Y="7"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="FRM"/>
       </Unit159>
       <Unit160>
@@ -1490,95 +1486,47 @@
         <DefaultSyntaxHighlighter Value="FRM"/>
       </Unit160>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="10" HistoryIndex="9">
       <Position1>
-        <Filename Value="estbk_fra_incomings_edit.pas"/>
-        <Caret Line="1340" TopLine="1318"/>
-      </Position1>
-      <Position2>
-        <Filename Value="estbk_fra_incomings_edit.pas"/>
-        <Caret Line="1457" Column="9" TopLine="1439"/>
-      </Position2>
-      <Position3>
-        <Filename Value="estbk_fra_incomings_edit.pas"/>
-        <Caret Line="1515" Column="60" TopLine="1508"/>
-      </Position3>
-      <Position4>
-        <Filename Value="estbk.ppr"/>
-        <Caret Line="165" Column="27" TopLine="139"/>
-      </Position4>
-      <Position5>
         <Filename Value="estbk_clientdatamodule.pas"/>
         <Caret Line="259" Column="37" TopLine="241"/>
-      </Position5>
-      <Position6>
+      </Position1>
+      <Position2>
         <Filename Value="..\shared_units\estbk_utilities.pas"/>
         <Caret Line="151" Column="23" TopLine="128"/>
-      </Position6>
-      <Position7>
+      </Position2>
+      <Position3>
         <Filename Value="estbk_lib_declcalc.pas"/>
         <Caret Line="10" Column="89"/>
-      </Position7>
-      <Position8>
+      </Position3>
+      <Position4>
         <Filename Value="estbk_lib_declcalc.pas"/>
         <Caret Line="1209" Column="20" TopLine="1177"/>
-      </Position8>
-      <Position9>
+      </Position4>
+      <Position5>
         <Filename Value="estbk_lib_declcalc.pas"/>
         <Caret Line="1240" Column="19" TopLine="1203"/>
-      </Position9>
-      <Position10>
+      </Position5>
+      <Position6>
         <Filename Value="estbk_lib_declcalc.pas"/>
         <Caret Line="1246" Column="15" TopLine="1209"/>
-      </Position10>
-      <Position11>
-        <Filename Value="estbk_lib_calcdhelper.pas"/>
-        <Caret Line="6" Column="104"/>
-      </Position11>
-      <Position12>
-        <Filename Value="estbk_lib_calcdhelper.pas"/>
-        <Caret Line="183" Column="5" TopLine="145"/>
-      </Position12>
-      <Position13>
-        <Filename Value="estbk_lib_calcdhelper.pas"/>
-        <Caret Line="184" Column="33" TopLine="146"/>
-      </Position13>
-      <Position14>
-        <Filename Value="estbk_lib_calcdhelper.pas"/>
-        <Caret Line="393" Column="11" TopLine="379"/>
-      </Position14>
-      <Position15>
-        <Filename Value="estbk_sqlclientcollection.pas"/>
-        <Caret Line="1064" TopLine="1042"/>
-      </Position15>
-      <Position16>
-        <Filename Value="estbk_sqlclientcollection.pas"/>
-        <Caret Line="1626" TopLine="1604"/>
-      </Position16>
-      <Position17>
+      </Position6>
+      <Position7>
         <Filename Value="estbk_lib_incomings.pas"/>
         <Caret Line="575" Column="73" TopLine="575"/>
-      </Position17>
-      <Position18>
-        <Filename Value="estbk_fra_incomings_edit.pas"/>
-        <Caret Line="1065" Column="11" TopLine="1044"/>
-      </Position18>
-      <Position19>
-        <Filename Value="estbk_fra_incomings_edit.pas"/>
-        <Caret Line="2703" Column="30" TopLine="2682"/>
-      </Position19>
-      <Position20>
+      </Position7>
+      <Position8>
         <Filename Value="estbk_main.pas"/>
         <Caret Line="27" Column="39" TopLine="11"/>
-      </Position20>
-      <Position21>
+      </Position8>
+      <Position9>
         <Filename Value="estbk_main.pas"/>
         <Caret Line="2217" Column="44" TopLine="2198"/>
-      </Position21>
-      <Position22>
+      </Position9>
+      <Position10>
         <Filename Value="estbk_main.pas"/>
         <Caret Line="2216" Column="44" TopLine="2197"/>
-      </Position22>
+      </Position10>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
