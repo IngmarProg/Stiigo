@@ -220,7 +220,8 @@ begin
       if Tcheckbox(Sender).Checked then
         try
 
-          if (qryAccPeriods.RecordCount > 0) and (Dialogs.messageDlg(estbk_strmsg.SCNumeratorConversions, mtConfirmation, [mbYes, mbNo], 0) <> mrYes) then
+          if (qryAccPeriods.RecordCount > 0) and (Dialogs.messageDlg(estbk_strmsg.SCNumeratorConversions, mtConfirmation, [mbYes, mbNo], 0) <>
+            mrYes) then
           begin
             Tcheckbox(Sender).Checked := False;
             Exit;
@@ -392,9 +393,8 @@ begin
 
 
       dtEdtStart.Enabled := DataSet.RecordCount = 1;
-      dtEdtEnd.Enabled := self.FNewRecordCreated or (DataSet.RecordCount = 1) or
-        (DataSet.RecNo = 1) or (not DataSet.EOF and
-        DataSet.FieldByName('period_end').IsNull);
+      dtEdtEnd.Enabled := self.FNewRecordCreated or (DataSet.RecordCount = 1) or (DataSet.RecNo = 1) or
+        (not DataSet.EOF and DataSet.FieldByName('period_end').IsNull);
       // viimane aktiivne kirje !
       // ---
       //btnSave.Enabled:=self.FDataNotSaved;

@@ -244,8 +244,7 @@ resourcestring
     ' Võite sulgeda administaatori liidese ja käivitada "Stiigo"';
 
 
-  SConfCreateNewObjGroup = ' Sellist objektigruppi "%s" veel ei eksisteeri ! ' + #13#10 +
-    ' Kas loome andmebaasi uue objektigrupi  ? ';
+  SConfCreateNewObjGroup = ' Sellist objektigruppi "%s" veel ei eksisteeri ! ' + #13#10 + ' Kas loome andmebaasi uue objektigrupi  ? ';
 
   SConfBfScrollSaveChg = ' Jätkamiseks palun salvestage või tühistage muudatused !';
   SConfOK = ' Tehtud !';
@@ -332,8 +331,7 @@ resourcestring
   SAccObjGrpName = ' Objektide grupp ';
 
   SAccRecordCancelled = ' Kanne on annuleeritud !';
-  SAccCurDownloadNeeded = ' Valuuta "%s" kurssi ei leitud seisuga "%s" ! '#13#10 +
-    ' Kas üritame alla laadida valuutainfo ?';
+  SAccCurDownloadNeeded = ' Valuuta "%s" kurssi ei leitud seisuga "%s" ! '#13#10 + ' Kas üritame alla laadida valuutainfo ?';
 
   SConfAccDeleteAccount = ' Kas kustutame konto "%s" ?';
 
@@ -452,8 +450,7 @@ resourcestring
   SCABankChargesAccName = 'Pangakulu';
   SCACashRegisterAccName = 'Kassa';
 
-  SCInfoDefaultAccountsNotDefined = ' Palun defineerige esmalt vaikimisi kontod !'#13#10#13#10 +
-    ' Menüü "Lisad" -> "Vaikimisi kontod" ';
+  SCInfoDefaultAccountsNotDefined = ' Palun defineerige esmalt vaikimisi kontod !'#13#10#13#10 + ' Menüü "Lisad" -> "Vaikimisi kontod" ';
 
 
 
@@ -733,8 +730,7 @@ resourcestring
   SEAccountNameTooShort = ' Konto nimi puudub !';
   SEAccountWSnameExists = ' Sama nime/koodiga konto juba eksisteerib ! ';
   SENoEditorMode = ' Te pole redigeerimisreziimis !';
-  SEIncorrectFormat = ' Sisestatud andmed on puudulikud ! '#13#10#13#10 + ' "%s" '#13#10 +
-    ' Palun korrigeerige sisestust ';
+  SEIncorrectFormat = ' Sisestatud andmed on puudulikud ! '#13#10#13#10 + ' "%s" '#13#10 + ' Palun korrigeerige sisestust ';
 
   //SEAccountCodeTooShort = ' Kontokood on liialt lühike (min pikkus 2) !';
   SEAccountBankAlreadyDef = ' Pank antud valuuta ja sama konto numbriga on juba teise rp. konto [%s] juures defineeritud !';
@@ -784,8 +780,7 @@ resourcestring
     'Kas kirjutame olemasoleva üle (No) või loome uue (Yes)  ?';
 
   // ----
-  SENumeratorRangeExceeded = 'Nummerdamise vahemik ületatud. Lubatud vahemik on: %d-%d'#13#10#13#10 +
-    'Kontrollige nummerdamise reegleid !';
+  SENumeratorRangeExceeded = 'Nummerdamise vahemik ületatud. Lubatud vahemik on: %d-%d'#13#10#13#10 + 'Kontrollige nummerdamise reegleid !';
 
   SENumeratorError = ' Nummerdamine ebaõnnestus ! Palun teavitage administraatorit !';
   // SULGEMISKANNE
@@ -875,8 +870,7 @@ resourcestring
   SEBillCantCreateCrBill = ' Kinnitamata arvele ei saa koostada kreeditarvet !';
   SEBillHasCreditBill = ' Arvet ei saa muuta; arvele tehtud kreeditarve !';
   SEPurchSaleAccUndef = ' Ostu/müügikonto defineerimata !';
-  SEBillHasPayment = ' Arvel on peal laekumine / tasumine ! '#13#10 +
-    ' Arve muutmiseks peate laekumise / tasumise lahti siduma';
+  SEBillHasPayment = ' Arvel on peal laekumine / tasumine ! '#13#10 + ' Arve muutmiseks peate laekumise / tasumise lahti siduma';
 
   SECrBillSumGreaterThenSource = ' Kreeditarve kogusumma on suurem, kui lähtearve oma !';
   SEBillWithNrAlreadyExists = ' "%s" numbriga  arve on juba olemas !';
@@ -1019,8 +1013,8 @@ resourcestring
   SEIncfSumIsZero = 'Laekumiste summa 0 / arvet ei leitud millega laekumine siduda';
   SEIncfZOkLines = 'Puuduvad korrektsed laekumiste kirjed, mida sisestada!';
 
-  SEIncfLinesPartiallyOK = 'Hoiatus: kõik laekumiste kirjed pole korrektsed !' + #13#10 +
-    'Ebakorrektseid ridu ei salvestata !' + #13#10#13#10 + 'Kas siiski salvestame ? ';
+  SEIncfLinesPartiallyOK = 'Hoiatus: kõik laekumiste kirjed pole korrektsed !' + #13#10 + 'Ebakorrektseid ridu ei salvestata !' +
+    #13#10#13#10 + 'Kas siiski salvestame ? ';
 
   SEIncIncomesNotFound = 'Failist ei leitud laekumisi !';
   SEIncMissingChargeAccount = 'Pangakulu konto on defineerimata vaikimisi kontodes !';
@@ -1081,8 +1075,7 @@ resourcestring
   SPermissionRemovedFromSingleRole = ' Õigus on seotud ka rolliga "%s" '#13#10#13#10 +
     ' Kas tõesti soovite välistada antud õiguse tema rollist ?';
   ScPostGreIgnoreCurrentLocaleSettings = ' Postgre (Windowsi versioon) andmebaas vajab korrektseks tööks lokaali (%s) ! '#13#10 +
-    ' Teie serveri lokaal on (%s)'#13#10#13#10 +
-    ' Kas soovite tõesti andmebaasi luua ?';
+    ' Teie serveri lokaal on (%s)'#13#10#13#10 + ' Kas soovite tõesti andmebaasi luua ?';
 
   SCFirstRun = ' --- Võimalik põhjus: esmane käivitus / struktuuride uuendamine !';
   SCValidatingTables = ' Kontrollin andmestruktuure...';
@@ -1112,15 +1105,22 @@ resourcestring
   SEEMailSendFailed = 'E-kirja saatmine ebaõnnestus !'#13#10#13#10'Põhjus: %s';
 
 
-  SEFilesMissing = ' Stiigo käivitamine kataloogis %s ebaõnnestus !'#13#10#13#10 +
-    ' Kataloogis puudub fail: "%s".'#13#10#13#10 +
+  SEFilesMissing = ' Stiigo käivitamine kataloogis %s ebaõnnestus !'#13#10#13#10 + ' Kataloogis puudub fail: "%s".'#13#10#13#10 +
     ' Soovitan Stiigo failid uuesti alla laadida www.stiigo.com';
 
   SELibPQloadFailed = ' Faili "libpq.dll" laadimine ebaõnnestus ! '#13#10#13#10'Põhjus: %s';
 
   SEDbStructureTooOld = ' Teie andmebaasi struktuurid vajavad uuendamist.'#13#10#13#10 +
-    ' Uuendamiseks käivitatakse "stiigoadmin". '#13#10#13#10 +
-    ' Palun logige sinna administraatori parooliga !';
+    ' Uuendamiseks käivitatakse "stiigoadmin". '#13#10#13#10 + ' Palun logige sinna administraatori parooliga !';
+
+
+
+
+
+
+
+
+
 
 
   SESomeTablesAreMissing = ' Tabel "%s" puudu !';

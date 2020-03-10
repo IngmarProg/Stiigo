@@ -321,10 +321,10 @@ begin
                     // teeme vastandmärgiga kanderea
                     ' a.company_id, ''D'', id,  :rec_changed, :rec_changedby, :rec_addedby, ' +
                     ' a.client_id,a.flags,a.ref_item_type,a.ref_item_id,a.ref_prepayment_flag,a.ref_payment_flag,a.ref_income_flag,a.ref_debt_flag,a.ref_tax_flag '
-                    + ' FROM  accounting_records a ' +
-                    ' WHERE a.accounting_register_id=:accounting_register_id ' + '   AND a.status not like ''%D%''' +
-                    '   AND a.id>(SELECT COALESCE(max(b.id),0) ' + '             FROM accounting_records b ' +
-                    '             WHERE b.accounting_register_id=a.accounting_register_id ' +
+                    + ' FROM  accounting_records a ' + ' WHERE a.accounting_register_id=:accounting_register_id ' +
+                    '   AND a.status not like ''%D%''' + '   AND a.id>(SELECT COALESCE(max(b.id),0) ' +
+                    '             FROM accounting_records b ' + '             WHERE b.accounting_register_id=a.accounting_register_id ' +
+
                     '               AND b.status like ''%D%'')' + ' ORDER BY a.rec_nr ';
                   // ---
                   admTempQuery2.ParamByName('accounting_register_id').AsInteger := pTempArray[k];
