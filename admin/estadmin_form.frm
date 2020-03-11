@@ -1,7 +1,7 @@
 object form_admin: Tform_admin
-  Left = 579
+  Left = 23
   Height = 750
-  Top = 135
+  Top = 215
   Width = 1000
   Caption = 'Stiigo administraator'
   ClientHeight = 725
@@ -309,7 +309,7 @@ object form_admin: Tform_admin
                 Left = 200
                 Height = 28
                 Top = 50
-                Width = 288
+                Width = 222
                 DataField = 'regnr'
                 DataSource = admCompListDataset
                 CharCase = ecNormal
@@ -333,7 +333,7 @@ object form_admin: Tform_admin
                 Left = 200
                 Height = 28
                 Top = 79
-                Width = 288
+                Width = 222
                 DataField = 'vatnumber'
                 DataSource = admCompListDataset
                 CharCase = ecNormal
@@ -343,9 +343,9 @@ object form_admin: Tform_admin
                 OnKeyPress = dbEdtCompnameKeyPress
               end
               object lbMaja: TLabel
-                Left = 10
-                Height = 18
-                Top = 198
+                Left = 7
+                Height = 23
+                Top = 200
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -356,7 +356,7 @@ object form_admin: Tform_admin
               object dbEdtHouse: TDBEdit
                 Left = 200
                 Height = 28
-                Top = 194
+                Top = 196
                 Width = 222
                 DataField = 'house_nr'
                 DataSource = admCompListDataset
@@ -367,9 +367,9 @@ object form_admin: Tform_admin
                 OnKeyPress = dbEdtCompnameKeyPress
               end
               object lbKorter: TLabel
-                Left = 22
+                Left = 19
                 Height = 18
-                Top = 226
+                Top = 229
                 Width = 168
                 Alignment = taRightJustify
                 AutoSize = False
@@ -380,7 +380,7 @@ object form_admin: Tform_admin
               object dbEdtApartment: TDBEdit
                 Left = 200
                 Height = 28
-                Top = 222
+                Top = 225
                 Width = 222
                 DataField = 'apartment_nr'
                 DataSource = admCompListDataset
@@ -391,9 +391,9 @@ object form_admin: Tform_admin
                 OnKeyPress = dbEdtCompnameKeyPress
               end
               object lbZipcode: TLabel
-                Left = 10
+                Left = 6
                 Height = 18
-                Top = 255
+                Top = 258
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -404,8 +404,8 @@ object form_admin: Tform_admin
               object dbEdtZipcode: TDBEdit
                 Left = 200
                 Height = 28
-                Top = 251
-                Width = 196
+                Top = 254
+                Width = 222
                 DataField = 'zipcode'
                 DataSource = admCompListDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -418,7 +418,7 @@ object form_admin: Tform_admin
               object lbPhone: TLabel
                 Left = 10
                 Height = 18
-                Top = 282
+                Top = 286
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -429,8 +429,8 @@ object form_admin: Tform_admin
               object dbPhone: TDBEdit
                 Left = 200
                 Height = 28
-                Top = 280
-                Width = 196
+                Top = 284
+                Width = 222
                 DataField = 'phone'
                 DataSource = admCompListDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -443,7 +443,7 @@ object form_admin: Tform_admin
               object lbMobile: TLabel
                 Left = 10
                 Height = 18
-                Top = 312
+                Top = 316
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -454,8 +454,8 @@ object form_admin: Tform_admin
               object dbEdtMobile: TDBEdit
                 Left = 200
                 Height = 28
-                Top = 309
-                Width = 196
+                Top = 313
+                Width = 222
                 DataField = 'mobilephone'
                 DataSource = admCompListDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -468,7 +468,7 @@ object form_admin: Tform_admin
               object lbFax: TLabel
                 Left = 10
                 Height = 18
-                Top = 341
+                Top = 345
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -479,8 +479,8 @@ object form_admin: Tform_admin
               object dbEdtFax: TDBEdit
                 Left = 200
                 Height = 28
-                Top = 338
-                Width = 196
+                Top = 342
+                Width = 222
                 DataField = 'fax'
                 DataSource = admCompListDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -493,7 +493,7 @@ object form_admin: Tform_admin
               object lbEmail: TLabel
                 Left = 10
                 Height = 18
-                Top = 370
+                Top = 375
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -504,8 +504,8 @@ object form_admin: Tform_admin
               object dbEdtEmail: TDBEdit
                 Left = 200
                 Height = 28
-                Top = 366
-                Width = 268
+                Top = 371
+                Width = 418
                 DataField = 'email'
                 DataSource = admCompListDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -516,142 +516,218 @@ object form_admin: Tform_admin
                 OnKeyPress = dbEdtCompnameKeyPress
               end
               inline frameCompCAddr: TFrameAddrPicker
-                Left = 22
-                Height = 88
-                Top = 106
-                ClientHeight = 88
+                Left = 20
+                Height = 86
+                Top = 109
+                Width = 487
+                ClientHeight = 86
+                ClientWidth = 487
                 TabOrder = 3
                 Visible = True
                 DesignLeft = 599
                 DesignTop = 569
                 inherited lbCounty: TLabel
+                  Left = 105
+                  Height = 20
+                  Top = 3
+                  Width = 65
+                  Anchors = [akTop]
+                  AutoSize = True
                   ParentFont = False
                 end
                 inherited lbCity: TLabel
+                  Left = 97
+                  Height = 20
+                  Top = 33
+                  Width = 73
+                  Anchors = [akTop]
+                  AutoSize = True
                   ParentFont = False
                 end
                 inherited lbStreet: TLabel
+                  Left = 128
+                  Height = 20
+                  Top = 61
+                  Width = 41
+                  Anchors = [akTop]
+                  AutoSize = True
                   ParentFont = False
                 end
                 inherited comboCounty: TComboBox
+                  Left = 180
                   Height = 28
-                  Width = 242
+                  Top = 0
+                  Width = 305
                   ItemHeight = 20
                   ParentFont = False
                 end
                 inherited comboCity: TComboBox
+                  Left = 180
                   Height = 28
-                  Width = 242
+                  Top = 29
+                  Width = 305
                   ItemHeight = 20
                   ParentFont = False
                 end
                 inherited comboStreet: TComboBox
+                  Left = 180
                   Height = 28
-                  Width = 242
+                  Top = 58
+                  Width = 305
                   ItemHeight = 20
                   ParentFont = False
+                end
+                inherited qryCity: TZQuery
+                  Left = 535
+                  Top = 107
+                end
+                inherited qryStreet: TZQuery
+                  Left = 519
+                  Top = 65427
+                end
+                inherited qryInsertCounty: TZUpdateSQL
+                  Left = 495
+                  Top = 11
                 end
               end
             end
             object tabPageAccPeriod: TTabSheet
               Caption = ' Majandusaasta '
-              ClientHeight = 418
-              ClientWidth = 523
+              ClientHeight = 522
+              ClientWidth = 660
               ParentFont = False
               inline frameAccPeriods1: TframeAccPeriods
-                Height = 418
-                Width = 523
+                Height = 522
+                Width = 660
                 Align = alClient
-                ClientHeight = 418
-                ClientWidth = 523
+                ClientHeight = 522
+                ClientWidth = 660
                 DesignLeft = 340
                 DesignTop = 329
                 inherited lblPerName: TLabel
+                  Top = 20
                   ParentFont = False
+                end
+                inherited dbEdtPerName: TDBEdit
+                  Top = 16
                 end
                 inherited lblDateStart: TLabel
+                  Left = 28
+                  Top = 50
                   ParentFont = False
                 end
+                inherited dtEdtStart: TDateEdit
+                  Top = 47
+                end
+                inherited dtEdtEnd: TDateEdit
+                  Top = 79
+                end
                 inherited lblDateEnd: TLabel
+                  Top = 84
                   ParentFont = False
                 end
                 inherited mrline3: TBevel
-                  Width = 481
+                  Width = 618
                 end
                 inherited accEntrys: TDBGrid
-                  Height = 212
-                  Width = 481
+                  Height = 316
+                  Width = 618
                 end
                 inherited mrline4: TBevel
-                  Width = 481
+                  Width = 618
                 end
                 inherited pchkboxAccPer: TCheckBox
-                  Top = 372
+                  Top = 476
                   ParentFont = False
                 end
               end
             end
             object tabVat: TTabSheet
               Caption = 'Käibemaksud'
-              ClientHeight = 418
-              ClientWidth = 523
+              ClientHeight = 522
+              ClientWidth = 660
               ParentFont = False
               inline frameVATMgr: TframeVATs
-                Height = 418
-                Width = 523
+                Height = 522
+                Width = 660
                 Align = alClient
-                ClientHeight = 418
-                ClientWidth = 523
+                ClientHeight = 522
+                ClientWidth = 660
                 DesignLeft = 279
                 DesignTop = 374
                 inherited leftPanel: TPanel
-                  Height = 418
-                  ClientHeight = 418
+                  Height = 522
+                  ClientHeight = 522
                   ParentFont = False
                   inherited gridVat: TDBGrid
-                    Height = 414
-                    Width = 253
+                    Height = 518
+                    Width = 293
                     ParentFont = False
                   end
                 end
                 inherited Splitter1: TSplitter
-                  Height = 418
+                  Height = 522
                 end
                 inherited rightPanel: TPanel
-                  Height = 418
-                  Width = 275
-                  ClientHeight = 418
-                  ClientWidth = 275
+                  Height = 522
+                  Width = 350
+                  ClientHeight = 522
+                  ClientWidth = 350
                   ParentFont = False
                   inherited lblVatname: TLabel
+                    Left = 22
+                    Height = 20
+                    Top = 23
+                    Width = 139
+                    AutoSize = True
                     ParentFont = False
                   end
                   inherited dbEdtVatName: TDBEdit
-                    Width = 77
+                    Left = 170
+                    Top = 21
+                    Width = 152
                     ParentFont = False
                   end
                   inherited lblVatPerc: TLabel
+                    Left = 20
+                    Top = 58
                     ParentFont = False
                   end
                   inherited dbEdtVatPerc: TDBEdit
+                    Left = 170
+                    Top = 54
                     ParentFont = False
                   end
                   inherited ptrnVat: TCheckBox
+                    Left = 170
+                    Top = 170
                     ParentFont = False
                   end
                   inherited lblSaleVat: TLabel
+                    Left = -2
+                    Top = 93
                     ParentFont = False
                   end
                   inherited lblSaleVat1: TLabel
+                    Left = -2
+                    Top = 131
                     ParentFont = False
                   end
                   inherited dblComboVat_svat: TRxDBLookupCombo
+                    Left = 170
+                    Top = 88
+                    Width = 150
                     ParentFont = False
                   end
                   inherited dblComboVat_ipvat: TRxDBLookupCombo
+                    Left = 170
+                    Top = 125
+                    Width = 150
                     ParentFont = False
                   end
                   inherited ptrnVat50perc: TCheckBox
+                    Left = 170
+                    Top = 190
                     ParentFont = False
                   end
                 end
@@ -659,8 +735,8 @@ object form_admin: Tform_admin
             end
             object tabLogo: TTabSheet
               Caption = ' Logo '
-              ClientHeight = 418
-              ClientWidth = 523
+              ClientHeight = 522
+              ClientWidth = 660
               ParentFont = False
               object lbCompanyName1: TLabel
                 Left = 10
@@ -686,9 +762,9 @@ object form_admin: Tform_admin
                 OnClick = panelCompLogoClick
                 object compLogoPct: TImage
                   Left = 2
-                  Height = 96
+                  Height = 121
                   Top = 2
-                  Width = 201
+                  Width = 252
                   Align = alClient
                   Stretch = True
                 end

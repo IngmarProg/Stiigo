@@ -42,16 +42,11 @@ type
     function findActiveLanguage: AStr;
     function remapNumerators(const pCompanyId: integer): boolean;
     function pgCollation(const pTempl0Collation: AStr): AStr; // ainult postgre puhul !
-
-
     // kõik seaded; käibemaksud; riigid; jne jne; TODO: et saaks ka muutujate nimekirja täiustada !
     function insertPreDefValsFromConfFile: boolean;
     // seoses struktuuride uuendamisega on mõttekas teda publikuna hoida, et estbk_upgrademodule saaks teda välja kutsuda !
     procedure addFncTriggers(const pCreateTriggers: boolean = True);
-
-    // ----------
     procedure connect(const shost: AStr; const sport: integer; const susername: AStr; const spassword: AStr);
-
     // 16.08.2009 ingmar kontrollime üle tabelid ja struktuurid...kontrollib, kas tabelid loodud, kui autocreate, siis nad luuakse
     function validateTables(const autoCreate: boolean; var emsg: AStr; var template0Collation: AStr; // ainult Postgre puhul olemas
       const eparam: boolean): boolean;
@@ -1402,7 +1397,7 @@ begin
   template0Collation := '';
   try
     // 30.08.2009 Ingmar; firebird sisuliselt teeb kõik transaktsioonide sees ntx. isegi tavaline select !
-    self.admConnection.StartTransaction;
+    //admConnection.StartTransaction;
     try
       Result := False;
       pDatabaseCreated := False;
@@ -1682,21 +1677,17 @@ begin
           add(estbk_sqlcollection._SQLCreatePermView);
           execSQL;
 
-
           // SELECT õigused ka !
           Close;
           Clear;
           add(format(CSQLGrantPermission, [CSQLSelect, 'v_permissions', CProjectRolename]));
           execSQL;
 
-
           // kontode algsaldode view
           Close;
           Clear;
           add(estbk_sqlcollection._SQLCreateAccInitBalanceView);
           execSQL;
-
-
 
           // SELECT õigused ka !
           Close;
@@ -1718,19 +1709,19 @@ begin
         self.insertAllPreDefConfVars;
       end;
 
-
-      // ...himalaja tipp leitud...
       Result := True;
-      self.admConnection.Commit;
+      // admConnection.Commit;
 
     finally
 
       // ikka transaktsioon elus ?!? midagi viltu läinud
+      {
       if self.admConnection.inTransaction then
         try
           self.admConnection.Rollback;
         except
         end;
+      }
 
       if pChkProgress.Visible then
         pChkProgress.Close;

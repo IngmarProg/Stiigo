@@ -75,7 +75,7 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
         end
         else
         begin
-          admDatamodule.connect(usrHostname, usrPort, usrName, usrPassword); // proovime ühenduse luua
+          admDatamodule.Connect(usrHostname, usrPort, usrName, usrPassword); // proovime ühenduse luua
           Result := True;
         end;
         // --

@@ -1,15 +1,15 @@
 { This is an automatically generated typhon resource file }
 
 TyphonResources.Add('Tform_admin','FORMDATA',[
-  'TPF0'#11'Tform_admin'#10'form_admin'#4'Left'#3'C'#2#6'Height'#3#238#2#3'Top'
-  +#3#135#0#5'Width'#3#232#3#7'Caption'#6#21'Stiigo administraator'#12'ClientHe'
-  +'ight'#3#213#2#11'ClientWidth'#3#232#3#21'Constraints.MinHeight'#3#238#2#20
-  +'Constraints.MinWidth'#3#232#3#13'DesignTimePPI'#2'x'#10'KeyPreview'#9#4'Men'
-  +'u'#7#8'mnu_main'#8'OnCreate'#7#10'FormCreate'#9'OnDestroy'#7#11'FormDestroy'
-  +#9'OnKeyDown'#7#11'FormKeyDown'#10'OnKeyPress'#7#12'FormKeyPress'#6'OnShow'#7
-  +#8'FormShow'#8'Position'#7#14'poScreenCenter'#10'LCLVersion'#6#3'7.0'#0#6'TL'
-  +'abel'#6'Label3'#4'Left'#3#210#2#6'Height'#2#20#3'Top'#3#154#2#5'Width'#2','
-  +#7'Caption'#6#6'Label3'#11'ParentColor'#8#10'ParentFont'#8#0#0#10'TStatusBar'
+  'TPF0'#11'Tform_admin'#10'form_admin'#4'Left'#2#23#6'Height'#3#238#2#3'Top'#3
+  +#215#0#5'Width'#3#232#3#7'Caption'#6#21'Stiigo administraator'#12'ClientHeig'
+  +'ht'#3#213#2#11'ClientWidth'#3#232#3#21'Constraints.MinHeight'#3#238#2#20'Co'
+  +'nstraints.MinWidth'#3#232#3#13'DesignTimePPI'#2'x'#10'KeyPreview'#9#4'Menu'
+  +#7#8'mnu_main'#8'OnCreate'#7#10'FormCreate'#9'OnDestroy'#7#11'FormDestroy'#9
+  +'OnKeyDown'#7#11'FormKeyDown'#10'OnKeyPress'#7#12'FormKeyPress'#6'OnShow'#7#8
+  +'FormShow'#8'Position'#7#14'poScreenCenter'#10'LCLVersion'#6#3'7.0'#0#6'TLab'
+  +'el'#6'Label3'#4'Left'#3#210#2#6'Height'#2#20#3'Top'#3#154#2#5'Width'#2','#7
+  +'Caption'#6#6'Label3'#11'ParentColor'#8#10'ParentFont'#8#0#0#10'TStatusBar'
   +#10'StatusBar1'#4'Left'#2#0#6'Height'#2#29#3'Top'#3#184#2#5'Width'#3#232#3#6
   +'Panels'#14#0#10'ParentFont'#8#0#0#6'TPanel'#13'adm_mainpanel'#4'Left'#2#0#6
   +'Height'#3#152#2#3'Top'#2' '#5'Width'#3#232#3#5'Align'#7#8'alClient'#10'Beve'
@@ -83,523 +83,537 @@ TyphonResources.Add('Tform_admin','FORMDATA',[
   +#6'TLabel'#13'lbCompregcode'#4'Left'#2#10#6'Height'#2#18#3'Top'#2'7'#5'Width'
   +#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#13'Reg'
   +'istrikood:'#11'ParentColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'#10'dbEdtRegnr'
-  +#4'Left'#3#200#0#6'Height'#2#28#3'Top'#2'2'#5'Width'#3' '#1#9'DataField'#6#5
+  +#4'Left'#3#200#0#6'Height'#2#28#3'Top'#2'2'#5'Width'#3#222#0#9'DataField'#6#5
   +'regnr'#10'DataSource'#7#18'admCompListDataset'#8'CharCase'#7#8'ecNormal'#9
   +'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#1#10'OnKeyPress'#7#21'dbEdtCo'
   +'mpnameKeyPress'#0#0#6'TLabel'#11'lbVatnumber'#4'Left'#2#10#6'Height'#2#18#3
   +'Top'#2'R'#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7
   +'Caption'#6#27'K'#195#164'ibemaksukohustuslase nr:'#11'ParentColor'#8#10'Par'
   +'entFont'#8#0#0#7'TDBEdit'#11'dbVatnumber'#4'Left'#3#200#0#6'Height'#2#28#3
-  +'Top'#2'O'#5'Width'#3' '#1#9'DataField'#6#9'vatnumber'#10'DataSource'#7#18'a'
-  +'dmCompListDataset'#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'
-  +#8#8'TabOrder'#2#2#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#6'TLabel'#6
-  +'lbMaja'#4'Left'#2#10#6'Height'#2#18#3'Top'#3#198#0#5'Width'#3#180#0#9'Align'
-  +'ment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#5'Maja:'#11'ParentCol'
-  +'or'#8#10'ParentFont'#8#0#0#7'TDBEdit'#10'dbEdtHouse'#4'Left'#3#200#0#6'Heig'
-  +'ht'#2#28#3'Top'#3#194#0#5'Width'#3#222#0#9'DataField'#6#8'house_nr'#10'Data'
-  +'Source'#7#18'admCompListDataset'#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0
-  +#10'ParentFont'#8#8'TabOrder'#2#4#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'
-  +#0#0#6'TLabel'#8'lbKorter'#4'Left'#2#22#6'Height'#2#18#3'Top'#3#226#0#5'Widt'
-  +'h'#3#168#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#7'K'
-  +'orter:'#11'ParentColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'#14'dbEdtApartment'
-  +#4'Left'#3#200#0#6'Height'#2#28#3'Top'#3#222#0#5'Width'#3#222#0#9'DataField'
-  +#6#12'apartment_nr'#10'DataSource'#7#18'admCompListDataset'#8'CharCase'#7#8
-  +'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#5#10'OnKeyPress'#7
-  +#21'dbEdtCompnameKeyPress'#0#0#6'TLabel'#9'lbZipcode'#4'Left'#2#10#6'Height'
-  +#2#18#3'Top'#3#255#0#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'Au'
-  +'toSize'#8#7'Caption'#6#12'Postiindeks:'#11'ParentColor'#8#10'ParentFont'#8#0
-  +#0#7'TDBEdit'#12'dbEdtZipcode'#4'Left'#3#200#0#6'Height'#2#28#3'Top'#3#251#0
-  +#5'Width'#3#196#0#9'DataField'#6#7'zipcode'#10'DataSource'#7#18'admCompListD'
-  +'ataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNor'
-  +'mal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#6#10'OnKeyPress'#7#21
+  +'Top'#2'O'#5'Width'#3#222#0#9'DataField'#6#9'vatnumber'#10'DataSource'#7#18
+  +'admCompListDataset'#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFon'
+  +'t'#8#8'TabOrder'#2#2#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#6'TLabe'
+  +'l'#6'lbMaja'#4'Left'#2#7#6'Height'#2#23#3'Top'#3#200#0#5'Width'#3#180#0#9'A'
+  +'lignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#5'Maja:'#11'Paren'
+  +'tColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'#10'dbEdtHouse'#4'Left'#3#200#0#6
+  +'Height'#2#28#3'Top'#3#196#0#5'Width'#3#222#0#9'DataField'#6#8'house_nr'#10
+  +'DataSource'#7#18'admCompListDataset'#8'CharCase'#7#8'ecNormal'#9'MaxLength'
+  +#2#0#10'ParentFont'#8#8'TabOrder'#2#4#10'OnKeyPress'#7#21'dbEdtCompnameKeyPr'
+  +'ess'#0#0#6'TLabel'#8'lbKorter'#4'Left'#2#19#6'Height'#2#18#3'Top'#3#229#0#5
+  +'Width'#3#168#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6
+  +#7'Korter:'#11'ParentColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'#14'dbEdtApartm'
+  +'ent'#4'Left'#3#200#0#6'Height'#2#28#3'Top'#3#225#0#5'Width'#3#222#0#9'DataF'
+  +'ield'#6#12'apartment_nr'#10'DataSource'#7#18'admCompListDataset'#8'CharCase'
+  +#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#5#10'OnKeyPre'
+  +'ss'#7#21'dbEdtCompnameKeyPress'#0#0#6'TLabel'#9'lbZipcode'#4'Left'#2#6#6'He'
+  +'ight'#2#18#3'Top'#3#2#1#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8
+  +'AutoSize'#8#7'Caption'#6#12'Postiindeks:'#11'ParentColor'#8#10'ParentFont'#8
+  +#0#0#7'TDBEdit'#12'dbEdtZipcode'#4'Left'#3#200#0#6'Height'#2#28#3'Top'#3#254
+  +#0#5'Width'#3#222#0#9'DataField'#6#7'zipcode'#10'DataSource'#7#18'admCompLis'
+  +'tDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecN'
+  +'ormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#6#10'OnKeyPress'#7#21
   +'dbEdtCompnameKeyPress'#0#0#6'TLabel'#7'lbPhone'#4'Left'#2#10#6'Height'#2#18
-  +#3'Top'#3#26#1#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'
+  +#3'Top'#3#30#1#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'
   +#8#7'Caption'#6#8'Telefon:'#11'ParentColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'
-  +#7'dbPhone'#4'Left'#3#200#0#6'Height'#2#28#3'Top'#3#24#1#5'Width'#3#196#0#9
+  +#7'dbPhone'#4'Left'#3#200#0#6'Height'#2#28#3'Top'#3#28#1#5'Width'#3#222#0#9
   +'DataField'#6#5'phone'#10'DataSource'#7#18'admCompListDataset'#7'Anchors'#11
   +#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0
   +#10'ParentFont'#8#8'TabOrder'#2#7#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'
-  +#0#0#6'TLabel'#8'lbMobile'#4'Left'#2#10#6'Height'#2#18#3'Top'#3'8'#1#5'Width'
+  +#0#0#6'TLabel'#8'lbMobile'#4'Left'#2#10#6'Height'#2#18#3'Top'#3'<'#1#5'Width'
   +#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#7'Mobi'
   +'il:'#11'ParentColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'#11'dbEdtMobile'#4'Le'
-  +'ft'#3#200#0#6'Height'#2#28#3'Top'#3'5'#1#5'Width'#3#196#0#9'DataField'#6#11
+  +'ft'#3#200#0#6'Height'#2#28#3'Top'#3'9'#1#5'Width'#3#222#0#9'DataField'#6#11
   +'mobilephone'#10'DataSource'#7#18'admCompListDataset'#7'Anchors'#11#5'akTop'
   +#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'Parent'
   +'Font'#8#8'TabOrder'#2#8#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#6'TL'
-  +'abel'#5'lbFax'#4'Left'#2#10#6'Height'#2#18#3'Top'#3'U'#1#5'Width'#3#180#0#9
+  +'abel'#5'lbFax'#4'Left'#2#10#6'Height'#2#18#3'Top'#3'Y'#1#5'Width'#3#180#0#9
   +'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#5'Faks:'#11'Pare'
   +'ntColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'#8'dbEdtFax'#4'Left'#3#200#0#6'He'
-  ,'ight'#2#28#3'Top'#3'R'#1#5'Width'#3#196#0#9'DataField'#6#3'fax'#10'DataSour'
+  ,'ight'#2#28#3'Top'#3'V'#1#5'Width'#3#222#0#9'DataField'#6#3'fax'#10'DataSour'
   +'ce'#7#18'admCompListDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8
   +'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#9#10
   +'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#6'TLabel'#7'lbEmail'#4'Left'#2
-  +#10#6'Height'#2#18#3'Top'#3'r'#1#5'Width'#3#180#0#9'Alignment'#7#14'taRightJ'
+  +#10#6'Height'#2#18#3'Top'#3'w'#1#5'Width'#3#180#0#9'Alignment'#7#14'taRightJ'
   +'ustify'#8'AutoSize'#8#7'Caption'#6#7'E-post:'#11'ParentColor'#8#10'ParentFo'
   +'nt'#8#0#0#7'TDBEdit'#10'dbEdtEmail'#4'Left'#3#200#0#6'Height'#2#28#3'Top'#3
-  +'n'#1#5'Width'#3#12#1#9'DataField'#6#5'email'#10'DataSource'#7#18'admCompLis'
-  +'tDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecN'
-  +'ormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#10#10'OnKeyPress'#7
+  +'s'#1#5'Width'#3#162#1#9'DataField'#6#5'email'#10'DataSource'#7#18'admCompLi'
+  +'stDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ec'
+  +'Normal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#10#10'OnKeyPress'#7
   +#21'dbEdtCompnameKeyPress'#0#0#244#16'TFrameAddrPicker'#14'frameCompCAddr'#4
-  +'Left'#2#22#6'Height'#2'X'#3'Top'#2'j'#12'ClientHeight'#2'X'#8'TabOrder'#2#3
-  +#7'Visible'#9#10'DesignLeft'#3'W'#2#9'DesignTop'#3'9'#2#0#241#6'TLabel'#8'lb'
-  +'County'#10'ParentFont'#8#0#0#241#6'TLabel'#6'lbCity'#10'ParentFont'#8#0#0
-  +#241#6'TLabel'#8'lbStreet'#10'ParentFont'#8#0#0#241#9'TComboBox'#11'comboCou'
-  +'nty'#6'Height'#2#28#5'Width'#3#242#0#10'ItemHeight'#2#20#10'ParentFont'#8#0
-  +#0#241#9'TComboBox'#9'comboCity'#6'Height'#2#28#5'Width'#3#242#0#10'ItemHeig'
-  +'ht'#2#20#10'ParentFont'#8#0#0#241#9'TComboBox'#11'comboStreet'#6'Height'#2
-  +#28#5'Width'#3#242#0#10'ItemHeight'#2#20#10'ParentFont'#8#0#0#0#0#9'TTabShee'
-  +'t'#16'tabPageAccPeriod'#7'Caption'#6#15' Majandusaasta '#12'ClientHeight'#3
-  +#162#1#11'ClientWidth'#3#11#2#10'ParentFont'#8#0#244#16'TframeAccPeriods'#16
-  +'frameAccPeriods1'#6'Height'#3#162#1#5'Width'#3#11#2#5'Align'#7#8'alClient'
-  +#12'ClientHeight'#3#162#1#11'ClientWidth'#3#11#2#10'DesignLeft'#3'T'#1#9'Des'
-  +'ignTop'#3'I'#1#0#241#6'TLabel'#10'lblPerName'#10'ParentFont'#8#0#0#241#6'TL'
-  +'abel'#12'lblDateStart'#10'ParentFont'#8#0#0#241#6'TLabel'#10'lblDateEnd'#10
-  +'ParentFont'#8#0#0#241#6'TBevel'#7'mrline3'#5'Width'#3#225#1#0#0#241#7'TDBGr'
-  +'id'#9'accEntrys'#6'Height'#3#212#0#5'Width'#3#225#1#0#0#241#6'TBevel'#7'mrl'
-  +'ine4'#5'Width'#3#225#1#0#0#241#9'TCheckBox'#13'pchkboxAccPer'#3'Top'#3't'#1
-  +#10'ParentFont'#8#0#0#0#0#9'TTabSheet'#6'tabVat'#7'Caption'#6#12'K'#195#164
-  +'ibemaksud'#12'ClientHeight'#3#162#1#11'ClientWidth'#3#11#2#10'ParentFont'#8
-  +#0#244#10'TframeVATs'#11'frameVATMgr'#6'Height'#3#162#1#5'Width'#3#11#2#5'Al'
-  +'ign'#7#8'alClient'#12'ClientHeight'#3#162#1#11'ClientWidth'#3#11#2#10'Desig'
-  +'nLeft'#3#23#1#9'DesignTop'#3'v'#1#0#241#6'TPanel'#9'leftPanel'#6'Height'#3
-  +#162#1#12'ClientHeight'#3#162#1#10'ParentFont'#8#0#241#7'TDBGrid'#7'gridVat'
-  +#6'Height'#3#158#1#5'Width'#3#253#0#10'ParentFont'#8#0#0#0#241#9'TSplitter'#9
-  +'Splitter1'#6'Height'#3#162#1#0#0#241#6'TPanel'#10'rightPanel'#6'Height'#3
-  +#162#1#5'Width'#3#19#1#12'ClientHeight'#3#162#1#11'ClientWidth'#3#19#1#10'Pa'
-  +'rentFont'#8#0#241#6'TLabel'#10'lblVatname'#10'ParentFont'#8#0#0#241#7'TDBEd'
-  +'it'#12'dbEdtVatName'#5'Width'#2'M'#10'ParentFont'#8#0#0#241#6'TLabel'#10'lb'
-  +'lVatPerc'#10'ParentFont'#8#0#0#241#7'TDBEdit'#12'dbEdtVatPerc'#10'ParentFon'
-  +'t'#8#0#0#241#9'TCheckBox'#7'ptrnVat'#10'ParentFont'#8#0#0#241#6'TLabel'#10
-  +'lblSaleVat'#10'ParentFont'#8#0#0#241#6'TLabel'#11'lblSaleVat1'#10'ParentFon'
-  +'t'#8#0#0#241#16'TRxDBLookupCombo'#16'dblComboVat_svat'#10'ParentFont'#8#0#0
-  +#241#16'TRxDBLookupCombo'#17'dblComboVat_ipvat'#10'ParentFont'#8#0#0#241#9'T'
-  +'CheckBox'#13'ptrnVat50perc'#10'ParentFont'#8#0#0#0#0#0#9'TTabSheet'#7'tabLo'
-  +'go'#7'Caption'#6#6' Logo '#12'ClientHeight'#3#162#1#11'ClientWidth'#3#11#2
-  +#10'ParentFont'#8#0#6'TLabel'#14'lbCompanyName1'#4'Left'#2#10#6'Height'#2#18
-  +#3'Top'#2#25#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8
-  +#7'Caption'#6#11'Firma logo:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TPane'
-  +'l'#13'panelCompLogo'#4'Left'#3#199#0#6'Height'#2'}'#3'Top'#2#25#5'Width'#3#0
-  +#1#10'BevelInner'#7#9'bvLowered'#12'ClientHeight'#2'}'#11'ClientWidth'#3#0#1
-  +#10'ParentFont'#8#8'TabOrder'#2#0#7'OnClick'#7#18'panelCompLogoClick'#0#6'TI'
-  +'mage'#11'compLogoPct'#4'Left'#2#2#6'Height'#2'`'#3'Top'#2#2#5'Width'#3#201#0
-  +#5'Align'#7#8'alClient'#7'Stretch'#9#0#0#0#12'TSpeedButton'#12'SpeedButton1'
-  +#4'Left'#3#203#1#6'Height'#2#28#4'Hint'#6#11'Lisan pildi'#3'Top'#2#25#5'Widt'
-  +'h'#2#29#10'Glyph.Data'#10':'#4#0#0'6'#4#0#0'BM6'#4#0#0#0#0#0#0'6'#0#0#0'('#0
-  +#0#0#16#0#0#0#16#0#0#0#1#0' '#0#0#0#0#0#0#4#0#0'd'#0#0#0'd'#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#24#166#195'i'#26#167#196'i'#0#160#196#24#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#160#196']f'#219#234#178#17#166#194#174#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#160#196'"C'#196#219#252'C'#197#216#254'#'#166#192#127#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#160#196#255#0#0#0#0#0#0#0#0#0#0#0#0#0
-  ,#0#0#0#0#0#0#0#14#170#203#254']'#218#233#254'#'#166#192#239#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#160#196#255#0#160#196#255#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#158#193#26#2#172#200#255#136#231#242#254#17#162#194#255#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196#255'v'#237#251#255#0#160#196
-  +#255#0#0#0#0#0#0#0#0#0#160#196'0'#0#153#185'P'#0#160#196#201'm'#230#245#255
-  +'v'#226#239#255#25#163#193#255#0#0#0#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196#255
-  +'v'#237#251#255'v'#237#251#255#0#160#196#255#0#160#196#255#0#160#196#255#0
-  +#160#196#255#1#169#196#255'n'#225#238#255#15#201#223#255'i'#228#242#255#26
-  +#164#192#248#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196#255'v'#237#251#255#4#195#218
-  +#255'v'#237#251#255'i'#234#249#255'i'#234#249#255'i'#234#249#255'i'#234#249
-  +#255#5#221#247#255#10#200#223#255#7#194#216#255'o'#220#235#255#27#163#191#244
-  +#0#0#0#0#5'y~'#17#0#160#196#255'y'#237#251#255'2'#226#248#255','#223#244#255
-  +#4#192#214#255#4#192#214#255#4#192#214#255#29#210#232#255#29#210#232#255#29
-  +#210#232#255#11#200#223#255'j'#229#243#255#27#171#197#248#21#160#188#203#0#0
-  +#0#0#0#160#196#255#173#243#251#255'/'#224#246#255'2'#226#248#255'2'#226#247
-  +#255'2'#226#247#255'/'#224#245#255')'#219#241#255#29#210#232#255#29#210#232
-  +#255#29#210#232#255'6'#217#236#255'@'#205#225#255#22#161#189#202#5'y}'#10#0#0
-  +#0#0#5'y}'#10#0#160#196#255#173#243#251#255'/'#224#246#255'2'#226#247#255')'
-  +#219#241#255'/'#224#245#255')'#219#241#255#22#205#227#255'6'#217#236#255'i'
-  +#231#246#255'A'#206#227#254#19#163#193#228#5'y}2'#0#0#0#0#0#0#0#0#0#0#0#0#5
-  +'y}'#17#0#160#196#255#173#243#251#255'1'#225#246#255' '#227#250#255's'#236
-  +#250#255'o'#235#250#255'n'#232#247#255'l'#232#247#248#20#161#188#212#20#163
-  +#193#213#5'y}'#28#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196
-  +#255#173#243#251#255'%'#228#251#255#0#160#196#255#0#160#196#255#19#161#190
-  +#231#21#159#187#207#27#161#187#164#6'z|'#11#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196#255#173#243#251#255#0#160#196#255#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#157#191#20#0#160#196#255#0#160#196#255#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#160#196#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#7'OnClick'#7#17'SpeedButton1Cli'
-  +'ck'#8'ShowHint'#9#10'ParentFont'#8#14'ParentShowHint'#8#0#0#0#0#7'TBitBtn'
-  +#10'btnNewItem'#3'Tag'#2#255#4'Left'#2's'#6'Height'#2'&'#3'Top'#3'?'#2#5'Wid'
-  +'th'#2'|'#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Caption'#6#9'Uus firma'#4
-  +'Kind'#7#5'bkYes'#7'OnClick'#7#15'btnNewItemClick'#10'ParentFont'#8#8'TabOrd'
-  +'er'#2#4#0#0#0#9'TSplitter'#9'Splitter1'#4'Left'#3'8'#1#6'Height'#3's'#2#3'T'
-  +'op'#2#0#5'Width'#2#6#0#0#0#9'TTabSheet'#12'tabWorkerMgm'#7'Caption'#6#17'Ka'
-  +'sutajate haldus'#12'ClientHeight'#3#245#1#11'ClientWidth'#3#20#3#10'ParentF'
-  +'ont'#8#10'TabVisible'#8#0#6'TPanel'#12'leftpanelWrk'#4'Left'#2#0#6'Height'#3
-  +#245#1#3'Top'#2#0#5'Width'#3'8'#1#5'Align'#7#6'alLeft'#10'BevelInner'#7#9'bv'
-  +'Lowered'#12'ClientHeight'#3#245#1#11'ClientWidth'#3'8'#1#20'Constraints.Max'
-  +'Width'#3#219#1#20'Constraints.MinWidth'#3#250#0#10'ParentFont'#8#8'TabOrder'
-  +#2#0#0#7'TDBGrid'#13'dbGridWorkers'#4'Left'#2#5#6'Height'#3#234#1#3'Top'#2#6
-  +#5'Width'#3#240#0#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#8
-  +'AutoEdit'#8#5'Color'#7#8'clWindow'#7'Columns'#14#1#7'MinSize'#2#12#7'MaxSiz'
-  +'e'#3#250#0#13'Title.Caption'#6#12'Kasutajanimi'#5'Width'#3#212#0#9'FieldNam'
-  +'e'#6#9'loginname'#0#0#10'DataSource'#7#19'admWorkerMgmDataset'#4'Flat'#9#7
-  +'Options'#11#8'dgTitles'#11'dgIndicator'#14'dgColumnResize'#12'dgColumnMove'
-  +#10'dgColLines'#10'dgRowLines'#6'dgTabs'#21'dgAlwaysShowSelection'#14'dgCanc'
-  +'elOnExit'#0#10'ParentFont'#8#8'ReadOnly'#9#8'TabOrder'#2#0#0#0#0#6'TPanel'
-  +#13'rightpanelWrk'#3'Tag'#2#255#4'Left'#3#255#0#6'Height'#3#245#1#3'Top'#2#0
-  +#5'Width'#3#21#2#5'Align'#7#8'alClient'#10'BevelOuter'#7#6'bvNone'#12'Client'
-  +'Height'#3#245#1#11'ClientWidth'#3#21#2#20'Constraints.MinWidth'#2'}'#10'Par'
-  +'entFont'#8#8'TabOrder'#2#1#0#12'TPageControl'#15'pageCtrlUserMgr'#3'Tag'#2
-  +#255#4'Left'#2#0#6'Height'#3#174#1#3'Top'#2#5#5'Width'#3#17#2#10'ActivePage'
-  +#7#15'tabOverAllDescr'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBotto'
-  +'m'#0#10'ParentFont'#8#8'TabIndex'#2#0#8'TabOrder'#2#0#0#9'TTabSheet'#15'tab'
-  +'OverAllDescr'#7'Caption'#6#17#195#156'ldine kirjeldus'#12'ClientHeight'#3
-  +#162#1#11'ClientWidth'#3#10#2#10'ParentFont'#8#0#6'TLabel'#17'lbWorkerLoginn'
-  +'ame'#4'Left'#2#9#6'Height'#2#18#3'Top'#2#28#5'Width'#3#181#0#9'Alignment'#7
-  +#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#13'Kasutajanimi:'#11'ParentCo'
-  +'lor'#8#10'ParentFont'#8#0#0#6'TLabel'#9'lbWrkName'#4'Left'#2#10#6'Height'#2
-  +#18#3'Top'#2'U'#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSiz'
-  +'e'#8#7'Caption'#6#5'Nimi:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'
-  ,#15'lbWrkMiddleName'#4'Left'#2#10#6'Height'#2#18#3'Top'#2'r'#5'Width'#3#180#0
-  +#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#14'Teine eesni'
-  +'mi:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#13'lbWrkLastname'#4'L'
-  +'eft'#2#10#6'Height'#2#18#3'Top'#3#144#0#5'Width'#3#180#0#9'Alignment'#7#14
-  +'taRightJustify'#8'AutoSize'#8#7'Caption'#6#14'Perekonnanimi:'#11'ParentColo'
-  +'r'#8#10'ParentFont'#8#0#0#6'TLabel'#13'lbWrkPosition'#4'Left'#2#10#6'Height'
-  +#2#18#3'Top'#3#170#0#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'Au'
-  +'toSize'#8#7'Caption'#6#10'Ametikoht:'#11'ParentColor'#8#10'ParentFont'#8#0#0
-  +#6'TLabel'#10'lbWrkEmail'#4'Left'#2#10#6'Height'#2#18#3'Top'#3#199#0#5'Width'
-  +#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#7'E-po'
-  +'st:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#14'lbWrkLastLogin'#4
-  +'Left'#2#10#6'Height'#2#18#3'Top'#3#229#0#5'Width'#3#180#0#9'Alignment'#7#14
-  +'taRightJustify'#8'AutoSize'#8#7'Caption'#6#17'Viimane logimine:'#11'ParentC'
-  +'olor'#8#10'ParentFont'#8#0#0#6'TLabel'#17'lbWrkLastLoginCIP'#4'Left'#2#10#6
-  +'Height'#2#18#3'Top'#3#0#1#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'
-  +#8'AutoSize'#8#7'Caption'#6#10'Masina IP:'#11'ParentColor'#8#10'ParentFont'#8
-  +#0#0#6'TLabel'#17'lbWrkLoginAllowed'#4'Left'#2#9#6'Height'#2#18#3'Top'#3' '#1
+  +'Left'#2#20#6'Height'#2'V'#3'Top'#2'm'#5'Width'#3#231#1#12'ClientHeight'#2'V'
+  +#11'ClientWidth'#3#231#1#8'TabOrder'#2#3#7'Visible'#9#10'DesignLeft'#3'W'#2#9
+  +'DesignTop'#3'9'#2#0#241#6'TLabel'#8'lbCounty'#4'Left'#2'i'#6'Height'#2#20#3
+  +'Top'#2#3#5'Width'#2'A'#7'Anchors'#11#5'akTop'#0#8'AutoSize'#9#10'ParentFont'
+  +#8#0#0#241#6'TLabel'#6'lbCity'#4'Left'#2'a'#6'Height'#2#20#3'Top'#2'!'#5'Wid'
+  +'th'#2'I'#7'Anchors'#11#5'akTop'#0#8'AutoSize'#9#10'ParentFont'#8#0#0#241#6
+  +'TLabel'#8'lbStreet'#4'Left'#3#128#0#6'Height'#2#20#3'Top'#2'='#5'Width'#2')'
+  +#7'Anchors'#11#5'akTop'#0#8'AutoSize'#9#10'ParentFont'#8#0#0#241#9'TComboBox'
+  +#11'comboCounty'#4'Left'#3#180#0#6'Height'#2#28#3'Top'#2#0#5'Width'#3'1'#1#10
+  +'ItemHeight'#2#20#10'ParentFont'#8#0#0#241#9'TComboBox'#9'comboCity'#4'Left'
+  +#3#180#0#6'Height'#2#28#3'Top'#2#29#5'Width'#3'1'#1#10'ItemHeight'#2#20#10'P'
+  +'arentFont'#8#0#0#241#9'TComboBox'#11'comboStreet'#4'Left'#3#180#0#6'Height'
+  +#2#28#3'Top'#2':'#5'Width'#3'1'#1#10'ItemHeight'#2#20#10'ParentFont'#8#0#0
+  +#241#7'TZQuery'#7'qryCity'#4'Left'#3#23#2#3'Top'#2'k'#0#0#241#7'TZQuery'#9'q'
+  +'ryStreet'#4'Left'#3#7#2#3'Top'#4#147#255#0#0#0#0#241#11'TZUpdateSQL'#15'qry'
+  +'InsertCounty'#4'Left'#3#239#1#3'Top'#2#11#0#0#0#0#9'TTabSheet'#16'tabPageAc'
+  +'cPeriod'#7'Caption'#6#15' Majandusaasta '#12'ClientHeight'#3#10#2#11'Client'
+  +'Width'#3#148#2#10'ParentFont'#8#0#244#16'TframeAccPeriods'#16'frameAccPerio'
+  +'ds1'#6'Height'#3#10#2#5'Width'#3#148#2#5'Align'#7#8'alClient'#12'ClientHeig'
+  +'ht'#3#10#2#11'ClientWidth'#3#148#2#10'DesignLeft'#3'T'#1#9'DesignTop'#3'I'#1
+  +#0#241#6'TLabel'#10'lblPerName'#3'Top'#2#20#10'ParentFont'#8#0#0#241#7'TDBEd'
+  +'it'#12'dbEdtPerName'#3'Top'#2#16#0#0#241#6'TLabel'#12'lblDateStart'#4'Left'
+  +#2#28#3'Top'#2'2'#10'ParentFont'#8#0#0#241#9'TDateEdit'#10'dtEdtStart'#3'Top'
+  +#2'/'#0#0#241#9'TDateEdit'#8'dtEdtEnd'#3'Top'#2'O'#0#0#241#6'TLabel'#10'lblD'
+  +'ateEnd'#3'Top'#2'T'#10'ParentFont'#8#0#0#241#6'TBevel'#7'mrline3'#5'Width'#3
+  +'j'#2#0#0#241#7'TDBGrid'#9'accEntrys'#6'Height'#3'<'#1#5'Width'#3'j'#2#0#0
+  +#241#6'TBevel'#7'mrline4'#5'Width'#3'j'#2#0#0#241#9'TCheckBox'#13'pchkboxAcc'
+  +'Per'#3'Top'#3#220#1#10'ParentFont'#8#0#0#0#0#9'TTabSheet'#6'tabVat'#7'Capti'
+  +'on'#6#12'K'#195#164'ibemaksud'#12'ClientHeight'#3#10#2#11'ClientWidth'#3#148
+  +#2#10'ParentFont'#8#0#244#10'TframeVATs'#11'frameVATMgr'#6'Height'#3#10#2#5
+  +'Width'#3#148#2#5'Align'#7#8'alClient'#12'ClientHeight'#3#10#2#11'ClientWidt'
+  +'h'#3#148#2#10'DesignLeft'#3#23#1#9'DesignTop'#3'v'#1#0#241#6'TPanel'#9'left'
+  +'Panel'#6'Height'#3#10#2#12'ClientHeight'#3#10#2#10'ParentFont'#8#0#241#7'TD'
+  +'BGrid'#7'gridVat'#6'Height'#3#6#2#5'Width'#3'%'#1#10'ParentFont'#8#0#0#0#241
+  +#9'TSplitter'#9'Splitter1'#6'Height'#3#10#2#0#0#241#6'TPanel'#10'rightPanel'
+  +#6'Height'#3#10#2#5'Width'#3'^'#1#12'ClientHeight'#3#10#2#11'ClientWidth'#3
+  +'^'#1#10'ParentFont'#8#0#241#6'TLabel'#10'lblVatname'#4'Left'#2#22#6'Height'
+  +#2#20#3'Top'#2#23#5'Width'#3#139#0#8'AutoSize'#9#10'ParentFont'#8#0#0#241#7
+  +'TDBEdit'#12'dbEdtVatName'#4'Left'#3#170#0#3'Top'#2#21#5'Width'#3#152#0#10'P'
+  +'arentFont'#8#0#0#241#6'TLabel'#10'lblVatPerc'#4'Left'#2#20#3'Top'#2':'#10'P'
+  +'arentFont'#8#0#0#241#7'TDBEdit'#12'dbEdtVatPerc'#4'Left'#3#170#0#3'Top'#2'6'
+  +#10'ParentFont'#8#0#0#241#9'TCheckBox'#7'ptrnVat'#4'Left'#3#170#0#3'Top'#3
+  +#170#0#10'ParentFont'#8#0#0#241#6'TLabel'#10'lblSaleVat'#4'Left'#2#254#3'Top'
+  +#2']'#10'ParentFont'#8#0#0#241#6'TLabel'#11'lblSaleVat1'#4'Left'#2#254#3'Top'
+  +#3#131#0#10'ParentFont'#8#0#0#241#16'TRxDBLookupCombo'#16'dblComboVat_svat'#4
+  +'Left'#3#170#0#3'Top'#2'X'#5'Width'#3#150#0#10'ParentFont'#8#0#0#241#16'TRxD'
+  +'BLookupCombo'#17'dblComboVat_ipvat'#4'Left'#3#170#0#3'Top'#2'}'#5'Width'#3
+  +#150#0#10'ParentFont'#8#0#0#241#9'TCheckBox'#13'ptrnVat50perc'#4'Left'#3#170
+  +#0#3'Top'#3#190#0#10'ParentFont'#8#0#0#0#0#0#9'TTabSheet'#7'tabLogo'#7'Capti'
+  +'on'#6#6' Logo '#12'ClientHeight'#3#10#2#11'ClientWidth'#3#148#2#10'ParentFo'
+  +'nt'#8#0#6'TLabel'#14'lbCompanyName1'#4'Left'#2#10#6'Height'#2#18#3'Top'#2#25
   +#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'
-  +#6#13'Tohib logida:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#16'lbW'
-  +'orkerPassword'#4'Left'#2#10#6'Height'#2#18#3'Top'#2'8'#5'Width'#3#180#0#9'A'
-  +'lignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#7'Parool:'#11'Par'
-  +'entColor'#8#10'ParentFont'#8#0#0#7'TDBEdit'#17'dbEdtWrkLastlogin'#3'Tag'#2
-  +#255#4'Left'#3#200#0#6'Height'#2#21#3'Top'#3#224#0#5'Width'#3#248#0#9'DataFi'
-  +'eld'#6#9'lastlogin'#10'DataSource'#7#19'admWorkerMgmDataset'#8'ReadOnly'#9#8
-  +'CharCase'#7#8'ecNormal'#5'Color'#7#9'clBtnFace'#9'MaxLength'#2#0#10'ParentF'
-  +'ont'#8#8'TabOrder'#2#9#7'TabStop'#8#10'OnKeyPress'#7#21'dbEdtCompnameKeyPre'
-  +'ss'#0#0#7'TDBEdit'#17'dbEdtWorkUsername'#4'Left'#3#200#0#6'Height'#2#21#3'T'
-  +'op'#2#22#5'Width'#3#6#1#9'DataField'#6#9'loginname'#10'DataSource'#7#19'adm'
-  +'WorkerMgmDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'
-  +#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#0#10'OnKeyPre'
-  +'ss'#7#25'dbEdtWorkUsernameKeyPress'#0#0#7'TDBEdit'#13'dbEdtWorkName'#4'Left'
-  +#3#200#0#6'Height'#2#21#3'Top'#2'P'#5'Width'#3#6#1#9'DataField'#6#4'name'#10
-  +'DataSource'#7#19'admWorkerMgmDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'ak'
-  +'Right'#0#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabO'
-  +'rder'#2#2#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#7'TDBEdit'#18'dbEd'
-  +'tWorMiddleName'#4'Left'#3#200#0#6'Height'#2#21#3'Top'#2'm'#5'Width'#3#6#1#9
-  +'DataField'#6#10'middlename'#10'DataSource'#7#19'admWorkerMgmDataset'#7'Anch'
-  +'ors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLeng'
-  +'th'#2#0#10'ParentFont'#8#8'TabOrder'#2#3#10'OnKeyPress'#7#21'dbEdtCompnameK'
-  +'eyPress'#0#0#7'TDBEdit'#16'dbEdtWrkLastname'#4'Left'#3#200#0#6'Height'#2#21
-  +#3'Top'#3#138#0#5'Width'#3#6#1#9'DataField'#6#8'lastname'#10'DataSource'#7#19
-  +'admWorkerMgmDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCa'
-  +'se'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#4#10'OnKe'
-  +'yPress'#7#21'dbEdtCompnameKeyPress'#0#0#7'TDBEdit'#16'dbEdtWrkPosition'#4'L'
-  +'eft'#3#200#0#6'Height'#2#21#3'Top'#3#166#0#5'Width'#3#152#0#9'DataField'#6#8
-  +'position'#10'DataSource'#7#19'admWorkerMgmDataset'#7'Anchors'#11#5'akTop'#6
-  +'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFo'
-  +'nt'#8#8'TabOrder'#2#5#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#7'TDBE'
-  +'dit'#13'dbEdtWrkEmail'#4'Left'#3#200#0#6'Height'#2#21#3'Top'#3#195#0#5'Widt'
-  +'h'#3#152#0#9'DataField'#6#5'email'#10'DataSource'#7#19'admWorkerMgmDataset'
-  +#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'M'
-  +'axLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#6#10'OnKeyPress'#7#21'dbEdtCom'
-  +'pnameKeyPress'#0#0#7'TDBEdit'#18'dbEdtWrLoginFromIp'#3'Tag'#2#255#4'Left'#3
-  +#200#0#6'Height'#2#21#3'Top'#3#252#0#5'Width'#3#248#0#9'DataField'#6#6'fromi'
-  +'p'#10'DataSource'#7#19'admWorkerMgmDataset'#8'ReadOnly'#9#8'CharCase'#7#8'e'
-  +'cNormal'#5'Color'#7#9'clBtnFace'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrd'
-  +'er'#2#8#7'TabStop'#8#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#11'TDBC'
-  +'heckBox'#18'dbChkboxAllowLogin'#4'Left'#3#201#0#6'Height'#2#21#3'Top'#3#30#1
-  +#5'Width'#3#135#0#9'DataField'#6#10'allowlogin'#10'DataSource'#7#19'admWorke'
-  +'rMgmDataset'#10'ParentFont'#8#8'TabOrder'#2#7#12'ValueChecked'#6#4'True'#14
-  +'ValueUnchecked'#6#5'False'#0#0#5'TEdit'#16'edEdtWrkPassword'#4'Left'#3#200#0
-  +#6'Height'#2#21#3'Top'#2'3'#5'Width'#3'H'#1#8'EchoMode'#7#10'emPassword'#8'O'
-  +'nChange'#7#22'edEdtWrkPasswordChange'#10'OnKeyPress'#7#25'dbEdtWorkUsername'
-  +'KeyPress'#10'ParentFont'#8#12'PasswordChar'#6#1'*'#8'TabOrder'#2#1#0#0#0#9
-  ,'TTabSheet'#9'tabAction'#7'Caption'#6#9'Tegevused'#12'ClientHeight'#3#162#1
-  +#11'ClientWidth'#3#10#2#10'ParentFont'#8#0#12'TPageControl'#16'pgControlUser'
-  +'Prm'#3'Tag'#2#255#4'Left'#2#0#6'Height'#3#156#1#3'Top'#2#6#5'Width'#3#10#2
-  +#10'ActivePage'#7#20'tabCompanyPermission'#7'Anchors'#11#5'akTop'#6'akLeft'#7
-  +'akRight'#8'akBottom'#0#10'ParentFont'#8#8'TabIndex'#2#0#8'TabOrder'#2#0#0#9
-  +'TTabSheet'#20'tabCompanyPermission'#7'Caption'#6#14'Lubatud firmad'#12'Clie'
-  +'ntHeight'#3#131#1#11'ClientWidth'#3#2#2#10'ParentFont'#8#0#13'TCheckListBox'
-  +#19'chkLstBoxAllowedCmp'#4'Left'#2#4#6'Height'#3'q'#1#3'Top'#2#10#5'Width'#3
-  +#245#1#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#10'ItemHeig'
-  +'ht'#2#0#7'OnClick'#7#24'chkLstBoxAllowedCmpClick'#10'ParentFont'#8#8'TabOrd'
-  +'er'#2#0#0#0#0#9'TTabSheet'#20'tabOverAllpermission'#7'Caption'#6#14'K'#195
-  +#181'ik '#195#181'igused'#12'ClientHeight'#3#131#1#11'ClientWidth'#3#2#2#10
-  +'ParentFont'#8#0#13'TCheckListBox'#19'chkLstBoxPermission'#4'Left'#2#4#6'Hei'
-  +'ght'#3'q'#1#3'Top'#2#10#5'Width'#3#245#1#7'Anchors'#11#5'akTop'#6'akLeft'#7
-  +'akRight'#8'akBottom'#0#10'ItemHeight'#2#0#7'OnClick'#7#24'chkLstBoxAllowedC'
-  +'mpClick'#11'OnItemClick'#7#28'chkLstBoxPermissionItemClick'#10'ParentFont'#8
-  +#8'TabOrder'#2#0#0#0#0#9'TTabSheet'#7'tabRole'#7'Caption'#6#4'Roll'#12'Clien'
-  +'tHeight'#3#131#1#11'ClientWidth'#3#2#2#10'ParentFont'#8#0#6'TLabel'#6'Label'
-  +'1'#4'Left'#2#5#6'Height'#2#14#3'Top'#3#160#0#5'Width'#2'v'#7'Caption'#6#26
-  +'Rollis sisalduvad '#195#181'igused'#11'ParentColor'#8#10'ParentFont'#8#0#0
-  +#13'TCheckListBox'#18'chkLstBoxUserRoles'#4'Left'#2#4#6'Height'#3#144#0#3'To'
-  +'p'#2#10#5'Width'#3#245#1#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#10'I'
+  +#6#11'Firma logo:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TPanel'#13'panel'
+  ,'CompLogo'#4'Left'#3#199#0#6'Height'#2'}'#3'Top'#2#25#5'Width'#3#0#1#10'Beve'
+  +'lInner'#7#9'bvLowered'#12'ClientHeight'#2'}'#11'ClientWidth'#3#0#1#10'Paren'
+  +'tFont'#8#8'TabOrder'#2#0#7'OnClick'#7#18'panelCompLogoClick'#0#6'TImage'#11
+  +'compLogoPct'#4'Left'#2#2#6'Height'#2'y'#3'Top'#2#2#5'Width'#3#252#0#5'Align'
+  +#7#8'alClient'#7'Stretch'#9#0#0#0#12'TSpeedButton'#12'SpeedButton1'#4'Left'#3
+  +#203#1#6'Height'#2#28#4'Hint'#6#11'Lisan pildi'#3'Top'#2#25#5'Width'#2#29#10
+  +'Glyph.Data'#10':'#4#0#0'6'#4#0#0'BM6'#4#0#0#0#0#0#0'6'#0#0#0'('#0#0#0#16#0#0
+  +#0#16#0#0#0#1#0' '#0#0#0#0#0#0#4#0#0'd'#0#0#0'd'#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#24#166#195'i'#26#167#196'i'#0#160#196#24#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#160#196']f'#219#234#178#17#166#194#174#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#160#196
+  +'"C'#196#219#252'C'#197#216#254'#'#166#192#127#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#160#196#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#14#170#203#254']'#218#233#254'#'#166#192#239#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#160#196#255#0#160#196#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#158#193#26#2#172#200#255#136#231#242#254#17#162#194#255#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196#255'v'#237#251#255#0#160#196#255#0#0#0
+  +#0#0#0#0#0#0#160#196'0'#0#153#185'P'#0#160#196#201'm'#230#245#255'v'#226#239
+  +#255#25#163#193#255#0#0#0#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196#255'v'#237#251
+  +#255'v'#237#251#255#0#160#196#255#0#160#196#255#0#160#196#255#0#160#196#255#1
+  +#169#196#255'n'#225#238#255#15#201#223#255'i'#228#242#255#26#164#192#248#0#0
+  +#0#0#0#0#0#0#5'y}'#17#0#160#196#255'v'#237#251#255#4#195#218#255'v'#237#251
+  +#255'i'#234#249#255'i'#234#249#255'i'#234#249#255'i'#234#249#255#5#221#247
+  +#255#10#200#223#255#7#194#216#255'o'#220#235#255#27#163#191#244#0#0#0#0#5'y~'
+  +#17#0#160#196#255'y'#237#251#255'2'#226#248#255','#223#244#255#4#192#214#255
+  +#4#192#214#255#4#192#214#255#29#210#232#255#29#210#232#255#29#210#232#255#11
+  +#200#223#255'j'#229#243#255#27#171#197#248#21#160#188#203#0#0#0#0#0#160#196
+  +#255#173#243#251#255'/'#224#246#255'2'#226#248#255'2'#226#247#255'2'#226#247
+  +#255'/'#224#245#255')'#219#241#255#29#210#232#255#29#210#232#255#29#210#232
+  +#255'6'#217#236#255'@'#205#225#255#22#161#189#202#5'y}'#10#0#0#0#0#5'y}'#10#0
+  +#160#196#255#173#243#251#255'/'#224#246#255'2'#226#247#255')'#219#241#255'/'
+  +#224#245#255')'#219#241#255#22#205#227#255'6'#217#236#255'i'#231#246#255'A'
+  +#206#227#254#19#163#193#228#5'y}2'#0#0#0#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196
+  +#255#173#243#251#255'1'#225#246#255' '#227#250#255's'#236#250#255'o'#235#250
+  +#255'n'#232#247#255'l'#232#247#248#20#161#188#212#20#163#193#213#5'y}'#28#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#5'y}'#17#0#160#196#255#173#243#251#255
+  +'%'#228#251#255#0#160#196#255#0#160#196#255#19#161#190#231#21#159#187#207#27
+  +#161#187#164#6'z|'#11#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#5'y}'#17#0#160#196#255#173#243#251#255#0#160#196#255#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#157#191#20#0#160#196#255#0#160#196#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#160#196#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#7'OnClick'#7#17'SpeedButton1Click'#8'ShowHint'#9#10'P'
+  +'arentFont'#8#14'ParentShowHint'#8#0#0#0#0#7'TBitBtn'#10'btnNewItem'#3'Tag'#2
+  +#255#4'Left'#2's'#6'Height'#2'&'#3'Top'#3'?'#2#5'Width'#2'|'#7'Anchors'#11#7
+  +'akRight'#8'akBottom'#0#7'Caption'#6#9'Uus firma'#4'Kind'#7#5'bkYes'#7'OnCli'
+  +'ck'#7#15'btnNewItemClick'#10'ParentFont'#8#8'TabOrder'#2#4#0#0#0#9'TSplitte'
+  +'r'#9'Splitter1'#4'Left'#3'8'#1#6'Height'#3's'#2#3'Top'#2#0#5'Width'#2#6#0#0
+  +#0#9'TTabSheet'#12'tabWorkerMgm'#7'Caption'#6#17'Kasutajate haldus'#12'Clien'
+  +'tHeight'#3#245#1#11'ClientWidth'#3#20#3#10'ParentFont'#8#10'TabVisible'#8#0
+  +#6'TPanel'#12'leftpanelWrk'#4'Left'#2#0#6'Height'#3#245#1#3'Top'#2#0#5'Width'
+  +#3'8'#1#5'Align'#7#6'alLeft'#10'BevelInner'#7#9'bvLowered'#12'ClientHeight'#3
+  +#245#1#11'ClientWidth'#3'8'#1#20'Constraints.MaxWidth'#3#219#1#20'Constraint'
+  +'s.MinWidth'#3#250#0#10'ParentFont'#8#8'TabOrder'#2#0#0#7'TDBGrid'#13'dbGrid'
+  +'Workers'#4'Left'#2#5#6'Height'#3#234#1#3'Top'#2#6#5'Width'#3#240#0#7'Anchor'
+  +'s'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#8'AutoEdit'#8#5'Color'#7#8
+  +'clWindow'#7'Columns'#14#1#7'MinSize'#2#12#7'MaxSize'#3#250#0#13'Title.Capti'
+  +'on'#6#12'Kasutajanimi'#5'Width'#3#212#0#9'FieldName'#6#9'loginname'#0#0#10
+  +'DataSource'#7#19'admWorkerMgmDataset'#4'Flat'#9#7'Options'#11#8'dgTitles'#11
+  +'dgIndicator'#14'dgColumnResize'#12'dgColumnMove'#10'dgColLines'#10'dgRowLin'
+  +'es'#6'dgTabs'#21'dgAlwaysShowSelection'#14'dgCancelOnExit'#0#10'ParentFont'
+  ,#8#8'ReadOnly'#9#8'TabOrder'#2#0#0#0#0#6'TPanel'#13'rightpanelWrk'#3'Tag'#2
+  +#255#4'Left'#3#255#0#6'Height'#3#245#1#3'Top'#2#0#5'Width'#3#21#2#5'Align'#7
+  +#8'alClient'#10'BevelOuter'#7#6'bvNone'#12'ClientHeight'#3#245#1#11'ClientWi'
+  +'dth'#3#21#2#20'Constraints.MinWidth'#2'}'#10'ParentFont'#8#8'TabOrder'#2#1#0
+  +#12'TPageControl'#15'pageCtrlUserMgr'#3'Tag'#2#255#4'Left'#2#0#6'Height'#3
+  +#174#1#3'Top'#2#5#5'Width'#3#17#2#10'ActivePage'#7#15'tabOverAllDescr'#7'Anc'
+  +'hors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#10'ParentFont'#8#8'Tab'
+  +'Index'#2#0#8'TabOrder'#2#0#0#9'TTabSheet'#15'tabOverAllDescr'#7'Caption'#6
+  +#17#195#156'ldine kirjeldus'#12'ClientHeight'#3#162#1#11'ClientWidth'#3#10#2
+  +#10'ParentFont'#8#0#6'TLabel'#17'lbWorkerLoginname'#4'Left'#2#9#6'Height'#2
+  +#18#3'Top'#2#28#5'Width'#3#181#0#9'Alignment'#7#14'taRightJustify'#8'AutoSiz'
+  +'e'#8#7'Caption'#6#13'Kasutajanimi:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6
+  +'TLabel'#9'lbWrkName'#4'Left'#2#10#6'Height'#2#18#3'Top'#2'U'#5'Width'#3#180
+  +#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#5'Nimi:'#11
+  +'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#15'lbWrkMiddleName'#4'Left'#2
+  +#10#6'Height'#2#18#3'Top'#2'r'#5'Width'#3#180#0#9'Alignment'#7#14'taRightJus'
+  +'tify'#8'AutoSize'#8#7'Caption'#6#14'Teine eesnimi:'#11'ParentColor'#8#10'Pa'
+  +'rentFont'#8#0#0#6'TLabel'#13'lbWrkLastname'#4'Left'#2#10#6'Height'#2#18#3'T'
+  +'op'#3#144#0#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8
+  +#7'Caption'#6#14'Perekonnanimi:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TL'
+  +'abel'#13'lbWrkPosition'#4'Left'#2#10#6'Height'#2#18#3'Top'#3#170#0#5'Width'
+  +#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#10'Ame'
+  +'tikoht:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#10'lbWrkEmail'#4
+  +'Left'#2#10#6'Height'#2#18#3'Top'#3#199#0#5'Width'#3#180#0#9'Alignment'#7#14
+  +'taRightJustify'#8'AutoSize'#8#7'Caption'#6#7'E-post:'#11'ParentColor'#8#10
+  +'ParentFont'#8#0#0#6'TLabel'#14'lbWrkLastLogin'#4'Left'#2#10#6'Height'#2#18#3
+  +'Top'#3#229#0#5'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'
+  +#8#7'Caption'#6#17'Viimane logimine:'#11'ParentColor'#8#10'ParentFont'#8#0#0
+  +#6'TLabel'#17'lbWrkLastLoginCIP'#4'Left'#2#10#6'Height'#2#18#3'Top'#3#0#1#5
+  +'Width'#3#180#0#9'Alignment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6
+  +#10'Masina IP:'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#17'lbWrkLog'
+  +'inAllowed'#4'Left'#2#9#6'Height'#2#18#3'Top'#3' '#1#5'Width'#3#180#0#9'Alig'
+  +'nment'#7#14'taRightJustify'#8'AutoSize'#8#7'Caption'#6#13'Tohib logida:'#11
+  +'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#16'lbWorkerPassword'#4'Left'#2
+  +#10#6'Height'#2#18#3'Top'#2'8'#5'Width'#3#180#0#9'Alignment'#7#14'taRightJus'
+  +'tify'#8'AutoSize'#8#7'Caption'#6#7'Parool:'#11'ParentColor'#8#10'ParentFont'
+  +#8#0#0#7'TDBEdit'#17'dbEdtWrkLastlogin'#3'Tag'#2#255#4'Left'#3#200#0#6'Heigh'
+  +'t'#2#21#3'Top'#3#224#0#5'Width'#3#248#0#9'DataField'#6#9'lastlogin'#10'Data'
+  +'Source'#7#19'admWorkerMgmDataset'#8'ReadOnly'#9#8'CharCase'#7#8'ecNormal'#5
+  +'Color'#7#9'clBtnFace'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#9#7'T'
+  +'abStop'#8#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#7'TDBEdit'#17'dbEd'
+  +'tWorkUsername'#4'Left'#3#200#0#6'Height'#2#21#3'Top'#2#22#5'Width'#3#6#1#9
+  +'DataField'#6#9'loginname'#10'DataSource'#7#19'admWorkerMgmDataset'#7'Anchor'
+  +'s'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLength'
+  +#2#0#10'ParentFont'#8#8'TabOrder'#2#0#10'OnKeyPress'#7#25'dbEdtWorkUsernameK'
+  +'eyPress'#0#0#7'TDBEdit'#13'dbEdtWorkName'#4'Left'#3#200#0#6'Height'#2#21#3
+  +'Top'#2'P'#5'Width'#3#6#1#9'DataField'#6#4'name'#10'DataSource'#7#19'admWork'
+  +'erMgmDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8
+  +'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#2#10'OnKeyPress'#7
+  +#21'dbEdtCompnameKeyPress'#0#0#7'TDBEdit'#18'dbEdtWorMiddleName'#4'Left'#3
+  +#200#0#6'Height'#2#21#3'Top'#2'm'#5'Width'#3#6#1#9'DataField'#6#10'middlenam'
+  +'e'#10'DataSource'#7#19'admWorkerMgmDataset'#7'Anchors'#11#5'akTop'#6'akLeft'
+  +#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8
+  +'TabOrder'#2#3#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#7'TDBEdit'#16
+  +'dbEdtWrkLastname'#4'Left'#3#200#0#6'Height'#2#21#3'Top'#3#138#0#5'Width'#3#6
+  +#1#9'DataField'#6#8'lastname'#10'DataSource'#7#19'admWorkerMgmDataset'#7'Anc'
+  +'hors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLen'
+  +'gth'#2#0#10'ParentFont'#8#8'TabOrder'#2#4#10'OnKeyPress'#7#21'dbEdtCompname'
+  +'KeyPress'#0#0#7'TDBEdit'#16'dbEdtWrkPosition'#4'Left'#3#200#0#6'Height'#2#21
+  +#3'Top'#3#166#0#5'Width'#3#152#0#9'DataField'#6#8'position'#10'DataSource'#7
+  +#19'admWorkerMgmDataset'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'Cha'
+  +'rCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#5#10'O'
+  +'nKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#7'TDBEdit'#13'dbEdtWrkEmail'#4'L'
+  +'eft'#3#200#0#6'Height'#2#21#3'Top'#3#195#0#5'Width'#3#152#0#9'DataField'#6#5
+  ,'email'#10'DataSource'#7#19'admWorkerMgmDataset'#7'Anchors'#11#5'akTop'#6'ak'
+  +'Left'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#10'ParentFont'
+  +#8#8'TabOrder'#2#6#10'OnKeyPress'#7#21'dbEdtCompnameKeyPress'#0#0#7'TDBEdit'
+  +#18'dbEdtWrLoginFromIp'#3'Tag'#2#255#4'Left'#3#200#0#6'Height'#2#21#3'Top'#3
+  +#252#0#5'Width'#3#248#0#9'DataField'#6#6'fromip'#10'DataSource'#7#19'admWork'
+  +'erMgmDataset'#8'ReadOnly'#9#8'CharCase'#7#8'ecNormal'#5'Color'#7#9'clBtnFac'
+  +'e'#9'MaxLength'#2#0#10'ParentFont'#8#8'TabOrder'#2#8#7'TabStop'#8#10'OnKeyP'
+  +'ress'#7#21'dbEdtCompnameKeyPress'#0#0#11'TDBCheckBox'#18'dbChkboxAllowLogin'
+  +#4'Left'#3#201#0#6'Height'#2#21#3'Top'#3#30#1#5'Width'#3#135#0#9'DataField'#6
+  +#10'allowlogin'#10'DataSource'#7#19'admWorkerMgmDataset'#10'ParentFont'#8#8
+  +'TabOrder'#2#7#12'ValueChecked'#6#4'True'#14'ValueUnchecked'#6#5'False'#0#0#5
+  +'TEdit'#16'edEdtWrkPassword'#4'Left'#3#200#0#6'Height'#2#21#3'Top'#2'3'#5'Wi'
+  +'dth'#3'H'#1#8'EchoMode'#7#10'emPassword'#8'OnChange'#7#22'edEdtWrkPasswordC'
+  +'hange'#10'OnKeyPress'#7#25'dbEdtWorkUsernameKeyPress'#10'ParentFont'#8#12'P'
+  +'asswordChar'#6#1'*'#8'TabOrder'#2#1#0#0#0#9'TTabSheet'#9'tabAction'#7'Capti'
+  +'on'#6#9'Tegevused'#12'ClientHeight'#3#162#1#11'ClientWidth'#3#10#2#10'Paren'
+  +'tFont'#8#0#12'TPageControl'#16'pgControlUserPrm'#3'Tag'#2#255#4'Left'#2#0#6
+  +'Height'#3#156#1#3'Top'#2#6#5'Width'#3#10#2#10'ActivePage'#7#20'tabCompanyPe'
+  +'rmission'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#10'Pare'
+  +'ntFont'#8#8'TabIndex'#2#0#8'TabOrder'#2#0#0#9'TTabSheet'#20'tabCompanyPermi'
+  +'ssion'#7'Caption'#6#14'Lubatud firmad'#12'ClientHeight'#3#131#1#11'ClientWi'
+  +'dth'#3#2#2#10'ParentFont'#8#0#13'TCheckListBox'#19'chkLstBoxAllowedCmp'#4'L'
+  +'eft'#2#4#6'Height'#3'q'#1#3'Top'#2#10#5'Width'#3#245#1#7'Anchors'#11#5'akTo'
+  +'p'#6'akLeft'#7'akRight'#8'akBottom'#0#10'ItemHeight'#2#0#7'OnClick'#7#24'ch'
+  +'kLstBoxAllowedCmpClick'#10'ParentFont'#8#8'TabOrder'#2#0#0#0#0#9'TTabSheet'
+  +#20'tabOverAllpermission'#7'Caption'#6#14'K'#195#181'ik '#195#181'igused'#12
+  +'ClientHeight'#3#131#1#11'ClientWidth'#3#2#2#10'ParentFont'#8#0#13'TCheckLis'
+  +'tBox'#19'chkLstBoxPermission'#4'Left'#2#4#6'Height'#3'q'#1#3'Top'#2#10#5'Wi'
+  +'dth'#3#245#1#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#10'I'
   +'temHeight'#2#0#7'OnClick'#7#24'chkLstBoxAllowedCmpClick'#11'OnItemClick'#7
-  +#27'chkLstBoxUserRolesItemClick'#10'ParentFont'#8#8'TabOrder'#2#0#0#0#13'TCh'
-  +'eckListBox'#28'chkLstBoxUserRolePermListing'#4'Left'#2#4#6'Height'#3#193#0#3
-  +'Top'#3#184#0#5'Width'#3#245#1#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8
-  +'akBottom'#0#10'ItemHeight'#2#0#7'OnClick'#7#24'chkLstBoxAllowedCmpClick'#11
-  +'OnItemClick'#7'%chkLstBoxUserRolePermListingItemClick'#10'ParentFont'#8#8'T'
-  +'abOrder'#2#1#0#0#0#0#0#0#7'TBitBtn'#13'btnSaveWorker'#3'Tag'#2#255#4'Left'#2
-  +'d'#6'Height'#2'&'#3'Top'#3#193#1#5'Width'#2'|'#7'Anchors'#11#7'akRight'#8'a'
-  +'kBottom'#0#7'Caption'#6#9'&Salvesta'#7'Enabled'#8#4'Kind'#7#5'bkAll'#11'Mod'
-  +'alResult'#2#8#7'OnClick'#7#18'btnSaveWorkerClick'#10'ParentFont'#8#7'Spacin'
-  +'g'#2#2#8'TabOrder'#2#2#0#0#7'TBitBtn'#19'btnCancelWorkerEdit'#3'Tag'#2#255#4
-  +'Left'#3#230#0#6'Height'#2'&'#3'Top'#3#193#1#5'Width'#2'|'#7'Anchors'#11#7'a'
-  +'kRight'#8'akBottom'#0#7'Caption'#6#9'&Katkesta'#7'Enabled'#8#4'Kind'#7#4'bk'
-  +'No'#7'OnClick'#7#24'btnCancelWorkerEditClick'#10'ParentFont'#8#8'TabOrder'#2
-  +#3#0#0#7'TBitBtn'#12'btnNewWorker'#3'Tag'#2#255#4'Left'#2#226#6'Height'#2'&'
+  +#28'chkLstBoxPermissionItemClick'#10'ParentFont'#8#8'TabOrder'#2#0#0#0#0#9'T'
+  +'TabSheet'#7'tabRole'#7'Caption'#6#4'Roll'#12'ClientHeight'#3#131#1#11'Clien'
+  +'tWidth'#3#2#2#10'ParentFont'#8#0#6'TLabel'#6'Label1'#4'Left'#2#5#6'Height'#2
+  +#14#3'Top'#3#160#0#5'Width'#2'v'#7'Caption'#6#26'Rollis sisalduvad '#195#181
+  +'igused'#11'ParentColor'#8#10'ParentFont'#8#0#0#13'TCheckListBox'#18'chkLstB'
+  +'oxUserRoles'#4'Left'#2#4#6'Height'#3#144#0#3'Top'#2#10#5'Width'#3#245#1#7'A'
+  +'nchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#10'ItemHeight'#2#0#7'OnClick'#7
+  +#24'chkLstBoxAllowedCmpClick'#11'OnItemClick'#7#27'chkLstBoxUserRolesItemCli'
+  +'ck'#10'ParentFont'#8#8'TabOrder'#2#0#0#0#13'TCheckListBox'#28'chkLstBoxUser'
+  +'RolePermListing'#4'Left'#2#4#6'Height'#3#193#0#3'Top'#3#184#0#5'Width'#3#245
+  +#1#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#10'ItemHeight'#2
+  +#0#7'OnClick'#7#24'chkLstBoxAllowedCmpClick'#11'OnItemClick'#7'%chkLstBoxUse'
+  +'rRolePermListingItemClick'#10'ParentFont'#8#8'TabOrder'#2#1#0#0#0#0#0#0#7'T'
+  +'BitBtn'#13'btnSaveWorker'#3'Tag'#2#255#4'Left'#2'd'#6'Height'#2'&'#3'Top'#3
+  +#193#1#5'Width'#2'|'#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Caption'#6#9'&'
+  +'Salvesta'#7'Enabled'#8#4'Kind'#7#5'bkAll'#11'ModalResult'#2#8#7'OnClick'#7
+  +#18'btnSaveWorkerClick'#10'ParentFont'#8#7'Spacing'#2#2#8'TabOrder'#2#2#0#0#7
+  +'TBitBtn'#19'btnCancelWorkerEdit'#3'Tag'#2#255#4'Left'#3#230#0#6'Height'#2'&'
   +#3'Top'#3#193#1#5'Width'#2'|'#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Capti'
-  +'on'#6#13'&Uus kasutaja'#7'Default'#9#4'Kind'#7#5'bkYes'#7'OnClick'#7#17'btn'
-  +'NewWorkerClick'#10'ParentFont'#8#8'TabOrder'#2#1#0#0#7'TBitBtn'#20'btnWorke'
-  +'rMgrTabClose'#3'Tag'#2#255#4'Left'#3#151#1#6'Height'#2'&'#3'Top'#3#193#1#5
-  +'Width'#2'|'#7'Anchors'#11#7'akRight'#8'akBottom'#0#6'Cancel'#9#7'Caption'#6
-  +#5'Sulge'#4'Kind'#7#8'bkCancel'#7'OnClick'#7#25'btnWorkerMgrTabCloseClick'#10
-  +'ParentFont'#8#8'TabOrder'#2#4#0#0#0#9'TSplitter'#9'Splitter2'#4'Left'#3#250
-  +#0#6'Height'#3#245#1#3'Top'#2#0#5'Width'#2#6#0#0#0#0#0#8'TToolBar'#13'action'
-  +'Toolbar'#4'Left'#2#0#3'Top'#2#0#5'Width'#3#232#3#7'Caption'#6#13'actionTool'
-  +'bar'#6'Images'#7#10'ImageList1'#10'ParentFont'#8#14'ParentShowHint'#8#8'Sho'
-  +'wHint'#9#8'TabOrder'#2#2#7'OnClick'#7#18'actionToolbarClick'#0#11'TToolButt'
-  +'on'#10'btnMngComp'#4'Left'#2#1#3'Top'#2#2#7'Caption'#6#10'btnMngComp'#10'Im'
-  +'ageIndex'#2#2#7'OnClick'#7#15'btnMngCompClick'#0#0#11'TToolButton'#11'btnMg'
-  +'nUsers'#4'Left'#2#30#3'Top'#2#2#7'Caption'#6#11'btnMgnUsers'#10'ImageIndex'
-  +#2#0#7'OnClick'#7#16'btnMgnUsersClick'#0#0#11'TToolButton'#11'ToolButton1'#4
-  +'Left'#2';'#3'Top'#2#2#7'Caption'#6#11'ToolButton1'#0#0#0#9'TMainMenu'#8'mnu'
-  +'_main'#4'Left'#3#172#3#3'Top'#2'('#0#9'TMenuItem'#8'mnu_exit'#7'Caption'#6#7
-  +'V'#195#164'ljun'#7'OnClick'#7#13'mnu_exitClick'#0#0#9'TMenuItem'#9'mnuBacku'
-  +'p'#7'Caption'#6#14'Uus varukoopia'#7'OnClick'#7#14'mnuBackupClick'#0#0#9'TM'
-  +'enuItem'#10'mnuRestore'#7'Caption'#6#19'Taasta varukoopiast'#7'OnClick'#7#15
-  +'mnuRestoreClick'#0#0#9'TMenuItem'#11'mnuVacuumDb'#7'Caption'#6#27'Korrasta '
-  +'andmebaas (vacuum)'#7'OnClick'#7#16'mnuVacuumDbClick'#0#0#9'TMenuItem'#3'FI'
-  +'X'#7'Caption'#6#1' '#7'Visible'#8#0#0#9'TMenuItem'#8'mnuDebug'#7'Caption'#6
-  +#5'DEBUG'#7'Visible'#8#7'OnClick'#7#13'mnuDebugClick'#0#0#0#10'TImageList'#10
-  +'ImageList1'#4'Left'#3#172#3#6'Bitmap'#10#14#16#0#0'Li'#4#0#0#0#16#0#0#0#16#0
-  +#0#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#0#0#0#255#0#0#0#255
-  +#0#0#0#255#0#0#0#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128
-  ,#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0
-  +#255#127#127#127#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255
-  +#0#0#0#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#255#255#255#0#255#255#255#0
-  +#128#128#255#0#128#128#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#127#127#127#255#127#127#127#255#0#255#255#255#0#0#0#255#0#0#0#255#0#128#128
-  +#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#255#255
+  +'on'#6#9'&Katkesta'#7'Enabled'#8#4'Kind'#7#4'bkNo'#7'OnClick'#7#24'btnCancel'
+  +'WorkerEditClick'#10'ParentFont'#8#8'TabOrder'#2#3#0#0#7'TBitBtn'#12'btnNewW'
+  +'orker'#3'Tag'#2#255#4'Left'#2#226#6'Height'#2'&'#3'Top'#3#193#1#5'Width'#2
+  +'|'#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Caption'#6#13'&Uus kasutaja'#7
+  +'Default'#9#4'Kind'#7#5'bkYes'#7'OnClick'#7#17'btnNewWorkerClick'#10'ParentF'
+  +'ont'#8#8'TabOrder'#2#1#0#0#7'TBitBtn'#20'btnWorkerMgrTabClose'#3'Tag'#2#255
+  +#4'Left'#3#151#1#6'Height'#2'&'#3'Top'#3#193#1#5'Width'#2'|'#7'Anchors'#11#7
+  +'akRight'#8'akBottom'#0#6'Cancel'#9#7'Caption'#6#5'Sulge'#4'Kind'#7#8'bkCanc'
+  +'el'#7'OnClick'#7#25'btnWorkerMgrTabCloseClick'#10'ParentFont'#8#8'TabOrder'
+  +#2#4#0#0#0#9'TSplitter'#9'Splitter2'#4'Left'#3#250#0#6'Height'#3#245#1#3'Top'
+  +#2#0#5'Width'#2#6#0#0#0#0#0#8'TToolBar'#13'actionToolbar'#4'Left'#2#0#3'Top'
+  +#2#0#5'Width'#3#232#3#7'Caption'#6#13'actionToolbar'#6'Images'#7#10'ImageLis'
+  +'t1'#10'ParentFont'#8#14'ParentShowHint'#8#8'ShowHint'#9#8'TabOrder'#2#2#7'O'
+  +'nClick'#7#18'actionToolbarClick'#0#11'TToolButton'#10'btnMngComp'#4'Left'#2
+  +#1#3'Top'#2#2#7'Caption'#6#10'btnMngComp'#10'ImageIndex'#2#2#7'OnClick'#7#15
+  ,'btnMngCompClick'#0#0#11'TToolButton'#11'btnMgnUsers'#4'Left'#2#30#3'Top'#2#2
+  +#7'Caption'#6#11'btnMgnUsers'#10'ImageIndex'#2#0#7'OnClick'#7#16'btnMgnUsers'
+  +'Click'#0#0#11'TToolButton'#11'ToolButton1'#4'Left'#2';'#3'Top'#2#2#7'Captio'
+  +'n'#6#11'ToolButton1'#0#0#0#9'TMainMenu'#8'mnu_main'#4'Left'#3#172#3#3'Top'#2
+  +'('#0#9'TMenuItem'#8'mnu_exit'#7'Caption'#6#7'V'#195#164'ljun'#7'OnClick'#7
+  +#13'mnu_exitClick'#0#0#9'TMenuItem'#9'mnuBackup'#7'Caption'#6#14'Uus varukoo'
+  +'pia'#7'OnClick'#7#14'mnuBackupClick'#0#0#9'TMenuItem'#10'mnuRestore'#7'Capt'
+  +'ion'#6#19'Taasta varukoopiast'#7'OnClick'#7#15'mnuRestoreClick'#0#0#9'TMenu'
+  +'Item'#11'mnuVacuumDb'#7'Caption'#6#27'Korrasta andmebaas (vacuum)'#7'OnClic'
+  +'k'#7#16'mnuVacuumDbClick'#0#0#9'TMenuItem'#3'FIX'#7'Caption'#6#1' '#7'Visib'
+  +'le'#8#0#0#9'TMenuItem'#8'mnuDebug'#7'Caption'#6#5'DEBUG'#7'Visible'#8#7'OnC'
+  +'lick'#7#13'mnuDebugClick'#0#0#0#10'TImageList'#10'ImageList1'#4'Left'#3#172
+  +#3#6'Bitmap'#10#14#16#0#0'Li'#4#0#0#0#16#0#0#0#16#0#0#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#127#127#127#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#127
+  +#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#127#127#127#255#0#255
+  +#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#127#127#127#255
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#0#0#0#255#0#255#255#255#0#255#255#255#0#128#128#255#0#128#128#255#0
+  +#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127
   +#255#0#255#255#255#0#0#0#255#0#0#0#255#0#128#128#255#0#255#255#255#0#255#255
-  +#255#0#0#0#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255
-  +#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255
-  +#255#255#0#255#255#255#0#128#128#255#0#255#255#255#0#0#0#255#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#0#0
-  +#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255
-  +#255#255#0#128#128#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#0#0#0#255#0#0#0
-  +#255#0#0#0#255#128#0#128#0#0#0#0#255#0#0#0#255#0#0#0#255#0#128#128#255#0#255
+  +#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#0#0#0#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0
+  +#0#255#0#128#128#255#0#255#255#255#0#255#255#255#0#0#0#255#127#127#127#255
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0
+  +#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255
+  +#0#255#255#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#255#255#255#0
+  +#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#128
+  +#128#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#127#127#127#255#0#0#0#255#0#255#255#255#0#255
+  +#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0#128#128#255#0#255
   +#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#127#127#127#255#0#0#0#255#0#0#0#255#0#0#0#255#128#0#128#0#0#0
+  +#0#255#0#0#0#255#0#0#0#255#0#128#128#255#0#255#255#255#0#0#0#255#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#255#255
+  +#255#0#128#128#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128
   +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#0#0#0#255#0#255#255#255#0#128#128#255#0#255#255#255#0#0#0#255
+  +#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255#0#255#255#255#0#128#128#255#0
+  +#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
   +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255
-  +#0#255#255#255#0#128#128#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0
+  +#0#0#0#0#255#0#0#0#255#0#0#0#255#0#128#128#255#0#255#255#255#0#0#0#255#128#0
   +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255#0#0#0#255#0#128#128#255
-  +#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0
+  +#255#255#255#0#128#128#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255#0#0#0#255#0#255#255#255
+  +#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#0#0#0#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128
   +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#0#0#0#255#0#255#255#255#0#128#128#255#0#255#255#255#0#0#0
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0
-  +#255#0#0#0#255#0#255#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255#0
+  +#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255
+  +#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#128#0#128#0
   +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#255#255#255#0#0#0
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
+  +#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#127#127#127#255#127#127#127#255#128#0
   +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#0#0#0#255#0#0#0#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0
+  +#0#127#127#127#255#128#0#128#0#255#255#255#255#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0
+  +#255#255#255#255#127#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0#128
+  ,#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#128#0
+  +#128#0#127#127#127#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128
+  +#0#127#127#127#255#128#0#128#0#255#255#255#255#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#128#0#128#0
+  +#128#0#128#0#255#255#255#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127
+  +#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127
+  +#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127
+  +#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127
+  +#127#255#127#127#127#255#127#127#127#255#127#127#127#255#128#0#128#0#127#127
+  +#127#255#127#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0#127#127#127
+  +#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#128#0#128#0
+  +#255#255#255#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127
+  +#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127
+  +#127#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127
+  +#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0#127#127#127#255#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#255#255#255#255#127#127
+  +#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255
+  +#127#127#127#255#128#0#128#0#127#127#127#255#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#128#0#255#255#255#255#127#127#127#255#255
+  +#255#255#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127
+  +#255#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0
+  +#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#127#127#127#255
   +#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127
-  +#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#128#0
-  +#128#0#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#127
-  +#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#255#255#255
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127
-  +#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#127#127#127#255#128#0#128#0#255#255#255#255#127#127#127#255#127#127
-  +#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255
-  +#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127
-  +#127#127#255#255#255#255#255#128#0#128#0#127#127#127#255#127#127#127#255#255
-  +#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#255#255#255
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127
-  +#255#255#255#255#255#128#0#128#0#128#0#128#0#255#255#255#255#255#255#255#255
-  +#128#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255
-  +#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#128#0#128#0
-  +#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#128#0#128#0#128#0
-  +#128#0#128#0#128#0#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127
-  +#255#127#127#127#255#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127
-  ,#255#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#128#0#128#0#255#255#255#255#127#127#127#255
-  +#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#128#0
-  +#128#0#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127#255
-  +#128#0#128#0#128#0#128#0#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#128#0#255#255#255#255#127#127#127#255#255#255#255#255#128#0
-  +#128#0#128#0#128#0#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127#255#128#0#128#0
-  +#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#128#0#255#255#255#255#127#127#127#255#255#255#255#255#127#127#127#255#128
-  +#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#127#127#127#255#127#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0#0
-  +#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0
-  +#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#0#0#0#255#127#127#127#255#127#127#127#255#127#127#127#255
-  +#127#127#127#255#127#127#127#255#127#127#127#255#0#0#0#255#0#0#0#255#0#0#0
-  +#255#127#127#127#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
-  +#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#255
+  +#255#0#0#0#255#0#0#0#255#0#0#0#255#127#127#127#255#0#0#0#255#128#0#128#0#128
+  +#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0
+  +#0#255#0#0#0#255#0#0#0#255#255#255#255#255#255#255#255#255#255#255#255#255#0
+  +#0#0#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255
+  +#255#255#255#255#127#127#127#255#127#127#127#255#127#127#127#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255
+  +#0#0#0#255#255#255#255#255#255#255#255#255#255#255#255#255#0#0#0#255#0#0#0
+  +#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#128#0#128#0#128#0#128
+  +#0#128#0#128#0#0#0#0#255#0#0#0#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
   +#255#255#255#255#255#255#255#255#255#255#255#0#0#0#255#0#0#0#255#128#0#128#0
-  +#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#255#255#255#255#127#127#127
-  +#255#127#127#127#255#127#127#127#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#0#0#0#255#128#0#128
-  +#0#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0#0#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0
-  +#0#255#0#0#0#255#0#0#0#255#128#0#128#0#128#0#128#0#128#0#128#0#0#0#0#255#0#0
-  +#0#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#0#0#0#255#0#0#0#255#128#0#128#0#0#0#0#255#0#0#0#255#0#0#0
+  +#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0
   +#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0
-  +#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#255
-  +#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255
-  +#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0
-  +#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0
-  +#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0
-  +#255#0#0#0#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255
-  +#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255
-  +#0#0#0#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0
-  +#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0
-  +#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#255#255
-  +#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255
-  +#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0
+  +#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0
   +#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255
-  +#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255
-  +#255#255#0#0#0#255#127#127#127#255#127#127#127#255#0#255#255#255#0#255#255
-  +#255#0#255#255#255#127#127#127#255#127#127#127#255#0#0#0#255#0#255#255#255#0
-  +#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0
-  +#255#255#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0
-  +#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255
+  +#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0
+  +#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0
+  +#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#255#255#255#0
+  +#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0
+  +#255#255#255#0#255#255#255#0#0#0#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#0#0#0#255#0#255#255#255#0#255#255
+  +#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255
+  +#255#0#255#255#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0
+  +#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255
+  ,#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255
   +#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255
-  +#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0
-  +#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#128#0#128#0#0#0#0#255#0#0
+  +#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255
+  +#255#0#255#255#255#0#255#255#255#0#0#0#255#127#127#127#255#127#127#127#255#0
+  +#255#255#255#0#255#255#255#0#255#255#255#127#127#127#255#127#127#127#255#0#0
+  +#0#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255
+  +#255#255#0#255#255#255#0#255#255#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255
+  +#0#0#0#255#0#0#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0
+  +#0#255#0#0#0#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0
+  +#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255
+  +#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#255#255#255#0#0#0#255
+  +#128#0#128#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0
   +#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255
-  +#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#128#0#128#0#128#0#128#0
-  +#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
-  ,#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127
-  +#255#127#127#127#255#127#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0
-  +#128#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#127#127#127#255
-  +#127#127#127#255#127#127#127#255#255#255#255#255#127#127#127#255#255#255#255
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#127
-  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
-  +#128#0#128#0#255#255#255#255#255#255#255#255#127#127#127#255#127#127#127#255
-  +#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255#255
-  +#255#255#127#127#127#255#127#127#127#255#127#127#127#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127
-  +#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127
-  +#127#127#255#128#0#128#0#255#255#255#255#255#255#255#255#127#127#127#255#127
-  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
-  +#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#127
-  +#127#127#255#255#255#255#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0
-  +#128#0#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#127#127#127#255#127#127#127#255#128#0#128#0#127#127#127#255#127
-  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
-  +#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127
-  +#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127
-  +#127#255#127#127#127#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#127#127#127#255#127#127#127#255#255#255#255#255#128#0
-  +#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127
-  +#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#128#0
-  +#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#255#255#255
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#127#127#127#255
-  +#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#255
-  +#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127
-  +#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127
-  +#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127
-  +#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#255#255
-  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#127#127
-  +#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127
-  +#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127
-  +#255#127#127#127#255#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255
-  +#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127
+  +#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127#127#255#127#127
   +#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127
-  +#127#127#255#255#255#255#255#255#255#255#255#128#0#128#0#127#127#127#255#127
-  +#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0
+  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
+  +#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#255#255#255
   +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
-  +#255#255#255#255#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255
-  +#128#0#128#0#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
-  +#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127
+  +#255#255#127#127#127#255#127#127#127#255#127#127#127#255#255#255#255#255#127
+  +#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127
   +#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127
-  +#127#255#128#0#128#0#0#0#7'TZQuery'#14'admCompListQry'#10'Connection'#7#27'a'
-  +'dmDatamodule.admConnection'#14'AutoCalcFields'#8#12'BeforeScroll'#7#26'admC'
-  +'ompListQryBeforeScroll'#11'AfterScroll'#7#25'admCompListQryAfterScroll'#12
-  +'UpdateObject'#7#30'admDatamodule.admCompListUpSql'#13'CachedUpdates'#9#11'A'
-  +'fterInsert'#7#23'admCompListQryAfterEdit'#10'BeforeEdit'#7#24'admCompListQr'
-  +'yBeforeEdit'#9'AfterEdit'#7#23'admCompListQryAfterEdit'#10'BeforePost'#7#24
-  +'admCompListQryBeforePost'#9'AfterPost'#7#23'admCompListQryAfterPost'#11'OnE'
-  +'ditError'#7#23'admCompListQryEditError'#11'OnPostError'#7#23'admCompListQry'
-  +'EditError'#10'ParamCheck'#8#6'Params'#14#0#8'Sequence'#7#28'admDatamodule.a'
-  +'dmCompListSeq'#13'SequenceField'#6#2'id'#4'Left'#3#14#1#3'Top'#3#246'?'#0#0
-  +#7'TZQuery'#15'admWorkerMgmQry'#10'Connection'#7#27'admDatamodule.admConnect'
-  +'ion'#14'AutoCalcFields'#8#12'BeforeScroll'#7#27'admWorkerMgmQryBeforeScroll'
-  +#11'AfterScroll'#7#26'admWorkerMgmQryAfterScroll'#12'UpdateObject'#7#29'admD'
-  +'atamodule.admWorkerMgmSql'#13'CachedUpdates'#9#11'AfterInsert'#7#24'admWork'
-  +'erMgmQryAfterEdit'#9'AfterEdit'#7#24'admWorkerMgmQryAfterEdit'#10'BeforePos'
-  ,'t'#7#25'admWorkerMgmQryBeforePost'#9'AfterPost'#7#24'admWorkerMgmQryAfterPo'
-  +'st'#10'ParamCheck'#8#6'Params'#14#0#8'Sequence'#7#29'admDatamodule.admWorke'
-  +'rMgmSeq'#13'SequenceField'#6#2'id'#4'Left'#3#134#1#3'Top'#3#246'?'#0#0#11'T'
-  +'DataSource'#19'admWorkerMgmDataset'#7'DataSet'#7#15'admWorkerMgmQry'#4'Left'
-  +#3#148#2#3'Top'#3#246'?'#0#0#11'TDataSource'#18'admCompListDataset'#7'DataSe'
-  +'t'#7#14'admCompListQry'#4'Left'#3#8#2#3'Top'#3#246'?'#0#0#7'TZQuery'#7'temp'
-  +'Qry'#10'Connection'#7#27'admDatamodule.admConnection'#14'AutoCalcFields'#8#6
-  +'Params'#14#0#4'Left'#2'n'#3'Top'#3#246'?'#0#0#10'TZSequence'#12'qryClientSe'
-  +'q'#10'Connection'#7#27'admDatamodule.admConnection'#12'SequenceName'#6#13'c'
-  +'lient_id_seq'#4'Left'#3#22#3#3'Top'#3#246'?'#0#0#10'TPopupMenu'#13'mnuCmpAc'
-  +'tions'#4'Left'#3#152#3#3'Top'#3#8#2#0#9'TMenuItem'#9'MenuItem1'#7'Caption'#6
-  +#18'Impordi kontoplaan'#7'OnClick'#7#14'MenuItem1Click'#0#0#9'TMenuItem'#16
-  +'mnu_copySettings'#7'Caption'#6#22'Kopeeri seaded firmalt'#0#0#9'TMenuItem'#7
-  +'mnuSep5'#7'Caption'#6#1'-'#0#0#9'TMenuItem'#17'mnuItemExecScript'#7'Caption'
-  +#6#15'K'#195#164'ivita skript'#7'OnClick'#7#22'mnuItemExecScriptClick'#0#0#9
-  +'TMenuItem'#13'mnuReinitRole'#7'Caption'#6#28'Reinitsialiseeri Stiigo roll'#7
-  +'OnClick'#7#18'mnuReinitRoleClick'#0#0#0#11'TOpenDialog'#11'openAccFile'#5'T'
-  +'itle'#6#18'Impordi kontoplaan'#6'Filter'#6'$Teksti failid|*.txt|K'#195#181
-  +'ik failid|*.*'#4'Left'#3'*'#3#3'Top'#3#8#2#0#0#11'TOpenDialog'#12'openCompL'
-  +'ogo'#5'Title'#6#11'Valige logo'#6'Filter'#6#15'Jpeg fail|*.jpg'#4'Left'#3
-  +#208#2#3'Top'#3#8#2#0#0#6'TTimer'#8'loadLogo'#7'Enabled'#8#8'Interval'#3#144
-  +#1#7'OnTimer'#7#13'loadLogoTimer'#4'Left'#3#128#2#3'Top'#3#8#2#0#0#11'TOpenD'
-  +'ialog'#14'openScriptFile'#5'Title'#6#18'K'#195#164'ivitame skripti'#6'Filte'
-  +'r'#6#31'SQL fail|*.sql|K'#195#181'ik failid|*.*'#4'Left'#3#152#3#3'Top'#3
-  +#204#1#0#0#0
+  +#127#255#127#127#127#255#128#0#128#0#255#255#255#255#255#255#255#255#127#127
+  +#127#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0
+  +#127#127#127#255#255#255#255#255#127#127#127#255#127#127#127#255#127#127#127
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#128#0#128#0#128#0#128#0
+  +#128#0#128#0#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0
+  +#128#0#127#127#127#255#127#127#127#255#128#0#128#0#255#255#255#255#255#255
+  +#255#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127
+  +#127#127#255#127#127#127#255#127#127#127#255#255#255#255#255#128#0#128#0#128
+  +#0#128#0#127#127#127#255#127#127#127#255#255#255#255#255#255#255#255#255#128
+  +#0#128#0#128#0#128#0#128#0#128#0#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#127#127#127#255#127#127#127#255#128#0
+  +#128#0#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127
+  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
+  +#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127
+  +#255#127#127#127#255#127#127#127#255#127#127#127#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#127#127#127#255#127#127#127
+  +#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127
+  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
+  +#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255#127#127
+  +#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127#127#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
+  +#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127#127#255
+  +#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127#127
+  +#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127
+  +#127#127#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127
+  +#127#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0
+  +#128#0#128#0#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#128#0#128#0#128#0#128#0#127
+  +#127#127#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#127#127
+  +#127#255#127#127#127#255#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128#0#128
+  +#0#128#0#127#127#127#255#127#127#127#255#128#0#128#0#128#0#128#0#127#127#127
+  +#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128#0#128#0#127
+  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
+  +#127#127#127#255#127#127#127#255#255#255#255#255#255#255#255#255#128#0#128#0
+  +#127#127#127#255#127#127#127#255#255#255#255#255#128#0#128#0#128#0#128#0#128
+  +#0#128#0#128#0#128#0#255#255#255#255#255#255#255#255#255#255#255#255#255#255
+  +#255#255#255#255#255#255#255#255#255#255#255#255#255#255#128#0#128#0#128#0
+  +#128#0#127#127#127#255#128#0#128#0#127#127#127#255#127#127#127#255#127#127
+  +#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127
+  +#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255#127#127#127#255
+  +#127#127#127#255#127#127#127#255#128#0#128#0#0#0#7'TZQuery'#14'admCompListQr'
+  ,'y'#10'Connection'#7#27'admDatamodule.admConnection'#14'AutoCalcFields'#8#12
+  +'BeforeScroll'#7#26'admCompListQryBeforeScroll'#11'AfterScroll'#7#25'admComp'
+  +'ListQryAfterScroll'#12'UpdateObject'#7#30'admDatamodule.admCompListUpSql'#13
+  +'CachedUpdates'#9#11'AfterInsert'#7#23'admCompListQryAfterEdit'#10'BeforeEdi'
+  +'t'#7#24'admCompListQryBeforeEdit'#9'AfterEdit'#7#23'admCompListQryAfterEdit'
+  +#10'BeforePost'#7#24'admCompListQryBeforePost'#9'AfterPost'#7#23'admCompList'
+  +'QryAfterPost'#11'OnEditError'#7#23'admCompListQryEditError'#11'OnPostError'
+  +#7#23'admCompListQryEditError'#10'ParamCheck'#8#6'Params'#14#0#8'Sequence'#7
+  +#28'admDatamodule.admCompListSeq'#13'SequenceField'#6#2'id'#4'Left'#3#14#1#3
+  +'Top'#3#246'?'#0#0#7'TZQuery'#15'admWorkerMgmQry'#10'Connection'#7#27'admDat'
+  +'amodule.admConnection'#14'AutoCalcFields'#8#12'BeforeScroll'#7#27'admWorker'
+  +'MgmQryBeforeScroll'#11'AfterScroll'#7#26'admWorkerMgmQryAfterScroll'#12'Upd'
+  +'ateObject'#7#29'admDatamodule.admWorkerMgmSql'#13'CachedUpdates'#9#11'After'
+  +'Insert'#7#24'admWorkerMgmQryAfterEdit'#9'AfterEdit'#7#24'admWorkerMgmQryAft'
+  +'erEdit'#10'BeforePost'#7#25'admWorkerMgmQryBeforePost'#9'AfterPost'#7#24'ad'
+  +'mWorkerMgmQryAfterPost'#10'ParamCheck'#8#6'Params'#14#0#8'Sequence'#7#29'ad'
+  +'mDatamodule.admWorkerMgmSeq'#13'SequenceField'#6#2'id'#4'Left'#3#134#1#3'To'
+  +'p'#3#246'?'#0#0#11'TDataSource'#19'admWorkerMgmDataset'#7'DataSet'#7#15'adm'
+  +'WorkerMgmQry'#4'Left'#3#148#2#3'Top'#3#246'?'#0#0#11'TDataSource'#18'admCom'
+  +'pListDataset'#7'DataSet'#7#14'admCompListQry'#4'Left'#3#8#2#3'Top'#3#246'?'
+  +#0#0#7'TZQuery'#7'tempQry'#10'Connection'#7#27'admDatamodule.admConnection'
+  +#14'AutoCalcFields'#8#6'Params'#14#0#4'Left'#2'n'#3'Top'#3#246'?'#0#0#10'TZS'
+  +'equence'#12'qryClientSeq'#10'Connection'#7#27'admDatamodule.admConnection'
+  +#12'SequenceName'#6#13'client_id_seq'#4'Left'#3#22#3#3'Top'#3#246'?'#0#0#10
+  +'TPopupMenu'#13'mnuCmpActions'#4'Left'#3#152#3#3'Top'#3#8#2#0#9'TMenuItem'#9
+  +'MenuItem1'#7'Caption'#6#18'Impordi kontoplaan'#7'OnClick'#7#14'MenuItem1Cli'
+  +'ck'#0#0#9'TMenuItem'#16'mnu_copySettings'#7'Caption'#6#22'Kopeeri seaded fi'
+  +'rmalt'#0#0#9'TMenuItem'#7'mnuSep5'#7'Caption'#6#1'-'#0#0#9'TMenuItem'#17'mn'
+  +'uItemExecScript'#7'Caption'#6#15'K'#195#164'ivita skript'#7'OnClick'#7#22'm'
+  +'nuItemExecScriptClick'#0#0#9'TMenuItem'#13'mnuReinitRole'#7'Caption'#6#28'R'
+  +'einitsialiseeri Stiigo roll'#7'OnClick'#7#18'mnuReinitRoleClick'#0#0#0#11'T'
+  +'OpenDialog'#11'openAccFile'#5'Title'#6#18'Impordi kontoplaan'#6'Filter'#6'$'
+  +'Teksti failid|*.txt|K'#195#181'ik failid|*.*'#4'Left'#3'*'#3#3'Top'#3#8#2#0
+  +#0#11'TOpenDialog'#12'openCompLogo'#5'Title'#6#11'Valige logo'#6'Filter'#6#15
+  +'Jpeg fail|*.jpg'#4'Left'#3#208#2#3'Top'#3#8#2#0#0#6'TTimer'#8'loadLogo'#7'E'
+  +'nabled'#8#8'Interval'#3#144#1#7'OnTimer'#7#13'loadLogoTimer'#4'Left'#3#128#2
+  +#3'Top'#3#8#2#0#0#11'TOpenDialog'#14'openScriptFile'#5'Title'#6#18'K'#195#164
+  +'ivitame skripti'#6'Filter'#6#31'SQL fail|*.sql|K'#195#181'ik failid|*.*'#4
+  +'Left'#3#152#3#3'Top'#3#204#1#0#0#0
 ]);

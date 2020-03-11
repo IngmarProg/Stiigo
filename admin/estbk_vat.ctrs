@@ -1,106 +1,110 @@
+{ This is an automatically generated typhon resource file }
+
 TyphonResources.Add('TframeVATs','FORMDATA',[
-  'TPF0'#10'TframeVATs'#9'frameVATs'#4'Left'#2#0#6'Height'#3#183#1#3'Top'#2#0#5
-  +'Width'#3'N'#2#12'ClientHeight'#3#183#1#11'ClientWidth'#3'N'#2#8'TabOrder'#2
-  +#0#10'DesignLeft'#3#223#0#9'DesignTop'#3'+'#1#0#6'TPanel'#9'leftPanel'#4'Lef'
-  +'t'#2#0#6'Height'#3#183#1#3'Top'#2#0#5'Width'#3#243#0#5'Align'#7#6'alLeft'#10
-  +'BevelOuter'#7#6'bvNone'#12'ClientHeight'#3#183#1#11'ClientWidth'#3#243#0#20
-  +'Constraints.MaxWidth'#3'^'#1#20'Constraints.MinWidth'#2'd'#8'TabOrder'#2#0#0
-  +#7'TDBGrid'#7'gridVat'#4'Left'#2#3#6'Height'#3#179#1#3'Top'#2#2#5'Width'#3
-  +#239#0#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#5'Color'#7#8
-  +'clWindow'#7'Columns'#14#1#13'Title.Caption'#6#7'Nimetus'#5'Width'#3#160#0#9
-  +'FieldName'#6#11'description'#0#1#13'Title.Caption'#6#1'%'#5'Width'#2'('#9'F'
-  +'ieldName'#6#4'perc'#0#0#10'DataSource'#7#8'qryVatDs'#7'Options'#11#8'dgTitl'
-  +'es'#11'dgIndicator'#14'dgColumnResize'#12'dgColumnMove'#10'dgColLines'#10'd'
-  +'gRowLines'#6'dgTabs'#11'dgRowSelect'#21'dgAlwaysShowSelection'#15'dgConfirm'
-  +'Delete'#14'dgCancelOnExit'#0#8'TabOrder'#2#0#10'TitleStyle'#7#8'tsNative'#0
-  +#0#0#9'TSplitter'#9'Splitter1'#4'Left'#3#243#0#6'Height'#3#183#1#3'Top'#2#0#5
-  +'Width'#2#5#0#0#6'TPanel'#10'rightPanel'#4'Left'#3#248#0#6'Height'#3#183#1#3
-  +'Top'#2#0#5'Width'#3'V'#1#5'Align'#7#8'alClient'#10'BevelOuter'#7#6'bvNone'
-  +#12'ClientHeight'#3#183#1#11'ClientWidth'#3'V'#1#8'TabOrder'#2#2#0#6'TLabel'
-  +#10'lblVatname'#4'Left'#2'!'#6'Height'#2#14#3'Top'#2#24#5'Width'#2'e'#8'Auto'
-  +'Size'#8#7'Caption'#6#20'K'#195#164'ibemaksu nimetus:'#11'ParentColor'#8#0#0
-  +#7'TDBEdit'#12'dbEdtVatName'#4'Left'#3#136#0#6'Height'#2#21#3'Top'#2#22#5'Wi'
-  +'dth'#3#184#0#9'DataField'#6#11'description'#10'DataSource'#7#8'qryVatDs'#7
-  +'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'CharCase'#7#8'ecNormal'#20'Co'
-  +'nstraints.MaxWidth'#3#29#1#9'MaxLength'#3#255#0#8'TabOrder'#2#0#10'OnKeyPre'
-  +'ss'#7#20'dbEdtVatNameKeyPress'#0#0#6'TLabel'#10'lblVatPerc'#4'Left'#2#29#6
-  +'Height'#2#14#3'Top'#2'0'#5'Width'#2'i'#7'Caption'#6#21'K'#195#164'ibemaksu '
-  +'protsent:'#11'ParentColor'#8#0#0#7'TDBEdit'#12'dbEdtVatPerc'#4'Left'#3#136#0
-  +#6'Height'#2#21#3'Top'#2'-'#5'Width'#2'5'#9'DataField'#6#4'oprc'#10'DataSour'
-  +'ce'#7#8'qryVatDs'#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#3#8'TabOrder'#2#1
-  +#10'OnKeyPress'#7#20'dbEdtVatPercKeyPress'#0#0#9'TCheckBox'#7'ptrnVat'#4'Lef'
-  +'t'#3#136#0#6'Height'#2#17#3'Top'#2'x'#5'Width'#3#128#0#8'AutoSize'#8#7'Capt'
-  +'ion'#6#17'P'#195#182#195#182'rdk'#195#164'ibemaks'#8'OnChange'#7#13'ptrnVat'
-  +'Change'#10'OnKeyPress'#7#20'dbEdtVatNameKeyPress'#8'TabOrder'#2#4#0#0#6'TLa'
-  +'bel'#10'lblSaleVat'#4'Left'#2#16#6'Height'#2#14#3'Top'#2'G'#5'Width'#2'v'#7
-  +'Caption'#6#25'M'#195#188#195#188'gik'#195#164'ibemaksu konto:'#11'ParentCol'
-  +'or'#8#0#0#6'TLabel'#11'lblSaleVat1'#4'Left'#2#13#6'Height'#2#14#3'Top'#2'^'
-  +#5'Width'#2'y'#7'Caption'#6#24'Sisendk'#195#164'ibemaksu konto:'#11'ParentCo'
-  +'lor'#8#0#0#16'TRxDBLookupCombo'#16'dblComboVat_svat'#4'Left'#3#136#0#6'Heig'
-  +'ht'#2#21#3'Top'#2'D'#5'Width'#3#128#0#8'AutoSize'#9#21'ButtonOnlyWhenFocuse'
-  +'d'#8#11'ButtonWidth'#2#15#5'Color'#7#8'clWindow'#9'DataField'#6#16'vat_acco'
-  +'unt_id_s'#10'DataSource'#7#8'qryVatDs'#24'PopUpFormOptions.Columns'#14#1#9
-  +'Alignment'#7#13'taLeftJustify'#5'Color'#7#8'clWindow'#9'FieldName'#6#14'acc'
-  +'ount_coding'#17'Title.Orientation'#7#12'toHorizontal'#15'Title.Alignment'#7
-  +#8'taCenter'#12'Title.Layout'#7#5'tlTop'#13'Title.Caption'#6#4'Kood'#11'Titl'
-  +'e.Color'#7#9'clBtnFace'#5'Width'#2'-'#0#1#9'Alignment'#7#13'taLeftJustify'#5
-  +'Color'#7#8'clWindow'#9'FieldName'#6#12'account_name'#17'Title.Orientation'#7
-  +#12'toHorizontal'#15'Title.Alignment'#7#8'taCenter'#12'Title.Layout'#7#5'tlT'
-  +'op'#13'Title.Caption'#6#7'Nimetus'#11'Title.Color'#7#9'clBtnFace'#5'Width'#3
-  +#255#0#0#0#30'PopUpFormOptions.DropDownWidth'#3'c'#1#24'PopUpFormOptions.Opt'
-  +'ions'#11#11'pfgColLines'#11'pfgRowLines'#15'pfgColumnResize'#0#27'PopUpForm'
-  +'Options.ShowTitles'#9#29'PopUpFormOptions.TitleButtons'#9#4'Flat'#8#10'Glyp'
-  +'h.Data'#10'v'#0#0#0'r'#0#0#0'BMr'#0#0#0#0#0#0#0'6'#0#0#0'('#0#0#0#5#0#0#0#3
-  +#0#0#0#1#0' '#0#0#0#0#0'<'#0#0#0'd'#0#0#0'd'#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
-  +#0#0#0#0#0#0#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0
-  +#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#9'NumGlyphs'#2#1#17'OnC'
-  +'losePopupNotif'#7#31'dblComboVat_svatClosePopupNotif'#10'OnKeyPress'#7#20'd'
-  +'bEdtVatNameKeyPress'#8'OnSelect'#7#22'dblComboVat_svatSelect'#11'ParentColo'
-  +'r'#8#8'ReadOnly'#8#8'TabOrder'#2#2#7'TabStop'#9#13'DropDownWidth'#3'c'#1#13
-  +'LookupDisplay'#6#27'account_coding;account_name'#11'LookupField'#6#2'id'#12
-  +'LookupSource'#7#10'qryAccNVat'#0#0#16'TRxDBLookupCombo'#17'dblComboVat_ipva'
-  +'t'#4'Left'#3#136#0#6'Height'#2#21#3'Top'#2'['#5'Width'#3#128#0#8'AutoSize'#9
-  +#21'ButtonOnlyWhenFocused'#8#11'ButtonWidth'#2#15#5'Color'#7#8'clWindow'#9'D'
-  +'ataField'#6#16'vat_account_id_i'#10'DataSource'#7#8'qryVatDs'#24'PopUpFormO'
-  +'ptions.Columns'#14#1#9'Alignment'#7#13'taLeftJustify'#5'Color'#7#8'clWindow'
-  ,#9'FieldName'#6#14'account_coding'#17'Title.Orientation'#7#12'toHorizontal'
-  +#15'Title.Alignment'#7#8'taCenter'#12'Title.Layout'#7#5'tlTop'#13'Title.Capt'
-  +'ion'#6#4'Kood'#11'Title.Color'#7#9'clBtnFace'#5'Width'#2'-'#0#1#9'Alignment'
-  +#7#13'taLeftJustify'#5'Color'#7#8'clWindow'#9'FieldName'#6#12'account_name'
+  'TPF0'#10'TframeVATs'#9'frameVATs'#4'Left'#2#0#6'Height'#3'%'#2#3'Top'#2#0#5
+  +'Width'#3#226#2#12'ClientHeight'#3'%'#2#11'ClientWidth'#3#226#2#13'DesignTim'
+  +'ePPI'#2'x'#10'ParentFont'#8#8'TabOrder'#2#0#10'DesignLeft'#2#23#9'DesignTop'
+  +#3#215#0#0#6'TPanel'#9'leftPanel'#4'Left'#2#0#6'Height'#3'%'#2#3'Top'#2#0#5
+  +'Width'#3'0'#1#5'Align'#7#6'alLeft'#10'BevelOuter'#7#6'bvNone'#12'ClientHeig'
+  +'ht'#3'%'#2#11'ClientWidth'#3'0'#1#20'Constraints.MaxWidth'#3#182#1#20'Const'
+  +'raints.MinWidth'#2'}'#8'TabOrder'#2#0#0#7'TDBGrid'#7'gridVat'#4'Left'#2#4#6
+  +'Height'#3'!'#2#3'Top'#2#2#5'Width'#3'+'#1#7'Anchors'#11#5'akTop'#6'akLeft'#7
+  +'akRight'#8'akBottom'#0#5'Color'#7#8'clWindow'#7'Columns'#14#1#7'MinSize'#2
+  +#12#7'MaxSize'#3#250#0#13'Title.Caption'#6#7'Nimetus'#5'Width'#3#200#0#9'Fie'
+  +'ldName'#6#11'description'#0#1#7'MinSize'#2#12#7'MaxSize'#3#250#0#13'Title.C'
+  +'aption'#6#1'%'#5'Width'#2'2'#9'FieldName'#6#4'perc'#0#0#10'DataSource'#7#8
+  +'qryVatDs'#7'Options'#11#8'dgTitles'#11'dgIndicator'#14'dgColumnResize'#12'd'
+  +'gColumnMove'#10'dgColLines'#10'dgRowLines'#6'dgTabs'#11'dgRowSelect'#21'dgA'
+  +'lwaysShowSelection'#15'dgConfirmDelete'#14'dgCancelOnExit'#0#8'TabOrder'#2#0
+  +#10'TitleStyle'#7#8'tsNative'#0#0#0#9'TSplitter'#9'Splitter1'#4'Left'#3'0'#1
+  +#6'Height'#3'%'#2#3'Top'#2#0#5'Width'#2#6#0#0#6'TPanel'#10'rightPanel'#4'Lef'
+  +'t'#3'6'#1#6'Height'#3'%'#2#3'Top'#2#0#5'Width'#3#172#1#5'Align'#7#8'alClien'
+  +'t'#10'BevelOuter'#7#6'bvNone'#12'ClientHeight'#3'%'#2#11'ClientWidth'#3#172
+  +#1#8'TabOrder'#2#2#0#6'TLabel'#10'lblVatname'#4'Left'#2')'#6'Height'#2#18#3
+  +'Top'#2#30#5'Width'#2'~'#8'AutoSize'#8#7'Caption'#6#20'K'#195#164'ibemaksu n'
+  +'imetus:'#11'ParentColor'#8#0#0#7'TDBEdit'#12'dbEdtVatName'#4'Left'#3#189#0#6
+  +'Height'#2#28#3'Top'#2#28#5'Width'#3#230#0#9'DataField'#6#11'description'#10
+  +'DataSource'#7#8'qryVatDs'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#8'C'
+  +'harCase'#7#8'ecNormal'#20'Constraints.MaxWidth'#3'd'#1#9'MaxLength'#3#255#0
+  +#8'TabOrder'#2#0#10'OnKeyPress'#7#20'dbEdtVatNameKeyPress'#0#0#6'TLabel'#10
+  +'lblVatPerc'#4'Left'#2'$'#6'Height'#2#20#3'Top'#2'?'#5'Width'#3#142#0#7'Capt'
+  +'ion'#6#21'K'#195#164'ibemaksu protsent:'#11'ParentColor'#8#0#0#7'TDBEdit'#12
+  +'dbEdtVatPerc'#4'Left'#3#189#0#6'Height'#2#28#3'Top'#2';'#5'Width'#2'B'#9'Da'
+  +'taField'#6#4'oprc'#10'DataSource'#7#8'qryVatDs'#8'CharCase'#7#8'ecNormal'#9
+  +'MaxLength'#2#3#8'TabOrder'#2#1#10'OnKeyPress'#7#20'dbEdtVatPercKeyPress'#0#0
+  +#9'TCheckBox'#7'ptrnVat'#4'Left'#3#189#0#6'Height'#2#21#3'Top'#3#168#0#5'Wid'
+  +'th'#3#160#0#8'AutoSize'#8#7'Caption'#6#17'P'#195#182#195#182'rdk'#195#164'i'
+  +'bemaks'#8'OnChange'#7#13'ptrnVatChange'#10'OnKeyPress'#7#20'dbEdtVatNameKey'
+  +'Press'#8'TabOrder'#2#4#0#0#6'TLabel'#10'lblSaleVat'#4'Left'#2#20#6'Height'#2
+  +#20#3'Top'#2'c'#5'Width'#3#165#0#7'Caption'#6#25'M'#195#188#195#188'gik'#195
+  +#164'ibemaksu konto:'#11'ParentColor'#8#0#0#6'TLabel'#11'lblSaleVat1'#4'Left'
+  +#2#16#6'Height'#2#20#3'Top'#3#134#0#5'Width'#3#166#0#7'Caption'#6#24'Sisendk'
+  +#195#164'ibemaksu konto:'#11'ParentColor'#8#0#0#16'TRxDBLookupCombo'#16'dblC'
+  +'omboVat_svat'#4'Left'#3#189#0#6'Height'#2' '#3'Top'#2']'#5'Width'#3#128#0#8
+  +'AutoSize'#9#21'ButtonOnlyWhenFocused'#8#11'ButtonWidth'#2#19#5'Color'#7#8'c'
+  +'lWindow'#9'DataField'#6#16'vat_account_id_s'#10'DataSource'#7#8'qryVatDs'#24
+  +'PopUpFormOptions.Columns'#14#1#9'Alignment'#7#13'taLeftJustify'#5'Color'#7#8
+  +'clWindow'#9'FieldName'#6#14'account_coding'#17'Title.Orientation'#7#12'toHo'
+  +'rizontal'#15'Title.Alignment'#7#8'taCenter'#12'Title.Layout'#7#5'tlTop'#13
+  +'Title.Caption'#6#4'Kood'#11'Title.Color'#7#9'clBtnFace'#5'Width'#2'-'#0#1#9
+  +'Alignment'#7#13'taLeftJustify'#5'Color'#7#8'clWindow'#9'FieldName'#6#12'acc'
+  +'ount_name'#17'Title.Orientation'#7#12'toHorizontal'#15'Title.Alignment'#7#8
+  +'taCenter'#12'Title.Layout'#7#5'tlTop'#13'Title.Caption'#6#7'Nimetus'#11'Tit'
+  +'le.Color'#7#9'clBtnFace'#5'Width'#3#255#0#0#0#30'PopUpFormOptions.DropDownW'
+  +'idth'#3'c'#1#24'PopUpFormOptions.Options'#11#11'pfgColLines'#11'pfgRowLines'
+  +#15'pfgColumnResize'#0#27'PopUpFormOptions.ShowTitles'#9#29'PopUpFormOptions'
+  +'.TitleButtons'#9#4'Flat'#8#10'Glyph.Data'#10'v'#0#0#0'r'#0#0#0'BMr'#0#0#0#0
+  +#0#0#0'6'#0#0#0'('#0#0#0#5#0#0#0#3#0#0#0#1#0' '#0#0#0#0#0'<'#0#0#0'd'#0#0#0
+  +'d'#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#255#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#255#0#0#0#255#0#0#0#255#0#0#0#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255
+  +#0#0#0#255#9'NumGlyphs'#2#1#17'OnClosePopupNotif'#7#31'dblComboVat_svatClose'
+  +'PopupNotif'#10'OnKeyPress'#7#20'dbEdtVatNameKeyPress'#8'OnSelect'#7#22'dblC'
+  +'omboVat_svatSelect'#11'ParentColor'#8#8'ReadOnly'#8#8'TabOrder'#2#2#7'TabSt'
+  +'op'#9#13'DropDownWidth'#3'c'#1#13'LookupDisplay'#6#27'account_coding;accoun'
+  +'t_name'#11'LookupField'#6#2'id'#12'LookupSource'#7#10'qryAccNVat'#0#0#16'TR'
+  +'xDBLookupCombo'#17'dblComboVat_ipvat'#4'Left'#3#189#0#6'Height'#2' '#3'Top'
+  +#3#130#0#5'Width'#3#128#0#8'AutoSize'#9#21'ButtonOnlyWhenFocused'#8#11'Butto'
+  +'nWidth'#2#19#5'Color'#7#8'clWindow'#9'DataField'#6#16'vat_account_id_i'#10
+  ,'DataSource'#7#8'qryVatDs'#24'PopUpFormOptions.Columns'#14#1#9'Alignment'#7
+  +#13'taLeftJustify'#5'Color'#7#8'clWindow'#9'FieldName'#6#14'account_coding'
   +#17'Title.Orientation'#7#12'toHorizontal'#15'Title.Alignment'#7#8'taCenter'
-  +#12'Title.Layout'#7#5'tlTop'#13'Title.Caption'#6#7'Nimetus'#11'Title.Color'#7
-  +#9'clBtnFace'#5'Width'#3#255#0#0#0#30'PopUpFormOptions.DropDownWidth'#3'c'#1
-  +#24'PopUpFormOptions.Options'#11#11'pfgColLines'#11'pfgRowLines'#15'pfgColum'
-  +'nResize'#0#27'PopUpFormOptions.ShowTitles'#9#29'PopUpFormOptions.TitleButto'
-  +'ns'#9#4'Flat'#8#10'Glyph.Data'#10'v'#0#0#0'r'#0#0#0'BMr'#0#0#0#0#0#0#0'6'#0
-  +#0#0'('#0#0#0#5#0#0#0#3#0#0#0#1#0' '#0#0#0#0#0'<'#0#0#0'd'#0#0#0'd'#0#0#0#0#0
-  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#255#0#0
-  +#0#255#0#0#0#255#0#0#0#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#9
-  +'NumGlyphs'#2#1#17'OnClosePopupNotif'#7#31'dblComboVat_svatClosePopupNotif'
-  +#10'OnKeyPress'#7#20'dbEdtVatNameKeyPress'#8'OnSelect'#7#22'dblComboVat_svat'
-  +'Select'#11'ParentColor'#8#8'ReadOnly'#8#8'TabOrder'#2#3#7'TabStop'#9#13'Dro'
-  +'pDownWidth'#3'c'#1#13'LookupDisplay'#6#27'account_coding;account_name'#11'L'
-  +'ookupField'#6#2'id'#12'LookupSource'#7#10'qryAccIVat'#0#0#9'TCheckBox'#13'p'
-  +'trnVat50perc'#4'Left'#3#136#0#6'Height'#2#17#3'Top'#3#136#0#5'Width'#3#128#0
-  +#8'AutoSize'#8#7'Caption'#6#11'50% auto KM'#8'OnChange'#7#13'ptrnVatChange'
-  +#10'OnKeyPress'#7#20'dbEdtVatNameKeyPress'#8'TabOrder'#2#5#0#0#0#11'TDatasou'
-  +'rce'#8'qryVatDs'#7'DataSet'#7#6'qryVat'#4'left'#3#176#0#3'top'#2#8#0#0#7'TZ'
-  +'Query'#6'qryVat'#10'Connection'#7#27'admDatamodule.admConnection'#11'AfterS'
-  +'croll'#7#17'qryVatAfterScroll'#12'UpdateObject'#7#5'dummy'#13'CachedUpdates'
-  +#9#11'AfterInsert'#7#15'qryVatAfterEdit'#9'AfterEdit'#7#15'qryVatAfterEdit'
-  +#10'BeforePost'#7#16'qryVatBeforePost'#6'Params'#14#0#4'left'#2'('#3'top'#2#8
-  +#0#0#15'TZReadOnlyQuery'#18'qryAccountsSaleVat'#10'Connection'#7#27'admDatam'
-  +'odule.admConnection'#14'OnFilterRecord'#7#30'qryAccountsSaleVatFilterRecord'
-  +#6'Params'#14#0#4'left'#2'('#3'top'#3#200#0#0#0#11'TDatasource'#10'qryAccNVa'
-  +'t'#8'AutoEdit'#8#7'DataSet'#7#18'qryAccountsSaleVat'#4'left'#3#176#0#3'top'
-  +#2'H'#0#0#11'TDatasource'#10'qryAccIVat'#8'AutoEdit'#8#7'DataSet'#7#19'qryAc'
-  +'countsPurchVat'#4'left'#3#176#0#3'top'#3#136#0#0#0#7'TZQuery'#9'qryWorker'
-  +#10'Connection'#7#27'admDatamodule.admConnection'#6'Params'#14#0#4'left'#2
-  +''''#3'top'#2'H'#0#0#15'TZReadOnlyQuery'#19'qryAccountsPurchVat'#10'Connecti'
-  +'on'#7#27'admDatamodule.admConnection'#14'OnFilterRecord'#7#30'qryAccountsSa'
-  +'leVatFilterRecord'#6'Params'#14#0#4'left'#2''''#3'top'#3#136#0#0#0#11'TZUpd'
-  +'ateSQL'#5'dummy'#17'InsertSQL.Strings'#1#6#24'update __int_systemtypes'#6#13
-  +'set bint=bint'#6#17'where bint=999999'#0#17'ModifySQL.Strings'#1#6#24'updat'
-  +'e __int_systemtypes'#6#13'set bint=bint'#6#17'where bint=999999'#0#29'UseSe'
-  +'quenceFieldForRefreshSQL'#8#4'left'#2'('#3'top'#3#8#1#0#0#0
+  +#12'Title.Layout'#7#5'tlTop'#13'Title.Caption'#6#4'Kood'#11'Title.Color'#7#9
+  +'clBtnFace'#5'Width'#2'-'#0#1#9'Alignment'#7#13'taLeftJustify'#5'Color'#7#8
+  +'clWindow'#9'FieldName'#6#12'account_name'#17'Title.Orientation'#7#12'toHori'
+  +'zontal'#15'Title.Alignment'#7#8'taCenter'#12'Title.Layout'#7#5'tlTop'#13'Ti'
+  +'tle.Caption'#6#7'Nimetus'#11'Title.Color'#7#9'clBtnFace'#5'Width'#3#255#0#0
+  +#0#30'PopUpFormOptions.DropDownWidth'#3'c'#1#24'PopUpFormOptions.Options'#11
+  +#11'pfgColLines'#11'pfgRowLines'#15'pfgColumnResize'#0#27'PopUpFormOptions.S'
+  +'howTitles'#9#29'PopUpFormOptions.TitleButtons'#9#4'Flat'#8#10'Glyph.Data'#10
+  +'v'#0#0#0'r'#0#0#0'BMr'#0#0#0#0#0#0#0'6'#0#0#0'('#0#0#0#5#0#0#0#3#0#0#0#1#0
+  +' '#0#0#0#0#0'<'#0#0#0'd'#0#0#0'd'#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#255#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#0#0#0#0
+  +#255#0#0#0#255#0#0#0#255#0#0#0#255#0#0#0#255#9'NumGlyphs'#2#1#17'OnClosePopu'
+  +'pNotif'#7#31'dblComboVat_svatClosePopupNotif'#10'OnKeyPress'#7#20'dbEdtVatN'
+  +'ameKeyPress'#8'OnSelect'#7#22'dblComboVat_svatSelect'#11'ParentColor'#8#8'R'
+  +'eadOnly'#8#8'TabOrder'#2#3#7'TabStop'#9#13'DropDownWidth'#3'c'#1#13'LookupD'
+  +'isplay'#6#27'account_coding;account_name'#11'LookupField'#6#2'id'#12'Lookup'
+  +'Source'#7#10'qryAccIVat'#0#0#9'TCheckBox'#13'ptrnVat50perc'#4'Left'#3#189#0
+  +#6'Height'#2#21#3'Top'#3#188#0#5'Width'#3#160#0#8'AutoSize'#8#7'Caption'#6#11
+  +'50% auto KM'#8'OnChange'#7#13'ptrnVatChange'#10'OnKeyPress'#7#20'dbEdtVatNa'
+  +'meKeyPress'#8'TabOrder'#2#5#0#0#0#11'TDataSource'#8'qryVatDs'#7'DataSet'#7#6
+  +'qryVat'#4'Left'#3#220#0#3'Top'#2#10#0#0#7'TZQuery'#6'qryVat'#10'Connection'
+  +#7#27'admDatamodule.admConnection'#11'AfterScroll'#7#17'qryVatAfterScroll'#12
+  +'UpdateObject'#7#5'dummy'#13'CachedUpdates'#9#11'AfterInsert'#7#15'qryVatAft'
+  +'erEdit'#9'AfterEdit'#7#15'qryVatAfterEdit'#10'BeforePost'#7#16'qryVatBefore'
+  +'Post'#6'Params'#14#0#4'Left'#2'2'#3'Top'#2#10#0#0#15'TZReadOnlyQuery'#18'qr'
+  +'yAccountsSaleVat'#10'Connection'#7#27'admDatamodule.admConnection'#14'OnFil'
+  +'terRecord'#7#30'qryAccountsSaleVatFilterRecord'#6'Params'#14#0#4'Left'#2'2'
+  +#3'Top'#3#250#0#0#0#11'TDataSource'#10'qryAccNVat'#8'AutoEdit'#8#7'DataSet'#7
+  +#18'qryAccountsSaleVat'#4'Left'#3#220#0#3'Top'#2'Z'#0#0#11'TDataSource'#10'q'
+  +'ryAccIVat'#8'AutoEdit'#8#7'DataSet'#7#19'qryAccountsPurchVat'#4'Left'#3#220
+  +#0#3'Top'#3#170#0#0#0#7'TZQuery'#9'qryWorker'#10'Connection'#7#27'admDatamod'
+  +'ule.admConnection'#6'Params'#14#0#4'Left'#2'1'#3'Top'#2'Z'#0#0#15'TZReadOnl'
+  +'yQuery'#19'qryAccountsPurchVat'#10'Connection'#7#27'admDatamodule.admConnec'
+  +'tion'#14'OnFilterRecord'#7#30'qryAccountsSaleVatFilterRecord'#6'Params'#14#0
+  +#4'Left'#2'1'#3'Top'#3#170#0#0#0#11'TZUpdateSQL'#5'dummy'#17'InsertSQL.Strin'
+  +'gs'#1#6#24'update __int_systemtypes'#6#13'set bint=bint'#6#17'where bint=99'
+  +'9999'#0#17'ModifySQL.Strings'#1#6#24'update __int_systemtypes'#6#13'set bin'
+  +'t=bint'#6#17'where bint=999999'#0#29'UseSequenceFieldForRefreshSQL'#8#4'Lef'
+  +'t'#2'2'#3'Top'#3'J'#1#0#0#0
 ]);

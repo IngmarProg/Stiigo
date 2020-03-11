@@ -1,41 +1,47 @@
 object frameVATs: TframeVATs
   Left = 0
-  Height = 439
+  Height = 549
   Top = 0
-  Width = 590
-  ClientHeight = 439
-  ClientWidth = 590
+  Width = 738
+  ClientHeight = 549
+  ClientWidth = 738
+  DesignTimePPI = 120
+  ParentFont = False
   TabOrder = 0
-  DesignLeft = 223
-  DesignTop = 299
+  DesignLeft = 23
+  DesignTop = 215
   object leftPanel: TPanel
     Left = 0
-    Height = 439
+    Height = 549
     Top = 0
-    Width = 243
+    Width = 304
     Align = alLeft
     BevelOuter = bvNone
-    ClientHeight = 439
-    ClientWidth = 243
-    Constraints.MaxWidth = 350
-    Constraints.MinWidth = 100
+    ClientHeight = 549
+    ClientWidth = 304
+    Constraints.MaxWidth = 438
+    Constraints.MinWidth = 125
     TabOrder = 0
     object gridVat: TDBGrid
-      Left = 3
-      Height = 435
+      Left = 4
+      Height = 545
       Top = 2
-      Width = 239
+      Width = 299
       Anchors = [akTop, akLeft, akRight, akBottom]
       Color = clWindow
       Columns = <      
         item
+          MinSize = 12
+          MaxSize = 250
           Title.Caption = 'Nimetus'
-          Width = 160
+          Width = 200
           FieldName = 'description'
         end      
         item
+          MinSize = 12
+          MaxSize = 250
           Title.Caption = '%'
-          Width = 40
+          Width = 50
           FieldName = 'perc'
         end>
       DataSource = qryVatDs
@@ -45,57 +51,57 @@ object frameVATs: TframeVATs
     end
   end
   object Splitter1: TSplitter
-    Left = 243
-    Height = 439
+    Left = 304
+    Height = 549
     Top = 0
-    Width = 5
+    Width = 6
   end
   object rightPanel: TPanel
-    Left = 248
-    Height = 439
+    Left = 310
+    Height = 549
     Top = 0
-    Width = 342
+    Width = 428
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 439
-    ClientWidth = 342
+    ClientHeight = 549
+    ClientWidth = 428
     TabOrder = 2
     object lblVatname: TLabel
-      Left = 33
-      Height = 14
-      Top = 24
-      Width = 101
+      Left = 41
+      Height = 18
+      Top = 30
+      Width = 126
       AutoSize = False
       Caption = 'Käibemaksu nimetus:'
       ParentColor = False
     end
     object dbEdtVatName: TDBEdit
-      Left = 136
-      Height = 21
-      Top = 22
-      Width = 184
+      Left = 189
+      Height = 28
+      Top = 28
+      Width = 230
       DataField = 'description'
       DataSource = qryVatDs
       Anchors = [akTop, akLeft, akRight]
       CharCase = ecNormal
-      Constraints.MaxWidth = 285
+      Constraints.MaxWidth = 356
       MaxLength = 255
       TabOrder = 0
       OnKeyPress = dbEdtVatNameKeyPress
     end
     object lblVatPerc: TLabel
-      Left = 29
-      Height = 14
-      Top = 48
-      Width = 105
+      Left = 36
+      Height = 20
+      Top = 63
+      Width = 142
       Caption = 'Käibemaksu protsent:'
       ParentColor = False
     end
     object dbEdtVatPerc: TDBEdit
-      Left = 136
-      Height = 21
-      Top = 45
-      Width = 53
+      Left = 189
+      Height = 28
+      Top = 59
+      Width = 66
       DataField = 'oprc'
       DataSource = qryVatDs
       CharCase = ecNormal
@@ -104,10 +110,10 @@ object frameVATs: TframeVATs
       OnKeyPress = dbEdtVatPercKeyPress
     end
     object ptrnVat: TCheckBox
-      Left = 136
-      Height = 17
-      Top = 120
-      Width = 128
+      Left = 189
+      Height = 21
+      Top = 168
+      Width = 160
       AutoSize = False
       Caption = 'Pöördkäibemaks'
       OnChange = ptrnVatChange
@@ -115,29 +121,29 @@ object frameVATs: TframeVATs
       TabOrder = 4
     end
     object lblSaleVat: TLabel
-      Left = 16
-      Height = 14
-      Top = 71
-      Width = 118
+      Left = 20
+      Height = 20
+      Top = 99
+      Width = 165
       Caption = 'Müügikäibemaksu konto:'
       ParentColor = False
     end
     object lblSaleVat1: TLabel
-      Left = 13
-      Height = 14
-      Top = 94
-      Width = 121
+      Left = 16
+      Height = 20
+      Top = 134
+      Width = 166
       Caption = 'Sisendkäibemaksu konto:'
       ParentColor = False
     end
     object dblComboVat_svat: TRxDBLookupCombo
-      Left = 136
-      Height = 21
-      Top = 68
+      Left = 189
+      Height = 32
+      Top = 93
       Width = 128
       AutoSize = True
       ButtonOnlyWhenFocused = False
-      ButtonWidth = 15
+      ButtonWidth = 19
       Color = clWindow
       DataField = 'vat_account_id_s'
       DataSource = qryVatDs
@@ -189,13 +195,13 @@ object frameVATs: TframeVATs
       LookupSource = qryAccNVat
     end
     object dblComboVat_ipvat: TRxDBLookupCombo
-      Left = 136
-      Height = 21
-      Top = 91
+      Left = 189
+      Height = 32
+      Top = 130
       Width = 128
       AutoSize = True
       ButtonOnlyWhenFocused = False
-      ButtonWidth = 15
+      ButtonWidth = 19
       Color = clWindow
       DataField = 'vat_account_id_i'
       DataSource = qryVatDs
@@ -247,10 +253,10 @@ object frameVATs: TframeVATs
       LookupSource = qryAccIVat
     end
     object ptrnVat50perc: TCheckBox
-      Left = 136
-      Height = 17
-      Top = 136
-      Width = 128
+      Left = 189
+      Height = 21
+      Top = 188
+      Width = 160
       AutoSize = False
       Caption = '50% auto KM'
       OnChange = ptrnVatChange
@@ -258,10 +264,10 @@ object frameVATs: TframeVATs
       TabOrder = 5
     end
   end
-  object qryVatDs: TDatasource
+  object qryVatDs: TDataSource
     DataSet = qryVat
-    left = 176
-    top = 8
+    Left = 220
+    Top = 10
   end
   object qryVat: TZQuery
     Connection = admDatamodule.admConnection
@@ -272,40 +278,40 @@ object frameVATs: TframeVATs
     AfterEdit = qryVatAfterEdit
     BeforePost = qryVatBeforePost
     Params = <>
-    left = 40
-    top = 8
+    Left = 50
+    Top = 10
   end
   object qryAccountsSaleVat: TZReadOnlyQuery
     Connection = admDatamodule.admConnection
     OnFilterRecord = qryAccountsSaleVatFilterRecord
     Params = <>
-    left = 40
-    top = 200
+    Left = 50
+    Top = 250
   end
-  object qryAccNVat: TDatasource
+  object qryAccNVat: TDataSource
     AutoEdit = False
     DataSet = qryAccountsSaleVat
-    left = 176
-    top = 72
+    Left = 220
+    Top = 90
   end
-  object qryAccIVat: TDatasource
+  object qryAccIVat: TDataSource
     AutoEdit = False
     DataSet = qryAccountsPurchVat
-    left = 176
-    top = 136
+    Left = 220
+    Top = 170
   end
   object qryWorker: TZQuery
     Connection = admDatamodule.admConnection
     Params = <>
-    left = 39
-    top = 72
+    Left = 49
+    Top = 90
   end
   object qryAccountsPurchVat: TZReadOnlyQuery
     Connection = admDatamodule.admConnection
     OnFilterRecord = qryAccountsSaleVatFilterRecord
     Params = <>
-    left = 39
-    top = 136
+    Left = 49
+    Top = 170
   end
   object dummy: TZUpdateSQL
     InsertSQL.Strings = (
@@ -319,7 +325,7 @@ object frameVATs: TframeVATs
       'where bint=999999'
     )
     UseSequenceFieldForRefreshSQL = False
-    left = 40
-    top = 264
+    Left = 50
+    Top = 330
   end
 end

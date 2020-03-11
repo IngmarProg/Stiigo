@@ -1239,21 +1239,27 @@ procedure TRxCustomDBLookupCombo.CalculatePreferredSize(var PreferredWidth,
 var
   tmpCanvas: TCanvas;
 begin
-  inherited CalculatePreferredSize(PreferredWidth, PreferredHeight, WithThemeSpace);
-
-
-  // ignore width
-  PreferredWidth:=0;
+  {$IFDEF WINDOWS}
+  // Ingmar fix, muidu lookup ei näe üldse hea välja
   tmpCanvas := GetWorkingCanvas(Canvas);
   try
-    // Ingmar; 8 oleks mõistlikum !
-    PreferredHeight:=Canvas.TextHeight('Wg')+12;
-
-    //PreferredWidth:=Canvas.TextWidth('W')*12;
+    PreferredHeight := Canvas.TextHeight('Wg') + 8;
   finally
     if TmpCanvas<>Canvas then
       FreeWorkingCanvas(tmpCanvas);
   end;
+  {$ELSE}
+  inherited CalculatePreferredSize(PreferredWidth, PreferredHeight, WithThemeSpace);
+  // ignore width
+  PreferredWidth:=0;
+  tmpCanvas := GetWorkingCanvas(Canvas);
+  try
+    PreferredHeight:=Canvas.TextHeight('Wg') + 12;
+  finally
+    if TmpCanvas<>Canvas then
+      FreeWorkingCanvas(tmpCanvas);
+  end;
+  {$ENDIF}
 end;
 
 
@@ -1580,7 +1586,79 @@ var
   Details, DetailsBtn: TThemedElementDetails;
   BtnSize: TSize;
   pr: PRect;
+  pBorderColor : TColor;
 begin
+  {$IFDEF WINDOWS}
+  // 28.03.2011 Ingmar
+  pBorderColor:=rgb(127,157,185);
+  Canvas.Font := Font;
+  Canvas.Brush.Color := Color;
+  Selected := Focused and (not (csPaintCopy in ControlState)) and  (not PopupVisible);
+  if Selected then
+  begin
+    Canvas.Font.Color := clHighlightText;
+    Canvas.Brush.Color := clHighlight;
+  end
+  else
+  if not Enabled {and NewStyleControls }then
+  begin
+    Canvas.Font.Color := clInactiveCaption;
+  end;
+
+  SetRect(R, 0, 0, ClientWidth, ClientHeight);
+  if Flat then
+  begin
+    Canvas.Frame3d(R, 3, bvLowered);
+    // 28.03.2011 Ingmar; frame width 3 on flat puhul liig, mis liig
+    Canvas.Frame3d(R, 0, bvNone);
+  end
+  else
+  begin
+   // 28.03.2011 Ingmar; suutsin lookup välimuse vist lõpuks ühildada
+   RxFrame3D(Canvas, R, clWindowFrame, clBtnHighlight, 1); originaal kood !
+   RxFrame3D(Canvas, R, pBorderColor, pBorderColor, 1);
+   RxFrame3D(Canvas, R, clBtnShadow, clBtnFace, 1);  originaal kood !
+  RxFrame3D(Canvas, R, clred, clBtnFace, 1);
+  end;
+
+  if ClientWidth > 6 then
+  begin
+   SetRect(R1, 3, 3, ClientWidth - 3, ClientHeight - 3);
+   SetRect(R1, 1, 1, ClientWidth - 1, ClientHeight - 1);
+
+   Canvas.FillRect(R1);
+   R.Right:=R.Right - GetButtonWidth;
+   if PopupVisible and (Caption<>'') then
+   begin
+     AText:=Caption;
+     Canvas.TextRect(R, TextMargin, Max(0, (HeightOf(R) - Canvas.TextHeight('Wg')) div 2), AText);
+   end
+   else
+   if FDisplayAll then
+     PaintDisplayValues(Canvas, R, TextMargin)
+   else
+   begin
+     if Assigned(FDataField) and FDataField.IsNull then
+     begin
+       Canvas.Brush.Color:=FEmptyItemColor;
+       Canvas.FillRect(R);
+       AText:=FEmptyValue
+     end
+     else
+     if FValuesList.Count>0 then
+       AText:=FValuesList[FLookupDisplayIndex]
+     else
+       AText:='';
+
+     // 20.11.2009 Ingmar; +1 lisatud muidu oli liiga Ć¼leval tekst; samas ennem oli +2, nüüd tegin ümber
+     if Flat then
+        Canvas.TextRect(R, TextMargin, Max(0, (HeightOf(R) - Canvas.TextHeight('Wg')) div 2), AText)
+     else
+        Canvas.TextRect(R, TextMargin, Max(0, (HeightOf(R) - Canvas.TextHeight('Wg')) div 2)+1, AText);
+
+   end
+  end;
+  {$ELSE}
 
   R := Rect(0, 0, ClientWidth, ClientHeight);
 
@@ -1713,6 +1791,7 @@ begin
       end
     end;
   end;
+  {$ENDIF}
 end;
 
 procedure TRxCustomDBLookupCombo.LookupDataSetChanged(Sender: TObject);

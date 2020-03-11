@@ -395,10 +395,6 @@ begin
       dtEdtStart.Enabled := DataSet.RecordCount = 1;
       dtEdtEnd.Enabled := self.FNewRecordCreated or (DataSet.RecordCount = 1) or (DataSet.RecNo = 1) or
         (not DataSet.EOF and DataSet.FieldByName('period_end').IsNull);
-      // viimane aktiivne kirje !
-      // ---
-      //btnSave.Enabled:=self.FDataNotSaved;
-      //btnCancel.Enabled:=self.FDataNotSaved;
 
       if not DataSet.EOF then
       begin

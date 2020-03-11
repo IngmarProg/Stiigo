@@ -1,28 +1,30 @@
 object frameAccPeriods: TframeAccPeriods
   Left = 0
-  Height = 436
+  Height = 545
   Top = 0
-  Width = 699
-  ClientHeight = 436
-  ClientWidth = 699
+  Width = 874
+  ClientHeight = 545
+  ClientWidth = 874
+  DesignTimePPI = 120
+  ParentFont = False
   TabOrder = 0
-  DesignLeft = 272
-  DesignTop = 263
+  DesignLeft = 23
+  DesignTop = 215
   object lblPerName: TLabel
-    Left = 22
-    Height = 14
-    Top = 19
-    Width = 90
+    Left = 28
+    Height = 18
+    Top = 24
+    Width = 112
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Nimetus:'
     ParentColor = False
   end
   object dbEdtPerName: TDBEdit
-    Left = 117
-    Height = 21
-    Top = 16
-    Width = 323
+    Left = 146
+    Height = 28
+    Top = 20
+    Width = 404
     DataField = 'accname'
     DataSource = qryAccPeriodsDS
     CharCase = ecNormal
@@ -32,28 +34,25 @@ object frameAccPeriods: TframeAccPeriods
     OnKeyPress = dbEdtPerNameKeyPress
   end
   object lblDateStart: TLabel
-    Left = 24
-    Height = 14
-    Top = 43
-    Width = 90
+    Left = 30
+    Height = 18
+    Top = 54
+    Width = 112
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Algus:'
     ParentColor = False
   end
   object dtEdtStart: TDateEdit
-    Left = 117
-    Height = 21
-    Top = 41
-    Width = 123
+    Left = 146
+    Height = 28
+    Top = 51
+    Width = 154
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OnAcceptDate = dtEdtEndAcceptDate
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
     DefaultToday = True
     DateOrder = doNone
-    ButtonWidth = 23
-    CharCase = ecNormal
+    ButtonWidth = 29
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -90,7 +89,7 @@ object frameAccPeriods: TframeAccPeriods
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
+    NumGlyphs = 1
     MaxLength = 0
     OnExit = dtEdtStartExit
     OnKeyPress = dbEdtPerNameKeyPress
@@ -98,18 +97,15 @@ object frameAccPeriods: TframeAccPeriods
     TabOrder = 1
   end
   object dtEdtEnd: TDateEdit
-    Left = 117
-    Height = 21
-    Top = 66
-    Width = 123
+    Left = 146
+    Height = 28
+    Top = 82
+    Width = 154
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OnAcceptDate = dtEdtEndAcceptDate
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
     DefaultToday = True
     DateOrder = doNone
-    ButtonWidth = 23
-    CharCase = ecNormal
+    ButtonWidth = 29
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -146,7 +142,7 @@ object frameAccPeriods: TframeAccPeriods
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
+    NumGlyphs = 1
     MaxLength = 0
     OnExit = dtEdtStartExit
     OnKeyPress = dbEdtPerNameKeyPress
@@ -154,20 +150,20 @@ object frameAccPeriods: TframeAccPeriods
     TabOrder = 2
   end
   object lblDateEnd: TLabel
-    Left = 22
-    Height = 14
-    Top = 69
-    Width = 90
+    Left = 28
+    Height = 18
+    Top = 86
+    Width = 112
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Lõpp:'
     ParentColor = False
   end
   object dbChkBoxClose: TCheckBox
-    Left = 117
-    Height = 17
-    Top = 93
-    Width = 299
+    Left = 146
+    Height = 21
+    Top = 116
+    Width = 374
     AutoSize = False
     Caption = ' Suletud'
     OnClick = dbChkBoxCloseClick
@@ -175,46 +171,56 @@ object frameAccPeriods: TframeAccPeriods
     TabOrder = 3
   end
   object mrline3: TBevel
-    Left = 16
-    Height = 6
-    Top = 117
-    Width = 665
+    Left = 20
+    Height = 8
+    Top = 146
+    Width = 832
     Anchors = [akTop, akLeft, akRight]
     Shape = bsTopLine
   end
   object accEntrys: TDBGrid
-    Left = 16
-    Height = 271
-    Top = 121
-    Width = 665
+    Left = 20
+    Height = 339
+    Top = 151
+    Width = 832
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clWindow
     Columns = <    
       item
+        MinSize = 12
+        MaxSize = 250
         Title.Caption = 'Nimetus'
-        Width = 175
+        Width = 219
         FieldName = 'accname'
       end    
       item
+        MinSize = 12
+        MaxSize = 250
         Title.Caption = 'Algus'
-        Width = 95
+        Width = 119
         FieldName = 'period_start'
       end    
       item
+        MinSize = 12
+        MaxSize = 250
         Title.Caption = 'Lõpp'
-        Width = 95
+        Width = 119
         FieldName = 'period_end'
       end    
       item
+        MinSize = 12
+        MaxSize = 250
         Title.Caption = 'Staatus'
         FieldName = 'status'
       end    
       item
         Alignment = taCenter
         ButtonStyle = cbsButtonColumn
+        MinSize = 12
+        MaxSize = 250
         ReadOnly = True
         Title.Caption = '  '
-        Width = 32
+        Width = 40
         FieldName = 'btncapt'
       end>
     DataSource = qryAccPeriodsDS
@@ -230,19 +236,19 @@ object frameAccPeriods: TframeAccPeriods
     OnSelectEditor = accEntrysSelectEditor
   end
   object mrline4: TBevel
-    Left = 16
-    Height = 6
-    Top = 115
-    Width = 665
+    Left = 20
+    Height = 8
+    Top = 144
+    Width = 832
     Anchors = [akTop, akLeft, akRight]
     Shape = bsTopLine
   end
   object pchkboxAccPer: TCheckBox
     Tag = -1
-    Left = 16
-    Height = 19
-    Top = 399
-    Width = 400
+    Left = 20
+    Height = 24
+    Top = 499
+    Width = 500
     Anchors = [akLeft, akBottom]
     AutoSize = False
     Caption = ' Numeraatorid majandusaasta põhised'
@@ -261,28 +267,28 @@ object frameAccPeriods: TframeAccPeriods
     BeforeDelete = qryAccPeriodsBeforeDelete
     Params = <>
     Sequence = qryAccPeriodsSeq
-    left = 624
-    top = 16
+    Left = 780
+    Top = 20
   end
-  object qryAccPeriodsDS: TDatasource
+  object qryAccPeriodsDS: TDataSource
     DataSet = qryAccPeriods
-    left = 624
-    top = 77
+    Left = 780
+    Top = 96
   end
   object qryAccPeriodsSeq: TZSequence
-    left = 624
-    top = 144
+    Left = 780
+    Top = 180
   end
   object qryAccPeriodsUpdSQL: TZUpdateSQL
     UseSequenceFieldForRefreshSQL = True
-    left = 520
-    top = 16
+    Left = 650
+    Top = 20
   end
   object qryVerifySQL: TZQuery
     AutoCalcFields = False
     ReadOnly = True
     Params = <>
-    left = 520
-    top = 77
+    Left = 650
+    Top = 96
   end
 end

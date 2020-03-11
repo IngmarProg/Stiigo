@@ -348,7 +348,8 @@ end;
 procedure Tform_admin.FormCreate(Sender: TObject);
 begin
   // Windows 7 kasutab sisuliselt kõikjal large fonti ! Programm näeb välja viisakalt öeldes jube !
-  estbk_uivisualinitadmin.__preparevisual(self);
+  // NB windows 10 peal autosize töötab ja __preparevisual rikub ära ui !
+  // estbk_uivisualinitadmin.__preparevisual(self);
   compLogoPct.Picture.Clear;
   copyrightLabel.Font.Style := [fsBold];
   //Label4.Font.Style:=[fsBold];
@@ -2854,7 +2855,8 @@ begin
     except
     end;
 
-    // ---
+    // W10 peal on aadressi frame nihkes
+    frameCompCAddr.Left := 19;
   end;
 end;
 
