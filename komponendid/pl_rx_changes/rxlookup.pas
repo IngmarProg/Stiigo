@@ -1614,11 +1614,9 @@ begin
   end
   else
   begin
-   // 28.03.2011 Ingmar; suutsin lookup välimuse vist lõpuks ühildada
-   RxFrame3D(Canvas, R, clWindowFrame, clBtnHighlight, 1); originaal kood !
-   RxFrame3D(Canvas, R, pBorderColor, pBorderColor, 1);
-   RxFrame3D(Canvas, R, clBtnShadow, clBtnFace, 1);  originaal kood !
-  RxFrame3D(Canvas, R, clred, clBtnFace, 1);
+    // 28.03.2011 Ingmar; suutsin lookup välimuse vist lõpuks ühildada
+    RxFrame3D(Canvas, R, pBorderColor, pBorderColor, 1);
+    RxFrame3D(Canvas, R, clred, clBtnFace, 1);
   end;
 
   if ClientWidth > 6 then

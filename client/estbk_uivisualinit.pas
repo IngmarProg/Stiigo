@@ -190,8 +190,8 @@ begin
  for i:=0 to pctrl.ComponentCount-1 do
    begin
 
-        if IsPublishedProp(pctrl.Components[i], 'AutoSize') then
-           typinfo.SetOrdProp(pctrl.Components[i],'AutoSize',ord(false));
+        // if IsPublishedProp(pctrl.Components[i], 'AutoSize') then
+        //   typinfo.SetOrdProp(pctrl.Components[i],'AutoSize',ord(false));
 
            pFont:=nil;
         if IsPublishedProp(pctrl.Components[i], 'Font') then
@@ -205,7 +205,7 @@ begin
 
         if assigned(pFont) then
          begin
-         if not boldEnabled and (pctrl.Components[i].Tag>=0) then
+         if not boldEnabled and (pctrl.Components[i].Tag >= 0) then
             pFont.Style:=[];
             // !!!!!!!!!!! kui fonti pole määratud on koheselt Large font puhul paras katastroof
             pFont.Size:=8;
@@ -358,4 +358,3 @@ initialization
 finalization
   freeAndNil(__intUIMiscHelperClass);
 end.
-

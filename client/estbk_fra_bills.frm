@@ -1,17 +1,17 @@
 inherited frameBills: TframeBills
-  Height = 434
-  Width = 855
-  ClientHeight = 434
-  ClientWidth = 855
+  Height = 586
+  Width = 1193
+  ClientHeight = 586
+  ClientWidth = 1193
   Color = clBtnFace
   ParentColor = False
-  DesignLeft = 161
-  DesignTop = 262
+  DesignLeft = 23
+  DesignTop = 215
   object tabCtrlBill: TPageControl[0]
     Left = 8
-    Height = 179
+    Height = 331
     Top = 203
-    Width = 845
+    Width = 1183
     TabStop = False
     ActivePage = tabBillLines
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -22,19 +22,19 @@ inherited frameBills: TframeBills
     TabPosition = tpBottom
     object tabBillLines: TTabSheet
       Caption = 'Read'
-      ClientHeight = 153
-      ClientWidth = 837
+      ClientHeight = 298
+      ClientWidth = 1175
       object panelbottom: TPanel
         Tag = -1
         Left = 0
-        Height = 149
+        Height = 294
         Top = 0
-        Width = 834
+        Width = 1172
         Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
         BorderStyle = bsSingle
-        ClientHeight = 145
-        ClientWidth = 830
+        ClientHeight = 290
+        ClientWidth = 1168
         Color = clCaptionText
         Constraints.MinHeight = 100
         Constraints.MinWidth = 500
@@ -45,7 +45,7 @@ inherited frameBills: TframeBills
         object lblSectionVatStatus: TLabel
           Left = 1
           Height = 115
-          Top = 30
+          Top = 175
           Width = 290
           Anchors = [akLeft, akBottom]
           AutoSize = False
@@ -56,9 +56,9 @@ inherited frameBills: TframeBills
         object gridBillLines: TStringGrid
           Tag = -1
           Left = 1
-          Height = 30
+          Height = 175
           Top = 0
-          Width = 828
+          Width = 1166
           Anchors = [akTop, akLeft, akRight, akBottom]
           ColCount = 16
           Columns = <          
@@ -155,9 +155,9 @@ inherited frameBills: TframeBills
           OnSelectCell = gridBillLinesSelectCell
         end
         object lblTotalSumWVat: TLabel
-          Left = 556
+          Left = 894
           Height = 14
-          Top = 40
+          Top = 185
           Width = 152
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -168,9 +168,9 @@ inherited frameBills: TframeBills
           ParentFont = False
         end
         object lblVatSum: TLabel
-          Left = 556
+          Left = 894
           Height = 14
-          Top = 63
+          Top = 208
           Width = 152
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -181,9 +181,9 @@ inherited frameBills: TframeBills
           ParentFont = False
         end
         object lblRoundSum: TLabel
-          Left = 556
+          Left = 894
           Height = 14
-          Top = 87
+          Top = 232
           Width = 152
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -194,9 +194,9 @@ inherited frameBills: TframeBills
           ParentFont = False
         end
         object lblBillSumTotal: TLabel
-          Left = 556
+          Left = 894
           Height = 14
-          Top = 108
+          Top = 253
           Width = 152
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -208,9 +208,9 @@ inherited frameBills: TframeBills
         end
         object edtSumWOVatBc: TEdit
           Tag = -1
-          Left = 710
-          Height = 21
-          Top = 37
+          Left = 1048
+          Height = 28
+          Top = 175
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -222,9 +222,9 @@ inherited frameBills: TframeBills
         end
         object edtVatSumBc: TEdit
           Tag = -1
-          Left = 710
-          Height = 21
-          Top = 60
+          Left = 1048
+          Height = 28
+          Top = 198
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -236,9 +236,9 @@ inherited frameBills: TframeBills
         end
         object edtRoundBc: TEdit
           Tag = -1
-          Left = 710
-          Height = 21
-          Top = 83
+          Left = 1048
+          Height = 28
+          Top = 221
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -253,9 +253,9 @@ inherited frameBills: TframeBills
         end
         object edtBillSumTotalBc: TEdit
           Tag = -1
-          Left = 710
-          Height = 21
-          Top = 106
+          Left = 1048
+          Height = 28
+          Top = 244
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -268,7 +268,7 @@ inherited frameBills: TframeBills
         object lblVatSpc: TLabel
           Left = 38
           Height = 14
-          Top = 40
+          Top = 185
           Width = 136
           Alignment = taRightJustify
           Anchors = [akLeft, akBottom]
@@ -281,7 +281,7 @@ inherited frameBills: TframeBills
         object bv1: TBevel
           Left = 6
           Height = 8
-          Top = 46
+          Top = 191
           Width = 20
           Anchors = [akLeft, akBottom]
           Shape = bsTopLine
@@ -289,7 +289,7 @@ inherited frameBills: TframeBills
         object bv2: TBevel
           Left = 182
           Height = 8
-          Top = 46
+          Top = 191
           Width = 103
           Anchors = [akLeft, akBottom]
           Shape = bsTopLine
@@ -297,7 +297,7 @@ inherited frameBills: TframeBills
         object mmVatSpecs: TMemo
           Left = 6
           Height = 84
-          Top = 57
+          Top = 202
           Width = 279
           Anchors = [akLeft, akBottom]
           OnChange = mmVatSpecsChange
@@ -307,9 +307,9 @@ inherited frameBills: TframeBills
         end
         object lblBillStatus: TLabel
           Tag = -1
-          Left = 298
+          Left = 636
           Height = 14
-          Top = 37
+          Top = 182
           Width = 160
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -321,9 +321,9 @@ inherited frameBills: TframeBills
         end
         object edtBillStatus: TEdit
           Tag = -1
-          Left = 460
-          Height = 21
-          Top = 37
+          Left = 798
+          Height = 20
+          Top = 183
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -335,9 +335,9 @@ inherited frameBills: TframeBills
           TabOrder = 6
         end
         object lblPmtStatus: TLabel
-          Left = 298
+          Left = 636
           Height = 14
-          Top = 60
+          Top = 205
           Width = 160
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -349,9 +349,9 @@ inherited frameBills: TframeBills
         end
         object edtIncSum: TEdit
           Tag = -1
-          Left = 460
-          Height = 21
-          Top = 61
+          Left = 798
+          Height = 20
+          Top = 207
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -364,9 +364,9 @@ inherited frameBills: TframeBills
         end
         object edtUsedPrpSum: TEdit
           Tag = -1
-          Left = 460
-          Height = 21
-          Top = 82
+          Left = 798
+          Height = 20
+          Top = 228
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -378,9 +378,9 @@ inherited frameBills: TframeBills
           TabOrder = 8
         end
         object lblUsedPrepayment: TLabel
-          Left = 298
+          Left = 636
           Height = 14
-          Top = 84
+          Top = 229
           Width = 160
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -391,18 +391,18 @@ inherited frameBills: TframeBills
           ParentFont = False
         end
         object stripe: TBevel
-          Left = 460
+          Left = 798
           Height = 7
-          Top = 105
+          Top = 250
           Width = 90
           Anchors = [akRight, akBottom]
           Shape = bsTopLine
         end
         object edtPaidSumTotal: TEdit
           Tag = -1
-          Left = 460
-          Height = 21
-          Top = 106
+          Left = 798
+          Height = 20
+          Top = 252
           Width = 90
           Alignment = taRightJustify
           Anchors = [akRight, akBottom]
@@ -417,9 +417,9 @@ inherited frameBills: TframeBills
   end
   object btnClose: TBitBtn[1]
     Tag = -1
-    Left = 738
+    Left = 1076
     Height = 30
-    Top = 389
+    Top = 541
     Width = 95
     Anchors = [akRight, akBottom]
     Caption = 'Sulge'
@@ -465,8 +465,8 @@ inherited frameBills: TframeBills
   object bs1: TBevel[2]
     Left = 8
     Height = 2
-    Top = 382
-    Width = 828
+    Top = 534
+    Width = 1166
     Anchors = [akLeft, akRight, akBottom]
     Shape = bsTopLine
     Style = bsRaised
@@ -660,7 +660,7 @@ inherited frameBills: TframeBills
   object btnOpenAccEntry: TBitBtn[7]
     Left = 8
     Height = 30
-    Top = 389
+    Top = 541
     Width = 95
     Anchors = [akLeft, akBottom]
     Caption = 'Ava kanne'
@@ -708,7 +708,7 @@ inherited frameBills: TframeBills
   object btnCreditBill: TBitBtn[8]
     Left = 104
     Height = 30
-    Top = 389
+    Top = 541
     Width = 95
     Anchors = [akLeft, akBottom]
     Caption = 'Kreeditarve'
@@ -766,10 +766,10 @@ inherited frameBills: TframeBills
     TabOrder = 7
     object cmbWareHouses: TComboBox
       Left = 97
-      Height = 21
+      Height = 28
       Top = 1
       Width = 175
-      ItemHeight = 13
+      ItemHeight = 20
       OnEnter = edtContractorEnter
       OnKeyPress = edtBankaccountKeyPress
       TabOrder = 0
@@ -808,7 +808,7 @@ inherited frameBills: TframeBills
     Top = 2
     Width = 655
     Caption = ' Klient '
-    ClientHeight = 70
+    ClientHeight = 63
     ClientWidth = 651
     Color = cl3DLight
     Font.Style = [fsBold]
@@ -829,7 +829,7 @@ inherited frameBills: TframeBills
     end
     object edtContractor: TEdit
       Left = 96
-      Height = 21
+      Height = 28
       Top = -3
       Width = 95
       MaxLength = 10
@@ -901,7 +901,7 @@ inherited frameBills: TframeBills
     end
     object edtCustname: TEdit
       Left = 96
-      Height = 21
+      Height = 28
       Top = 20
       Width = 175
       MaxLength = 255
@@ -928,7 +928,7 @@ inherited frameBills: TframeBills
     object edtCustAddr: TEdit
       Tag = -1
       Left = 334
-      Height = 21
+      Height = 28
       Top = -3
       Width = 312
       ReadOnly = True
@@ -950,7 +950,7 @@ inherited frameBills: TframeBills
     end
     object edtBankaccount: TEdit
       Left = 334
-      Height = 21
+      Height = 28
       Top = 20
       Width = 112
       MaxLength = 25
@@ -974,7 +974,7 @@ inherited frameBills: TframeBills
     end
     object edtRefNumber: TEdit
       Left = 534
-      Height = 21
+      Height = 28
       Top = 20
       Width = 112
       MaxLength = 25
@@ -995,7 +995,7 @@ inherited frameBills: TframeBills
     end
     object cmbSalePuchAcc: TRxDBLookupCombo
       Left = 96
-      Height = 21
+      Height = 32
       Top = 43
       Width = 175
       AutoSize = True
@@ -1060,7 +1060,7 @@ inherited frameBills: TframeBills
     end
     object edtFocusFix: TEdit
       Left = 3
-      Height = 21
+      Height = 28
       Top = -3
       Width = 0
       ReadOnly = True
@@ -1073,7 +1073,7 @@ inherited frameBills: TframeBills
     Top = 91
     Width = 655
     Caption = ' Arve '
-    ClientHeight = 70
+    ClientHeight = 63
     ClientWidth = 651
     Color = cl3DLight
     Font.Style = [fsBold]
@@ -1082,7 +1082,7 @@ inherited frameBills: TframeBills
     TabOrder = 1
     object edtBillNr: TEdit
       Left = 96
-      Height = 21
+      Height = 28
       Top = -2
       Width = 149
       MaxLength = 30
@@ -1116,17 +1116,14 @@ inherited frameBills: TframeBills
     end
     object billDate: TDateEdit
       Left = 96
-      Height = 21
+      Height = 28
       Top = 21
-      Width = 85
+      Width = 90
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OnAcceptDate = billDateAcceptDate
-      OKCaption = 'OK'
-      CancelCaption = 'Cancel'
       DefaultToday = True
       DateOrder = doNone
       ButtonWidth = 23
-      CharCase = ecNormal
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -1163,7 +1160,7 @@ inherited frameBills: TframeBills
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
-      NumGlyphs = 0
+      NumGlyphs = 1
       MaxLength = 12
       OnEditingDone = billDateEditingDone
       OnEnter = edtContractorEnter
@@ -1185,17 +1182,14 @@ inherited frameBills: TframeBills
     end
     object dueDate: TDateEdit
       Left = 96
-      Height = 21
+      Height = 28
       Top = 44
-      Width = 85
+      Width = 90
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OnAcceptDate = dueDateAcceptDate
-      OKCaption = 'OK'
-      CancelCaption = 'Cancel'
       DefaultToday = True
       DateOrder = doNone
       ButtonWidth = 23
-      CharCase = ecNormal
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -1232,7 +1226,7 @@ inherited frameBills: TframeBills
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
-      NumGlyphs = 0
+      NumGlyphs = 1
       MaxLength = 12
       OnEnter = edtContractorEnter
       OnExit = billDateExit
@@ -1254,7 +1248,7 @@ inherited frameBills: TframeBills
     end
     object edtInterestPerc: TEdit
       Left = 549
-      Height = 21
+      Height = 28
       Top = 44
       Width = 55
       Anchors = [akTop, akRight]
@@ -1278,11 +1272,11 @@ inherited frameBills: TframeBills
     end
     object cmbCurrencyList: TComboBox
       Left = 549
-      Height = 21
+      Height = 28
       Top = 21
       Width = 55
       Anchors = [akTop, akRight]
-      ItemHeight = 13
+      ItemHeight = 20
       OnChange = cmbCurrencyListChange
       OnKeyPress = edtBankaccountKeyPress
       TabOrder = 5
@@ -1309,17 +1303,14 @@ inherited frameBills: TframeBills
     end
     object accDate: TDateEdit
       Left = 548
-      Height = 21
+      Height = 28
       Top = -2
-      Width = 75
+      Width = 90
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OnAcceptDate = accDateAcceptDate
-      OKCaption = 'OK'
-      CancelCaption = 'Cancel'
       DefaultToday = True
       DateOrder = doNone
       ButtonWidth = 23
-      CharCase = ecNormal
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -1356,7 +1347,7 @@ inherited frameBills: TframeBills
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
-      NumGlyphs = 0
+      NumGlyphs = 1
       MaxLength = 12
       OnEnter = edtContractorEnter
       OnExit = billDateExit
@@ -1369,7 +1360,7 @@ inherited frameBills: TframeBills
     object edtAccEntryNr: TEdit
       Tag = -1
       Left = 334
-      Height = 21
+      Height = 28
       Top = -2
       Width = 105
       ParentColor = True
@@ -1401,10 +1392,10 @@ inherited frameBills: TframeBills
     end
     object cmbPaymentTerm: TComboBox
       Left = 334
-      Height = 21
+      Height = 28
       Top = 44
       Width = 105
-      ItemHeight = 13
+      ItemHeight = 20
       OnChange = cmbPaymentTermChange
       OnEnter = edtContractorEnter
       OnKeyPress = edtBankaccountKeyPress
@@ -1428,7 +1419,7 @@ inherited frameBills: TframeBills
   object btnIncomings: TBitBtn[12]
     Left = 200
     Height = 30
-    Top = 389
+    Top = 541
     Width = 95
     Anchors = [akLeft, akBottom]
     Caption = 'Laekumised'
@@ -1516,7 +1507,6 @@ inherited frameBills: TframeBills
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF00FF40D7D7D79EABAB
       ABDE9D9D9DFFB2B2B2E0E3E3E39EFF00FF40FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
     OnClick = btnAddFileClick
     ShowHint = True
     ParentShowHint = False
@@ -1571,7 +1561,6 @@ inherited frameBills: TframeBills
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
     OnClick = btnEmailbillClick
     ShowHint = True
     ParentShowHint = False
@@ -1665,7 +1654,6 @@ inherited frameBills: TframeBills
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
     OnClick = btnEBillClick
     ShowHint = True
     ParentShowHint = False
@@ -1676,62 +1664,62 @@ inherited frameBills: TframeBills
     CachedUpdates = True
     ReadOnly = True
     Params = <>
-    left = 16
-    top = 160
+    Left = 16
+    Top = 160
   end
-  object qryGetArticlesDs: TDatasource[19]
+  object qryGetArticlesDs: TDataSource[19]
     DataSet = qryGetArticles
-    left = 424
-    top = 336
+    Left = 424
+    Top = 336
   end
   object qryTemp: TZReadOnlyQuery[20]
     AutoCalcFields = False
     Params = <>
-    left = 96
-    top = 336
+    Left = 96
+    Top = 336
   end
   object qryGetAccounts: TZQuery[21]
     AutoCalcFields = False
     ReadOnly = True
     Params = <>
-    left = 16
-    top = 56
+    Left = 16
+    Top = 56
   end
-  object qryGetAccountsDs: TDatasource[22]
+  object qryGetAccountsDs: TDataSource[22]
     DataSet = qryGetAccounts
-    left = 504
-    top = 336
+    Left = 504
+    Top = 336
   end
   object qryVat: TZQuery[23]
     AutoCalcFields = False
     OnFilterRecord = qryVatFilterRecord
     ReadOnly = True
     Params = <>
-    left = 16
-    top = 104
+    Left = 16
+    Top = 104
   end
-  object qryVatDs: TDatasource[24]
+  object qryVatDs: TDataSource[24]
     DataSet = qryVat
-    left = 592
-    top = 336
+    Left = 592
+    Top = 336
   end
   object qryBillMainRec: TZQuery[25]
     AutoCalcFields = False
     CachedUpdates = True
     Params = <>
-    left = 16
-    top = 336
+    Left = 16
+    Top = 336
   end
   object qryGenLedgerEntrys: TZQuery[26]
     AutoCalcFields = False
     Params = <>
-    left = 16
-    top = 216
+    Left = 16
+    Top = 216
   end
   object qInvoiceMemDataset: TMemDataset[27]
     FieldDefs = <>
-    left = 184
-    top = 336
+    Left = 184
+    Top = 336
   end
   object qInvoiceReport: TfrReport[28]
     Dataset = reportdata
@@ -1745,39 +1733,36 @@ inherited frameBills: TframeBills
     OnEndBand = qInvoiceReportEndBand
     OnGetValue = qInvoiceReportGetValue
     OnEnterRect = qInvoiceReportEnterRect
-    left = 840
-    top = 72
-    ReportForm = {
-      19000000
-    }
+    Left = 840
+    Top = 72
   end
   object reportdata: TfrDBDataSet[29]
     DataSet = qInvoiceMemDataset
-    left = 840
-    top = 16
+    Left = 840
+    Top = 16
   end
   object qryBanks: TZReadOnlyQuery[30]
     AutoCalcFields = False
     Params = <>
-    left = 16
-    top = 8
+    Left = 16
+    Top = 8
   end
-  object qryGetAccountsDChd: TDatasource[31]
+  object qryGetAccountsDChd: TDataSource[31]
     DataSet = qryGetAccounts
-    left = 336
-    top = 336
+    Left = 336
+    Top = 336
   end
   object lazFocusFix: TTimer[32]
     Enabled = False
     Interval = 45
     OnTimer = lazFocusFixTimer
     OnStopTimer = lazFocusFixStopTimer
-    left = 16
-    top = 280
+    Left = 16
+    Top = 280
   end
   object mnuItems: TPopupMenu[33]
-    left = 840
-    top = 128
+    Left = 840
+    Top = 128
     object mnuScreen: TMenuItem
       Caption = 'Ekraanile'
       Checked = True
@@ -1795,12 +1780,12 @@ inherited frameBills: TframeBills
   end
   object pSaveDialog: TSaveDialog[34]
     Title = 'Salvesta arve kui'
-    left = 840
-    top = 190
+    Left = 840
+    Top = 190
   end
   object mnuPopupSpecialOpt: TPopupMenu[35]
-    left = 64
-    top = 104
+    Left = 64
+    Top = 104
     object mnuNoAccRecs: TMenuItem
       Caption = 'Ära tee kandeid'
       OnClick = mnuNoAccRecsClick
@@ -1808,18 +1793,18 @@ inherited frameBills: TframeBills
   end
   object qryGetObjects: TZQuery[36]
     Params = <>
-    left = 504
-    top = 384
+    Left = 504
+    Top = 384
   end
-  object qryGetObjectsDs: TDatasource[37]
+  object qryGetObjectsDs: TDataSource[37]
     AutoEdit = False
     DataSet = qryGetObjects
-    left = 592
-    top = 384
+    Left = 592
+    Top = 384
   end
   object pSaveXMLFile: TSaveDialog[38]
     Title = 'E-arve fail salvestada...'
-    left = 840
-    top = 248
+    Left = 840
+    Top = 248
   end
 end
