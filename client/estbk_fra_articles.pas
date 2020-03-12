@@ -855,7 +855,6 @@ end;
 
 procedure TframeArticles.cmbSaleAccSelect(Sender: TObject);
 begin
-  //showmessage(cmbSaleAcc.value);
   with  TRxDBLookupCombo(Sender) do
     if (Value <> '') then
     begin
@@ -1492,6 +1491,8 @@ begin
 end;
 
 procedure TframeArticles.setDataLoadStatus(const v: boolean);
+var
+  sql: String;
 begin
   qryArtInsUpdt.ModifySQL.Clear;
   qryArtInsUpdt.InsertSQL.Clear;
@@ -1528,13 +1529,14 @@ begin
     qryPurcAccounts.Connection := estbk_clientdatamodule.dmodule.primConnection;
     qryExpensesAccounts.Connection := estbk_clientdatamodule.dmodule.primConnection;
 
-
-    // -----------
-    qryArticles.SQL.Add(estbk_sqlclientcollection._SQLGetArticles);
-    qryArticles.paramByname('warehouse_id').AsInteger := self.FWareHouseId;
-    qryArticles.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
-
-
+    // TODO; Leiutada workaround Zeose bugile, kui on mitu samasuguse nimega parameetrit, siis ta VAID täidab esimesed
+    // Fiks Zeose parameetrite bugile !
+    sql := estbk_sqlclientcollection._SQLGetArticles;
+    sql := StringReplace(sql, ':company_id', IntToStr(estbk_globvars.glob_company_id), [rfReplaceAll]);
+    sql := StringReplace(sql, ':warehouse_id', IntToStr(FWareHouseId), [rfReplaceAll]);
+    qryArticles.SQL.Add(sql);
+    // qryArticles.paramByname('warehouse_id').AsInteger := self.FWareHouseId;
+    // qryArticles.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
 
 
     qryVAT.SQL.Add(estbk_sqlclientcollection._CSQLGetVAT);
@@ -1542,8 +1544,6 @@ begin
     qrySaleAccounts.SQL.Add(estbk_sqlclientcollection._CSQLGetOpenAccounts);
     qryPurcAccounts.SQL.Add(estbk_sqlclientcollection._CSQLGetOpenAccounts);
     qryExpensesAccounts.SQL.Add(estbk_sqlclientcollection._CSQLGetOpenAccounts);
-
-
 
     qrySaleAccounts.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
     qryPurcAccounts.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
@@ -1568,6 +1568,7 @@ begin
 
       // 12.03.2011 Ingmar
       qryArticles.active := v;
+
 
       //qryArticles.Filtered:=false;
       //qryArticles.Filter:='special_type_flags=0';

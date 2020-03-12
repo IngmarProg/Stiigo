@@ -936,7 +936,7 @@ end;
 
 procedure TframeBills.setDataLoadStatus(const v: boolean);
 var
-  pSQLVatFix: AStr;
+  pSQLVatFix, sql: AStr;
 begin
 
   qryTemp.Close;
@@ -982,16 +982,18 @@ begin
     qryGenLedgerEntrys.Connection := estbk_clientdatamodule.dmodule.primConnection;
     qryBanks.Connection := estbk_clientdatamodule.dmodule.primConnection;
     qryGetObjects.Connection := estbk_clientdatamodule.dmodule.primConnection;
-    // -----------
-
 
     qryGetAccounts.SQL.Add(estbk_sqlclientcollection._CSQLGetAllAccounts);
     qryGetAccounts.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
     qryGetAccounts.Open;
 
-    qryGetArticles.SQL.Add(estbk_sqlclientcollection._SQLGetArticles);
-    qryGetArticles.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
-    qryGetArticles.ParamByName('warehouse_id').AsInteger := self.FWarehouseId;
+    sql := estbk_sqlclientcollection._SQLGetArticles;
+    sql := StringReplace(sql, ':company_id', IntToStr(estbk_globvars.glob_company_id), [rfReplaceAll]);
+    sql := StringReplace(sql, ':warehouse_id', IntToStr(FWareHouseId), [rfReplaceAll]);
+    // Zeose parameetrite bugi fiks
+    qryGetArticles.SQL.Add(sql);
+    // qryGetArticles.paramByname('company_id').AsInteger := estbk_globvars.glob_company_id;
+    // qryGetArticles.ParamByName('warehouse_id').AsInteger := self.FWarehouseId;
     qryGetArticles.Open;
 
     // 11.09.2010 ingmar; vaid ettemaksu tüüp

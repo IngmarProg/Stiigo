@@ -3,8 +3,8 @@ inherited frameArticles: TframeArticles
   Width = 720
   ClientHeight = 504
   ClientWidth = 720
-  DesignLeft = 23
-  DesignTop = 215
+  DesignLeft = 452
+  DesignTop = 200
   object grpBoxObjects: TGroupBox[0]
     Left = 6
     Height = 434
@@ -363,7 +363,7 @@ inherited frameArticles: TframeArticles
           end
           object cmbSaleAcc: TRxDBLookupCombo
             Left = 121
-            Height = 32
+            Height = 28
             Top = 234
             Width = 132
             AutoSize = True
@@ -435,7 +435,7 @@ inherited frameArticles: TframeArticles
           end
           object cmbPurcAcc: TRxDBLookupCombo
             Left = 121
-            Height = 32
+            Height = 28
             Top = 257
             Width = 132
             AutoSize = True
@@ -507,7 +507,7 @@ inherited frameArticles: TframeArticles
           end
           object cmbCostAcc: TRxDBLookupCombo
             Left = 121
-            Height = 32
+            Height = 28
             Top = 280
             Width = 132
             AutoSize = True

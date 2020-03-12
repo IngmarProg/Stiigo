@@ -72,7 +72,7 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="2828"/>
-        <CursorPos Y="2859"/>
+        <CursorPos X="31" Y="2835"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -102,27 +102,24 @@
         <ComponentName Value="admDatamodule"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="1693"/>
         <CursorPos X="35" Y="1717"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="..\shared_units\estbk_types.pas"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="561"/>
         <CursorPos X="24" Y="570"/>
         <UsageCount Value="100"/>
-        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="..\shared_units\estbk_dbcompability.pas"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="393"/>
         <CursorPos X="148" Y="423"/>
         <UsageCount Value="103"/>
-        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="..\estbk_strmsg.pas"/>
@@ -151,11 +148,10 @@
       <Unit11>
         <Filename Value="..\shared_units\estbk_strmsg.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="1063"/>
         <CursorPos X="21" Y="1082"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="..\shared_units\estbk_sqlcollection.pas"/>
@@ -193,7 +189,9 @@
         <FRMtype Value="400"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Frame1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <EditorIndex Value="-1"/>
         <UsageCount Value="200"/>
       </Unit16>
       <Unit17>
@@ -233,12 +231,10 @@
         <ComponentName Value="frameAccPeriods"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="63"/>
         <CursorPos X="50" Y="65"/>
         <UsageCount Value="201"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit21>
       <Unit22>
         <Filename Value="..\shared_units\estbk_mapdatatypes.pas"/>
@@ -253,12 +249,10 @@
         <ComponentName Value="frameVATs"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="191"/>
         <CursorPos Y="199"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit23>
       <Unit24>
         <Filename Value="C:\LIBS\zeos\src\component\ZDataset.pas"/>
@@ -273,23 +267,21 @@
       <Unit26>
         <Filename Value="estbk_uivisualinitadmin.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="21" Y="17"/>
         <UsageCount Value="203"/>
-        <Loaded Value="True"/>
       </Unit26>
       <Unit27>
         <Filename Value="estbk_upgrademodule.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="102" Y="22"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 Y="416" ID="9"/>
         </Bookmarks>
-        <Loaded Value="True"/>
       </Unit27>
       <Unit28>
         <Filename Value="..\client\estbk.ppr"/>
@@ -414,11 +406,10 @@
       <Unit46>
         <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\ZDbcPostgreSqlUtils.pas"/>
         <FRMtype Value="0"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="798"/>
         <CursorPos Y="816"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
       </Unit46>
       <Unit47>
         <Filename Value="estbk_vat.frm"/>
@@ -453,20 +444,18 @@
       <Unit51>
         <Filename Value="C:\codetyphon\typhon\lcl\include\customform.inc"/>
         <FRMtype Value="0"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3117"/>
         <CursorPos Y="3139"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
       </Unit51>
       <Unit52>
         <Filename Value="C:\codetyphon\typhon\lcl\include\application.inc"/>
         <FRMtype Value="0"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="2252"/>
         <CursorPos Y="2271"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
       </Unit52>
     </Units>
     <JumpHistory Count="29" HistoryIndex="28">
