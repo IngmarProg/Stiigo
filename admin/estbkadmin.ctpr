@@ -54,13 +54,14 @@
         <PackageName Value="adLCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="53">
+    <Units Count="55">
       <Unit0>
         <Filename Value="estbkadmin.ppr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="47" Y="12"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="34"/>
+        <CursorPos X="60" Y="46"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="estadmin_form.pas"/>
@@ -70,9 +71,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="2828"/>
-        <CursorPos X="31" Y="2835"/>
+        <TopLine Value="2512"/>
+        <CursorPos X="33" Y="2550"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -103,8 +103,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1693"/>
-        <CursorPos X="35" Y="1717"/>
+        <TopLine Value="1625"/>
+        <CursorPos X="49" Y="1640"/>
         <UsageCount Value="200"/>
       </Unit4>
       <Unit5>
@@ -117,8 +117,7 @@
       <Unit6>
         <Filename Value="..\shared_units\estbk_dbcompability.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="393"/>
-        <CursorPos X="148" Y="423"/>
+        <CursorPos X="3" Y="139"/>
         <UsageCount Value="103"/>
       </Unit6>
       <Unit7>
@@ -180,8 +179,9 @@
         <ComponentName Value="FrameAddrPicker"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <TopLine Value="97"/>
-        <CursorPos X="32" Y="128"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="295"/>
+        <CursorPos X="89" Y="305"/>
         <UsageCount Value="205"/>
       </Unit15>
       <Unit16>
@@ -276,11 +276,11 @@
         <Filename Value="estbk_upgrademodule.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="7"/>
-        <CursorPos X="102" Y="22"/>
+        <TopLine Value="45"/>
+        <CursorPos Y="39"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
-          <Item0 Y="416" ID="9"/>
+          <Item0 Y="415" ID="9"/>
         </Bookmarks>
       </Unit27>
       <Unit28>
@@ -317,7 +317,7 @@
       <Unit33>
         <Filename Value="..\client\estbk_lib_databaseschema.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2261"/>
+        <TopLine Value="2963"/>
         <CursorPos X="56" Y="2273"/>
         <UsageCount Value="77"/>
       </Unit33>
@@ -347,7 +347,7 @@
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="272"/>
         <CursorPos X="21" Y="277"/>
-        <UsageCount Value="187"/>
+        <UsageCount Value="188"/>
       </Unit37>
       <Unit38>
         <Filename Value="C:\lazarus\lcl\grids.pas"/>
@@ -408,7 +408,7 @@
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="798"/>
-        <CursorPos Y="816"/>
+        <CursorPos X="38" Y="814"/>
         <UsageCount Value="11"/>
       </Unit46>
       <Unit47>
@@ -445,8 +445,8 @@
         <Filename Value="C:\codetyphon\typhon\lcl\include\customform.inc"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3117"/>
-        <CursorPos Y="3139"/>
+        <TopLine Value="553"/>
+        <CursorPos Y="580"/>
         <UsageCount Value="11"/>
       </Unit51>
       <Unit52>
@@ -457,123 +457,54 @@
         <CursorPos Y="2271"/>
         <UsageCount Value="11"/>
       </Unit52>
+      <Unit53>
+        <Filename Value="estbk_customdialogsform.ctrs"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="estbk_comp_dbgridframe.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="91" Y="6"/>
+        <UsageCount Value="10"/>
+      </Unit54>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="8" HistoryIndex="7">
       <Position1>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="120" Column="22" TopLine="89"/>
+        <Caret Line="2841" TopLine="2816"/>
       </Position1>
       <Position2>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="121" Column="21" TopLine="90"/>
+        <Caret Line="5" Column="100"/>
       </Position2>
       <Position3>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="206" Column="20" TopLine="175"/>
+        <Caret Line="37" Column="26" TopLine="8"/>
       </Position3>
       <Position4>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="209" Column="19" TopLine="178"/>
+        <Caret Line="17" Column="25" TopLine="5"/>
       </Position4>
       <Position5>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="351" Column="11" TopLine="319"/>
+        <Caret Line="672" Column="34" TopLine="657"/>
       </Position5>
       <Position6>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="447" Column="94" TopLine="415"/>
+        <Caret Line="511" Column="30" TopLine="502"/>
       </Position6>
       <Position7>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="448" Column="36" TopLine="416"/>
+        <Caret Line="514" Column="27" TopLine="503"/>
       </Position7>
       <Position8>
         <Filename Value="estadmin_form.pas"/>
-        <Caret Line="504" Column="9" TopLine="472"/>
+        <Caret Line="2550" Column="33" TopLine="2512"/>
       </Position8>
-      <Position9>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="627" Column="56" TopLine="596"/>
-      </Position9>
-      <Position10>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="1359" Column="45" TopLine="1328"/>
-      </Position10>
-      <Position11>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="15" Column="117"/>
-      </Position11>
-      <Position12>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="111" Column="16" TopLine="80"/>
-      </Position12>
-      <Position13>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="112" Column="22" TopLine="81"/>
-      </Position13>
-      <Position14>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="113" Column="26" TopLine="82"/>
-      </Position14>
-      <Position15>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="114" Column="24" TopLine="83"/>
-      </Position15>
-      <Position16>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="115" Column="21" TopLine="84"/>
-      </Position16>
-      <Position17>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="116" Column="30" TopLine="85"/>
-      </Position17>
-      <Position18>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="117" Column="20" TopLine="86"/>
-      </Position18>
-      <Position19>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="118" Column="29" TopLine="87"/>
-      </Position19>
-      <Position20>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="119" Column="23" TopLine="88"/>
-      </Position20>
-      <Position21>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="120" Column="22" TopLine="89"/>
-      </Position21>
-      <Position22>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="121" Column="21" TopLine="90"/>
-      </Position22>
-      <Position23>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="206" Column="20" TopLine="175"/>
-      </Position23>
-      <Position24>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="209" Column="19" TopLine="178"/>
-      </Position24>
-      <Position25>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="351" Column="11" TopLine="319"/>
-      </Position25>
-      <Position26>
-        <Filename Value="estadmin_form.pas"/>
-      </Position26>
-      <Position27>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="199" Column="25" TopLine="168"/>
-      </Position27>
-      <Position28>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="348" Column="33" TopLine="322"/>
-      </Position28>
-      <Position29>
-        <Filename Value="estadmin_form.pas"/>
-        <Caret Line="326" Column="18" TopLine="323"/>
-      </Position29>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
@@ -593,7 +524,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <BreakPoints Count="8">
+    <BreakPoints Count="11">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsGlobal"/>
@@ -641,7 +572,7 @@
         <WatchScope Value="wpsGlobal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="estbk_upgrademodule.pas"/>
-        <Line Value="736"/>
+        <Line Value="730"/>
       </Item7>
       <Item8>
         <Kind Value="bpkSource"/>
@@ -650,6 +581,27 @@
         <Source Value="estbk_datamodule.pas"/>
         <Line Value="196"/>
       </Item8>
+      <Item9>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_datamodule.pas"/>
+        <Line Value="1702"/>
+      </Item9>
+      <Item10>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_datamodule.pas"/>
+        <Line Value="1709"/>
+      </Item10>
+      <Item11>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="estbk_datamodule.pas"/>
+        <Line Value="1675"/>
+      </Item11>
     </BreakPoints>
     <Watches Count="5">
       <Item1>

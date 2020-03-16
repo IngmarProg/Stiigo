@@ -1,21 +1,22 @@
 object FrameAddrPicker: TFrameAddrPicker
   Left = 0
-  Height = 72
+  Height = 90
   Top = 0
-  Width = 450
-  ClientHeight = 72
-  ClientWidth = 450
-  Constraints.MaxWidth = 750
-  LCLVersion = '0.9.30'
+  Width = 562
+  ClientHeight = 90
+  ClientWidth = 562
+  Constraints.MaxWidth = 938
+  DesignTimePPI = 120
+  ParentFont = False
   TabOrder = 0
   Visible = False
-  DesignLeft = 479
-  DesignTop = 455
+  DesignLeft = 452
+  DesignTop = 200
   object lbCounty: TLabel
     Left = -2
-    Height = 14
-    Top = 5
-    Width = 136
+    Height = 18
+    Top = 6
+    Width = 170
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Maakond:'
@@ -23,9 +24,9 @@ object FrameAddrPicker: TFrameAddrPicker
   end
   object lbCity: TLabel
     Left = -2
-    Height = 14
-    Top = 27
-    Width = 136
+    Height = 18
+    Top = 34
+    Width = 170
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Linn / Vald:'
@@ -33,9 +34,9 @@ object FrameAddrPicker: TFrameAddrPicker
   end
   object lbStreet: TLabel
     Left = -2
-    Height = 14
-    Top = 50
-    Width = 136
+    Height = 18
+    Top = 62
+    Width = 170
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Tänav:'
@@ -43,15 +44,15 @@ object FrameAddrPicker: TFrameAddrPicker
   end
   object comboCounty: TComboBox
     Tag = 1
-    Left = 142
-    Height = 21
+    Left = 178
+    Height = 28
     Top = 1
-    Width = 283
+    Width = 353
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactRetainPrefixCase, cbactSearchAscending]
     AutoSize = False
-    ItemHeight = 13
+    ItemHeight = 20
     OnEnter = comboCountyEnter
     OnExit = comboCountyExit
     OnKeyDown = comboCountyKeyDown
@@ -61,15 +62,15 @@ object FrameAddrPicker: TFrameAddrPicker
   end
   object comboCity: TComboBox
     Tag = 2
-    Left = 142
-    Height = 21
-    Top = 24
-    Width = 283
+    Left = 178
+    Height = 28
+    Top = 30
+    Width = 353
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactRetainPrefixCase, cbactSearchAscending]
     AutoSize = False
-    ItemHeight = 13
+    ItemHeight = 20
     OnEnter = comboCountyEnter
     OnExit = comboCountyExit
     OnKeyDown = comboCityKeyDown
@@ -79,15 +80,15 @@ object FrameAddrPicker: TFrameAddrPicker
   end
   object comboStreet: TComboBox
     Tag = 3
-    Left = 142
-    Height = 21
-    Top = 47
-    Width = 283
+    Left = 178
+    Height = 28
+    Top = 59
+    Width = 353
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactRetainPrefixCase, cbactSearchAscending]
     AutoSize = False
-    ItemHeight = 13
+    ItemHeight = 20
     OnEnter = comboCountyEnter
     OnExit = comboCountyExit
     OnKeyDown = comboCityKeyDown
@@ -104,8 +105,8 @@ object FrameAddrPicker: TFrameAddrPicker
     Params = <>
     Sequence = qryCountySeq
     SequenceField = 'id'
-    left = 176
-    top = 32
+    Left = 220
+    Top = 40
   end
   object qryCity: TZQuery
     AutoCalcFields = False
@@ -116,7 +117,7 @@ object FrameAddrPicker: TFrameAddrPicker
     Params = <>
     Sequence = qryCitySeq
     SequenceField = 'id'
-    left = 72
+    Left = 90
   end
   object qryStreet: TZQuery
     AutoCalcFields = False
@@ -127,32 +128,32 @@ object FrameAddrPicker: TFrameAddrPicker
     Params = <>
     Sequence = qryStreetSeq
     SequenceField = 'id'
-    left = 120
+    Left = 150
   end
   object qryCountySeq: TZSequence
     SequenceName = 'county_id_seq'
-    left = 176
+    Left = 220
   end
   object qryCitySeq: TZSequence
     SequenceName = 'city_id_seq'
-    left = 248
+    Left = 310
   end
   object qryStreetSeq: TZSequence
     SequenceName = 'street_id_seq'
-    left = 320
+    Left = 400
   end
   object qryInsertCounty: TZUpdateSQL
     UseSequenceFieldForRefreshSQL = False
-    left = 392
+    Left = 490
   end
   object qryInsertCity: TZUpdateSQL
     UseSequenceFieldForRefreshSQL = False
-    left = 320
-    top = 40
+    Left = 400
+    Top = 50
   end
   object qryInsertStreet: TZUpdateSQL
     UseSequenceFieldForRefreshSQL = False
-    left = 248
-    top = 32
+    Left = 310
+    Top = 40
   end
 end

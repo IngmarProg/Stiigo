@@ -1403,7 +1403,7 @@ begin
       pDatabaseCreated := False;
       emsg := '';
       pEstBkTableDefs := nil;
-      //pChkProgress:=Tform_progress.create(nil,SCValidatingTables,0,ord(estbk_dbcompability.__endmarker),false);
+
       pChkProgress := Tform_progress.Create(nil, Ord(low(estbk_dbcompability.TCTablenames)), Ord(high(estbk_dbcompability.TCTablenames)), False);
       pChkProgress.statusBarText := SCValidatingTables;
 

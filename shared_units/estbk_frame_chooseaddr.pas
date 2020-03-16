@@ -12,9 +12,6 @@ uses
   estbk_types, contnrs, Graphics, DB, Controls, LCLType;
 
 type
-
-  { TFrameAddrPicker }
-  //  TFrameAddrPicker = class(Tfra_template) See variant garanteerib, et lazarus kukub kokku access violationiga, täiesti arusaamatu miks !!!
   TFrameAddrPicker = class(TFrame)
     comboStreet: TComboBox;
     comboCounty: TComboBox;
@@ -493,7 +490,6 @@ begin
     end;
 
     key := 0;
-    // ---
   end;
 end;
 
@@ -513,9 +509,6 @@ begin
   if TComboBox(Sender).focused and assigned(FDataChanged) then
     comboCountyExit(Sender);
 end;
-
-
-
 
 procedure TFrameAddrPicker.qryCountyBeforePost(DataSet: TDataSet);
 var

@@ -1,7 +1,7 @@
 object form_admin: Tform_admin
-  Left = 23
+  Left = 452
   Height = 750
-  Top = 215
+  Top = 200
   Width = 1000
   Caption = 'Stiigo administraator'
   ClientHeight = 725
@@ -555,7 +555,6 @@ object form_admin: Tform_admin
                 end
                 inherited comboCounty: TComboBox
                   Left = 180
-                  Height = 28
                   Top = 0
                   Width = 305
                   ItemHeight = 20
@@ -563,7 +562,6 @@ object form_admin: Tform_admin
                 end
                 inherited comboCity: TComboBox
                   Left = 180
-                  Height = 28
                   Top = 29
                   Width = 305
                   ItemHeight = 20
@@ -571,7 +569,6 @@ object form_admin: Tform_admin
                 end
                 inherited comboStreet: TComboBox
                   Left = 180
-                  Height = 28
                   Top = 58
                   Width = 305
                   ItemHeight = 20
@@ -841,18 +838,18 @@ object form_admin: Tform_admin
       end
       object tabWorkerMgm: TTabSheet
         Caption = 'Kasutajate haldus'
-        ClientHeight = 501
-        ClientWidth = 788
+        ClientHeight = 627
+        ClientWidth = 988
         ParentFont = False
         TabVisible = False
         object leftpanelWrk: TPanel
           Left = 0
-          Height = 501
+          Height = 627
           Top = 0
           Width = 312
           Align = alLeft
           BevelInner = bvLowered
-          ClientHeight = 501
+          ClientHeight = 627
           ClientWidth = 312
           Constraints.MaxWidth = 475
           Constraints.MinWidth = 250
@@ -860,7 +857,7 @@ object form_admin: Tform_admin
           TabOrder = 0
           object dbGridWorkers: TDBGrid
             Left = 5
-            Height = 490
+            Height = 616
             Top = 6
             Width = 240
             Anchors = [akTop, akLeft, akRight, akBottom]
@@ -884,23 +881,23 @@ object form_admin: Tform_admin
         end
         object rightpanelWrk: TPanel
           Tag = -1
-          Left = 255
-          Height = 501
+          Left = 318
+          Height = 627
           Top = 0
-          Width = 533
+          Width = 670
           Align = alClient
           BevelOuter = bvNone
-          ClientHeight = 501
-          ClientWidth = 533
+          ClientHeight = 627
+          ClientWidth = 670
           Constraints.MinWidth = 125
           ParentFont = False
           TabOrder = 1
           object pageCtrlUserMgr: TPageControl
             Tag = -1
             Left = 0
-            Height = 430
+            Height = 556
             Top = 5
-            Width = 529
+            Width = 666
             ActivePage = tabOverAllDescr
             Anchors = [akTop, akLeft, akRight, akBottom]
             ParentFont = False
@@ -908,8 +905,8 @@ object form_admin: Tform_admin
             TabOrder = 0
             object tabOverAllDescr: TTabSheet
               Caption = 'Üldine kirjeldus'
-              ClientHeight = 418
-              ClientWidth = 522
+              ClientHeight = 523
+              ClientWidth = 658
               ParentFont = False
               object lbWorkerLoginname: TLabel
                 Left = 9
@@ -958,7 +955,7 @@ object form_admin: Tform_admin
               object lbWrkPosition: TLabel
                 Left = 10
                 Height = 18
-                Top = 170
+                Top = 171
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -969,7 +966,7 @@ object form_admin: Tform_admin
               object lbWrkEmail: TLabel
                 Left = 10
                 Height = 18
-                Top = 199
+                Top = 200
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -980,7 +977,7 @@ object form_admin: Tform_admin
               object lbWrkLastLogin: TLabel
                 Left = 10
                 Height = 18
-                Top = 229
+                Top = 230
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -991,7 +988,7 @@ object form_admin: Tform_admin
               object lbWrkLastLoginCIP: TLabel
                 Left = 10
                 Height = 18
-                Top = 256
+                Top = 258
                 Width = 180
                 Alignment = taRightJustify
                 AutoSize = False
@@ -1024,8 +1021,8 @@ object form_admin: Tform_admin
               object dbEdtWrkLastlogin: TDBEdit
                 Tag = -1
                 Left = 200
-                Height = 21
-                Top = 224
+                Height = 28
+                Top = 225
                 Width = 248
                 DataField = 'lastlogin'
                 DataSource = admWorkerMgmDataset
@@ -1040,9 +1037,9 @@ object form_admin: Tform_admin
               end
               object dbEdtWorkUsername: TDBEdit
                 Left = 200
-                Height = 21
+                Height = 28
                 Top = 22
-                Width = 262
+                Width = 398
                 DataField = 'loginname'
                 DataSource = admWorkerMgmDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -1054,9 +1051,9 @@ object form_admin: Tform_admin
               end
               object dbEdtWorkName: TDBEdit
                 Left = 200
-                Height = 21
+                Height = 28
                 Top = 80
-                Width = 262
+                Width = 398
                 DataField = 'name'
                 DataSource = admWorkerMgmDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -1068,9 +1065,9 @@ object form_admin: Tform_admin
               end
               object dbEdtWorMiddleName: TDBEdit
                 Left = 200
-                Height = 21
+                Height = 28
                 Top = 109
-                Width = 262
+                Width = 398
                 DataField = 'middlename'
                 DataSource = admWorkerMgmDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -1082,9 +1079,9 @@ object form_admin: Tform_admin
               end
               object dbEdtWrkLastname: TDBEdit
                 Left = 200
-                Height = 21
+                Height = 28
                 Top = 138
-                Width = 262
+                Width = 398
                 DataField = 'lastname'
                 DataSource = admWorkerMgmDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -1096,9 +1093,9 @@ object form_admin: Tform_admin
               end
               object dbEdtWrkPosition: TDBEdit
                 Left = 200
-                Height = 21
-                Top = 166
-                Width = 152
+                Height = 28
+                Top = 167
+                Width = 288
                 DataField = 'position'
                 DataSource = admWorkerMgmDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -1110,9 +1107,9 @@ object form_admin: Tform_admin
               end
               object dbEdtWrkEmail: TDBEdit
                 Left = 200
-                Height = 21
-                Top = 195
-                Width = 152
+                Height = 28
+                Top = 196
+                Width = 288
                 DataField = 'email'
                 DataSource = admWorkerMgmDataset
                 Anchors = [akTop, akLeft, akRight]
@@ -1125,8 +1122,8 @@ object form_admin: Tform_admin
               object dbEdtWrLoginFromIp: TDBEdit
                 Tag = -1
                 Left = 200
-                Height = 21
-                Top = 252
+                Height = 28
+                Top = 254
                 Width = 248
                 DataField = 'fromip'
                 DataSource = admWorkerMgmDataset
@@ -1153,9 +1150,9 @@ object form_admin: Tform_admin
               end
               object edEdtWrkPassword: TEdit
                 Left = 200
-                Height = 21
+                Height = 28
                 Top = 51
-                Width = 328
+                Width = 398
                 EchoMode = emPassword
                 OnChange = edEdtWrkPasswordChange
                 OnKeyPress = dbEdtWorkUsernameKeyPress
@@ -1259,9 +1256,9 @@ object form_admin: Tform_admin
           end
           object btnSaveWorker: TBitBtn
             Tag = -1
-            Left = 100
+            Left = 237
             Height = 38
-            Top = 449
+            Top = 575
             Width = 124
             Anchors = [akRight, akBottom]
             Caption = '&Salvesta'
@@ -1275,9 +1272,9 @@ object form_admin: Tform_admin
           end
           object btnCancelWorkerEdit: TBitBtn
             Tag = -1
-            Left = 230
+            Left = 367
             Height = 38
-            Top = 449
+            Top = 575
             Width = 124
             Anchors = [akRight, akBottom]
             Caption = '&Katkesta'
@@ -1289,9 +1286,9 @@ object form_admin: Tform_admin
           end
           object btnNewWorker: TBitBtn
             Tag = -1
-            Left = -30
+            Left = 107
             Height = 38
-            Top = 449
+            Top = 575
             Width = 124
             Anchors = [akRight, akBottom]
             Caption = '&Uus kasutaja'
@@ -1303,9 +1300,9 @@ object form_admin: Tform_admin
           end
           object btnWorkerMgrTabClose: TBitBtn
             Tag = -1
-            Left = 407
+            Left = 544
             Height = 38
-            Top = 449
+            Top = 575
             Width = 124
             Anchors = [akRight, akBottom]
             Cancel = True
@@ -1317,8 +1314,8 @@ object form_admin: Tform_admin
           end
         end
         object Splitter2: TSplitter
-          Left = 250
-          Height = 501
+          Left = 312
+          Height = 627
           Top = 0
           Width = 6
         end

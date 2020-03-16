@@ -507,7 +507,7 @@ begin
   begin
 
     //pageCompControl.ActivePage:=tabCompContact;
-    admCompListQry.insert;
+    admCompListQry.Insert;
 
 
     if admCompListQry.state = dsInsert then
@@ -2829,7 +2829,7 @@ begin
             eparam := True; // võtame C / Posix collationi
       end;
 
-      // ...
+
       if not admDatamodule.validateTables(True, emsg, tempColl, eparam) then
       begin
         Dialogs.messageDlg(SETableAutoCreateFailed + CRLF + CRLF + emsg, mtError, [mbOK], 0);
@@ -2840,7 +2840,6 @@ begin
 
 
   self.FTemplate0Collation := tempColl;
-  // ----
   StatusBar1.SimpleText := '';
   if not application.Terminated then
   begin

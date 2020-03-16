@@ -1,4 +1,3 @@
-// antud moodul tegeleb uuenduste läbi viimisega;
 unit estbk_upgrademodule;
 
 {$mode objfpc}{$H+}
@@ -15,6 +14,7 @@ implementation
 uses estbk_types, estbk_strmsg, estbk_datamodule, estbk_dbcompability,
   estbk_sqlcollection, estbk_lib_mapdatatypes, estbk_permissions, Dialogs;
 
+
 // NB NB tulevikus võib need osad versioonide uuendamise koodid välja visata !
 procedure __doDatabaseUpgrade;
 var
@@ -27,17 +27,16 @@ var
   pTempArray: TADynIntArray;   // 1005 jaoks
   pFullname: AStr;
   pCRC: DWord;
-  // --
   zPerm: TPermIdentType;
 begin
   if estbk_datamodule.admDatamodule.admConnection.Connected then
     with  estbk_datamodule.admDatamodule, admTempQuery, SQL do
       try
-        estbk_datamodule.admDatamodule.admConnection.StartTransaction;
+        // estbk_datamodule.admDatamodule.admConnection.StartTransaction;
         try
           pParamCheck := estbk_datamodule.admDatamodule.admTempQuery.ParamCheck;
           estbk_datamodule.admDatamodule.admTempQuery.ParamCheck := True;
-          // mingi ajalooline probleem, et kahele tabelile ei saa mõnikord ligi !
+
           try
             Close;
             Clear;
@@ -508,12 +507,7 @@ begin
 
                 Close;
                 Clear;
-       {
-       CREATE UNIQUE INDEX numerators_uniqnr_idx
-         ON numerators
-         USING btree
-         (cr_num_type, cr_valid, company_id);
-       }
+
                 add('DROP INDEX numerators_uniqnr_idx');
                 execSQL;
 
@@ -741,38 +735,6 @@ begin
               except
               end;
 
-     {
-     if pSchemaVer<=1020 then
-      try
-       try
-       close;
-       clear;
-       add('DROP TRIGGER acc_uniq_nr_trig ON accounting_register;');
-       execSQL;
-       except
-       end;
-       // ---
-       close;
-       clear;
-       add('CREATE TRIGGER acc_uniq_nr_trig_ins');
-       add('BEFORE INSERT');
-       add('ON accounting_register');
-       add('FOR EACH ROW');
-       add('EXECUTE PROCEDURE acc_uniq_nrv_fnc();');
-       execSQL;
-
-       // --
-       close;
-       clear;
-       add('CREATE TRIGGER acc_uniq_nr_trig_upt');
-       add('AFTER UPDATE');
-       add('ON accounting_register');
-       add('FOR EACH ROW');
-       add('EXECUTE PROCEDURE acc_uniq_nrv_fnc();');
-       execSQL;
-
-      except
-      end;}
             // -->
             // !!!!!!!!!!!!!!!!!
             // uuendame schema nr ära !
@@ -809,15 +771,15 @@ begin
           estbk_datamodule.admDatamodule.admTempQuery.ParamCheck := pParamCheck;
         end;
 
-        estbk_datamodule.admDatamodule.admConnection.Commit;
+        // estbk_datamodule.admDatamodule.admConnection.Commit;
       except
         on e: Exception do
         begin
-          if estbk_datamodule.admDatamodule.admConnection.InTransaction then
-            try
-              estbk_datamodule.admDatamodule.admConnection.Rollback;
-            except
-            end;
+          // if estbk_datamodule.admDatamodule.admConnection.InTransaction then
+          //  try
+          //    estbk_datamodule.admDatamodule.admConnection.Rollback;
+          //  except
+          //  end;
 
           messageDlg(format(SEStructUpgradeFailed, [e.message]), mtError, [mbOK], 0);
         end;
