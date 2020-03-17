@@ -7,7 +7,7 @@ unit estbk_lib_commoncls;
 interface
 
 uses
-   {$IFNDEF NOGUI}
+    {$IFNDEF NOGUI}
   Grids, Dialogs,
    {$ENDIF}
   typinfo, Contnrs, Classes, SysUtils, estbk_types, estbk_strmsg;

@@ -6,8 +6,7 @@ unit estbk_types;
 interface
 
 uses
-  DB, Classes, Contnrs, estbk_strmsg,
-  SysUtils
+  DB, Classes, Contnrs, SysUtils, estbk_strmsg
   {$IFNDEF NOGUI}, Graphics {$ENDIF}
   {$IFDEF UNIX}, cwstring {$ENDIF};
 // Fgl

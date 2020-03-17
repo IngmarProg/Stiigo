@@ -1,0 +1,616 @@
+program stiigoweb;
+//{$DEFINE debugmode}
+{$DEFINE NOGUI}
+{$i estbk_defs.inc}
+uses {$IFDEF UNIX}
+  cthreads,
+ {$ENDIF} {$IFDEF debugmode}heaptrc,
+ {$ENDIF}SysUtils,
+  IniFiles,
+  TypInfo,
+  DateUtils,
+  Math,
+  Classes,
+  CustApp,
+  IdCustomHTTPServer,
+  IdHeaderList,
+  IdHTTP,
+  IdGlobal,
+  IdHTTPServer,
+  IdContext,
+  IdSSLOpenSSL,
+  IdSSLOpenSSLHeaders,
+  DOM,
+  XMLRead,
+  XMLUtils,
+  ZConnection,
+  ZDataset,
+  ZSqlUpdate,
+  UErrorLogger,
+  UConnectionpool,
+  UDataprocessor,
+  Ubase,
+  UBill,
+  estbk_utilities,
+  estbk_ebill,
+  estbk_lib_numerators,
+  estbk_lib_commoncls,
+  estbk_sqlclientcollection,
+  estbk_types,
+  estbk_lib_commonaccprop,
+  estbk_globvars,
+  UCustomer;
+
+type
+
+  { TStiigowebsrv }
+  EStiigowebException = class(Exception);
+
+  TStiigowebsrv = class(TCustomApplication)
+  protected
+    FMreadwrite: TMultiReadExclusiveWriteSynchronizer;
+    FAllowedIP: string;
+    (*
+     Et igakord ei peaks artikleid defineerima käsitsi; on meil üks artikkel stiigos, mis alati võetakse aluseks !
+     Siis selle pealt võetakse kontod ja käibemaksud.
+    *)
+    FArticleTemplateCode: string;
+    function GetAllowedIP: string;
+    procedure SetAllowedIP(const v: string);
+
+    function GetArticleTemplateCode: string;
+    procedure SetArticleTemplateCode(const v: string);
+
+    procedure OnCommandGet(AContext: TIdContext; ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
+    procedure CreatePostStreamHandler(AContext: TIdContext; AHeaders: TIdHeaderList; var VPostStream: TStream);
+    procedure OnPasswordEvent(var Password: string);
+
+    procedure DoRun; override;
+    procedure TestRuns;
+  public
+    property allowedIP: string read GetAllowedIP write SetAllowedIP;
+    property articleTemplateCode: string read GetArticleTemplateCode write SetArticleTemplateCode;
+    constructor Create(vOwner: TComponent); override;
+    destructor Destroy; override;
+  end;
+
+  { TStiigowebsrv }
+const
+  CStStiigoWebSrv = 'Stiigo webservice';
+  CStGreetings = 'Stiigo webservice 1.17 started...';
+  CStLoadingMsg = 'Welcome wagon is loading...';
+  CStRunningMsg = 'Service is running...';
+  CStAppInfo = 'To terminate application, press Enter';
+
+  CEFatal = 'Fatal error %s';
+  CEConfFileIsMissing = 'Configuration file is missing !';
+  CEUnknownCommand = 'Unknown command / missing %s';
+  CEBillIDIsMissing = 'Bill ID is missing';
+  // CEUnknownObject = 'Unknown object / missing %s';
+
+var
+  glob_connpool: TConnectionpool;
+  glob_SSLPass: AStr;
+
+  function TStiigowebsrv.GetAllowedIP: string;
+  begin
+    try
+      self.FMreadwrite.BeginRead;
+      Result := FAllowedIP;
+    finally
+      self.FMreadwrite.EndRead;
+    end;
+  end;
+
+  procedure TStiigowebsrv.SetAllowedIP(const v: string);
+  begin
+    try
+      self.FMreadwrite.Beginwrite;
+      FAllowedIP := v;
+    finally
+      self.FMreadwrite.Endwrite;
+      ;
+    end;
+  end;
+
+  function TStiigowebsrv.GetArticleTemplateCode: string;
+  begin
+    try
+      self.FMreadwrite.BeginRead;
+      Result := FArticleTemplateCode;
+    finally
+      self.FMreadwrite.EndRead;
+    end;
+  end;
+
+  procedure TStiigowebsrv.SetArticleTemplateCode(const v: string);
+  begin
+    try
+      self.FMreadwrite.Beginwrite;
+      FArticleTemplateCode := v;
+    finally
+      self.FMreadwrite.Endwrite;
+      ;
+    end;
+  end;
+
+  // @@WORKING
+  procedure TStiigowebsrv.OnCommandGet(AContext: TIdContext; ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
+  type
+    TCrudMeth = (_unknown, _create, _read, _update, _delete);
+    // TODO REGEXPR !
+    function allowFollowingIP(const ip: string): boolean;
+    var
+      plist: TStringList;
+      i: integer;
+    begin
+      Result := (self.allowedIP = '*') or (trim(self.allowedIP) = '');
+
+      if not Result then
+        try
+          plist := TStringList.Create;
+          plist.Delimiter := ';';
+          plist.DelimitedText := self.allowedIP;
+          for i := 0 to plist.Count - 1 do
+          begin
+            Result := plist.Strings[i] = ip;
+            if Result then
+              break;
+          end;
+        finally
+          plist.Free;
+        end;
+    end;
+
+    function toCrudMeth(const pMeth: AStr): TCrudMeth;
+    const
+      TCrudArr: array[TCrudMeth] of AStr = ('', 'create', 'read', 'update', 'delete');
+    var
+      i: TCrudMeth;
+    begin
+      Result := _unknown;
+      for i := low(TCrudArr) to high(TCrudArr) do
+        if TCrudArr[i] = pMeth then
+        begin
+          Result := i;
+          Exit;
+        end;
+    end;
+
+  var
+    pActionVal: AStr;
+    pObjectVal: AStr;
+    pSortField: Astr;
+    pSortOrd: Astr;
+    pSearchParam: AStr;
+    pSearchField: AStr;
+
+    pLimit: integer;
+    pOffset: integer;
+    pID: integer;
+    ptoCrudMeth: TCrudMeth;
+    pReader: TDataprocessorReader;
+    pUseConn: TZConnection;
+    pZObject: TZQuery;
+  begin
+    try
+
+      if not allowFollowingIP(ARequestInfo.RemoteIP) then
+        raise Exception.Create('Access denied !');
+
+      pObjectVal := AnsiLowerCase(Trim(ARequestInfo.Params.Values['obj']));
+      if pObjectVal = '' then
+        raise Exception.CreateFmt(CEUnknownCommand, ['obj=' + pObjectVal]);
+
+
+      pActionVal := AnsiLowerCase(Trim(ARequestInfo.Params.Values['act']));
+      if pActionVal = '' then
+        raise Exception.CreateFmt(CEUnknownCommand, ['act=' + pActionVal]);
+
+      pUseConn := nil;
+      // @@CRUD
+      ptoCrudMeth := toCrudMeth(pActionVal);
+      if ptoCrudMeth = _unknown then
+        raise Exception.CreateFmt(CEUnknownCommand, ['obj=' + pObjectVal]);
+
+
+      // enamasti on POST info meil lĆ¤bi arvete; aga tulevikus ntx artiklite lisamine ?!?
+      if AnsiUpperCase(ARequestInfo.Command) = 'POST' then
+        try
+
+          if pObjectVal = 'invoice' then
+          begin
+
+            if ptoCrudMeth = _create then
+            begin
+              pUseConn := glob_connpool.AcquireConnection();
+              AResponseInfo.ContentType := 'text/html';
+              AResponseInfo.ContentText := TBill.generateBill(pUseConn, (ARequestInfo.PostStream as TStringStream).DataString,
+                Self.articleTemplateCode);
+            end;
+
+          end
+          else
+          if pObjectVal = 'customer' then
+          begin
+
+            if ptoCrudMeth in [_create, _update] then
+            begin
+              pUseConn := glob_connpool.AcquireConnection();
+              AResponseInfo.ContentType := 'text/html';
+              pID := 0;
+              if trim(ARequestInfo.Params.Values['id']) <> '' then
+                pID := strtointdef(ARequestInfo.Params.Values['id'], 0);
+              AResponseInfo.ContentText := TCustomer.createUpdate(pUseConn, (ARequestInfo.PostStream as TStringStream).DataString, pID);
+            end;
+          end;
+          // ---
+        finally
+          if assigned(pUseConn) then
+            glob_connpool.ReleaseConnection(pUseConn);
+        end
+      else
+      if AnsiUpperCase(ARequestInfo.Command) = 'GET' then
+        try
+
+          pZObject := TZQuery.Create(nil);
+          // @@@
+          pReader := nil;
+          pSortField := '';
+          pSortOrd := '';
+          pSearchParam := '';
+          pSearchField := '';
+          pID := 0;
+
+          AResponseInfo.ServerSoftware := CStStiigoWebSrv;
+          AResponseInfo.ContentType := 'text/html';
+          AResponseInfo.ContentText := '';
+          AResponseInfo.ResponseText := 'OK';
+
+          pID := 0;
+          if trim(ARequestInfo.Params.Values['id']) <> '' then
+            pID := strtointdef(ARequestInfo.Params.Values['id'], 0);
+
+
+          pSearchParam := Trim(ARequestInfo.Params.Values['q']);
+
+
+          pLimit := 0;
+          pOffset := 0;
+
+          if ptoCrudMeth = _read then
+          begin
+            pLimit := StrToIntDef(ARequestInfo.Params.Values['limit'], 500);
+            pOffset := StrToIntDef(ARequestInfo.Params.Values['ofs'], 0);
+          end;
+
+          // --
+          // 5 elementi DEMOS !
+            {$IFDEF DEMO}
+          pLimit := 5;
+            {$ENDIF}
+
+
+          // http://127.0.0.1:5555/?obj=articles&act=read&limit=100&ofs=0
+          if pObjectVal = 'invoice' then
+          begin
+
+            case ptoCrudMeth of
+              _read:
+              begin
+                pUseConn := glob_connpool.AcquireConnection();
+                pZObject.Connection := pUseConn;
+
+                if pId < 1 then
+                  raise Exception.Create(CEBillIDIsMissing);
+
+                AResponseInfo.ContentText := estbk_ebill._generateEBill(pId, pZObject);
+                AResponseInfo.ContentType := 'text/xml';
+              end;
+            end;
+
+          end
+          else
+          // Tavalised artiklite listid / muud listingud, kus saab crudi teha; hetkel vaid READ
+          if pObjectVal = 'articles' then
+            try
+
+              pReader := nil;
+              pUseConn := nil;
+              case ptoCrudMeth of
+                _read:
+                begin
+                  pUseConn := glob_connpool.AcquireConnection();
+                  pReader := GenerateReader(pUseConn, pObjectVal, pSortField, pSortOrd, pSearchParam, pLimit, pOffset);
+
+
+
+                  AResponseInfo.ContentText := pReader.JSONdata;
+                  AResponseInfo.ContentType := 'application/json'; // vastused json vaid ?
+                end;
+              end;
+
+            finally
+              if assigned(pReader) then
+                FreeAndNil(pReader);
+            end;
+
+
+          AResponseInfo.ResponseNo := 200;
+        finally
+
+          if assigned(pZObject) then
+            try
+              pZObject.Connection := nil;
+              FreeAndNil(pZObject);
+            except
+            end;
+
+          if assigned(pUseConn) then
+            glob_connpool.ReleaseConnection(pUseConn);
+        end;
+
+    except
+      on e: Exception do
+      begin
+        AResponseInfo.ContentType := 'text/html';
+        AResponseInfo.ContentText := 'ERR: ' + e.Message;
+        AResponseInfo.ResponseNo := 500;
+      end;
+    end;
+  end;
+
+  procedure TStiigowebsrv.CreatePostStreamHandler(AContext: TIdContext; AHeaders: TIdHeaderList; var VPostStream: TStream);
+  begin
+    VPostStream := TStringStream.Create('');
+  end;
+
+  // --------------------------------------------------------------------------
+
+  procedure TStiigowebsrv.TestRuns;
+{$ifdef debugmode}
+  var
+    pidhttp: TIdHttp;
+{$endif}
+  begin
+{$ifdef debugmode}
+    try
+
+      pidhttp := TIdHttp.Create;
+      writeln(pidhttp.Get('http://127.0.0.1:5555?obj=articles&act=read'));
+      pidhttp.Free;
+
+    except
+    end;
+{$endif}
+  end;
+
+
+  // --------------------------------------------------------------------------
+  // https://127.0.0.1:5555/?obj=custdddddddddomxer&act=create
+  procedure TStiigowebsrv.OnPasswordEvent(var Password: string);
+  begin
+    Password := glob_SSLPass;
+  end;
+
+  // --------------------------------------------------------------------------
+
+  procedure TStiigowebsrv.DoRun;
+  const
+    CConfSection = 'config';
+  var
+    ErrorMsg: AStr;
+    pConfFile: AStr;
+    pHost: AStr;
+    pPort: integer;
+    pUsername: AStr;
+    pPassword: AStr;
+    pSSLon: AStr;
+    pIsSSL: boolean;
+    pCompanyId: integer;
+    pUserId: integer;
+    pConf: IniFiles.TIniFile;
+    pHttp: TIdHttpServer;
+    pHttpPort: integer;
+    pLoadQry: TZQuery;
+    pSSLHandler: TIdServerIOHandlerSSLOpenSSL;
+    pappDir, pKeyFile, pCertFile, pRootFile, pVerifydir, psslFileDir: AStr; // ldd /usr/lib/i386-linux-gnu/libssl.so
+  begin
+
+    try
+  {$IFDEF debugmode}
+      //__debugClasses();
+  {$ENDIF}
+      glob_connpool := nil;
+      pConf := nil;
+      pHttp := nil;
+      pSSLHandler := nil;
+
+      writeln(CStGreetings);
+      try
+        if ParamCount < 1 then
+          raise EStiigowebException.Create(CEConfFileIsMissing);
+
+        pConfFile := ParamStr(ParamCount);
+        pConf := IniFiles.TIniFile.Create(pConfFile);
+        pHost := pConf.ReadString(CConfSection, 'host', '');
+        pPort := pConf.ReadInteger(CConfSection, 'port', 5432);
+        pUsername := pConf.ReadString(CConfSection, 'username', '');
+        pPassword := pConf.ReadString(CConfSection, 'pass', '');
+        pHttpPort := pConf.ReadInteger(CConfSection, 'wwwport', 80);
+
+        psslFileDir := pConf.ReadString(CConfSection, 'ssllibdir', '');
+        //   if psslFileDir <> '' then
+        //      IdOpenSSLSetLibPath(psslFileDir);
+        pSSLon := pConf.ReadString(CConfSection, 'sslon', '0');
+
+        glob_SSLPass := pConf.ReadString(CConfSection, 'sslpass', '');
+        pIsSSL := (pSSLon = '1') or (pSSLon = 'true') or (pSSLon = 'on');
+
+        pCompanyId := pConf.ReadInteger(CConfSection, 'companyid', 1);
+        pUserId := pConf.ReadInteger(CConfSection, 'userid', 0);
+
+
+        self.allowedIP := pConf.ReadString(CConfSection, 'allowedip', '*');
+        self.articleTemplateCode := pConf.ReadString(CConfSection, 'articletemplatecode', '');
+
+        // @@@
+        estbk_globvars.glob_company_id := pCompanyId;
+        estbk_globvars.glob_worker_id := pUserId;
+
+
+        writeln;
+        writeln(CStLoadingMsg + pConfFile);
+        writeln(ParamStr(0));
+        writeln('*** Using http port ', pHttpPort);
+        writeln('*** Company ID ', pCompanyId);
+        writeln;
+
+
+        pHttp := TIdHttpServer.Create(nil);
+        pHttp.DefaultPort := pHttpPort;
+        pHttp.OnCommandGet := @Self.OnCommandGet;
+        pHttp.OnCreatePostStream := @Self.CreatePostStreamHandler;
+
+
+        if pIsSSL then
+        begin
+          pSSLHandler := TIdServerIOHandlerSSLOpenSSL.Create(nil);
+          pSSLHandler.OnGetPassword := @self.OnPasswordEvent;
+          pHttp.IOHandler := pSSLHandler;
+
+       {
+       if pHttpPort <= 80 then
+          pHttp.Bindings.Add.Port := 443
+       else
+          pHttp.Bindings.Add.Port := pHttpPort;
+        }
+          // openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+          pappDir := IncludetrailingBackSlash(IncludetrailingBackSlash(ExtractFilePath(ParamStr(0))) + 'cert');
+
+          pKeyFile := Trim(pConf.ReadString(CConfSection, 'sslkeyfile', ''));
+          if pKeyFile = '' then
+            pKeyFile := pappDir + 'key.key';
+
+          pCertFile := Trim(pConf.ReadString(CConfSection, 'certfile', ''));
+          if pCertFile = '' then
+            pCertFile := pappDir + 'cert.crt';
+
+          pRootFile := Trim(pConf.ReadString(CConfSection, 'rootfile', ''));
+          if pRootFile = '' then
+            pRootFile := pappDir + 'root.crt';
+
+          pSSLHandler.SSLOptions.KeyFile := pKeyFile;
+          pSSLHandler.SSLOptions.CertFile := pCertFile;
+          pSSLHandler.SSLOptions.RootCertFile := pRootFile;
+          pVerifydir := Trim(pConf.ReadString(CConfSection, 'verifdir', ''));
+
+          if pVerifydir <> '' then
+            pSSLHandler.SSLOptions.VerifyDirs := pVerifydir;
+
+          //       pSSLHandler.SSLOptions.Method := sslvTLSv1;
+          pSSLHandler.SSLOptions.Mode := sslmServer;
+
+          writeln('Keyfile: ', pSSLHandler.SSLOptions.KeyFile);
+          writeln('Certfile: ', pSSLHandler.SSLOptions.CertFile);
+          writeln('RootCertFile: ', pSSLHandler.SSLOptions.RootCertFile);
+          writeln('VerifyDir', pSSLHandler.SSLOptions.VerifyDirs);
+          // http://www.akadia.com/services/ssh_test_certificate.html
+          // pSSLHandler.SSLOptions.SSLVersions := [sslvSSLv23,sslvSSLv2, sslvSSLv3];
+          // pHttp.KeepAlive := true;
+          (*
+                 CertFile : path to your intermediate certificate file e.g. C:\SSL\intermediatecert.crt
+                 Key       File : path to your private key file e.g. C:\SSL\privatekey.key
+                 RootCertFile : path to your provider's root certificate file e.g. C:\SSL\rootcert.crt
+           *)
+        end; { else
+       pHttp.Bindings.Add.Port := pHttpPort;}
+
+
+        glob_connpool := TConnectionpool.Create(pHost, pPort, pUsername, pPassword);
+        // glob_connpool.StartPool;
+        // LOCK TABLE table_name IN ACCESS EXCLUSIVE MODE;
+        _nm.connection := glob_connpool.AcquireConnection();
+        sleep(15);
+        _nm.active := True;
+        _nm.loadNumeratorValHistory;
+
+
+
+        try
+          pLoadQry := TZQuery.Create(nil);
+          pLoadQry.Connection := _nm.connection;
+
+          // dokumendid
+          estbk_lib_commonaccprop._ac.loadDocumentList(pLoadQry);
+          // sĆ¼steemsed kontod
+          estbk_lib_commonaccprop._ac.loadDefaultSysAccounts(pLoadQry);
+        finally
+          FreeAndNil(pLoadQry);
+        end;
+
+        // estbk_clientdatamodule.dmodule.getUniqNumberFromNumerator(PtrUInt(self), '',now,false,estbk_types.CBill_doc_nr)
+        // writeln(_nm.getUniqNumberFromNumerator(PtrUInt(0),'',now,false,estbk_types.CCBill_doc_nr));
+      {$IFDEF UNIX}
+        pHttp.Active := False;
+        pHttp.Bindings.Add.IPVersion := Id_IPv4;
+      {$ENDIF}
+        pHttp.Active := True;
+
+        writeln(CStRunningMsg);
+        writeln;
+        writeln(CStAppInfo);
+
+      {$ifdef debugmode}
+        TestRuns;
+      {$endif}
+        readln;
+      finally
+        if assigned(pHttp) then
+          FreeAndNil(pHttp);
+
+        if assigned(glob_connpool) then
+          FreeAndNil(glob_connpool);
+
+        if assigned(pConf) then
+          FreeAndNil(pConf);
+      end;
+
+    except
+      on e: Exception do
+      begin
+        writeln(':: Stiigo websrv error');
+        ErrorMsg := format(CEFatal, [e.Message]);
+        writeln(IdSSLOpenSSLHeaders.WhichFailedToLoad);
+        writeln(ErrorMsg);
+        UErrorLogger.TErrorLogger.msg(ErrorMsg);
+        readln;
+      end;
+    end;
+
+    Terminate;
+  end;
+
+  constructor TStiigowebsrv.Create(vOwner: TComponent);
+  begin
+    inherited Create(vOwner);
+    StopOnException := True;
+    FMreadwrite := TMultiReadExclusiveWriteSynchronizer.Create;
+  end;
+
+  destructor TStiigowebsrv.Destroy;
+  begin
+    FMreadwrite.Free;
+    inherited Destroy;
+  end;
+
+{$R *.res}
+
+var
+  Application: TStiigowebsrv;
+
+begin
+  Application := TStiigowebsrv.Create(nil);
+  Application.Run;
+  Application.Free;
+end.

@@ -344,9 +344,11 @@
         <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="formNumerators"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="272"/>
-        <CursorPos X="21" Y="277"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="286"/>
+        <CursorPos X="9" Y="383"/>
         <UsageCount Value="188"/>
       </Unit37>
       <Unit38>

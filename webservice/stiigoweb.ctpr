@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <PathDelim Value="\"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <CompatibilityMode Value="True"/>
+      </Flags>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <BuildModes Count="2" Active="windows">
+      <Item1 Name="linux" Default="True"/>
+      <Item2 Name="windows">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="stiigoweb"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);..\client"/>
+            <OtherUnitFiles Value="C:\LAZUNITS\$(TargetCPU)-$(TargetOS)\;..\client;C:\codetyphon\typhon\components\pl_Indy\source\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\core\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\plain\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\component\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\parsesql\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\;..\shared_units"/>
+            <UnitOutputDirectory Value="C:\LAZUNITS\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Other>
+            <CustomOptions Value="-dNOGUI
+-dWEBSERVICE"/>
+          </Other>
+        </CompilerOptions>
+      </Item2>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="c:\stiigosrvconf.conf"/>
+          </local>
+        </Mode0>
+      </Modes>
+    </RunParams>
+    <Units Count="53">
+      <Unit0>
+        <Filename Value="stiigoweb.ppr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="9" Y="2"/>
+        <UsageCount Value="122"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="uerrorlogger.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UErrorLogger"/>
+        <TopLine Value="29"/>
+        <CursorPos X="13" Y="45"/>
+        <UsageCount Value="122"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\shared_units\estbk_types.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="26"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\win\sysosh.inc"/>
+        <TopLine Value="27"/>
+        <CursorPos X="22" Y="43"/>
+        <UsageCount Value="5"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\inc\heaptrc.pp"/>
+        <UsageCount Value="17"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="uconnectionpool.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UConnectionpool"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="187"/>
+        <CursorPos Y="221"/>
+        <UsageCount Value="120"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="C:\LIBS\zeos\src\component\ZConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="740"/>
+        <CursorPos X="59" Y="754"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\LIBS\zeos\src\dbc\ZDbcPostgreSqlUtils.pas"/>
+        <TopLine Value="751"/>
+        <CursorPos X="83" Y="772"/>
+        <UsageCount Value="16"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="uarticles.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UArticles"/>
+        <CursorPos Y="11"/>
+        <UsageCount Value="115"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="utools.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UTools"/>
+        <TopLine Value="67"/>
+        <CursorPos X="46" Y="104"/>
+        <UsageCount Value="115"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\objpas\typinfo.pp"/>
+        <TopLine Value="21"/>
+        <CursorPos X="65" Y="45"/>
+        <UsageCount Value="9"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\shared_units\estbk_globvars.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16" Y="4"/>
+        <UsageCount Value="14"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Protocols\IdHTTP.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="13"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Core\IdTCPClient.pas"/>
+        <TopLine Value="127"/>
+        <CursorPos X="15" Y="150"/>
+        <UsageCount Value="6"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Protocols\IdHTTPServer.pas"/>
+        <TopLine Value="10"/>
+        <CursorPos X="22" Y="47"/>
+        <UsageCount Value="6"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Protocols\IdCustomHTTPServer.pas"/>
+        <TopLine Value="186"/>
+        <CursorPos X="73" Y="207"/>
+        <UsageCount Value="6"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Core\IdSocketHandle.pas"/>
+        <TopLine Value="304"/>
+        <CursorPos X="77" Y="323"/>
+        <UsageCount Value="6"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="udataprocessor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UDataprocessor"/>
+        <CursorPos X="24" Y="5"/>
+        <UsageCount Value="110"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="ubase.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Ubase"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="106"/>
+        <CursorPos Y="127"/>
+        <UsageCount Value="109"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="C:\LIBS\zeos\src\component\ZAbstractRODataset.pas"/>
+        <TopLine Value="358"/>
+        <CursorPos X="9" Y="372"/>
+        <UsageCount Value="9"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\inc\variants.pp"/>
+        <TopLine Value="59"/>
+        <CursorPos X="23" Y="93"/>
+        <UsageCount Value="6"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\objpas\classes\classesh.inc"/>
+        <TopLine Value="360"/>
+        <CursorPos X="26" Y="380"/>
+        <UsageCount Value="6"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="C:\lazarus\fpc\2.4.2\source\rtl\inc\objpash.inc"/>
+        <TopLine Value="165"/>
+        <CursorPos X="23" Y="185"/>
+        <UsageCount Value="6"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="uebill.pas"/>
+        <CursorPos X="8" Y="4"/>
+        <UsageCount Value="19"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="..\client\estbk_ebill.pas"/>
+        <TopLine Value="937"/>
+        <CursorPos X="44" Y="958"/>
+        <UsageCount Value="21"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="..\client\estbk_defs.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="60"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="..\shared_units\estbk_utilities.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="255"/>
+        <CursorPos X="8" Y="275"/>
+        <UsageCount Value="10"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="..\client\estbk_lib_commoncls.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="10"/>
+        <UsageCount Value="10"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="..\client\estbk_clientdatamodule.pas"/>
+        <ComponentName Value="dmodule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="11"/>
+        <CursorPos X="37" Y="19"/>
+        <UsageCount Value="11"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="..\client\estbk_lib_datareader.pas"/>
+        <TopLine Value="1134"/>
+        <CursorPos Y="1162"/>
+        <UsageCount Value="7"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="..\client\estbk_settings.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="97"/>
+        <UsageCount Value="10"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="..\client\estbk_inputformex.pas"/>
+        <CursorPos X="34" Y="2"/>
+        <UsageCount Value="7"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="..\client\estbk_clientdatamodule.ctrs"/>
+        <CursorPos X="17" Y="3"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="..\client\estbk_lib_databaseschema.pas"/>
+        <TopLine Value="924"/>
+        <CursorPos X="2" Y="939"/>
+        <UsageCount Value="6"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="..\shared_units\estbk_sqlcollection.pas"/>
+        <TopLine Value="165"/>
+        <CursorPos X="2" Y="180"/>
+        <UsageCount Value="14"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="..\shared_units\estbk_dbcompability.pas"/>
+        <CursorPos X="62"/>
+        <UsageCount Value="9"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="..\client\estbk_sqlclientcollection.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="77"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="..\client\estbk_lib_suminwords.pas"/>
+        <TopLine Value="234"/>
+        <UsageCount Value="6"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="..\shared_units\estbk_defs.inc"/>
+        <UsageCount Value="6"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="ubill.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UBill"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="241"/>
+        <UsageCount Value="92"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="C:\LIBS\compression\dateutils.pp"/>
+        <TopLine Value="300"/>
+        <CursorPos Y="307"/>
+        <UsageCount Value="6"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="..\client\estbk_lib_numerators.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="50" Y="7"/>
+        <UsageCount Value="64"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="..\client\estbk_lib_commonaccprop.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="C:\LIBS\zeos\src\dbc\ZDbcIntfs.pas"/>
+        <TopLine Value="40"/>
+        <CursorPos X="15" Y="54"/>
+        <UsageCount Value="9"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="ucustomer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UCustomer"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="259"/>
+        <CursorPos X="122" Y="177"/>
+        <UsageCount Value="47"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="..\client\estbk_lib_sepa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="268"/>
+        <CursorPos Y="144"/>
+        <UsageCount Value="39"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\Protocols\IdSSLOpenSSL.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2296"/>
+        <CursorPos X="52" Y="2312"/>
+        <UsageCount Value="12"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="C:\LIBS\indy10_2_5\Lib\System\IdStack.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="626"/>
+        <CursorPos X="60" Y="646"/>
+        <UsageCount Value="12"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\component\ZAbstractConnection.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="44"/>
+        <CursorPos X="10" Y="61"/>
+        <UsageCount Value="10"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\ZDbcConnection.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="48"/>
+        <CursorPos X="109" Y="52"/>
+        <UsageCount Value="10"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\ZDbcIntfs.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="65"/>
+        <CursorPos X="29" Y="66"/>
+        <UsageCount Value="10"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Indy\source\IdHTTP.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="670"/>
+        <CursorPos X="3" Y="685"/>
+        <UsageCount Value="10"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="C:\codetyphon\fpcsrc\packages\fcl-base\src\contnrs.pp"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="Contnrs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="17"/>
+        <UsageCount Value="10"/>
+      </Unit52>
+    </Units>
+    <JumpHistory Count="21" HistoryIndex="20">
+      <Position1>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="2" Column="23"/>
+      </Position1>
+      <Position2>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="41" Column="17" TopLine="19"/>
+      </Position2>
+      <Position3>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="39" Column="16" TopLine="19"/>
+      </Position3>
+      <Position4>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="34" Column="9" TopLine="13"/>
+      </Position4>
+      <Position5>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="73" Column="29" TopLine="45"/>
+      </Position5>
+      <Position6>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="39" Column="6" TopLine="24"/>
+      </Position6>
+      <Position7>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="73" Column="24" TopLine="53"/>
+      </Position7>
+      <Position8>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="199" Column="32" TopLine="175"/>
+      </Position8>
+      <Position9>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="256" Column="38" TopLine="232"/>
+      </Position9>
+      <Position10>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="305" Column="42" TopLine="281"/>
+      </Position10>
+      <Position11>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="365" Column="41" TopLine="340"/>
+      </Position11>
+      <Position12>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="432" Column="44" TopLine="408"/>
+      </Position12>
+      <Position13>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="435" Column="43" TopLine="411"/>
+      </Position13>
+      <Position14>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="470" Column="39" TopLine="446"/>
+      </Position14>
+      <Position15>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="478" Column="62" TopLine="454"/>
+      </Position15>
+      <Position16>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="530" Column="49" TopLine="506"/>
+      </Position16>
+      <Position17>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="541" Column="38" TopLine="517"/>
+      </Position17>
+      <Position18>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="594" Column="36" TopLine="569"/>
+      </Position18>
+      <Position19>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="587" Column="9" TopLine="566"/>
+      </Position19>
+      <Position20>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="15" Column="3"/>
+      </Position20>
+      <Position21>
+        <Filename Value="stiigoweb.ppr"/>
+        <Caret Line="23" Column="30" TopLine="31"/>
+      </Position21>
+    </JumpHistory>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="stiigoweb"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir);..\client"/>
+      <OtherUnitFiles Value="C:\LAZUNITS\$(TargetCPU)-$(TargetOS)\;..\client;C:\codetyphon\typhon\components\pl_Indy\source\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\core\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\plain\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\component\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\parsesql\;C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\;..\shared_units"/>
+      <UnitOutputDirectory Value="C:\LAZUNITS\WebService\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Other>
+      <CustomOptions Value="-dNOGUI
+-dWEBSERVICE"/>
+      <OtherDefines Count="2">
+        <Define0 Value="NOGUI"/>
+        <Define1 Value="WEBSERVICE"/>
+      </OtherDefines>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
