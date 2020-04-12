@@ -40,6 +40,7 @@
 *.rsm
 *.tds
 *.ppu
+*.bak
 *.dcu
 *.lib
 *.a
