@@ -25,8 +25,8 @@ type
       const senderName: AStr; const fromAddr: AStr; const subject: AStr; const emailTekst: TStrings;
       const alternativeTekst: TStrings = nil; const filesToAttach: TStrings = nil; const mailFormatHTML: boolean = True;
       const defaultencoding: AStr = 'UTF-8'): boolean; overload;
-    function sendHTMLMail(const receiverAddress: AStr; const senderName: AStr; const fromAddr: AStr;
-      const subject: AStr; const emailTekst: TStrings; const alternativeTekst: TStrings = nil; const filesToAttach: TStrings = nil;
+    function sendHTMLMail(const receiverAddress: AStr; const senderName: AStr; const fromAddr: AStr; const subject: AStr;
+      const emailTekst: TStrings; const alternativeTekst: TStrings = nil; const filesToAttach: TStrings = nil;
       const mailFormatHTML: boolean = True; const defaultencoding: AStr = 'UTF-8'): boolean; overload;
     constructor Create(const pSmtpserver: AStr; const pPort: integer; const pUsername: AStr; const pPassword: AStr;
       const pMailAgent: AStr; const pConnectOnCreate: boolean = True; const pTimeout: integer = 85); reintroduce;
@@ -43,8 +43,8 @@ begin
   fMakeNewConnection := True;
 end;
 
-constructor TEstbkSendMail.Create(const pSmtpserver: AStr; const pPort: integer; const pUsername: AStr;
-  const pPassword: AStr; const pMailAgent: AStr; const pConnectOnCreate: boolean = True; const pTimeout: integer = 85);
+constructor TEstbkSendMail.Create(const pSmtpserver: AStr; const pPort: integer; const pUsername: AStr; const pPassword: AStr;
+  const pMailAgent: AStr; const pConnectOnCreate: boolean = True; const pTimeout: integer = 85);
 begin
   inherited Create(nil);
   try
@@ -153,8 +153,6 @@ function TEstbkSendMail.sendHTMLMail(const receiverAddress: AStr; const bccAddre
   const senderName: AStr; const fromAddr: AStr; const subject: AStr; const emailTekst: TStrings;
   const alternativeTekst: TStrings = nil; const filesToAttach: TStrings = nil; const mailFormatHTML: boolean = True;
   const defaultencoding: AStr = 'UTF-8'): boolean;
-  // From: Poster =?ISO-8859-1?Q?O=C3=9C?= <stiigo@stiigo.com>; iso-8859-4
-
 var
   pId: TIdMessage;
   pIdText, pIdText1: TIdText;
@@ -314,5 +312,4 @@ begin
 end;
 
 end.
-
 

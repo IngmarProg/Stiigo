@@ -1633,7 +1633,7 @@ begin
    end
    else
    if FDisplayAll then
-     PaintDisplayValues(Canvas, R, TextMargin)
+     PaintDisplayValues(Canvas, R, TextMargin, nil)
    else
    begin
      if Assigned(FDataField) and FDataField.IsNull then

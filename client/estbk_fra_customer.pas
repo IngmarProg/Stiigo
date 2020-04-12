@@ -1769,7 +1769,6 @@ begin
   // pole pointi üleval tabe kuvada, kui otsingu osa puudub !
   tabCtrlCustomer.ShowTabs := v;
 
-
   // search tabi pole on vaid kliendi sisestus ja üldised andmed
   if not v then
     tabCtrlCustomer.ActivePage := tabCustomerData;

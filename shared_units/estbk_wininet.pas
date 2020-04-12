@@ -337,9 +337,8 @@ begin
     //getPath:=newsbrain_Utilities.urlEncode_(getPath);
 
     BufferLen := 0;
-    iReqHandle := HttpOpenRequest(iConnection, PChar(ReqMethods[method]), PChar(getPath), 'HTTP/1.1', nil,
-      @accept, INTERNET_FLAG_NO_UI or INTERNET_FLAG_NO_CACHE_WRITE or INTERNET_FLAG_NO_COOKIES or INTERNET_FLAG_RELOAD or
-      INTERNET_FLAG_KEEP_CONNECTION,
+    iReqHandle := HttpOpenRequest(iConnection, PChar(ReqMethods[method]), PChar(getPath), 'HTTP/1.1', nil, @accept,
+      INTERNET_FLAG_NO_UI or INTERNET_FLAG_NO_CACHE_WRITE or INTERNET_FLAG_NO_COOKIES or INTERNET_FLAG_RELOAD or INTERNET_FLAG_KEEP_CONNECTION,
       // INTERNET_FLAG_SECURE
       0);
     if not assigned(iReqHandle) then
@@ -415,8 +414,8 @@ begin
         dummyIndx := 0;
         datalen := sizeof(FHttpCode);
         pHttpHeader := '';
-        if not HttpQueryInfo(iReqHandle, HTTP_QUERY_FLAG_NUMBER or HTTP_QUERY_STATUS_CODE, @FHttpCode,
-          datalen, dummyIndx) or (dataLen < 1) or (dataLen > high(word)) then
+        if not HttpQueryInfo(iReqHandle, HTTP_QUERY_FLAG_NUMBER or HTTP_QUERY_STATUS_CODE, @FHttpCode, datalen, dummyIndx) or
+          (dataLen < 1) or (dataLen > high(word)) then
           FHttpCode := -1;
 
 
@@ -464,8 +463,8 @@ begin
         if pHasFile then
         begin
           // -------
-          pFileToUpload := CreateFile(PChar(datafromfile), GENERIC_READ, FILE_SHARE_READ, nil,
-            OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, dummyIndx);
+          pFileToUpload := CreateFile(PChar(datafromfile), GENERIC_READ, FILE_SHARE_READ, nil, OPEN_EXISTING,
+            FILE_ATTRIBUTE_NORMAL, dummyIndx);
           if (pFileToUpload = INVALID_HANDLE_VALUE) then
             raiselastoserror;
 
@@ -560,8 +559,8 @@ begin
             raiselastoserror;
 
           datalen := sizeof(FHttpCode);
-          if not HttpQueryInfo(iReqHandle, HTTP_QUERY_FLAG_NUMBER or HTTP_QUERY_STATUS_CODE, @FHttpCode,
-            datalen, dummyIndx) or (dataLen < 1) or (dataLen > high(word)) then
+          if not HttpQueryInfo(iReqHandle, HTTP_QUERY_FLAG_NUMBER or HTTP_QUERY_STATUS_CODE, @FHttpCode, datalen, dummyIndx) or
+            (dataLen < 1) or (dataLen > high(word)) then
             FHttpCode := -1;
           // tahan ka posti vastust !
           dataLen := 0;
@@ -637,8 +636,9 @@ begin
             end;
 
             datalen := sizeof(FHttpCode);
-            if not HttpQueryInfo(iReqHandle, HTTP_QUERY_FLAG_NUMBER or HTTP_QUERY_STATUS_CODE,
-              @FHttpCode, datalen, dummyIndx) or (dataLen < 1) or (dataLen > high(word)) then
+            if not HttpQueryInfo(iReqHandle, HTTP_QUERY_FLAG_NUMBER or HTTP_QUERY_STATUS_CODE, @FHttpCode, datalen, dummyIndx) or
+              (dataLen < 1) or (dataLen > high(word)) then
+
 
               FHttpCode := -1;
           end

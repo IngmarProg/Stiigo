@@ -13,12 +13,11 @@ uses
 const
   CPrefix = 'ERR:';
   // ---
-  CDbError_unknown     = CPrefix+'-1'; // tundmatu viga
-  CDbError_negartcount = CPrefix+'1'; // artiklite summa muutus negatiivseks
+  CDbError_unknown = CPrefix + '-1'; // tundmatu viga
+  CDbError_negartcount = CPrefix + '1'; // artiklite summa muutus negatiivseks
 
 
 
 implementation
 
 end.
-
