@@ -39,6 +39,7 @@
 *.dres
 *.rsm
 *.tds
+*.ppu
 *.dcu
 *.lib
 *.a
